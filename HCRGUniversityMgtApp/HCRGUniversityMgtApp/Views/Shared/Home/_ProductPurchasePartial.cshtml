@@ -1,0 +1,111 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+
+@{
+
+    ViewBag.Title = "ProductPurchase";
+}
+
+@section header{
+    <a class="navbar-brand" href="#">Store Purchase</a>
+}
+
+
+<div id="divStorePurchase">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Store Purchase</div>
+
+
+                    @*      <!--ko with:ProductpurchaseViewModel-->*@
+                    <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+                    <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+                    @*    <!--/ko-->*@
+                    <span class="clearfix"></span>
+                    <!--ko if:(TotalCount() > 0 || TotalCount() == 0 )-->
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <!-- Table -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td class="col-md-6"><strong>Date</strong></td>
+                                        <td class="col-md-6"><strong>User</strong></td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--ko if:ProductPurchaseResults!= null-->
+                                    <!-- ko foreach:ProductPurchaseResults -->
+                                    <tr>
+                                        <td class="col-md-6">
+                                            <a href="#" data-target="#myModalProductPurchase" id="SelectNewsModalPopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal" class="inner-content-link blue"
+                                               data-bind="click:$root.GetProductPurchaseDetailByID" style="color: #428bca;">
+                                                <input type="hidden" name="ShippingPaymentID" data-bind="value:ShippingPaymentID" />
+                                                <span data-bind="text:Date" />
+
+                                            </a>
+                                        </td>
+                                        <td class="col-md-6">
+                                            <span style="color: #808080;" data-bind="text:UserFirstname() + ' ' + UserLastname()" />
+                                        </td>
+
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </tbody>
+
+                                <tfoot>
+                                    <!--ko if:ProductPurchaseResults()==null || ProductPurchaseResults().length==0-->
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="alert alert-info">
+                                                <button type="button" class="close" data-dismiss="alert">
+                                                    &times;
+                                                </button>
+                                                No Result Found.
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /ko -->
+                                </tfoot>
+                            </table>
+                            <nav class="margin20">
+                                @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+    @using (Html.BeginForm(GlobalConst.Actions.ProductController.Addproductshippingdetail, GlobalConst.Controllers.Product, FormMethod.Post, new
+    {
+        id = "frmProduct",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){AddDetailSuccess(responseText);}}"
+    }))
+    {
+        <div class="panel-body" id="HidePopUp">
+            <div class="modal fade" id="myModalProductPurchase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog position-center">
+                    <div class="modal-content">
+                        <div class="modal-header header-bg">
+                            <button type="button" class="close" id="sectionClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <div class="modal-title" style="color:#fff;">Purchase Details</div>
+                        </div>
+                        @{Html.RenderPartial("~/Views/Shared/StorePurchase/_ProductPurchaseDetail.cshtml"); }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }    
+</div>
+

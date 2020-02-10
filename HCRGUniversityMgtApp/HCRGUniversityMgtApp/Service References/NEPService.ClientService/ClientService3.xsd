@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="Client">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseDataColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientSessionID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsApproved" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsEmailSent" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateID" type="xs:int" />
+          <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="Organization">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FaviconImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCertificate" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsWebPortal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LogoImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MenuIDs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegisteredPaypalEmailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThemeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WebsiteName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Organization" nillable="true" type="tns:Organization" />
+  <xs:complexType name="ArrayOfOrganization">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Organization" nillable="true" type="tns:Organization" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganization" nillable="true" type="tns:ArrayOfOrganization" />
+  <xs:complexType name="ArrayOfMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Menu" nillable="true" type="tns:Menu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMenu" nillable="true" type="tns:ArrayOfMenu" />
+  <xs:complexType name="Menu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+      <xs:element minOccurs="0" name="MenuName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Menu" nillable="true" type="tns:Menu" />
+  <xs:complexType name="OrganizationContact">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q2:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OperationHour" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationContactID" type="xs:int" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateID" type="xs:int" />
+          <xs:element minOccurs="0" name="StateName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrganizationContact" nillable="true" type="tns:OrganizationContact" />
+  <xs:complexType name="ArrayOfOrganizationContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationContact" nillable="true" type="tns:OrganizationContact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganizationContact" nillable="true" type="tns:ArrayOfOrganizationContact" />
+  <xs:complexType name="ArrayOfClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
+</xs:schema>

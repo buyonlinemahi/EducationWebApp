@@ -1,0 +1,130 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Exam Detail";
+}
+@section header{
+    <a class="navbar-brand" href="#">Exam Detail</a>
+}
+
+
+<div id="divSearchExam">
+    <div class="panel-body" style="padding: 7px !important;">
+          <!--ko ifnot:IsHCRGAdmin()-->
+        <a class="btn-edu" href="#" data-bind="click:addNewExam">Create New Exam</a>
+        <!--/ko-->
+    </div>
+
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Exam Screen</div>
+
+                    <div class="mtb-20">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-4">
+                                <label>Search Exam </label>
+                                <a href="#" class="inner-content-link"></a>
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                @using (Html.BeginForm(GlobalConst.Actions.ExamController.Index, GlobalConst.Controllers.Exam, FormMethod.Post, new
+                            {
+                                id = "frmSearchExam",
+                                enctype = "multipart/form-data",
+                                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ SearchExamDetailSuccess(responseText);},beforeSubmit: ExamFormBeforeSubmit}"
+
+                            }))
+                                {
+                                    <div class="form-group col-md-8 padd-edu0">
+                                        <input type="text" id="TxtSearch" name="searchText" class="form-control" data-bind="value:searchText" placeholder="Search Exam">
+                                    </div>
+                                    <input type="submit" class="btn btn-default pul-rht1" data-bind="click:$root.SearchExam" value="Search" />
+                                
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <!--ko if:IsHCRGAdmin() == true-->
+                    <div class="row mtb-10">
+                        <div class="col-md-2 col-sm-4">
+                            <label>Organizations:</label>
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="form-group col-md-8 padd-edu0">
+                                <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                                <input type="hidden" id="hdfOrgID" />
+                            </div>
+                <button type="button" id="btnSearch" class="btn btn-default pul-rht1" data-bind="click: function(){ $root.SearchExamByOrgID()}">Search</button>
+                        </div>
+                    </div>
+                    <!--/ko-->
+
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Exam Items</div>
+                            <!-- Table -->
+                           
+                            <div class="table-responsive height-400"> 
+                                <table class="table table-striped table-fixed-1">
+                                <thead>
+                                    <tr class="clearfix text-center">
+                                        <th class="col-md-4 col-sm-4">Exam Name:</th>
+                                         <th class="col-md-5 col-sm-5 marginleft-10">Organization:</th>
+                                        <th class="col-md-3 col-sm-3">Action</th>
+                                </thead>
+                                <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                    <!--ko if:ExamSearchResults!= null-->
+                                    <!-- ko foreach:ExamSearchResults -->
+                                    <tr>
+                                        <td class="col-md-4 col-sm-4">
+                                            <span data-bind="text:ExamName" />
+                                            <input type="hidden" data-bind="value:EncryptedExamID" />
+                                        </td>
+                                         <td class="col-md-5 col-sm-5">
+                                            <span data-bind="text:OrganizationName" />
+                                        </td>
+                                        <td class="col-md-3 col-sm-3">
+                                            <a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="click:$root.updateExam">Edit</a>
+                                        </td>
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+
+                                </tbody>
+                            </table>
+                                </div>
+                        </div>
+                    </div>
+                    <div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                    </div>
+                </div>
+            </div>
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/knockout/viewmodel/views/Exam/SearchExamViewModel.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var searchExamViewModel = new SearchExamViewModel();
+        searchExamViewModel.Init(model);
+        ko.applyBindings(searchExamViewModel, $("#divSearchExam").get(0));
+    </script>
+    <script type="text/javascript">
+        if (!$('#main').hasScrollBar()) {
+
+            $("td[class*='paddingleft']").removeClass(function () {
+                var className = this.className.match(/paddingleft\d+/);
+                $(this).removeClass(className[0]);
+                $(this).addClass("paddingleft30");
+            });
+        }
+    </script>
+}

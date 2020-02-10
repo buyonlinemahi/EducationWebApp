@@ -1,0 +1,183 @@
+﻿@model HCRGUniversityApp.Domain.Models.ProductModel.Product
+@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+@Html.Partial("~/Views/Shared/_Loader.cshtml")
+<style>
+    .pro-desc {
+    
+text-align:justify;
+font-size:12px;
+font-family: 'open_sansregular';
+
+}
+
+
+</style>
+<div id="maindiv">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+              
+                    <h2>
+                        @Model.ProductName
+                    </h2>
+               
+            </div><!-- col-sm-12 -->
+        </div>
+        <div class="row">
+            <div class="col-sm-9 textjustify">
+             
+                <img  src='/Storage/ProductImage/@Model.ProductImage' class="img-responsive img-size" /></a>
+<br />
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">Description</a></li>
+                 
+                </ul>
+              <br />
+ <span class="pro-desc">@Model.ProductDesc</span>  
+ 
+            </div><!-- col-sm-9 -->
+            <div class="col-sm-3">
+                @{
+                    if (Session[GlobalConst.SessionKeys.USER] == null)
+                    {
+                        using (Html.BeginForm(GlobalConst.Actions.UserController.Index, GlobalConst.Controllers.User, FormMethod.Get, null))
+                        {
+                            @Html.AntiForgeryToken()
+                         
+                            <div class="clearfix text-center marginbottom20">
+                                        @if ((Model.ProductType == "Hard Copy") && (Model.ProductCurrentBalance==0))
+                                         {
+                                                <input id="btnRegister" type="submit" class="submit-btn register-btn" value="Request Back order">
+                                         }
+                                         else
+                                         {
+                                                <input id="btnRegister" type="submit" class="submit-btn register-btn" value="Buy Now">
+                                         }
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div id="divAddEducationShopping">
+                            @using (Html.BeginForm("AddProduct", GlobalConst.Controllers.ShoppingCart, FormMethod.Post, new
+                            {
+                                id = "frmAddEducationShoppingCartTemp",
+                                enctype = "multipart/form-data",
+                                data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddtocartDetailSuccess(responseText);},beforeSubmit : AddtocartBeforeSubmit ,clearForm : true}"
+                            }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="ProductID" value="@Model.ProductID" />                           
+                                <input type="hidden" name="ProductPrice" value="@Model.ProductPrice" />
+                                <input type="hidden" name="ProductType" value="@Model.ProductType" />
+                                <input type="hidden" id="hdProductName" name="ProductName" value="@Model.ProductName" />
+                                    <h3 class="text-center no-margin marginbottom10">ORDER PRODUCT</h3>
+                                    <div class="form-group marginbottom15 clearfix">
+                                        <label for="inputPassword3" class="col-md-4 control-label align-left member-label">Quantity</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control min-max-box">
+                                                <option>1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix text-center marginbottom20">
+                                         @if ((Model.ProductType == "Hard Copy") && (Model.ProductCurrentBalance==0))
+                                         {
+                                                <input type="button" id="btnSendRequestBackorderEmail" class="submit-btn register-btn" value="Request Back order">
+                                         }
+                                         else
+                                         {
+                                                <input type="submit" class="submit-btn register-btn" value="Add to Cart">
+                                         }
+                                    </div>
+                        }
+                        </div>
+                    }
+                    <div class="clearfix">
+                            <span class="font-18 pull-left">Product Price</span>                                  
+                            <span class="font-18 active-link reg-price">$@string.Format("{0:0.00}", @Model.ProductPrice)<br /></span>
+                                <br />
+                                <br />
+                                @if (Model.ProductType == "Hard Copy")
+                                {
+                                    <span class=" lime-green-text font-12 pull-left">Free Shipping</span>
+                                }
+                    </div>
+                }
+            </div>
+        </div><!-- row -->
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/EducationShopping/AddEducationShoppingViewModel.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+   
+     
+        $('#frmAddEducationShoppingCartTemp').ajaxForm({
+            beforeSubmit : function(arr, $form, options){
+                if ($form.jqBootstrapValidation('hasErrors')) {
+                    return false;
+                }             
+            },
+            success : function(responseText){
+                if (responseText == "\"Already Add to Cart\"") {
+                    alertify.alert("This Product Already In Add To Cart", function (e) {
+                        if (e) {
+                            window.location = '/ShoppingCart/';
+                        }
+                    });
+                }
+                else if (responseText == "\"Product is out of stock.\"") {
+                    alertify.alert("This Product is Out Of Stock.", function (e) {
+                        if (e) {
+                            window.location = '/Store/';
+                        }
+                    });
+                }
+                else {
+                    window.location = '/ShoppingCart/';
+                    // alertify.alert("ADD TO CART can not be done now.");
+                }
+            }
+        });
+        $(document).ready(function() {
+            hideloderDiv();
+            if($('#hndPurchase').val()==false)
+            {
+                $('input[type="submit"]').prop('disabled', true);
+                $('input[type="submit"]').addClass('disable_btnRegister');
+            }
+            //hdProductName
+            $("#btnSendRequestBackorderEmail").click(function(){
+                showloderDiv();
+                    $.post("/ShoppingCart/SendRequestBackorderEmail", {
+                        PName: $("#hdProductName").val()
+                    }, function (_data) {
+                        if( $.parseJSON(_data)=="Yes")
+                        {
+                            alertify.alert('Email Sent Successfully', function(){ hideloderDiv(); });
+                            
+                        }
+                        else
+                        {
+                            alertify.alert('Invalid Email ID!', function(){ hideloderDiv(); });
+                        }
+                });
+            });
+            function hideloderDiv() {
+                $("#loaderDiv").removeClass('loaderbg');
+                $("#loading").hide();
+            }
+
+            function showloderDiv() {
+                $("#loaderDiv").addClass('loaderbg');
+                $("#loading").show();
+            }
+        });
+    </script>
+}

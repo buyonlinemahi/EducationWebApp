@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="170d20c8-d615-4f0e-aeee-743df2793b6f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommonService.wsdl" MetadataType="Wsdl" ID="6b945f67-b6b9-4f26-aa66-717caafa939b" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?wsdl" />
+    <MetadataFile FileName="CommonService.disco" MetadataType="Disco" ID="f5c79573-25cd-4b15-97ad-33ab04fcf70f" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?disco" />
+    <MetadataFile FileName="CommonService4.xsd" MetadataType="Schema" ID="a2e78a96-54b7-4084-87fa-d477495b27e7" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CommonService.xsd" MetadataType="Schema" ID="77fc2a00-2346-4bd3-a511-bf171667516e" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CommonService1.xsd" MetadataType="Schema" ID="55aa4f0f-b958-4703-9fe5-2ec8d385b2de" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CommonService2.xsd" MetadataType="Schema" ID="206d8c80-d69a-4d95-a85a-476c80b2baa5" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CommonService3.xsd" MetadataType="Schema" ID="80be5b48-ebd8-4d30-9344-e9d0429a1af2" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

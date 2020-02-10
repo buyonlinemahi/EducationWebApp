@@ -1,0 +1,144 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D686AC1A-60CC-4636-A832-518CEC45FC05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{68E912F7-A274-49BD-AAFC-724BAC47AB0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Domain.Models", "HCRGUniversityMgtApp.Domain.Models\HCRGUniversityMgtApp.Domain.Models.csproj", "{C49B317C-1E8D-4DF2-941B-709CD4874988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Domain.ViewModels", "HCRGUniversityMgtApp.Domain.ViewModels\HCRGUniversityMgtApp.Domain.ViewModels.csproj", "{D25D98F9-D11E-498F-A7CF-4A05F59557FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Infrastructure.ApplicationFilters", "HCRGUniversityMgtApp.Infrastructure.ApplicationFilters\HCRGUniversityMgtApp.Infrastructure.ApplicationFilters.csproj", "{47E69183-DF86-4E47-A0C3-B001947884AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Infrastructure.ApplicationServices", "HCRGUniversityMgtApp.Infrastructure.ApplicationServices\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.csproj", "{99F86C84-B55F-4B2B-8473-8655D2CCF817}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts", "HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.csproj", "{ACB686D3-F086-49DE-AFE0-19B185FE3CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Infrastructure.Base", "HCRGUniversityMgtApp.Infrastructure.Base\HCRGUniversityMgtApp.Infrastructure.Base.csproj", "{92D9C361-DCFC-4C8D-9C6F-24990970BF4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Infrastructure.DependencyResolution", "HCRGUniversityMgtApp.Infrastructure.DependencyResolution\HCRGUniversityMgtApp.Infrastructure.DependencyResolution.csproj", "{4E7B7960-8A2F-4F15-AC7D-F511537D5B3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp.Infrastructure.Global", "HCRGUniversityMgtApp.Infrastructure.Global\HCRGUniversityMgtApp.Infrastructure.Global.csproj", "{3DB72108-0E61-481F-AA0D-EC61D32F1ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCRGUniversityMgtApp", "HCRGUniversityMgtApp\HCRGUniversityMgtApp.csproj", "{A838D00C-5676-4122-8B96-D626B96C64C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B2C13772-8C0F-472E-BCD3-0B1DDE950798} = {B2C13772-8C0F-472E-BCD3-0B1DDE950798}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vzaar", "Vzaar", "{18E1D716-ACDB-4162-9B89-69A5B010BDDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vzaar.API", "Vzaar.API\Vzaar.API.csproj", "{B2C13772-8C0F-472E-BCD3-0B1DDE950798}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C49B317C-1E8D-4DF2-941B-709CD4874988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C49B317C-1E8D-4DF2-941B-709CD4874988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C49B317C-1E8D-4DF2-941B-709CD4874988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C49B317C-1E8D-4DF2-941B-709CD4874988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D25D98F9-D11E-498F-A7CF-4A05F59557FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25D98F9-D11E-498F-A7CF-4A05F59557FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25D98F9-D11E-498F-A7CF-4A05F59557FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25D98F9-D11E-498F-A7CF-4A05F59557FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E69183-DF86-4E47-A0C3-B001947884AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E69183-DF86-4E47-A0C3-B001947884AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E69183-DF86-4E47-A0C3-B001947884AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E69183-DF86-4E47-A0C3-B001947884AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99F86C84-B55F-4B2B-8473-8655D2CCF817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F86C84-B55F-4B2B-8473-8655D2CCF817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F86C84-B55F-4B2B-8473-8655D2CCF817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F86C84-B55F-4B2B-8473-8655D2CCF817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB686D3-F086-49DE-AFE0-19B185FE3CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB686D3-F086-49DE-AFE0-19B185FE3CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB686D3-F086-49DE-AFE0-19B185FE3CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB686D3-F086-49DE-AFE0-19B185FE3CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D9C361-DCFC-4C8D-9C6F-24990970BF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D9C361-DCFC-4C8D-9C6F-24990970BF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D9C361-DCFC-4C8D-9C6F-24990970BF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D9C361-DCFC-4C8D-9C6F-24990970BF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E7B7960-8A2F-4F15-AC7D-F511537D5B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E7B7960-8A2F-4F15-AC7D-F511537D5B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E7B7960-8A2F-4F15-AC7D-F511537D5B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E7B7960-8A2F-4F15-AC7D-F511537D5B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB72108-0E61-481F-AA0D-EC61D32F1ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB72108-0E61-481F-AA0D-EC61D32F1ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB72108-0E61-481F-AA0D-EC61D32F1ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB72108-0E61-481F-AA0D-EC61D32F1ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A838D00C-5676-4122-8B96-D626B96C64C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A838D00C-5676-4122-8B96-D626B96C64C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A838D00C-5676-4122-8B96-D626B96C64C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A838D00C-5676-4122-8B96-D626B96C64C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C13772-8C0F-472E-BCD3-0B1DDE950798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C13772-8C0F-472E-BCD3-0B1DDE950798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C13772-8C0F-472E-BCD3-0B1DDE950798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C13772-8C0F-472E-BCD3-0B1DDE950798}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C49B317C-1E8D-4DF2-941B-709CD4874988} = {D686AC1A-60CC-4636-A832-518CEC45FC05}
+		{D25D98F9-D11E-498F-A7CF-4A05F59557FA} = {D686AC1A-60CC-4636-A832-518CEC45FC05}
+		{47E69183-DF86-4E47-A0C3-B001947884AC} = {68E912F7-A274-49BD-AAFC-724BAC47AB0F}
+		{99F86C84-B55F-4B2B-8473-8655D2CCF817} = {68E912F7-A274-49BD-AAFC-724BAC47AB0F}
+		{ACB686D3-F086-49DE-AFE0-19B185FE3CEE} = {68E912F7-A274-49BD-AAFC-724BAC47AB0F}
+		{92D9C361-DCFC-4C8D-9C6F-24990970BF4C} = {68E912F7-A274-49BD-AAFC-724BAC47AB0F}
+		{4E7B7960-8A2F-4F15-AC7D-F511537D5B3D} = {68E912F7-A274-49BD-AAFC-724BAC47AB0F}
+		{3DB72108-0E61-481F-AA0D-EC61D32F1ED8} = {68E912F7-A274-49BD-AAFC-724BAC47AB0F}
+		{B2C13772-8C0F-472E-BCD3-0B1DDE950798} = {18E1D716-ACDB-4162-9B89-69A5B010BDDD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CFB1B9D-EDD7-443E-9872-0F6D8BD6B9A5}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.hcrg.com:8080/tfs/hcrg
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HCRGUniversityMgtApp.Domain.Models\\HCRGUniversityMgtApp.Domain.Models.csproj
+		SccProjectTopLevelParentUniqueName1 = HCRGUniversityMgtApp.sln
+		SccProjectName1 = HCRGUniversityMgtApp.Domain.Models
+		SccLocalPath1 = HCRGUniversityMgtApp.Domain.Models
+		SccProjectUniqueName2 = HCRGUniversityMgtApp.Domain.ViewModels\\HCRGUniversityMgtApp.Domain.ViewModels.csproj
+		SccProjectTopLevelParentUniqueName2 = HCRGUniversityMgtApp.sln
+		SccProjectName2 = HCRGUniversityMgtApp.Domain.ViewModels
+		SccLocalPath2 = HCRGUniversityMgtApp.Domain.ViewModels
+		SccProjectUniqueName3 = HCRGUniversityMgtApp.Infrastructure.ApplicationFilters\\HCRGUniversityMgtApp.Infrastructure.ApplicationFilters.csproj
+		SccProjectTopLevelParentUniqueName3 = HCRGUniversityMgtApp.sln
+		SccProjectName3 = HCRGUniversityMgtApp.Infrastructure.ApplicationFilters
+		SccLocalPath3 = HCRGUniversityMgtApp.Infrastructure.ApplicationFilters
+		SccProjectUniqueName4 = HCRGUniversityMgtApp.Infrastructure.ApplicationServices\\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.csproj
+		SccProjectTopLevelParentUniqueName4 = HCRGUniversityMgtApp.sln
+		SccProjectName4 = HCRGUniversityMgtApp.Infrastructure.ApplicationServices
+		SccLocalPath4 = HCRGUniversityMgtApp.Infrastructure.ApplicationServices
+		SccProjectUniqueName5 = HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts\\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.csproj
+		SccProjectTopLevelParentUniqueName5 = HCRGUniversityMgtApp.sln
+		SccProjectName5 = HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts
+		SccLocalPath5 = HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts
+		SccProjectUniqueName6 = HCRGUniversityMgtApp.Infrastructure.Base\\HCRGUniversityMgtApp.Infrastructure.Base.csproj
+		SccProjectTopLevelParentUniqueName6 = HCRGUniversityMgtApp.sln
+		SccProjectName6 = HCRGUniversityMgtApp.Infrastructure.Base
+		SccLocalPath6 = HCRGUniversityMgtApp.Infrastructure.Base
+		SccProjectUniqueName7 = HCRGUniversityMgtApp.Infrastructure.DependencyResolution\\HCRGUniversityMgtApp.Infrastructure.DependencyResolution.csproj
+		SccProjectTopLevelParentUniqueName7 = HCRGUniversityMgtApp.sln
+		SccProjectName7 = HCRGUniversityMgtApp.Infrastructure.DependencyResolution
+		SccLocalPath7 = HCRGUniversityMgtApp.Infrastructure.DependencyResolution
+		SccProjectUniqueName8 = HCRGUniversityMgtApp.Infrastructure.Global\\HCRGUniversityMgtApp.Infrastructure.Global.csproj
+		SccProjectTopLevelParentUniqueName8 = HCRGUniversityMgtApp.sln
+		SccProjectName8 = HCRGUniversityMgtApp.Infrastructure.Global
+		SccLocalPath8 = HCRGUniversityMgtApp.Infrastructure.Global
+		SccProjectUniqueName9 = HCRGUniversityMgtApp\\HCRGUniversityMgtApp.csproj
+		SccProjectName9 = HCRGUniversityMgtApp
+		SccLocalPath9 = HCRGUniversityMgtApp
+		SccProjectUniqueName10 = Vzaar.API\\Vzaar.API.csproj
+		SccProjectTopLevelParentUniqueName10 = HCRGUniversityMgtApp.sln
+		SccProjectName10 = Vzaar.API
+		SccLocalPath10 = Vzaar.API
+	EndGlobalSection
+EndGlobal

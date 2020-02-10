@@ -1,0 +1,86 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@using HCRGUniversityApp.Controllers;
+
+@model HCRGUniversityApp.Domain.ViewModels.AboutUsViewModel.AboutUsViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div id="container" class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="site-block-title">
+                <h2>ABOUT US</h2>
+            </header>
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    <div class="clearfix"></div>
+    <br />
+    <div class="row">
+        @*<div class="col-sm-3">
+            <ul class="simple-side-nav">
+                @foreach (HCRGUniversityApp.Domain.Models.AboutUsModel.AboutUs viewmodel in @Model.AboutUSResults)
+                {
+                    <li><a href="#@viewmodel.Title.Replace(" ","").Replace("&","").Replace("'","")">@viewmodel.Title</a></li>
+
+                }
+            </ul>
+            <a class="list-footer" href="#">View All</a>
+            <div class="clearfix"></div>
+            <br />
+        </div>*@
+        <!-- col-sm-3 -->
+
+        <div class="col-sm-12">
+
+            @*<h2 class="red-heading">ABOUT <span id="spanWebsiteName"></span></h2>*@
+
+            <div class="clearfix"></div>
+            @*<br />*@
+            <div class="paddingright15-res" style="text-align:justify;">
+                @{ int a = 1; }
+                @foreach (HCRGUniversityApp.Domain.Models.AboutUsModel.AboutUs viewmodel in @Model.AboutUSResults)
+                {
+                    @*<h2 class="red-heading" id="@viewmodel.Title.Replace(" ", "").Replace("&", "").Replace("'", "")"> @viewmodel.Title</h2>*@
+                    if (a == 1)
+                    {
+                        <p id="@viewmodel.AboutUsID" class="news-desc col-xs-12 col-md-12 paddingleft-none">
+                            @*<img src="~/Content/img/about_img.jpg" class="img-responsive col-md-3 col-sm-4 col-xs-8 pull-right" />*@
+
+                         @Html.Raw(@viewmodel.Description)
+
+                        </p>
+                    }
+                    else
+                    {
+                        <p id="@viewmodel.AboutUsID" class="news-desc">
+                            @Html.Raw(@viewmodel.Description)
+                        </p>
+                    }
+                    a = a + 1;
+                    <div class="clearfix"></div>
+                    <br />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {      
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                $("a").removeClass("current");
+                $(this).addClass('current');
+                var target = this.hash,
+                $target = $(target);
+                $('div.scroll').animate({
+                    'scrollTop': $target.offset().top
+                }, 300, function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+}

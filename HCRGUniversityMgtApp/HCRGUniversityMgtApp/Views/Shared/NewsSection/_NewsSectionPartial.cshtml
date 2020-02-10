@@ -1,0 +1,83 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "_NewsSectionPartial";
+}
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.NewsController.AddNewsSection, GlobalConst.Controllers.News, FormMethod.Post, new
+        {
+            id = "frmAddNewsSection",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddNewsSectionDetailSuccess(responseText);},beforeSubmit: NewsSectionFormBeforeSubmit}"
+        }))
+{
+        <!--start row -->
+    <div id="divNewsSection">
+        <div class="panel-wrapper">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">News Service Screen</div>
+                <div class="panel-body form-group">
+                    <div class="col-md-3"><label>Type<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                    <div class="col-md-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" required="required" name="NewsSectionType" id="NewsSectionType1" data-bind="checked: NewsSectionType, checkedValue: 'Section',jqBootstrapValidation: {}" value="Section" checked>
+                                Section
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" required="required" name="NewsSectionType" id="NewsSectionType2" data-bind="checked: NewsSectionType, checkedValue: 'Featured',jqBootstrapValidation: {}" value="Featured">
+                                Featured Topic
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-3"><label> Title:</label> <a href="#" class="inner-content-link"> </a></div>
+                    <div class="col-md-4 form-group">
+                        <input type="hidden" class="form-control" id="hdfnewsSectionid" data-bind="value:NewsSectionID" name="NewsSectionID">
+                        <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" name="NewsSectionTitle" data-bind="value: NewsSectionTitle,jqBootstrapValidation: {}" class="form-control">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <button class="btn btn-default" type="submit">Save and Continue</button>
+                </div>
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">NewsSection Items</div>
+                        <!-- Table -->
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>NewsSection</th>
+                                    <th>Type</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--ko if:NewsSectionResults!= null-->
+                                <!-- ko foreach:NewsSectionResults -->
+                                <tr>
+                                    <td><span data-bind="text:NewsSectionTitle" /></td>
+                                    <td><span data-bind="text:NewsSectionType" /></td>
+                                    <td>
+                                        <input type="hidden" name="NewsSectionID" id="NewsSectionID" data-bind="value:NewsSectionID" />
+                                        <a href="#" class="inner-content-link blue" data-bind="click:$root.editNewsSection" style="color:#808080;">Edit</a>
+                                    </td>
+                                    <td><a href="#" class="inner-content-link blue" data-bind="click:$root.deleteNewsSection" style="color:#808080;">Delete</a></td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row-end -->
+    </div><!-- /inner-wrapper -->
+}

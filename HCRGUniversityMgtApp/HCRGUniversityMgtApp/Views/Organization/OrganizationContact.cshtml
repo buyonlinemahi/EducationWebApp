@@ -1,0 +1,190 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+@section header{
+    <a class="navbar-brand" href="#">Organization ContactUs Detial</a>
+}
+<div id="divAddContact">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Contact Us</div>
+                   
+                        <div class="mtop-10 mbt-20">
+                            <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Phone:<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                         <input type="hidden" name="EncryptedOrganizationContactID" id="hdEncryptedOrganizationContactID" data-bind="value:EncryptedOrganizationContactID" />
+                                        <input type="text" class="form-control phoneMaskformat" id="txtPhone"  name="Phone"   placeholder="Phone" data-bind="value:Phone"  >
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Fax :<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control phoneMaskformat" id="txtFax"  name="Fax"   placeholder="Fax " data-bind="value:Fax">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Email :<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="Email" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" class="form-control" id="txtEmailID" required  name="EmailID" maxlength="500"  placeholder="Email " data-bind="value:EmailID,event: { change:ValidateEmail }">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Hours of Operation:<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" onchange="Space_check(this.id)" class="form-control" id="OperationHour" name="OperationHour" maxlength="500"  placeholder="OperationHour" data-bind="value:OperationHour">
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Start Time :<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <select name="objStarthour" id="objStarthour" class="1-12 selct-time" ></select>
+                                    <select name="objStartmintue" id="objStartmintue" class="0-60 selct-time"></select>
+                                    <select name="objStartAP" id="objStartAP" class="selct-time" >
+                                        <option value="AM">AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>End Time :<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                       <select name="objFinalhour" id="objFinalhour" class="1-12 selct-time"></select>
+                                    <select name="objFinalmintue" id="objFinalmintue" class="0-60 selct-time" ></select>
+                                    <select name="objFinalAP" id="objFinalAP" class="selct-time" >
+                                        <option value="AM">AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Address :<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                       <input type="text" onchange="Space_check(this.id)" class="form-control" id="Address" name="Address" maxlength="500"  placeholder="Address" data-bind="value:Address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Address 2:<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" onchange="Space_check(this.id)" class="form-control" id="txtAddress2"  name="Address2" maxlength="500"  placeholder="Address2" data-bind="value:Address2">                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>City :<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" onchange="Space_check(this.id)" class="form-control" id="City" name="City" maxlength="500"  placeholder="City" data-bind="value:City">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                             <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label> State : <span class="red">*</span></label>    </div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">                                        
+                                        <select id="StateID" class="form-control"   name="StateID" data-bind="options: States, optionsText: 'StateName', optionsValue: 'StateID', optionsCaption:'Select State', value: selectedItem,jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row mtb-8">
+                                <div class="col-md-3 col-sm-4"><label>Zip :<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                          <input type="text" onchange="Space_check(this.id)" class="form-control" id="Zip" name="Zip" maxlength="15"  placeholder="Zip" data-bind="value:Zip" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-8">
+                                <input type="hidden" data-bind="value: OrganizationID" name="OrganizationID" />
+                               <div class="col-md-3 col-sm-4"> <input type="submit" class="btn btn-default" data-bind="click:SaveContacts" value="Submit"></div>
+                            </div>
+                        </div>
+                 
+                      <div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                    </div>
+                </div>
+            </div>
+            <!-- row-end -->
+        </div><!-- /inner-wrapper -->
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <link href="~/Content/ui/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/knockout/viewmodel/views/Organization/OrganizationContactViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var OrganizationContactViewModel = new OrganizationContactViewModel();
+        OrganizationContactViewModel.Init(model);
+        ko.applyBindings(OrganizationContactViewModel, $("#divAddContact").get(0));
+
+    </script>
+
+<script type="text/javascript">
+    function setgrdDesign() {
+        if (!$('#main').hasScrollBar()) {
+            var className;
+            $('#main > tr').each(function() {
+                $(this).children('td').addClass(function (index) {
+                    $(this).removeClass("marginleft10");
+                    return 'paddingleft-none';
+                })
+            });
+        }
+    }
+
+    checkPattern();
+
+    function checkPattern(e, t){    
+        var patt = new RegExp("^[^-\s][a-zA-Z0-9_'\s-]+$");
+        var res = patt.test(str);
+        alert(res);
+    }
+
+    jQuery(function($) {
+        $('#main')
+          .bind('afterShow', function() {
+              alert('afterShow');
+          })
+          .show(1000, function() {
+              setgrdDesign();
+          })
+          .show();
+    });
+   
+
+    function Space_check(clicked_id)
+    {
+        document.getElementById(clicked_id).value = document.getElementById(clicked_id).value.trim();
+    }
+   
+</script>
+
+}

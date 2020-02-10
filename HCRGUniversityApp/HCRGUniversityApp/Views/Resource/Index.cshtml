@@ -1,0 +1,43 @@
+﻿@using HCRGUniversityApp.Controllers;
+@model HCRGUniversityApp.Domain.ViewModels.ResourceViewModel.ResourceViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title">
+                    <h2><span class="spanWebsiteName1"></span> News</h2>
+                </header>
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <div class="row">
+            <div class="col-sm-3">
+                <span class="resources-redhead"><span class="spanWebsiteName1"></span> News</span>
+                <ul class="simple-side-nav">
+                @foreach (HCRGUniversityApp.Domain.Models.ResourceModel.Resource  viewmodel in @Model.ResourceResults)
+                { 
+                    <li><a href="../@viewmodel.ResourceUrl.Replace(" ","")">@viewmodel.ResourceTitle</a></li>
+                }
+                 
+                </ul>
+                <!--<a class="list-footer" href="#">View All</a>-->
+                <div class="clearfix"></div>
+                <br />
+            </div>
+            <!-- col-sm-3 -->
+            <div class="col-xs-1 visible-lg visible-md visible-sm  col-sm-offset-1">
+                <div class="left-shadow">&nbsp;</div>
+            </div>
+            <div class="col-sm-7">
+                <p class="font-16 text-justify"> <span class="spanWebsiteName1"></span> award-winning publications and news content helps our students and industry professionals stay informed and connected.</p>
+                <img src="../Content/img/resources-pic.jpg" class="marginbottom20 img-responsive" />
+            </div>
+            <!-- col-sm-8 -->
+        </div>
+        <!-- row -->
+    </div>

@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+  <xs:element name="AddExamQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="examQuestion" nillable="true" type="q1:ExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddExamQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddExamQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExamQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="examQuestion" nillable="true" type="q2:ExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExamQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateExamQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExamQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="examQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExamQuestionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExamQuestionByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="examQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExamQuestionByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetExamQuestionByIDResult" nillable="true" type="q3:ExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedExamQuestionByExamID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="examID" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedExamQuestionByExamIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedExamQuestionByExamIDResult" nillable="true" type="q4:PagedExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllExamQuestionDetailByEID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="educationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllExamQuestionDetailByEIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllExamQuestionDetailByEIDResult" nillable="true" type="q5:ArrayOfExamQuestionDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExamQuestionWrongAnswered">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExamQuestionWrongAnsweredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetExamQuestionWrongAnsweredResult" nillable="true" type="q6:ArrayOfExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPreTestQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="preTestQuestion" nillable="true" type="q7:PreTestQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPreTestQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPreTestQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePreTestQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="preTestQuestion" nillable="true" type="q8:PreTestQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePreTestQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePreTestQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePreTestQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="preTestQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePreTestQuestionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreTestQuestionByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="preTestQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreTestQuestionByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetPreTestQuestionByIDResult" nillable="true" type="q9:PreTestQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedPreTestQuestionByPreTestID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="preTestID" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedPreTestQuestionByPreTestIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedPreTestQuestionByPreTestIDResult" nillable="true" type="q10:PagedPreTestQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPreTestQuestionDetailByEID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="educationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPreTestQuestionDetailByEIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllPreTestQuestionDetailByEIDResult" nillable="true" type="q11:ArrayOfPreTestQuestionDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEducationExamQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="educationExamQuestion" nillable="true" type="q12:EducationExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEducationExamQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEducationExamQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEducationExamQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="educationExamQuestion" nillable="true" type="q13:EducationExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEducationExamQuestionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEducationExamQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="courseExamQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEducationExamQuestionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationExamQuestionByEducationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="educationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationExamQuestionByEducationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetEducationExamQuestionByEducationIDResult" nillable="true" type="q14:EducationExamQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEducationPreTestQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="educationPreTestQuestions" nillable="true" type="q15:EducationPreTestQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEducationPreTestQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEducationPreTestQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEducationPreTestQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="educationPreTestQuestions" nillable="true" type="q16:EducationPreTestQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEducationPreTestQuestionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEducationPreTestQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="coursePreTestQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEducationPreTestQuestionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationPreTestQuestionByEducationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="educationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationPreTestQuestionByEducationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetEducationPreTestQuestionByEducationIDResult" nillable="true" type="q17:EducationPreTestQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddExam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="exam" nillable="true" type="q18:Exam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddExamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddExamResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="exam" nillable="true" type="q19:Exam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateExamResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="examID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExamResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExamByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="examID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExamByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetExamByIDResult" nillable="true" type="q20:Exam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedExam">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedExamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedExamResult" nillable="true" type="q21:PagedExam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllActiveExam">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllActiveExamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllActiveExamResult" nillable="true" type="q22:ArrayOfExam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPreTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="preTest" nillable="true" type="q23:PreTest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPreTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPreTestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePreTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="preTest" nillable="true" type="q24:PreTest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePreTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePreTestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePreTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="preTestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePreTestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreTestByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="preTestID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreTestByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetPreTestByIDResult" nillable="true" type="q25:PreTest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedPreTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedPreTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedPreTestResult" nillable="true" type="q26:PagedPreTest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllActivePreTest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllActivePreTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllActivePreTestResult" nillable="true" type="q27:ArrayOfPreTest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEvaluation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="Evaluation" nillable="true" type="q28:Evaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEvaluationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="Evaluation" nillable="true" type="q29:Evaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEvaluationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluationStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="Evaluation" nillable="true" type="q30:Evaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluationStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEvaluationStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEvaluation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEvaluationByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEvaluationByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetEvaluationByIDResult" nillable="true" type="q31:Evaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedEvaluation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedEvaluationResult" nillable="true" type="q32:PagedEvaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllActiveEvaluation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllActiveEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllActiveEvaluationResult" nillable="true" type="q33:ArrayOfEvaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEvaluationQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="EvaluationQuestion" nillable="true" type="q34:EvaluationQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEvaluationQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEvaluationQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEvaluationQuestionsFromEvaluationPredefinedQuestions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEvaluationQuestionsFromEvaluationPredefinedQuestionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEvaluationQuestionsFromEvaluationPredefinedQuestionsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluationQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="EvaluationQuestion" nillable="true" type="q35:EvaluationQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluationQuestionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEvaluationQuestionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluationQuestionStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="EvaluationQuestion" nillable="true" type="q36:EvaluationQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEvaluationQuestionStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEvaluationQuestionStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEvaluationQuestion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EvaluationQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEvaluationQuestionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEvaluationQuestionByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EvaluationQuestionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEvaluationQuestionByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetEvaluationQuestionByIDResult" nillable="true" type="q37:EvaluationQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedEvaluationQuestionByEvaluationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedEvaluationQuestionByEvaluationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedEvaluationQuestionByEvaluationIDResult" nillable="true" type="q38:PagedEvaluationQuestion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEvaluationQuestionDetailByEID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="educationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEvaluationQuestionDetailByEIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllEvaluationQuestionDetailByEIDResult" nillable="true" type="q39:ArrayOfEvaluationQuestionDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEducationEvaluation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="educationEvaluation" nillable="true" type="q40:EducationEvaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEducationEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEducationEvaluationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEducationEvaluation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="educationEvaluation" nillable="true" type="q41:EducationEvaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEducationEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEducationEvaluation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="courseEvaluationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEducationEvaluationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationEvaluationByEducationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="educationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEducationEvaluationByEducationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetEducationEvaluationByEducationIDResult" nillable="true" type="q42:EducationEvaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

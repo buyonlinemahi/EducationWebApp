@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ShippingPaymentService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IShippingPaymentService_addShippingPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:addShippingPayment" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_addShippingPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addShippingPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_updateShippingPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateShippingPayment" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_updateShippingPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateShippingPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_deleteShippingPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteShippingPayment" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_deleteShippingPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteShippingPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getShippingPaymentByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getShippingPaymentByID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getShippingPaymentByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getShippingPaymentByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getAllShippingPaymentByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllShippingPaymentByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getAllShippingPaymentByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllShippingPaymentByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getPendingShippingPaymentByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPendingShippingPaymentByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getPendingShippingPaymentByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPendingShippingPaymentByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_UpdateEducationShoppingCartTempByShippingPaymentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationShoppingCartTempByShippingPaymentID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_UpdateEducationShoppingCartTempByShippingPaymentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationShoppingCartTempByShippingPaymentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_addEducationShoppingRecordByShippingPaymentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:addEducationShoppingRecordByShippingPaymentID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_addEducationShoppingRecordByShippingPaymentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addEducationShoppingRecordByShippingPaymentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_GetShippingPaymentByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShippingPaymentByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_GetShippingPaymentByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShippingPaymentByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_addBillingAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:addBillingAddress" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_addBillingAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addBillingAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_updateBillingAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateBillingAddress" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_updateBillingAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateBillingAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_deleteBillingAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteBillingAddress" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_deleteBillingAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteBillingAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getBillingAddressByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBillingAddressByID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getBillingAddressByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBillingAddressByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getAllBillingAddressByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllBillingAddressByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getAllBillingAddressByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllBillingAddressByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getBillingAddressByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBillingAddressByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getBillingAddressByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBillingAddressByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_addShippingAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:addShippingAddress" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_addShippingAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addShippingAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_updateShippingAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateShippingAddress" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_updateShippingAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateShippingAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_deleteShippingAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteShippingAddress" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_deleteShippingAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteShippingAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getShippingAddressByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getShippingAddressByID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getShippingAddressByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getShippingAddressByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getAllShippingAddressByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllShippingAddressByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getAllShippingAddressByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllShippingAddressByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getShippingAddressByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getShippingAddressByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShippingPaymentService_getShippingAddressByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getShippingAddressByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IShippingPaymentService">
+    <wsdl:operation name="addShippingPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/addShippingPayment" message="tns:IShippingPaymentService_addShippingPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/addShippingPaymentResponse" message="tns:IShippingPaymentService_addShippingPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateShippingPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/updateShippingPayment" message="tns:IShippingPaymentService_updateShippingPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/updateShippingPaymentResponse" message="tns:IShippingPaymentService_updateShippingPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteShippingPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/deleteShippingPayment" message="tns:IShippingPaymentService_deleteShippingPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/deleteShippingPaymentResponse" message="tns:IShippingPaymentService_deleteShippingPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getShippingPaymentByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getShippingPaymentByID" message="tns:IShippingPaymentService_getShippingPaymentByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getShippingPaymentByIDResponse" message="tns:IShippingPaymentService_getShippingPaymentByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllShippingPaymentByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getAllShippingPaymentByUserID" message="tns:IShippingPaymentService_getAllShippingPaymentByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getAllShippingPaymentByUserIDResponse" message="tns:IShippingPaymentService_getAllShippingPaymentByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPendingShippingPaymentByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getPendingShippingPaymentByUserID" message="tns:IShippingPaymentService_getPendingShippingPaymentByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getPendingShippingPaymentByUserIDResponse" message="tns:IShippingPaymentService_getPendingShippingPaymentByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationShoppingCartTempByShippingPaymentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/UpdateEducationShoppingCartTempByShippingPaymentID" message="tns:IShippingPaymentService_UpdateEducationShoppingCartTempByShippingPaymentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/UpdateEducationShoppingCartTempByShippingPaymentIDResponse" message="tns:IShippingPaymentService_UpdateEducationShoppingCartTempByShippingPaymentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addEducationShoppingRecordByShippingPaymentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/addEducationShoppingRecordByShippingPaymentID" message="tns:IShippingPaymentService_addEducationShoppingRecordByShippingPaymentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/addEducationShoppingRecordByShippingPaymentIDResponse" message="tns:IShippingPaymentService_addEducationShoppingRecordByShippingPaymentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingPaymentByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/GetShippingPaymentByUserID" message="tns:IShippingPaymentService_GetShippingPaymentByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/GetShippingPaymentByUserIDResponse" message="tns:IShippingPaymentService_GetShippingPaymentByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addBillingAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/addBillingAddress" message="tns:IShippingPaymentService_addBillingAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/addBillingAddressResponse" message="tns:IShippingPaymentService_addBillingAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateBillingAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/updateBillingAddress" message="tns:IShippingPaymentService_updateBillingAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/updateBillingAddressResponse" message="tns:IShippingPaymentService_updateBillingAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteBillingAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/deleteBillingAddress" message="tns:IShippingPaymentService_deleteBillingAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/deleteBillingAddressResponse" message="tns:IShippingPaymentService_deleteBillingAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillingAddressByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getBillingAddressByID" message="tns:IShippingPaymentService_getBillingAddressByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getBillingAddressByIDResponse" message="tns:IShippingPaymentService_getBillingAddressByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllBillingAddressByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getAllBillingAddressByUserID" message="tns:IShippingPaymentService_getAllBillingAddressByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getAllBillingAddressByUserIDResponse" message="tns:IShippingPaymentService_getAllBillingAddressByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillingAddressByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getBillingAddressByUserID" message="tns:IShippingPaymentService_getBillingAddressByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getBillingAddressByUserIDResponse" message="tns:IShippingPaymentService_getBillingAddressByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addShippingAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/addShippingAddress" message="tns:IShippingPaymentService_addShippingAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/addShippingAddressResponse" message="tns:IShippingPaymentService_addShippingAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateShippingAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/updateShippingAddress" message="tns:IShippingPaymentService_updateShippingAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/updateShippingAddressResponse" message="tns:IShippingPaymentService_updateShippingAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteShippingAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/deleteShippingAddress" message="tns:IShippingPaymentService_deleteShippingAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/deleteShippingAddressResponse" message="tns:IShippingPaymentService_deleteShippingAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getShippingAddressByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getShippingAddressByID" message="tns:IShippingPaymentService_getShippingAddressByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getShippingAddressByIDResponse" message="tns:IShippingPaymentService_getShippingAddressByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllShippingAddressByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getAllShippingAddressByUserID" message="tns:IShippingPaymentService_getAllShippingAddressByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getAllShippingAddressByUserIDResponse" message="tns:IShippingPaymentService_getAllShippingAddressByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getShippingAddressByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShippingPaymentService/getShippingAddressByUserID" message="tns:IShippingPaymentService_getShippingAddressByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShippingPaymentService/getShippingAddressByUserIDResponse" message="tns:IShippingPaymentService_getShippingAddressByUserID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IShippingPaymentService" type="tns:IShippingPaymentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addShippingPayment">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/addShippingPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateShippingPayment">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/updateShippingPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteShippingPayment">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/deleteShippingPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShippingPaymentByID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getShippingPaymentByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllShippingPaymentByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getAllShippingPaymentByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPendingShippingPaymentByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getPendingShippingPaymentByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationShoppingCartTempByShippingPaymentID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/UpdateEducationShoppingCartTempByShippingPaymentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEducationShoppingRecordByShippingPaymentID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/addEducationShoppingRecordByShippingPaymentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShippingPaymentByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/GetShippingPaymentByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBillingAddress">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/addBillingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBillingAddress">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/updateBillingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBillingAddress">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/deleteBillingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillingAddressByID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getBillingAddressByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBillingAddressByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getAllBillingAddressByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillingAddressByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getBillingAddressByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addShippingAddress">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/addShippingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateShippingAddress">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/updateShippingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteShippingAddress">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/deleteShippingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShippingAddressByID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getShippingAddressByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllShippingAddressByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getAllShippingAddressByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShippingAddressByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShippingPaymentService/getShippingAddressByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShippingPaymentService">
+    <wsdl:port name="BasicHttpBinding_IShippingPaymentService" binding="tns:BasicHttpBinding_IShippingPaymentService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,153 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+<!--start row -->
+@section header{
+    <a class="navbar-brand" href="#">AboutUs Management</a>
+}
+<div id="divAddAboutus">
+
+
+    <div class="row">
+        <div class="panel-wrapper">
+            <div class="panel panel-default">
+                <input type="hidden" name="hdAboutUsFLAG" value="" />
+                <div class="row">
+                    <div class="modal fade EditorModal" id="EditorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog position-center set-popup">
+                            <div class="modal-content" style="height: 830px;">
+                                <div class="modal-header">
+                                    <button type="button" id="btnClose" class="close" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Add Content</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="panel-body">
+                                        <div id="divEditor">
+
+                                            @using (Html.BeginForm(GlobalConst.Actions.AboutUsController.ShowEditor, GlobalConst.Controllers.AboutUs, FormMethod.Post))
+                                            {
+                                                @Html.Raw(ViewBag.Editor)
+                                            }
+                                        </div>
+                                        <div style="padding-top: 10px;">
+                                            <button type="button" data-dismiss="modal" aria-hidden="true" id="btnSaveandContinue" class="btn btn-default">Save and Continue</button>
+
+                                            <button type="button" aria-hidden="true" id="btnClose1" data-dismiss="modal" class="btn btn-default">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-heading">Add New</div>                 
+                @using (Html.BeginForm(GlobalConst.Actions.AboutUsController.Add, GlobalConst.Controllers.AboutUs, FormMethod.Post, new
+{
+    id = "frmAddAboutus",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddAboutusDetailSuccess(responseText);},beforeSubmit : AboutUsInfoFormBeforeSubmit ,clearForm : true}"
+}))
+                {
+                    <div id="divAddContent" class="row mtb-10">
+                        <div class="col-md-2 col-sm-3">
+                            <label for="AboutusDescription">Description:</label>
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <input type="hidden" name="hdAboutUsID" id="hdAboutUsID" data-bind="value: AboutUsID" />
+                            <button type="button" data-target="#EditorModal" id="EditorModalPopUp" data-backdrop="static" data-keyboard="false" class="btn btn-default">Add Content</button>
+                            <input type="hidden" id="hd" name="Description" />
+                            <input type="hidden" name="OrganizationName" data-bind="value: OrganizationName" />
+                            <input type="hidden" name="OrganizationID" data-bind="value: OrganizationID" />
+                            @*<textarea rows="5" class="form-control" required data-bind="value: ,jqBootstrapValidation: {}" name="Description" placeholder="Description"></textarea>*@
+                        </div>
+                    
+                    <div class="col-md-2 col-sm-3 padd-l0">
+                        <button type="submit" onclick="submitform()" class="btn btn-default pul-rht-r">Save and Continue</button>
+                    </div>
+                        </div>
+                }
+                
+                <!--ko if:IsHCRGAdmin() == true -->
+                <div class="row mtb-10">
+                    <div class="col-md-2 col-sm-3">
+                        <label>Organizations:</label>
+                    </div>
+                    <div class="col-md-5 col-sm-9">
+                        <div class="form-group">
+                            <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                            <input type="hidden" id="hdfOrgID" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 padd-l0">
+                        <button type="button" class="btn btn-default pul-rht-r" data-bind="click: function(){ $root.SearchAboutUs()}">Search</button>
+                    </div>
+                </div>
+                <!--/ko-->
+
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Results</div>
+
+                        <!-- Table -->
+                        <div class="table-responsive height-200">                        
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th class="col-md-3 col-sm-3">Organization Name</th>
+                                        <th class="col-md-7 col-sm-7">Description</th>
+                                        <th class="col-md-2 col-sm-2">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                    <!--ko if:AboutusResults != null-->
+                                    <!-- ko foreach:AboutusResults -->
+                                    <tr>
+
+                                        <td class="col-md-3"><span data-bind="text:OrganizationName" /></td>
+                                        <td class="text-justify col-md-7 col-sm-7"><span class="wrap-aboutus-content" data-bind="text:DescriptionShort" />
+                                            <input type="hidden" name="Description" id="Description" data-bind="value:Description" />
+                                        </td>
+                                        <td class="col-md-2 col-sm-2">
+                                            <a href="#" class="inner-content-link blue" style="color: #2b2b2b" data-bind="click:$root.ViewAboutUsLineItems">View</a>
+                                            <a href="#" class="inner-content-link blue" style="color: #2b2b2b" data-bind="click:$root.DeleteAboutUsLineItems">Delete</a>
+                                            <input type="hidden" name="hdfAboutUsID" id="hdfAboutUsID" data-bind="value:AboutUsID" />
+                                        </td>
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="loaderDiv" class="loaderbg">
+                    <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/AboutUs/AboutUsResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var AboutusallresultViewModel = new AboutUsGridViewModel();
+        AboutusallresultViewModel.Init(model);
+        ko.applyBindings(AboutusallresultViewModel, $("#divAddAboutus").get(0));
+    </script>
+    <script type="text/javascript">
+        if (!$('#main').hasScrollBar()) {
+            $("td[class*='paddingleft']").removeClass(function () {
+                var className = this.className.match(/paddingleft\d+/);
+                $(this).removeClass(className[0]);
+            });
+        }
+    </script>
+
+}

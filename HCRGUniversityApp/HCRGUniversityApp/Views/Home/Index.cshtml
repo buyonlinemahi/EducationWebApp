@@ -1,0 +1,150 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@using HCRGUniversityApp.Controllers;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+ 
+<!--Banner-->
+@Html.Partial("Carousel/_CarouselPartial")
+
+<!--Banner-->
+<!--Caption-->
+<div class="caption marginbottom30  ">
+    <div class="container">
+        <div class="row">
+            <div class="cont-md-12 smalltext ">Updated and Relevant.  With an in-house staff of active <span id="spanWebsiteName"></span> professionals, we are constantly, producing new courses on emerging industry topics.</div>
+        </div>
+    </div>
+</div>
+<!--Caption-->
+<div id="divHome">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <span class="list-head">
+                    <img src="~/Content/img/list-icon_rgb.png" alt="heading-icon" />Featured Education</span>
+                <ul class="side-nav-home">
+                    @foreach (HCRGUniversityApp.Domain.Models.EducationModel.Education viewmodel in @Model.EducationResults)
+                    {
+
+                        <li><a href="~/Course/CourseDetail/@viewmodel.EncrptedEducationID">@viewmodel.CourseName</a></li>
+                    }
+
+                </ul>
+                <a class="list-footer" href="/CollegeEducation/">View All</a>
+                <span class="list-head1">
+                    <img src="~/Content/img/list-icon_rgb.png" alt="heading-icon" />
+                    Latest News</span>
+                <ul class="news-list">
+                    @foreach (HCRGUniversityApp.Domain.Models.NewsModel.News viewmodel in @Model.NewsResults)
+                    {
+                        const int MaxLength = 40;
+                        string newstitle = "";
+                        if (viewmodel.NewsTitle.Length > MaxLength)
+                        {
+                            newstitle = viewmodel.NewsTitle.Substring(0, MaxLength) + " ...";
+                            <li class="line-height-22"><a href="~/News/NewsDetail?NewsID=@viewmodel.EncryptedNewsID&NewsType=@viewmodel.NewsType">@newstitle</a><br>
+                                <span class="fonts-11">@viewmodel.NewsDateFormatted</span></li>
+
+                    }
+                        else
+                        {
+                            <li class="line-height-22"><a href="~/News/NewsDetail?NewsID=@viewmodel.EncryptedNewsID&NewsType=@viewmodel.NewsType">@viewmodel.NewsTitle</a><br>
+                                <span class="fonts-11">@viewmodel.NewsDateFormatted</span></li>
+                    }
+                    }
+                </ul>
+                <a class="list-footer" href="~/news/">View All News</a>
+            </div>
+            <!-- col-sm-3 -->
+
+            <div class="col-sm-6">
+                <div id="divdisplay" style="text-align: justify;"></div>
+            </div>
+            <!-- col-sm-6 -->
+
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <span class="list-head">
+                    <img src="~/Content/img/list-icon_rgb.png" alt="heading-icon" />Upcoming Events - Calendar</span>
+                @if (@Model.EventDetails.Count > 0)
+                {
+                    foreach (HCRGUniversityApp.Domain.Models.Event.EventDetail eventViewmodel in @Model.EventDetails)
+                    {
+                <div class="clearfix">
+                    <h4 class="events-head col-xs-5 padd-l0">@eventViewmodel.EventName</h4>
+
+                    <span class="col-xs-7 grey padd-r0 padd-l0"><span class="pull-right mtop8">@String.Format("{0:MMMM d, yyyy}", eventViewmodel.EventDate)
+                    </span></span>
+                </div>
+                <p class="news-desc">@eventViewmodel.EventDescription</p>
+                <div class="clearfix border-bottom marginbottom3">
+                    <a class="pull-right more-btn" href="@eventViewmodel.pageUrl">more
+                        <i class="fa fa-location-arrow rotate-45-right marginright10"></i>  <!-- <img src="~/Content/img/icons_rgb.png" class="marginright10" /> -->
+</a>
+                </div>
+                }
+                }
+                else
+                {
+                    <h4 class="events-head">No Upcoming Events</h4>
+                }
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-gutter marginbottom10">
+                    <a class="list-footer" style="" href="/Calendar/">View All Events</a>
+                   @* <div id="mc_embed_signup" class="greyclr">
+
+
+                        <form accept-charset="UTF-8" action="//www.formget.com/mailget/signups/subscribe/Ijc0OTM0NyI_3D/immediate" id="mailget_signup_form" name="mailget_form" method="post" onsubmit="return v_mailget()">
+                            <div>
+                                <div class="marginbottom10" style="margin-top: 15px; padding-top: 10px; color: white; font-size: 14px; text-align: center; color: #808080;">Subscribe to the
+                                    <div class="clearfix"></div>
+                                    <span id="spanWebsiteName"></span> Newsletter</div>
+                                <input name="utf8" type="hidden" value="?" />
+                                <input name="subs_set_url" type="hidden" value="http://www.allgatelearning.com/subscription" />
+                            </div>
+                            <div class="mg-row">
+                                <input id="signup_name" class="email form-control" name="subs_name" type="text" placeholder="Your Name" />
+                            </div>
+                            <div class="mg-row">
+                                <input id="signup_email" class="email form-control" name="subs_email" type="email" placeholder="email@example.com" />
+                            </div>
+                            <div class="mg-row">
+                                <input type="submit" class="submit button buttone subscribe" value="Subscribe" id="submit_button" />
+                            </div>
+                        </form>
+
+                    </div>*@
+                </div>
+
+
+            </div>
+            <!-- col-sm-3 -->
+
+        </div>
+        <!-- row -->
+    </div>
+    <!-- container -->
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Home/HomeViewModel.js")"></script>
+    <script type="text/javascript">
+        var model = @System.Web.Mvc.MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var HomeGridViewModel = new HomeGridViewModel();
+        HomeGridViewModel.Init(model);
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+          
+            $(document).ready(function () {
+                carousel();
+            });
+        }
+    </script>
+}

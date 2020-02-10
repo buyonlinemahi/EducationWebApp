@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Training And Seminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="site-block-title">
+                <h2>Onsite Training & Seminars </h2>
+            </header>
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    <!-- row -->
+    <div class="row">
+<div class="col-sm-12">
+        <div id="divIndustryResearch" style="text-align:justify;">
+            @*@Model.IndustryResearchContent*@
+@if (Model!=null)
+            {
+            @Html.Raw(Model.TrainingAndSeminarDesc)
+}
+        </div>
+</div>
+        <!-- col-sm-4 -->
+    </div>
+    <!-- row -->
+</div>
+

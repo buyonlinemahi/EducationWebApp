@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="NewsSection">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewsSectionID" type="xs:int" />
+          <xs:element minOccurs="0" name="NewsSectionTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsSectionType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NewsSection" nillable="true" type="tns:NewsSection" />
+  <xs:complexType name="ArrayOfNewsSection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsSection" nillable="true" type="tns:NewsSection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsSection" nillable="true" type="tns:ArrayOfNewsSection" />
+  <xs:complexType name="News">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q2:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewsAuthor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NewsDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsEditorPick" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NewsID" type="xs:int" />
+          <xs:element minOccurs="0" name="NewsSectionID" type="xs:int" />
+          <xs:element minOccurs="0" name="NewsTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="News" nillable="true" type="tns:News" />
+  <xs:complexType name="ArrayOfNews">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="News" nillable="true" type="tns:News" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNews" nillable="true" type="tns:ArrayOfNews" />
+  <xs:complexType name="ArrayOfNewsFullDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsFullDetail" nillable="true" type="tns:NewsFullDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsFullDetail" nillable="true" type="tns:ArrayOfNewsFullDetail" />
+  <xs:complexType name="NewsFullDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsAuthor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NewsDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsEditorPick" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NewsID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsSectionID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsSectionTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhotoVideoId" type="xs:int" />
+      <xs:element minOccurs="0" name="PhotoVideoTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewsFullDetail" nillable="true" type="tns:NewsFullDetail" />
+  <xs:complexType name="NewsPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsPhotoID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsPhotos" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewsPhoto" nillable="true" type="tns:NewsPhoto" />
+  <xs:complexType name="ArrayOfNewsPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsPhoto" nillable="true" type="tns:NewsPhoto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsPhoto" nillable="true" type="tns:ArrayOfNewsPhoto" />
+  <xs:complexType name="NewsVideo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsVideoID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsVideos" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewsVideo" nillable="true" type="tns:NewsVideo" />
+  <xs:complexType name="ArrayOfNewsVideo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsVideo" nillable="true" type="tns:NewsVideo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsVideo" nillable="true" type="tns:ArrayOfNewsVideo" />
+  <xs:complexType name="ArrayOfResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Resource" nillable="true" type="tns:Resource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResource" nillable="true" type="tns:ArrayOfResource" />
+  <xs:complexType name="Resource">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q3:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResourceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Resource" nillable="true" type="tns:Resource" />
+  <xs:complexType name="TrainingAndSeminar">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q4:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TrainingAndSeminarDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TrainingAndSeminarID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrainingAndSeminar" nillable="true" type="tns:TrainingAndSeminar" />
+  <xs:complexType name="PrivacyPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrivacyPolicyContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrivacyPolicyID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrivacyPolicy" nillable="true" type="tns:PrivacyPolicy" />
+  <xs:complexType name="ArrayOfPrivacyPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrivacyPolicy" nillable="true" type="tns:PrivacyPolicy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrivacyPolicy" nillable="true" type="tns:ArrayOfPrivacyPolicy" />
+  <xs:complexType name="TermsCondition">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q5:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TermsConditionContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TermsConditionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TermsCondition" nillable="true" type="tns:TermsCondition" />
+  <xs:complexType name="ArrayOfTermsCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TermsCondition" nillable="true" type="tns:TermsCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTermsCondition" nillable="true" type="tns:ArrayOfTermsCondition" />
+  <xs:complexType name="FAQ">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q6:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FAQAns" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FAQCatID" type="xs:int" />
+          <xs:element minOccurs="0" name="FAQCategoryTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FAQID" type="xs:int" />
+          <xs:element minOccurs="0" name="FAQues" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FAQ" nillable="true" type="tns:FAQ" />
+  <xs:complexType name="ArrayOfFAQ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FAQ" nillable="true" type="tns:FAQ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFAQ" nillable="true" type="tns:ArrayOfFAQ" />
+  <xs:complexType name="FAQCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FAQCatID" type="xs:int" />
+      <xs:element minOccurs="0" name="FAQCategoryTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FAQCategory" nillable="true" type="tns:FAQCategory" />
+  <xs:complexType name="ArrayOfFAQCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FAQCategory" nillable="true" type="tns:FAQCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFAQCategory" nillable="true" type="tns:ArrayOfFAQCategory" />
+  <xs:complexType name="CarouselSetUp">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q7:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CarouselBgColor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CarouselDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CarouselID" type="xs:int" />
+          <xs:element minOccurs="0" name="CarouselTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsID" type="xs:int" />
+          <xs:element minOccurs="0" name="NewsPhotoUrl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CarouselSetUp" nillable="true" type="tns:CarouselSetUp" />
+  <xs:complexType name="ArrayOfCarouselSetUp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarouselSetUp" nillable="true" type="tns:CarouselSetUp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarouselSetUp" nillable="true" type="tns:ArrayOfCarouselSetUp" />
+  <xs:complexType name="ArrayOfNewsSearchCarousel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsSearchCarousel" nillable="true" type="tns:NewsSearchCarousel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsSearchCarousel" nillable="true" type="tns:ArrayOfNewsSearchCarousel" />
+  <xs:complexType name="NewsSearchCarousel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NewsAuthor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NewsDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsEditorPick" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NewsID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsSectionID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsSectionTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewsSearchCarousel" nillable="true" type="tns:NewsSearchCarousel" />
+  <xs:complexType name="HomeContent">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q8:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HomeContentID" type="xs:int" />
+          <xs:element minOccurs="0" name="HomePageContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HomeContent" nillable="true" type="tns:HomeContent" />
+  <xs:complexType name="ArrayOfHomeContent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HomeContent" nillable="true" type="tns:HomeContent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHomeContent" nillable="true" type="tns:ArrayOfHomeContent" />
+  <xs:complexType name="Event">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoursePresenterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseStartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CourseStartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventID" type="xs:int" />
+      <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewsType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Event" nillable="true" type="tns:Event" />
+  <xs:complexType name="ArrayOfEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvent" nillable="true" type="tns:ArrayOfEvent" />
+  <xs:complexType name="IndustryResearch">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q9:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IndustryResearchContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IndustryResearchID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IndustryResearch" nillable="true" type="tns:IndustryResearch" />
+  <xs:complexType name="Accreditation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q10:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccreditationContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccreditationID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Accreditation" nillable="true" type="tns:Accreditation" />
+  <xs:complexType name="Certification">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q11:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CertificationContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CertificationID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Certification" nillable="true" type="tns:Certification" />
+  <xs:complexType name="NewsLetter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q12:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewsLetterContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewsLetterID" type="xs:int" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NewsLetter" nillable="true" type="tns:NewsLetter" />
+  <xs:complexType name="ArrayOfNewsLetter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NewsLetter" nillable="true" type="tns:NewsLetter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNewsLetter" nillable="true" type="tns:ArrayOfNewsLetter" />
+  <xs:complexType name="ReturnPolicy">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q13:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReturnPolicyContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReturnPolicyID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReturnPolicy" nillable="true" type="tns:ReturnPolicy" />
+  <xs:complexType name="ArrayOfReturnPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnPolicy" nillable="true" type="tns:ReturnPolicy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReturnPolicy" nillable="true" type="tns:ArrayOfReturnPolicy" />
+  <xs:complexType name="DeliveryTerm">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q14:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeliveryTermContents" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeliveryTermID" type="xs:int" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeliveryTerm" nillable="true" type="tns:DeliveryTerm" />
+  <xs:complexType name="ArrayOfDeliveryTerm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryTerm" nillable="true" type="tns:DeliveryTerm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeliveryTerm" nillable="true" type="tns:ArrayOfDeliveryTerm" />
+</xs:schema>

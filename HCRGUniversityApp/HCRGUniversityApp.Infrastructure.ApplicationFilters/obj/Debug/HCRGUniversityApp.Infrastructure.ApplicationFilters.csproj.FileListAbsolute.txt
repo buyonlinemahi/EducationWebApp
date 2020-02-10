@@ -1,0 +1,9 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\bin\Debug\HCRGUniversityApp.Infrastructure.ApplicationFilters.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\bin\Debug\HCRGUniversityApp.Infrastructure.ApplicationFilters.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\bin\Debug\HCRGUniversityApp.Infrastructure.Global.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\bin\Debug\System.Web.Mvc.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\bin\Debug\HCRGUniversityApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\bin\Debug\System.Web.Mvc.xml
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\obj\Debug\HCRGUniversityApp.Infrastructure.ApplicationFilters.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\obj\Debug\HCRGUniversityApp.Infrastructure.ApplicationFilters.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationFilters\obj\Debug\HCRGUniversityApp.Infrastructure.ApplicationFilters.pdb

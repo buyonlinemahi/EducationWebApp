@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommonService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICommonService_getAllState_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllState" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getStateByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStateByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getStateByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStateByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllShippingMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllShippingMethod" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllShippingMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllShippingMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllMenu" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetUserMenuBySpecialMenuID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuBySpecialMenuID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetUserMenuBySpecialMenuID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuBySpecialMenuIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetUserMenuByGroupID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuByGroupID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetUserMenuByGroupID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuByGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_addSuggestCourse_InputMessage">
+    <wsdl:part name="parameters" element="tns:addSuggestCourse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_addSuggestCourse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addSuggestCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_updateSuggestCourse_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateSuggestCourse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_updateSuggestCourse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateSuggestCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_deleteSuggestCourse_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSuggestCourse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_deleteSuggestCourse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSuggestCourseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetAllSuggestCoursesByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSuggestCoursesByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetAllSuggestCoursesByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSuggestCoursesByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetAllPagedSuggestCourses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedSuggestCourses" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_GetAllPagedSuggestCourses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedSuggestCoursesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getSuggestCourseByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSuggestCourseByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getSuggestCourseByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSuggestCourseByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_addEnterprise_InputMessage">
+    <wsdl:part name="parameters" element="tns:addEnterprise" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_addEnterprise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addEnterpriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_updateEnterprise_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateEnterprise" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_updateEnterprise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateEnterpriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getEnterpriseByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterpriseByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getEnterpriseByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterpriseByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_deleteEnterpriseByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEnterpriseByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_deleteEnterpriseByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEnterpriseByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getEnterpriseByEnterpriseClientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterpriseByEnterpriseClientName" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getEnterpriseByEnterpriseClientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterpriseByEnterpriseClientNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getEnterpriseAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterpriseAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getEnterpriseAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterpriseAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllIndustry_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllIndustry" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllIndustry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllIndustryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllClientType_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientType" />
+  </wsdl:message>
+  <wsdl:message name="ICommonService_getAllClientType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllClientTypeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICommonService">
+    <wsdl:operation name="getAllState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getAllState" message="tns:ICommonService_getAllState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getAllStateResponse" message="tns:ICommonService_getAllState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStateByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getStateByID" message="tns:ICommonService_getStateByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getStateByIDResponse" message="tns:ICommonService_getStateByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllShippingMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getAllShippingMethod" message="tns:ICommonService_getAllShippingMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getAllShippingMethodResponse" message="tns:ICommonService_getAllShippingMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getAllMenu" message="tns:ICommonService_getAllMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getAllMenuResponse" message="tns:ICommonService_getAllMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuBySpecialMenuID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/GetUserMenuBySpecialMenuID" message="tns:ICommonService_GetUserMenuBySpecialMenuID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/GetUserMenuBySpecialMenuIDResponse" message="tns:ICommonService_GetUserMenuBySpecialMenuID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuByGroupID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/GetUserMenuByGroupID" message="tns:ICommonService_GetUserMenuByGroupID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/GetUserMenuByGroupIDResponse" message="tns:ICommonService_GetUserMenuByGroupID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addSuggestCourse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/addSuggestCourse" message="tns:ICommonService_addSuggestCourse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/addSuggestCourseResponse" message="tns:ICommonService_addSuggestCourse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSuggestCourse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/updateSuggestCourse" message="tns:ICommonService_updateSuggestCourse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/updateSuggestCourseResponse" message="tns:ICommonService_updateSuggestCourse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSuggestCourse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/deleteSuggestCourse" message="tns:ICommonService_deleteSuggestCourse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/deleteSuggestCourseResponse" message="tns:ICommonService_deleteSuggestCourse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSuggestCoursesByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/GetAllSuggestCoursesByOrganizationID" message="tns:ICommonService_GetAllSuggestCoursesByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/GetAllSuggestCoursesByOrganizationIDResponse" message="tns:ICommonService_GetAllSuggestCoursesByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedSuggestCourses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/GetAllPagedSuggestCourses" message="tns:ICommonService_GetAllPagedSuggestCourses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/GetAllPagedSuggestCoursesResponse" message="tns:ICommonService_GetAllPagedSuggestCourses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSuggestCourseByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getSuggestCourseByID" message="tns:ICommonService_getSuggestCourseByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getSuggestCourseByIDResponse" message="tns:ICommonService_getSuggestCourseByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addEnterprise">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/addEnterprise" message="tns:ICommonService_addEnterprise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/addEnterpriseResponse" message="tns:ICommonService_addEnterprise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterprise">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/updateEnterprise" message="tns:ICommonService_updateEnterprise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/updateEnterpriseResponse" message="tns:ICommonService_updateEnterprise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getEnterpriseByID" message="tns:ICommonService_getEnterpriseByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getEnterpriseByIDResponse" message="tns:ICommonService_getEnterpriseByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteEnterpriseByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/deleteEnterpriseByID" message="tns:ICommonService_deleteEnterpriseByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/deleteEnterpriseByIDResponse" message="tns:ICommonService_deleteEnterpriseByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseByEnterpriseClientName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getEnterpriseByEnterpriseClientName" message="tns:ICommonService_getEnterpriseByEnterpriseClientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getEnterpriseByEnterpriseClientNameResponse" message="tns:ICommonService_getEnterpriseByEnterpriseClientName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getEnterpriseAll" message="tns:ICommonService_getEnterpriseAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getEnterpriseAllResponse" message="tns:ICommonService_getEnterpriseAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllIndustry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getAllIndustry" message="tns:ICommonService_getAllIndustry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getAllIndustryResponse" message="tns:ICommonService_getAllIndustry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientType">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonService/getAllClientType" message="tns:ICommonService_getAllClientType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonService/getAllClientTypeResponse" message="tns:ICommonService_getAllClientType_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICommonService" type="tns:ICommonService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllState">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getAllState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStateByID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getStateByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllShippingMethod">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getAllShippingMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMenu">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getAllMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuBySpecialMenuID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/GetUserMenuBySpecialMenuID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuByGroupID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/GetUserMenuByGroupID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSuggestCourse">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/addSuggestCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSuggestCourse">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/updateSuggestCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSuggestCourse">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/deleteSuggestCourse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSuggestCoursesByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/GetAllSuggestCoursesByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedSuggestCourses">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/GetAllPagedSuggestCourses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSuggestCourseByID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getSuggestCourseByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEnterprise">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/addEnterprise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterprise">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/updateEnterprise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseByID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getEnterpriseByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEnterpriseByID">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/deleteEnterpriseByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseByEnterpriseClientName">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getEnterpriseByEnterpriseClientName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterpriseAll">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getEnterpriseAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllIndustry">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getAllIndustry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllClientType">
+      <soap:operation soapAction="http://tempuri.org/ICommonService/getAllClientType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonService">
+    <wsdl:port name="BasicHttpBinding_ICommonService" binding="tns:BasicHttpBinding_ICommonService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

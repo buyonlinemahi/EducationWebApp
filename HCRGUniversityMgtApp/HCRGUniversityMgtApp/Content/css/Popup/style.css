@@ -1,0 +1,238 @@
+/***
+ * Created by: Mienard Lumaad
+ * Date: May 15, 2012
+ * Website: http://themepixels.com/
+***/
+
+@import url('../fonts/roboto.css');
+@import url('plugins/jquery.alerts.css');
+@import url('plugins/uniform.tp.css');
+@import url('plugins/jquery.ui.css');
+@import url('plugins/jquery.ui.autocomplete.css');
+@import url('plugins/fullcalendar.css');
+@import url('plugins/colorbox.css');
+@import url('plugins/colorpicker.css');
+@import url('plugins/jquery.jgrowl.css');
+@import url('plugins/jquery.tagsinput.css');
+@import url('plugins/ui.spinner.css');
+@import url('plugins/jquery.chosen.css');
+
+
+/***** 1. RESET STYLE *****/
+/**************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+/***** 11. CENTER CONTENT STYLES *****/
+/*************************************/
+
+
+.centercontent { position: relative; }
+.centercontent .pagetitle { color:#fff;margin:20px 20px 20px 20px; padding:10px;background:#32415a; }
+.centercontent .pagedesc { margin: 0 20px; }
+.centercontent .hornav { padding: 0 20px; }
+
+.withmenucoll .centercontent { margin-left: 56px; }
+.withmenucoll2 .centercontent { margin-left: 36px; }
+
+
+/***** 12. MAIN CONTENT STYLES *****/
+/***********************************/
+
+
+.contentwrapper { padding: 0px 20px 20px 20px ;margin-left:10px; }
+.contentwrapper p { margin: 20px 0; }
+.subcontent { position: relative; }
+/***** 38. CUSTOM STYLES *****/
+/*****************************/
+
+
+
+.marginbottom0 { margin-bottom: 0; }
+.nomargintop { margin-top: 0; }
+.lineheight21 { line-height: 21px; }
+.floatright { float: right; }
+.noradiusright, form input.noradiusright { 
+	-moz-border-radius: 2px 0 0 2px; 
+	-webkit-border-radius: 2px 0 0 2px; 
+	border-radius: 2px 0 0 2px; 
+}
+/***** 39. GALLERY STYLES *****/
+/******************************/
+
+
+
+.imagelist { list-style: none; }
+.imagelist li { 
+	float: left; padding: 5px; margin: 0 20px 20px 0; background: #fff; border: 1px solid #ddd; -moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; border-radius: 2px; 
+}
+.imagelist li:hover { border-color: #ccc; }
+.imagelist li img { display: block; margin-bottom: 10px; width: 230px; }
+.imagelist li span { display: block; text-align: right;}
+.imagelist li span a { vertical-align: middle; }
+.imagelist li span a.name { font-weight: bold; float: left; color: #999; }
+.imagelist li span a.name:hover { color: #333; text-decoration: none; }
+.imagelist li span a.edit, .imagelist li span a.view, .imagelist li span a.delete { 
+	display: inline-block; width: 16px; height: 16px; cursor: pointer; margin-left: 5px; vertical-align: middle; opacity: 0.5;
+}
+.imagelist li span a.edit:hover, .imagelist li span a.view:hover, .imagelist li span a.delete:hover { opacity: 1; }
+.imagelist li span a.edit { background: url(../imgs/icons/editor.png); }
+.imagelist li span a.view { background: url(../imgs/icons/glass.png); }
+.imagelist li span a.delete { background: url(../imgs/icons/trash.png); }
+
+.photoEdit { width: 480px; }
+.photoEdit h3 { font-size: 18px; }
+.notifyMessage { padding: 7px 10px; font-weight: bold; margin: 10px 0; display: none; }
+.notifySuccess { border: 1px solid #C1D779; background: #EFFEB9; display: block; }
+.notifyError { border: 1px solid #E18B7C; background: #FAD5CF; display: block; }
+
+
+
+
+/***** 42. MEDIA QUERIES *****/
+/*****************************/
+
+
+@media screen and (max-width: 1024px) {
+	
+		
+
+	
+	/* GALLERY */
+	.imagelist li img { width: 210px; }
+}
+
+
+#popup_container {
+    background: none repeat scroll 0 0 #ddd;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: #666;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    max-width: 600px;
+    min-width: 300px;
+    padding: 5px !important;
+}
+#popup_title {
+    background: none repeat scroll 0 0 #32415a;
+    color: #fff;
+    cursor: default;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 21px;
+    margin: 0;
+    padding: 10px;
+}
+#popup_content {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #fcfcfc;
+    border-color: -moz-use-text-color #ccc #ccc;
+    border-image: none;
+    border-right: 1px solid #ccc;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    margin: 0;
+    padding: 10px;
+}
+#popup_message {
+    margin: 20px 0;
+}
+#popup_panel {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+#popup_panel input {
+    min-width: 100px;
+    text-align: center;
+}
+#popup_prompt {
+    background: none repeat scroll 0 0 #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px #eee inset;
+    color: #666;
+    margin: 5px 0;
+    padding: 7px 5px;
+}
+#popup_prompt:focus {
+    background: none repeat scroll 0 0 #fff;
+}
+#popup_overlay {
+    background: none repeat scroll 0 0 #000 !important;
+    opacity: 0.5 !important;
+}
+#popup_ok, #popup_cancel {
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 15px;
+}
+#popup_ok, #popup_cancel {
+    box-shadow: 1px 1px 2px #eee;
+    cursor: pointer;
+    font-family: "RobotoCondensed",Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+}
+#popup_ok:hover, #popup_ok:active, #popup_cancel:hover, #popup_cancel:active {
+    background-position: 0 -39px;
+}
+#popup_ok {
+    background: none repeat scroll 0 0 #eb862d;
+    border: 1px solid #c2691a;
+    color: #fff;
+    font-weight: bold;
+}
+#popup_ok:hover {
+    background: none repeat scroll 0 0 #fb9a45;
+}
+#popup_cancel {
+    background: none repeat scroll 0 0 #eee;
+    border: 1px solid #ccc;
+    color: #333;
+    text-shadow: 1px 1px #f7f7f7;
+}
+#popup_cancel:hover {
+    background-color: #ddd;
+    border: 1px solid #bbb;
+}
+#popup_prompt {
+    width: 270px !important;
+}
+.prodhead
+{
+    margin:20px 20px 20px 0px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

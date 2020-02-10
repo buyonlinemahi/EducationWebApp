@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "MyEducationAccountHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="divMyEducationAccountHistory">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title mtbom-15">
+                    <h2>Account History</h2>
+                </header>
+                <a id="backbutton" href="/MyEducation/" class="bts"><span class="glyphicon glyphicon-chevron-left round back-to-courses"></span><span class="hide-mobile">Back to All Courses</span></a>
+                <a onclick='setTimeout(PrintDiv,100)' href="#">
+                    <img id="ImgPrintNewDetail" src="~/Content/img/print-icon.png" class="img-responsive pull-right hide-mobile" />
+                </a>
+
+
+  </div>
+            <div class="clearfix"></div>
+            <br />
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 marginbottom20">
+<div id="divHistory" class="margin5">
+                    <div class="table-responsive height-400">
+                <table class="table border-x1 box-shadow-bot" style="background: #fcfcfc;">
+                            <thead>
+                    <tr class="edu-tablehead teble-row border-right border-left border-bottom">
+                                    <th class="col-md-3 col-sm-4 text-left paddingleft10 padding10">Course Name</th>
+                                    <th class="col-md-2 col-sm-3 text-left">Course Price</th>
+                                    <th class="col-md-2 col-sm-3 text-left">Purchase Date</th>
+                                    <th class="col-md-3 col-sm-4 text-left">Transaction Number</th>
+                                    <th class="col-md-2 col-sm-3 text-left">Payment Status</th>
+                    </tr>
+                            </thead>
+                    <tbody>
+                        <!--ko if:MyEducationAccountHistoryResults!= null-->
+                        <!-- ko foreach:MyEducationAccountHistoryResults -->
+                        <tr class="teble-row">
+                                    <td class="col-md-3 col-sm-4 text-left">
+                                <span data-bind="text:CourseName" />
+                            </td>
+
+                            <!--ko if:UserAllAccessPassID()=='0'-->
+                                    <!--ko if:Price()!='0'-->
+                                    <td class="col-md-2 col-sm-3 text-left"><span data-bind="text:'$'+Price.extend({numeric:2})()" /></td>
+                                    <!--/ko-->
+                                    <!--ko if:Price()=='0'-->
+                                    <td class="col-md-2 col-sm-3 text-left"><span>FREE</span></td>
+                            <!--/ko-->
+                            <!--/ko-->
+                                    <td class="col-md-2 col-sm-3 text-left">
+                                <span data-bind="text:PurchaseDate" />
+                            </td>
+                                    <td class="col-md-2 col-sm-3 text-left">
+                                    <span data-bind="text:TransactionNumber" />
+                                </td>
+                                    <td class="col-md-2 col-sm-3 text-left">
+                                    <span data-bind="text:PaymentStatus" />
+                                </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+              </table>
+</div>
+                </div>
+                @*New Grid*@
+                <div id="RecordAllForPrint" class="margin5" style="display: none;">
+                    <table class="table border-x1 box-shadow-bot" style="background: #fcfcfc;">
+
+                        <tr class="edu-tablehead teble-row border-right border-left border-bottom">
+                            <th class="col-sm-3">Course Name</th>
+                            <th class="col-sm-2">Price</th>
+                            <th class="col-sm-2">Date</th>
+                            <th class="col-sm-3">Transaction #</th>
+                            <th class="col-sm-2">Status</th>
+                        </tr>
+                        <tbody>
+                            <!--ko if:MyEducationAccountHistoryPrintResults!= null-->
+                            <!-- ko foreach:MyEducationAccountHistoryPrintResults -->
+                            <tr class="teble-row">
+                                <td class="col-sm-3 text-left">
+                                    <span data-bind="text:CourseName" />
+                                </td>
+                                    <!--ko if:Price()!='0'-->
+                                        <td class="col-sm-2 text-left"><span data-bind="text:'$'+Price.extend({numeric:2})()" /></td>
+                                    <!--/ko-->
+                                    <!--ko if:Price()=='0'-->
+                                        <td class="col-sm-2 text-left"><span>FREE</span></td>
+                                    <!--/ko-->
+                                <td class="col-sm-2 text-left">
+                                    <span data-bind="text:PurchaseDate" />
+                                </td>
+                               <td class="col-sm-3 text-left">
+                                    <span data-bind="text:TransactionNumber" />
+                                </td>
+                                  <td class="col-sm-2 text-left">
+                                    <span data-bind="text:PaymentStatus" />
+                                </td>
+                            </tr>
+                            <!--/ko-->
+                            <!--/ko-->
+                        </tbody>
+                    </table>
+                </div>
+                <nav class="margin-left">
+                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                </nav>
+            </div>
+            <!-- col-sm-7 -->
+        </div>
+        <!-- row -->
+        <div class="clearfix"></div>
+        <br />
+    </div>
+</div>
+@section scripts{
+<script src="~/Scripts/jQuery.print.js"></script>
+    <script src="~/Scripts/knockout/viewmodel/views/MyEducation/MyEducationAccountHistoryViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-extenders.js")"></script>
+ 
+    <script src="~/Scripts/knockout/ko.pager.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var myEducationAccountHistoryGridViewModel = new MyEducationAccountHistoryGridViewModel();
+        myEducationAccountHistoryGridViewModel.Init(model);
+        ko.applyBindings(myEducationAccountHistoryGridViewModel, $("#divMyEducationAccountHistory").get(0));    
+        function PrintDiv() {
+            
+            var WinPrint = window.open('', '', 'left=0,top=0,width=1500,height=1000,toolbar=0,scrollbars=yes,status=0');
+            var prtContent = document.getElementById("RecordAllForPrint");
+            WinPrint.document.write('<html><head><title>Account History</title><style type="text/css"> body{padding:20px;overflow: scroll;}></style> <link rel="stylesheet" href="/Content/css/bootstrap.min.css">    <link rel="stylesheet" href="/Content/css/bootstrap-theme.min.css"> <link href="/Content/css/bootstrapValidator.css" rel="stylesheet" />    <link rel="stylesheet" href="/Content/css/main.css">    <link href="/Content/css/e-commerce.css" rel="stylesheet" />    <link href="/Content/css/bootstrap-theme.min.css" rel="stylesheet" />    <link rel="stylesheet" href="/Content/css/font-style.css">    <link rel="stylesheet" href="/Content/css/font-awesomes.css"></head><body onload=window.print();window.close();>');         
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.write('</body></html>');
+            WinPrint.document.close();
+            WinPrint.focus();
+          
+        }
+    </script>
+
+
+
+
+}
+

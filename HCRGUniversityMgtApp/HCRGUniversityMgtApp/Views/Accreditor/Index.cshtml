@@ -1,0 +1,130 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+<!--start row -->
+@section header{
+    <a class="navbar-brand" href="#">Accreditor Management</a>
+}
+<div id="divAddAccreditor">
+
+    <div class="row">
+        <div class="panel-wrapper">
+            <div class="panel panel-default">
+                <div class="panel-heading">Add New</div>
+                @using (Html.BeginForm(GlobalConst.Actions.AccreditorController.Add, GlobalConst.Controllers.Accreditor, FormMethod.Post, new
+{
+    id = "frmAddAccreditor",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddAccreditorDetailSuccess(responseText);},beforeSubmit : AccreditorInfoFormBeforeSubmit ,clearForm : true}"
+}))
+                {
+                    <div id="divAccreditor" class="row mtb-10">
+                        <div class="col-md-2 col-sm-3">
+                            <label> Accreditor Name :</label>
+                        </div>
+                        <div class="col-md-5 col-sm-9">
+                            <input type="hidden" name="AccreditorID" id="hdAccreditorID" data-bind="value:AccreditorID" />
+                            <input type="hidden" name="IsActive" id="hdIsActive" data-bind="value:IsActive" />
+                             <input type="hidden" name="OrganizationName" id="hdOrganizationName" data-bind="value: OrganizationName" />
+                            <input type="hidden" name="OrganizationID" id="OrganizationID" data-bind="value: OrganizationID" />       
+                            <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" maxlength="25" class="form-control" required="required" data-bind="value:AccreditorName,jqBootstrapValidation: {}" name="AccreditorName" placeholder="Title">
+                        </div>
+                        <div class="col-md-2 col-sm-12 mrtb-10">
+                        <button type="submit" class="btn btn-default pul-rht-r">Save</button>
+                    </div>
+                       <hr />
+                          </div>
+                    
+                }
+              <!--ko if:IsHCRGAdmin() == true-->
+                 <div class="row mtb-10">
+                                <div class="col-md-2 col-sm-3">
+                                    <label>Organizations:</label>
+                                </div>
+                                <div class="col-md-5 col-sm-9">
+                                    <div class="form-group">
+                                        <select id="DrpOrgID"  class="form-control"  data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                          <input type="hidden" id="hdfOrgID"  />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-12 padd-l0">
+                             <button type="button" id="btnSearch" class="btn btn-default pul-rht-r"  data-bind="click: function(){ $root.SearchAccreditor()}">Search</button>
+                                </div>
+                            </div>
+                  <!--/ko-->
+
+              <div class="panel-body">
+                  <div class="panel panel-default">
+                        <div class="panel-heading">Results</div>
+
+                        <!-- Table -->
+                        <div class="table-responsive height-400">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-4 col-sm-4"> Accreditor Name </th>
+                                    <th class="col-md-4 col-sm-4">Organization</th>
+                                    <th class="col-md-4 col-sm-4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                <!--ko if:AccreditorResults!= null-->
+                                <!-- ko foreach:AccreditorResults -->
+                                <tr>
+                                    <td class="text-justify col-md-4 col-sm-4">
+                                        <span data-bind="text:AccreditorName" />
+                                    </td>
+                                     <td class="text-justify col-md-4 col-sm-4">
+                                        <span data-bind="text:OrganizationName" />
+                                    </td>
+                                    <td class="col-md-4 col-sm-4">
+                                        <a href="#" class="inner-content-link blue" style="color: #2b2b2b" data-bind="click:$root.ViewAccreditorLineItems">View</a> &nbsp;&nbsp;
+                                        <a href="#" class="inner-content-link blue" style="color: #2b2b2b" data-bind="click:$root.DeleteAccreditorLineItems"><span data-bind="text:IsActive" /></a>
+                                        <input type="hidden" name="AccreditorID" id="hdfAccreditorID" data-bind="value:AccreditorID" />
+                                        <input type="hidden" name="IsActive" id="hdfIsActive"  />
+                                    </td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                       </div>
+                 </div>
+                    <div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Accreditor/AccreditorResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var accreditorViewModel = new AccreditorViewModel();
+        accreditorViewModel.Init(model);
+        ko.applyBindings(accreditorViewModel, $("#divAddAccreditor").get(0));
+    </script>
+   @* <script type="text/javascript">
+        if ($('#main').hasScrollBar()) {
+            setgrdDesign();
+        }
+    function setgrdDesign() {
+        if ($('#main').hasScrollBar()) {
+            $('#main tr td').each(function(index){
+                var className = this.className.match(/paddingleft\d+/);
+                if(className !=null){
+                    $(this).removeClass(className[0]);
+                }
+                $(this).addClass("paddingleft45");
+            });
+        }
+    }
+  
+    </script>*@
+
+}

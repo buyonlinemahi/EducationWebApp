@@ -1,0 +1,253 @@
+﻿@using System.Web.Script.Serialization
+<link href="~/Content/css/calendar/calendar.css" rel="stylesheet" />
+
+<div class="container">
+    <hr>
+    <div id="calendar">
+
+    </div>
+    <div id="CalendarList">
+        <input type="hidden" id="hidStartTime" />
+        <input type="hidden" id="hidEndTime" />
+        <input type="hidden" id="hidSkip" data-bind="value:Skip" />
+        <input type="button" id="btnEvent" data-bind="click:$root.GetEventList" style="display:none;" />
+        <!--ko if:eventListPaaging!= null-->
+        <!-- ko foreach:eventListPaaging -->
+        <div id="NonEmptyGrid" class="col-sm-12 greyclr padding10 marginbottom10 bordergrey">
+            <div class="col-sm-1 padding10">
+                <div class="calenderlistdate">
+                    <span class="monthfont" data-bind="text:start.substring(0,3)"></span><br />
+                    <span class="datefont" style="font-weight:bold;" data-bind="text:start.substring(3,6)"></span>
+                </div>
+            </div>
+            <div class="col-sm-11 font-16 ">
+
+                <!-- ko if:eventType() == 'OnSiteCourse'-->
+                <a data-bind="attr:{href:coursePageUrl}"><span class="monthfont" data-bind="text:EventCourseNews()"></span></a><br />
+                <span data-bind="text:CoursePresenterName()"></span>
+                <!--/ko-->
+                <!-- ko if:eventType() == 'News' || eventType() == 'EventCourse' -->
+                <a data-bind="attr:{href:coursePageUrl}"><span class="monthfont" data-bind="text:title()"></span></a><br />
+                <span data-bind="text:eventDesc().substring(0,400)"></span>
+                <!--/ko-->
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!--/ko-->
+        <!--/ko-->
+        <!--ko if:eventListPaaging()== null || eventListPaaging().length==0-->
+        <div id="EmptyGrid" style="display:none;" class="col-sm-12 greyclr padding10 marginbottom10 bordergrey">
+
+            <div class="col-sm-12 font-16 fc-header-center">
+                <h2>No Events</h2>
+            </div>
+        </div>
+        <!--/ko-->
+
+        <div id="pagingNav">
+            <input type="hidden" name="hidSkip" data-bind="value:Skip" />
+            <nav class="margin-left">
+                @Html.Partial("~/Views/Shared/_Paging.cshtml")
+            </nav>
+        </div>
+    </div>
+
+    <button type="button" id="coursePopUp" data-target="#courseDetail" data-toggle="modal" class="btn submit-btn clearfix" style="visibility:hidden;"></button>
+</div>
+@section scripts{
+
+    <script src="~/Scripts/calendar/fullcalendar.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.2.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Calendar/CalendarViewModel.js")"></script>
+    <script>
+        $(document).ready(function () {
+            var events = "/Calendar/getEvents/";
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'month'
+                },
+                editable: false,
+                //events: '/Calendar/getEvents/',
+                eventClick: function (calEvent, jsEvent, view) {
+                    if (calEvent.eventType == 'OnSiteCourse')
+                        ShowOnSiteCoursePopup(calEvent);
+                    else
+                        ShowEventPopup(calEvent);
+                }
+            });
+
+            $('#CalendarList').show();
+            $('.fc-content').css('display','none');
+
+
+            $('#btnCalanderView').click(function () {
+                $('#calendar').fullCalendar('removeEventSource',events);
+                $('#calendar').fullCalendar('removeEvents');
+                if ($('#btnCalanderView').text() == 'Calander View') {
+                   
+                    $('.fc-content').css('display','block');
+                    $('#CalendarList').css('display','none');
+                    $('#btnCalanderView').text("List View");
+                    $('#calendar').fullCalendar( 'addEventSource', events);
+                }
+                else {
+                    $('.fc-content').css('display','none');
+                    $('#CalendarList').css('display','block');
+                    $('#btnCalanderView').text("Calander View");
+
+                }
+            });
+
+            $('.fc-button-next').click(function () {
+                goNext();
+            });
+
+            function goPrevius()
+            {
+                var StartDate =  new Date('01 ' + $('.fc-header-title').text());
+                var EnddDate = new Date('01 ' + $('.fc-header-title').text());
+                var startDate = new Date(StartDate.setMonth(StartDate.getMonth()));
+                var endDate = new Date(EnddDate.setDate(EnddDate.getDate(EnddDate.setMonth(EnddDate.getMonth() + 1)) - 1));
+                $('#hidStartTime').val(startDate.toDateString("mm-dd-yyyy"));
+                $('#hidEndTime').val(endDate.toDateString("mm-dd-yyyy"));
+                $('#btnEvent').click();
+            }
+
+            function goNext()
+            {
+                var StartDate = new Date('01 ' + $('.fc-header-title').text());
+                var EnddDate = new Date('01 ' + $('.fc-header-title').text());
+                var startDate = new Date(StartDate.setMonth(StartDate.getMonth()));
+                var endDate = new Date(StartDate.setDate(StartDate.getDate(StartDate.setMonth(StartDate.getMonth() + 1)) - 1));
+                $('#hidStartTime').val(startDate.toDateString("mm-dd-yyyy"));
+                $('#hidEndTime').val(endDate.toDateString("mm-dd-yyyy"));
+                $('#btnEvent').click();
+            }
+
+            $('.fc-button-prev').click(function () {
+                goPrevius();
+            });
+        });
+
+        function ShowEventPopup(data) {
+            ClearEventPopup();
+            $('#EvenDesc').text(data.eventDesc);
+            $('#EventcourseNews').text(data.EventCourseNews);
+            $("#linkEvent").attr("href", data.coursePageUrl);
+            $("#coursePopUp").trigger('click');
+        }
+
+        function ClearEventPopup() {
+            $("#popUpHeader").text("Event Detail");
+            $("#divOnSiteCourse").css('display', 'none');
+            $("#divEvents").css('display', 'block');
+            $('#EvenDesc').text();
+            $('#EventcourseNews').text();
+        }
+
+        function ShowOnSiteCoursePopup(data) {
+            ClearOnSiteCoursePopup();
+            $('#courseName').text(data.title);
+            $('#startTime').text(data.courseStartTime);
+            $('#courseLocation').text(data.CourseLocation);
+            $('#coursePresenter').text(data.CoursePresenterName);
+            $("#linkCourse").attr("href", data.coursePageUrl);
+            $("#coursePopUp").trigger('click');
+        }
+
+        function ClearOnSiteCoursePopup() {
+            $("#popUpHeader").text("Course Detail");
+            $("#divOnSiteCourse").css('display', 'block');
+            $("#divEvents").css('display', 'none');
+            $('#courseName').text();
+            $('#startTime').text();
+            $('#courseLocation').text();
+            $('#coursePresenter').text();
+        }
+
+
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var calendarViewModel = new CalendarViewModel(model);
+        ko.applyBindings(calendarViewModel, $("#CalendarList").get(0));
+        window.onload = function(){
+            var date = new Date();
+            $('#hidStartTime').val(new Date(date.getFullYear(), date.getMonth(), 1).toDateString("mm-dd-yyyy"));
+            $('#hidEndTime').val(new Date(date.getFullYear(), date.getMonth() + 1, 0).toDateString("mm-dd-yyyy"));
+            $('#btnEvent').click();
+        };
+    </script>
+}
+
+<div class="modal fade" id="courseDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog position-center" style="top:20%;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">
+                    <span id="popUpHeader">
+                        Course Detail
+                    </span>
+                </h4>
+            </div>
+
+            <div class="panel-body">
+                <div id="divOnSiteCourse">
+                    <div class="col-lg-12">
+                        <div class="col-md-5 font-14"><label>Course Name:-</label> </div>
+
+                        <div class="col-md-7">
+                            <span aria-invalid="false" id="courseName"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="col-md-5 font-14"><label>Course Start Time:-</label> </div>
+
+                        <div class="col-md-7">
+                            <span aria-invalid="false" id="startTime"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-md-5 font-14"><label>Course Location:-</label> </div>
+
+                        <div class="col-md-7">
+                            <span aria-invalid="false" id="courseLocation"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-md-5 font-14"><label>Course Presenter:-</label> </div>
+
+                        <div class="col-md-7">
+                            <span aria-invalid="false" id="coursePresenter"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <span class="pull-left click-here"> Click <a id="linkCourse" href="#">here</a> for more detail</span>
+                </div>
+
+                <div id="divEvents">
+                    <div class="col-lg-12">
+                        <span aria-invalid="false" id="EvenDesc"></span>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <a id="linkEvent" href="#"><span aria-invalid="false" id="EventcourseNews"></span></a>
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

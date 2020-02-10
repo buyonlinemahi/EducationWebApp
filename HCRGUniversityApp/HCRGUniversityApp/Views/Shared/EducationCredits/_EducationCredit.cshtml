@@ -1,0 +1,56 @@
+﻿@using HCRGUniversityApp.Infrastructure.Global;
+<h4 class="active-link font-15  margintop20 fontbold">Certificate of Completion</h4>
+<div class="font-14 marginbottom20 textjustify">All <span id="spanWebsiteName"></span> courses come with a Certificate of Completion. Once all courses curriculum are complete, a certificate can be printed from your 'My Courses' page.</div>
+<h4 class="active-link font-15  margintop20" style="font-weight: 600">Continuing Education (CE) Credits</h4>
+<div class="font-14 marginbottom20 textjustify">Verify completed course hours by selecting CE credits for display on your certificate. Approved for the following</div>
+<div>
+    @if (@Model.EducationCredentialResults.Count > 0)
+    {
+  
+        foreach (HCRGUniversityApp.Domain.Models.EducationModel.EducationCredential viewmodelCredential in @Model.EducationCredentialResults)
+        {
+            <input type="radio" class="radioCredit" data-bind="jqBootstrapValidation:{}" value="@(viewmodelCredential.CredentialID)" name="CredentialID" />
+            <a href="#" onclick="opendivCertificateMessage(@(viewmodelCredential.CredentialID))" class="font-14"  data-target="#CertificateMessage-@(viewmodelCredential.CredentialID)" data-toggle="modal" data-backdrop="static" data-keyboard="false"  class="font-12"> @((viewmodelCredential.CredentialUnit).Value+ " " + viewmodelCredential.CredentialType + " " + viewmodelCredential.CredentialProgram) </a>
+            <br />
+        }  
+        foreach (HCRGUniversityApp.Domain.Models.EducationModel.EducationCredential viewmodelCredential in @Model.EducationCredentialResults)
+        {
+             <div style="height:0px !important;" class="hide-div hide"  id="@(viewmodelCredential.CredentialID)">
+                    <div class="panel-body">
+                        <div class="modal fade" id="CertificateMessage-@(viewmodelCredential.CredentialID)" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg position-center set-popup">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <button data-dismiss="modal" type="button" id="btnClose" class="close" aria-hidden="true" style="text-indent: 0;">&times;</button>
+                                        <h4>Certificate Message</h4>
+                                    </div>
+                                    <div class="margintop15 marginbottom15 marginleft15 marginright15" id="@(viewmodelCredential.CredentialID)">@(viewmodelCredential.CertificateMessage)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        }  
+    }
+    else
+    {
+        <h5 class="font-14 marginbottom10">There are no Continued Education Units available for this course.</h5>
+    }
+</div>
+
+@*<h5 class="font-14 marginbottom10 ">Select None if CE Credits are not requested.</h5>
+<p class="font-14 marginbottom20">
+
+
+    <input type="radio" class="radioCredit" data-bind="jqBootstrapValidation:{}" value="0" name="CredentialID" />&nbsp;&nbsp;None<br />
+</p>
+*@
+ 
+<script type="text/javascript">
+    function opendivCertificateMessage(id)
+    {
+        $(".hide").removeClass("show-div").addClass("hide-div");
+        $("#" + id).removeClass("hide-div").addClass("show-div");
+    }
+
+</script> 

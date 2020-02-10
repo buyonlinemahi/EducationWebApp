@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section header{
+    <a class="navbar-brand" href="#">Welcome to Internal Portal</a>
+}
+
+<style>
+    .nav1 {
+    width: 100%;   
+    height: 100%;
+    background: rgb(83, 95, 125);
+}
+</style>
+<div id="divDashboard">    
+   @* <div class="inner-content">
+        <!--start row -->
+        
+        <div style="width:100%;">
+            <ul class="nav nav-pills" style="width:100%; line-height: 0.8em; border-radius: 4px;">
+                <li id="liUsers" class="active"><a onclick="showNewUsers()" href="#">New Users</a></li>
+                <li id="liStore" ><a onclick="showStorePurchase()" href="#">Store Purchase</a></li>
+            </ul>
+
+            
+        </div>
+        <br />      
+        <div id="panelProductPurchase" class="row">       
+                <div class="panel-wrapper">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div id="divNewUsers">
+                            @{ Html.RenderPartial("~/Views/Shared/Home/_NewUsersPartial.cshtml");  }
+                        </div>
+                        <div id="divStorePurchase">
+                            @{ Html.RenderPartial("~/Views/Shared/Home/_ProductPurchasePartial.cshtml");  }
+                        </div>
+                        <div id="loaderDiv" class="loaderbg" style="display: none;">
+                            <input class="loader" id="loading" src="/Content/imgs/loading.gif" type="image">
+                        </div>
+                    </div>
+                </div>
+                <!-- row-end -->
+            </div>
+        <!-- /inner-wrapper -->
+    </div>  *@
+   
+    
+</div>
+@section scripts{    
+   @* <script src="~/Scripts/InputMaskViewModel.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/knockout/ko.PopupPager.js"></script>
+    <script src="@Url.Content("~/Scripts/knockout/ko.pager.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/Product/ProductpurchaseViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/User/NewUsersViewModel.js")"></script>
+
+    <script type="text/javascript">
+        var _NewUsersViewModel = new NewUsersViewModel();
+        ko.applyBindings(_NewUsersViewModel, $("#divNewUser").get(0));
+        var _ProductpurchaseViewModel = new ProductpurchaseViewModel();
+        ko.applyBindings(_ProductpurchaseViewModel, $("#divStorePurchase").get(0));
+
+        
+        function showNewUsers() {
+            $("#liStore").removeClass("active");
+            $("#liUsers").addClass("active");
+            $("#divStorePurchase").fadeOut(function () {                
+                $("#divNewUsers").fadeIn();                
+            });
+        }
+
+        function showStorePurchase() {           
+            $("#liUsers").removeClass("active");
+            $("#liStore").addClass("active");            
+            $("#divNewUsers").fadeOut(function () {                
+                $("#divStorePurchase").fadeIn();                
+            });
+            _ProductpurchaseViewModel.getProductPurchase(0);
+            
+        }        
+        
+        $(document).ready(function () {
+            $("#divStorePurchase").hide();
+        });
+    </script>*@
+    
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery.ui.theme.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.11.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery-ui-1.11.2.min.js"></script>
+    <script>
+        //$(function () {
+        //    var dates= $("#ProductShippedOn").datepicker({
+        //        minDate: "0",
+        //        maxDate: "+2Y",
+        //        defaultDate: "+1w",
+        //        dateFormat: 'mm/dd/yy',
+        //        numberOfMonths: 1,
+        //        onSelect: function (date) {
+        //            for (var i = 0; i < dates.length; ++i) {
+        //                if (dates[i].id < this.id)
+        //                    $(dates[i]).datepicker('option', 'minDate', date);
+        //                else if (dates[i].id > this.id)
+        //                    $(dates[i]).datepicker('option', 'maxDate', date);
+        //            }
+        //        }
+        //    });
+        //    $('#ProductShippedOn').mask('99/99/9999');
+        //});
+    </script>
+
+    <script type="text/javascript">       
+        $('.divDashboard').bind('contextmenu', function (e) {
+            return false;
+        });
+     
+</script>
+}
+
+
+
+

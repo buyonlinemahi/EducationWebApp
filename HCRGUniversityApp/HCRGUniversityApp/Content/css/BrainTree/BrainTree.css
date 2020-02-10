@@ -1,0 +1,200 @@
+﻿
+#cardForm {
+  height: 100%;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+/*--------------------
+PANEL FORM
+--------------------*/
+.panel {
+  background: #FFF;
+  width: 100%;
+
+}
+
+.panel__header {
+  background: #3F51B5;
+  color: #FFF;
+}
+
+
+
+.panel__footer {
+  background: #f3f3f3;
+}
+
+.panel__content {
+  padding: 1em 2em;
+  overflow: hidden;
+}
+
+.textfield--float-label {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+
+.hosted-field--label {
+  transform: translateY(0.4em);
+  font-size: 1.125em;
+  line-height: 32px;
+  transition: all .15s ease-out;
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  overflow: hidden;
+  margin-bottom: 0.5em;
+}
+.hosted-field--label.label-float, .hosted-field--label.filled, .hosted-field--label.invalid {
+  height: 33px;
+  margin-bottom: -1px;
+  transform: translate(0, 0);
+  font-size: 12px;
+  line-height: 15px;
+  text-overflow: ellipsis;
+  color: #2196F3;
+  transition: all 0.15s ease-out;
+}
+.hosted-field--label.filled {
+  color: rgba(0, 0, 0, 0.54);
+}
+.hosted-field--label.invalid {
+  color: #F44336;
+}
+
+span.icon {
+  position: relative;
+  top: 0.2em;
+  margin-right: 0.2em;
+}
+
+svg {
+  fill: #333;
+}
+
+.hosted-field {
+  height: 32px;
+  margin-bottom: 1em;
+  display: block;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87);
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+  outline: 0;
+  width: 100%;
+  font-size: 16px;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+}
+
+.pay-button {
+  background: #E91E63;
+  color: #fff;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 3px;
+  padding: 1em 3em;
+  font-size: 1em;
+  text-transform: uppercase;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/*--------------------
+BT HOSTED FIELDS SPECIFIC 
+--------------------*/
+.braintree-hosted-fields-focused {
+  border-bottom: 2px solid #3F51B5;
+  transition: all 200ms ease;
+}
+
+.braintree-hosted-fields-invalid {
+  border-bottom: 2px solid #E91E63;
+  transition: all 200ms ease;
+}
+
+/*---------------------
+Media Queries
+----------------------*/
+@media (max-width: 600px) {
+  html {
+    overflow: auto;
+  }
+
+  #cardForm {
+    height: auto;
+    margin: 2em;
+    font-size: 13px;
+  }
+
+  .panel {
+    width: 100%;
+  }
+
+  .textfield--float-label {
+    width: 100%;
+    float: none;
+    display: inline-block;
+  }
+
+  .pay-button {
+    width: 100%;
+  }
+}
+
+/*---------------------
+CVV Image
+----------------------*/
+
+
+#card-image {
+    position: absolute;
+    right: 1em;
+    width: 44px;
+    height: 28px;
+    background-image: url('../../img/card_Typesprite.png');
+    background-size: 86px 458px;
+    border-radius: 4px;
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    margin-bottom: 1em;
+    float: right;
+}
+#card-image.visa {
+  background-position: 0 -398px;
+}
+#card-image.master-card {
+  background-position: 0 -281px;
+}
+#card-image.american-express {
+  background-position: 0 -370px;
+}
+
+
+.card-shape, #cardForm.visa, #cardForm.master-card, #cardForm.american-express {
+  border-radius: 6px;
+  padding: 2em 2em 1em;
+}
+@media (max-width: 476px) {
+  .card-shape, #cardForm.visa, #cardForm.master-card, #cardForm.american-express {
+    padding: 2em 1.5em 1em;
+  }
+}
+
+#cardForm.visa {
+  color: #fff;
+  background-color: #0D4AA2;
+}
+#cardForm.master-card {
+  color: #fff;
+  background-color: #363636;
+}
+#cardForm.american-express {
+  color: #fff;
+  background-color: #007CC3;
+}
+

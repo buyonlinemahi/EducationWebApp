@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MyEducationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMyEducationService_GetMyEducationCompletedByUserIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationCompletedByUserIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationCompletedByUserIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationCompletedByUserIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationInProgressByUserIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationInProgressByUserIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationInProgressByUserIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationInProgressByUserIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationDetailByUserIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationDetailByUserIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationDetailByUserIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationDetailByUserIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationModulesDetailsByMEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationModulesDetailsByMEID" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationModulesDetailsByMEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationModulesDetailsByMEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationModulesDetailByMEMID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationModulesDetailByMEMID" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationModulesDetailByMEMID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationModulesDetailByMEMIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationModule" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationModuleTimeLeft_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationModuleTimeLeft" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationModuleTimeLeft_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationModuleTimeLeftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationExpiredByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationExpiredByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationExpiredByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationExpiredByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationCourseCompletedByMEMID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationCourseCompletedByMEMID" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationCourseCompletedByMEMID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationCourseCompletedByMEMIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationForCertificateByMEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationForCertificateByMEID" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_UpdateMyEducationForCertificateByMEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationForCertificateByMEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetCertificateDetailByMEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateDetailByMEID" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetCertificateDetailByMEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificateDetailByMEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationByID" />
+  </wsdl:message>
+  <wsdl:message name="IMyEducationService_GetMyEducationByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationByIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMyEducationService">
+    <wsdl:operation name="GetMyEducationCompletedByUserIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationCompletedByUserIDPaged" message="tns:IMyEducationService_GetMyEducationCompletedByUserIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationCompletedByUserIDPagedResponse" message="tns:IMyEducationService_GetMyEducationCompletedByUserIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationInProgressByUserIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationInProgressByUserIDPaged" message="tns:IMyEducationService_GetMyEducationInProgressByUserIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationInProgressByUserIDPagedResponse" message="tns:IMyEducationService_GetMyEducationInProgressByUserIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationDetailByUserIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationDetailByUserIDPaged" message="tns:IMyEducationService_GetMyEducationDetailByUserIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationDetailByUserIDPagedResponse" message="tns:IMyEducationService_GetMyEducationDetailByUserIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationModulesDetailsByMEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationModulesDetailsByMEID" message="tns:IMyEducationService_GetMyEducationModulesDetailsByMEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationModulesDetailsByMEIDResponse" message="tns:IMyEducationService_GetMyEducationModulesDetailsByMEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationModulesDetailByMEMID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationModulesDetailByMEMID" message="tns:IMyEducationService_GetMyEducationModulesDetailByMEMID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationModulesDetailByMEMIDResponse" message="tns:IMyEducationService_GetMyEducationModulesDetailByMEMID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationModule" message="tns:IMyEducationService_UpdateMyEducationModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationModuleResponse" message="tns:IMyEducationService_UpdateMyEducationModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationModuleTimeLeft">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationModuleTimeLeft" message="tns:IMyEducationService_UpdateMyEducationModuleTimeLeft_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationModuleTimeLeftResponse" message="tns:IMyEducationService_UpdateMyEducationModuleTimeLeft_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationExpiredByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationExpiredByUserID" message="tns:IMyEducationService_UpdateMyEducationExpiredByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationExpiredByUserIDResponse" message="tns:IMyEducationService_UpdateMyEducationExpiredByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationCourseCompletedByMEMID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationCourseCompletedByMEMID" message="tns:IMyEducationService_UpdateMyEducationCourseCompletedByMEMID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationCourseCompletedByMEMIDResponse" message="tns:IMyEducationService_UpdateMyEducationCourseCompletedByMEMID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationForCertificateByMEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationForCertificateByMEID" message="tns:IMyEducationService_UpdateMyEducationForCertificateByMEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/UpdateMyEducationForCertificateByMEIDResponse" message="tns:IMyEducationService_UpdateMyEducationForCertificateByMEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateDetailByMEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/GetCertificateDetailByMEID" message="tns:IMyEducationService_GetCertificateDetailByMEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/GetCertificateDetailByMEIDResponse" message="tns:IMyEducationService_GetCertificateDetailByMEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationByID" message="tns:IMyEducationService_GetMyEducationByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyEducationService/GetMyEducationByIDResponse" message="tns:IMyEducationService_GetMyEducationByID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMyEducationService" type="tns:IMyEducationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMyEducationCompletedByUserIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/GetMyEducationCompletedByUserIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationInProgressByUserIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/GetMyEducationInProgressByUserIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationDetailByUserIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/GetMyEducationDetailByUserIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationModulesDetailsByMEID">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/GetMyEducationModulesDetailsByMEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationModulesDetailByMEMID">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/GetMyEducationModulesDetailByMEMID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationModule">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/UpdateMyEducationModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationModuleTimeLeft">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/UpdateMyEducationModuleTimeLeft" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationExpiredByUserID">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/UpdateMyEducationExpiredByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationCourseCompletedByMEMID">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/UpdateMyEducationCourseCompletedByMEMID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationForCertificateByMEID">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/UpdateMyEducationForCertificateByMEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateDetailByMEID">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/GetCertificateDetailByMEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationByID">
+      <soap:operation soapAction="http://tempuri.org/IMyEducationService/GetMyEducationByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyEducationService">
+    <wsdl:port name="BasicHttpBinding_IMyEducationService" binding="tns:BasicHttpBinding_IMyEducationService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

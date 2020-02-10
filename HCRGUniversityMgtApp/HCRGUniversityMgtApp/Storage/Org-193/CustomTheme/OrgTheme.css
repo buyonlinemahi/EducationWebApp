@@ -1,0 +1,264 @@
+﻿.topbar
+{
+    background-color: #ab1135;
+}
+
+.topbar
+{
+    color: #ffffff;
+}
+
+.header-wrapper
+{
+    background-color: #ffcc00 !important;
+}
+
+.list-head
+{
+    background-color: #ab1135;
+}
+
+.caption
+{
+    color: #ab1135;
+}
+
+.caption
+{
+    background-color: #ffcc00;
+}
+
+.search-btn-l
+{
+    background-color: #ab1135;
+}
+
+.list-footer
+{
+    background-color: #ab1135;
+}
+
+.list-head1
+{
+    background-color: #ab1135;
+}
+
+.font20
+{
+    color: #428bca;
+}
+
+.faculty-btn
+{
+    background-color: #3366cc;
+}
+.faculty-btn:hover, .faculty-btn:focus, .faculty-btn:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ab1135 !important;
+}
+.news-list
+{
+    color: #a1a00e;
+}
+
+#mc_embed_signup .button
+{
+    color: #ffffff;
+}
+
+#mc_embed_signup .button
+{
+    background-color: #b8b8b8;
+}
+
+.navbar-inverse
+{
+    background-color: #a7a7a7;
+}
+
+.red-pagging
+{
+    background-color: #ab1135;
+}
+
+.red-pagging
+{
+    border-color: #ab1135;
+}
+
+.box-head
+{
+    background-color: #3366cc;
+}
+
+.colorblue
+{
+    color: #428bca;
+}
+
+.list-style
+{
+    color: #a69e0d;
+}
+
+.resources-redhead
+{
+    background-color: #ab1135;
+}
+
+.register-head
+{
+    background-color: #ab1135;
+}
+
+.active-link
+{
+    color: #ab1135;
+}
+
+.submit-btn
+{
+    background-color: #3366cc;
+}
+
+.caption
+{
+    color: #ab1135;
+}
+
+.course-btn
+{
+    background-color: #3366cc;
+}
+
+.course-btn
+{
+    color: #fff;
+}
+
+.learn-more
+{
+    background-color: #3366cc;
+}
+
+.learn-more
+{
+    color: #ffffff;
+}
+
+.faq-topic
+{
+    background-color: #ab1135;
+}
+
+.faq-links a
+{
+    color: #428bca;
+}
+
+.well
+{
+    background-color: #a7a7a7;
+}
+
+.product_price
+{
+    color: #ab1135;
+}
+
+.btnview
+{
+    background-color: #ab1135;
+}
+
+.register-head-1
+{
+    background-color: #ab1135;
+}
+
+.news-btn
+{
+    background-color: #da6b00;
+}
+
+.form-panel-heading
+{
+    background-color: #ab1135;
+}
+
+.loader
+{
+    color: #ab1135;
+}
+
+    .loader::before
+    {
+        background-color: #ab1135;
+    }
+
+    .loader::after
+    {
+        background-color: #ab1135;
+    }
+
+.course-row:hover
+{
+    color: #ab1135;
+}
+.progress-bar-danger
+{ background-image:-webkit-gradient(linear,left 0,left 100%,from(#d9534f),to(#c9302c));background-image:-webkit-linear-gradient(top,#d9534f,0%,#c9302c,100%);
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #ab1135;
+    border-color: #ab1135;
+    cursor: default;
+}
+.form-panel-heading:hover {
+    background-color: #ab1135;
+}
+.alertify-button {
+		background-color:#ab1135;
+	}
+	.alertify-button:hover,
+	.alertify-button:focus {
+		outline: none;
+		background-color:#ab1135;
+	}
+    .faculty-btn:hover, .faculty-btn:focus, .faculty-btn:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ab1135;
+}
+
+ .submit-btn:hover, .submit-btn:focus, .submit-btn:active {
+    background-color: #ab1135;
+}
+.input-payment
+{    color:#ab1135;}
+.form-panel-heading:hover {
+    background-color: #ab1135;
+}
+.monthfont, .datefont
+{
+    color: #ab1135 !important;
+}
+.pagination > li > a:active, .pagination > li > span
+{
+   background-color: #ab1135;
+   border: 1px solid #ab1135;
+}
+.fc-first th, .fc-event {
+      background:#ab1135;
+    }
+label i {
+    color: #ab1135;
+}
+.contact-list li i
+{color: #ab1135 !important;}.spanWebsiteName:before {  content: 'www.google.com';}
+                     .application-title div {                     
+                      box-sizing: border-box;
+                      margin-top: 4px;                     
+                      background: url(/Storage/Org-193/LogoImage/Org.png) no-repeat center; }

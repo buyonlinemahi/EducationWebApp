@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ProductService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+  <xs:complexType name="PagedProduct">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="Products" nillable="true" type="q1:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedProduct" nillable="true" type="tns:PagedProduct" />
+  <xs:complexType name="PagedProductPurchase">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="ProductPurchaseDetails" nillable="true" type="q2:ArrayOfProductPurchase" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedProductPurchase" nillable="true" type="tns:PagedProductPurchase" />
+  <xs:complexType name="PagedProductQuantity">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="ProductQuantityDetails" nillable="true" type="q3:ArrayOfProductQuantity" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedProductQuantity" nillable="true" type="tns:PagedProductQuantity" />
+  <xs:complexType name="PagedProductShippingDetail">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="ProductShippingDetails" nillable="true" type="q4:ArrayOfProductShippingDetail" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedProductShippingDetail" nillable="true" type="tns:PagedProductShippingDetail" />
+  <xs:complexType name="PagedProductPurchasesRecord">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="ProductPurchasesRecords" nillable="true" type="q5:ArrayOfProductPurchase" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedProductPurchasesRecord" nillable="true" type="tns:PagedProductPurchasesRecord" />
+</xs:schema>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Certification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="site-block-title">
+                <h2> Certifications</h2>
+            </header>
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    <!-- row -->
+    <div class="row">
+<div class="col-sm-12">
+        <div id="divCertificationResearch" style="text-align:justify;">          
+            @if (Model != null)
+            {
+                @Html.Raw(Model.CertificationContent)
+            }
+        </div>
+</div>
+        <!-- col-sm-4 -->
+    </div>
+    <!-- row -->
+</div>

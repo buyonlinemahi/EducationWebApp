@@ -1,0 +1,164 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="divOrgContactUs">
+
+ 
+
+
+
+  <div class="container">
+       <!--<div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title">
+
+                    <h2><span class="font-16" data-bind="text:OrganizationName"></span>
+                    </h2>
+
+                    <h2><span class="font-16"</span>
+                    </h2>
+
+                </header>
+            </div>
+         </div>-->
+        <!-- row -->
+        <div class="row">
+
+           <div class="col-sm-12">
+                <header class="site-block-title">
+                    <h2>Contact <span class="spanWebsiteName1"></span></h2>
+                </header>
+            </div>
+           
+            <div class="col-sm-4">
+                <span class="resources-redhead">Contact customer service</span>
+                <ul class="side-nav contact-list">
+                    <li>
+                        <img src="~/Content/img/mobile-icon.png" class="marginright10" />
+
+                        <span class="font-16" data-bind="text:Phone" class="phoneMaskformat"></span>
+
+
+                        <span class="font-16" class="phoneMaskformat"></span>
+
+                        </li>
+
+ <li>
+                        <img src="~/Content/img/fax-128.png" class="marginright10" />
+
+ <span class="font-16" data-bind="text:Fax" class="phoneMaskformat"></span>
+
+
+ <span class="font-16" class="phoneMaskformat"></span>
+
+                       </li>
+
+
+                    <li style="word-wrap:break-word;">
+                        <img src="~/Content/img/contact-email.png" class="marginright10" />
+
+ <span class="font-16" data-bind="text:EmailID"></span>
+
+ <span class="font-16"</span>
+
+                        </li>
+                   
+                </ul>
+                <p>
+                   
+            </div>
+            <!-- col-sm-4 -->
+            <div class="col-sm-4">
+                <span class="resources-redhead">Contact a Department</span>
+                <ul class="side-nav contact-list">
+                    <a href="@Url.Action(GlobalConst.Actions.CollegeController.JoinFaculty, GlobalConst.Controllers.College, null)" class="font-18">
+                        <li>
+                          <i class="fa fa-location-arrow rotate-45-right marginright10"></i>  <!-- <img src="~/Content/img/icons_rgb.png" class="marginright10" /> -->JOIN FACULTY
+                        </li>
+                    </a>
+
+    
+                    <a href="@Url.Action(GlobalConst.Actions.SuggestCourseController.Index, GlobalConst.Controllers.SuggestCourse, null)" class="font-18" >
+                        <li>
+                        <i class="fa fa-location-arrow rotate-45-right marginright10"></i> <!--<img src="~/Content/img/icons_rgb.png" class="marginright10" /> --> SUGGEST A COURSE
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <!-- col-sm-4 -->
+            <div class="col-sm-4">
+                <span class="resources-redhead">GENERAL INFORMATION</span>
+                
+                <ul class="side-nav contact-list">
+                  <a href="/Resource/FAQ/" class="font-18">
+                        <li>
+                       <i class="fa fa-location-arrow rotate-45-right marginright10"></i>  <!--<img src="~/Content/img/icons_rgb.png" class="marginright10" />-->Frequently Asked Questions
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <!-- col-sm-4 -->
+        </div>
+
+<div class="col-sm-4"> <br />
+<span class="glyphicon glyphicon-calendar font-16"></span>
+                 <span class="contactus-span">   <strong class="black-heading">HOURS OF OPERATION</strong><br />
+
+                 <span class="font-16" data-bind="text:OperationHour"></span><br />
+                <span class="font-16" data-bind="text:StartTime"></span>-<span class="font-16" data-bind="text:EndTime"></span>(Pacific)
+
+                 <span class="font-16"></span><br />
+   <p></p>           
+<span class="contactus-span">
+
+<img src="~/Content/img/locate.png"/>  <strong  class="black-heading">LOCATION</strong><br />
+
+<span class="spanWebsiteName1"></span>
+</br>
+<span class="font-16" data-bind="text:Address"></span>
+</br>
+<span class="font-16" data-bind="text:City"></span>
+</br>
+<span class="font-16" data-bind="text:StateName"></span>
+</br>
+<span class="font-16" data-bind="text:Zip"></span>
+
+<span class="font-16"></span>
+</br>
+<span class="font-16"></span>
+</br>
+<span class="font-16"></span>
+</br>
+<span class="font-16"></span>
+</br>
+<span class="font-16"></span>
+</br>
+
+</span>
+</div>
+        <!-- row -->
+    </div>
+
+    <!-- container -->
+   
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/Home/OrganizationContactUsViewModel.js")"></script>
+   <script src="~/Scripts/knockout/ko.pager.js"></script>
+  <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+   <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+<script src="~/Scripts/bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+     <link href="~/Content/ui/jquery-ui.css" rel="stylesheet" />
+  
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var organizationContactUsViewModel = new OrganizationContactUsViewModel();
+        organizationContactUsViewModel.Init(model);
+        ko.applyBindings(organizationContactUsViewModel, $("#divOrgContactUs").get(0));
+    </script>
+}

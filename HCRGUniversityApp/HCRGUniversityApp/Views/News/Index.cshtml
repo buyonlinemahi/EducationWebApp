@@ -1,0 +1,248 @@
+﻿@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    @*string path = @ViewBag.StoragePath + "NewsPhotos/";*@
+ string path =  @ViewBag.StoragePath+ GlobalConst.FolderName.Org + (@ViewBag.OrganizationID) + GlobalConst.ConstantChar.ForwardSlash + GlobalConst.FolderName.NewsPhotos+GlobalConst.ConstantChar.ForwardSlash;
+}
+@*<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">*@
+
+
+@Html.Partial("~/Views/Shared/_Loader.cshtml")
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="site-block-title">
+                <h2><span class="spanWebsiteName1"></span> News</h2>
+            </header>
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    <!-- row -->
+    <div id="divmainnews1">
+        <div class="row">
+            <div class="col-sm-3">
+                
+                <div id="divnewsSection">
+                    @Html.Partial("News/_NewsSectionPartial")
+
+                </div>
+              @*  <div id="mc_embed_signup" class="greyclr">
+                       <form accept-charset="UTF-8" action="//www.formget.com/mailget/signups/subscribe/Ijc0OTM0NyI_3D/immediate" id="mailget_signup_form" name="mailget_form" method="post" onsubmit="return v_mailget()" >
+                            <div>
+                            <div class="marginbottom10" style="padding-top:10px;color:white;font-size:14px;text-align:center;color:#808080;">Subscribe to the <div class="clearfix"></div><span class="spanWebsiteName1"></span> Newsletter</div>
+                            <input name="utf8" type="hidden" value="?"/>
+                            <input name="subs_set_url" type="hidden" value="http://www.allgatelearning.com/subscription"/>
+                            </div>
+                            <div class="mg-row">
+                            <input id="signup_name"  class="email form-control" name="subs_name" type="text" placeholder="Your Name" />
+                          </div>
+                          <div class="mg-row">
+                            <input id="signup_email" class="email form-control"  name="subs_email" type="email" placeholder="email@example.com" />
+                          </div>
+                          <div class="mg-row">
+                            <input style="width:97%;padding:0px !important;" type="submit" class="submit button buttone" value="Subscribe" id="submit_button" />
+                          </div>
+                        </form>
+
+                </div>*@
+            </div>
+            <!-- col-sm-3 -->
+            <div id="divmainnews">
+                <div class="col-sm-9">
+
+
+                    <ul id="myTab" class="nav nav-tabs tabbed-panel color-setting" role="tablist" data-bind="foreach: tabs">
+                        <!--ko if:feature().TabUrl=="All"-->
+                        <li class="active">
+                            <a role="tab" id="AllButton" data-toggle="tab" data-bind="attr: { href:'#'+feature().TabUrl}, click: $root.FilterNews" class="font-18">
+                                <img class="marginright5" data-bind="attr: { src:'/Content/img/' + feature().TabUrl+'.png'}" /><strong data-bind="text:feature().TabTitle"></strong>
+                            </a>
+                        </li>
+                        <!--/ko-->
+                        <!--ko if:feature().TabUrl!="All"-->
+                        <li>
+                            <a role="tab" data-toggle="tab" data-bind="attr: { href:'#'+feature().TabUrl}, click: $root.FilterNews" class="font-18">
+                                <img class="marginright5" data-bind="attr: { src:'/Content/img/' + feature().TabUrl+'.png'}" /><strong data-bind="text:feature().TabTitle"></strong>
+                            </a>
+                        </li>
+                        <!--/ko-->
+                    </ul>
+
+
+
+                    <div id="myTabContent" class="tab-content active">
+
+                        <div class="tab-pane fade in active"  id="All">
+
+                            <!--ko if:NewsResults!= null-->
+                            <!-- ko foreach:NewsResults -->
+                            <div class="clearfix paddingtop20">
+
+
+                                <!--ko if:NewsType()=="Photo"-->
+                                <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()}">
+                                    <img width="139px" height="100px" data-bind="attr:{ src:'@path'+ PhotoVideoTitle()}" class="pull-left marginright20" />
+
+                                </a>
+                                <!--/ko-->
+                                <!--ko if:NewsType()=="EditorPick"-->
+                                <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()}">
+                                    <img width="139px" height="100px" data-bind="attr: { src:'@path'+ PhotoVideoTitle()}" class="pull-left marginright20" />
+                                </a>
+                                <!--/ko-->
+                                <!--ko if:NewsType()=="Video"-->
+                                <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()}">
+                                    <img width="139px" height="100px" src="@path/video-none.jpg" class="pull-left marginright20" />
+                                </a>
+                                <!--/ko-->
+
+                                <h4 class="no-margin">
+                                    <strong>
+                                        <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()},text:NewsTitle" class="news-heading"></a>
+                                    </strong><span class="news-btn margintop5" data-bind="text:NewsSectionTitle"></span>
+                                </h4>
+                                <div data-bind="html: NewsDescription" style="text-align:justify;"></div>
+                                @*<p class="text-justify" data-bind="trimText:NewsDescription,trimTextLength: 400"></p>*@
+                                <p class="text-right border-bottom grey clearfix" data-bind="text:NewsDate"></p>
+                            </div>
+                            <!--/ko-->
+                            <!--/ko-->
+                        </div>
+
+                        <div class="tab-pane fade"  id="EditorPick">
+                            <!--ko if:NewsResults!= null-->
+                            <!-- ko foreach:NewsResults -->
+                            <!--ko if:NewsEditorPick()=="1"-->
+
+
+                            <div class="clearfix paddingtop20">
+
+                                <!--ko if:NewsType()=="Photo"-->
+                                <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()}">
+                                    <img width="139px" height="100px" data-bind="attr:{ src:'@path'+ PhotoVideoTitle()}" class="pull-left marginright20" />
+
+                                </a>
+                                <!--/ko-->
+                                <!--ko if:NewsType()=="Video"-->
+                                <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()}">
+                                    <img width="139px" height="100px" src="@path/video-none.jpg" class="pull-left marginright20" />
+                                </a>
+                                <!--/ko-->
+                                <h4 class="no-margin"><strong><a class="news-heading" data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()},text:NewsTitle"></a></strong><span class="news-btn margintop5" data-bind="text:NewsSectionTitle"></span></h4>
+                                <p class="text-justify" data-bind="trimText:NewsDescription,trimTextLength: 400"></p>
+                                <p class="text-right border-bottom grey clearfix" data-bind="text:NewsDate"></p>
+
+                            </div>
+
+                            <!--/ko-->
+                            <!--/ko-->
+                            <!--/ko-->
+                        </div>
+                        @*<div class="tab-pane fade paddingtop20 paddingbottom20 paddingright20 " id="Video">
+                            <!--ko if:NewsResults!= null-->
+                            <!-- ko foreach:NewsResults -->
+                            <!--ko if:NewsType()=="Video"-->
+                            <div class="clearfix paddingtop20">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12">
+                                        <div class="video-container marginbottom20">
+                                            <iframe width="560" height="315" data-bind="attr: { src: PhotoVideoTitle}" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <span class="col-lg-6 col-md-6 col-sm-6 col-xs-7 marginbottom195">
+                                        <span class="news-btn margintop5" data-bind="text:NewsSectionTitle"></span>
+
+                                    </span>
+                                    <span class="col-lg-6 col-md-6 col-sm-6 col-xs-5 marginbottom15 text-right-g">
+                                        <span class="margintop5 date_bottom" data-bind="text:NewsDate"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <h3 class="black-heading marginbottom10">
+                                    Video:<a class="news-heading" data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()},text:NewsTitle">
+                                    </a>
+                                </h3>
+                                <p class="text-justify" data-bind="trimText:NewsDescription,trimTextLength: 400"></p>
+                            </div>
+
+
+                            <!--/ko-->
+                            <!--/ko-->
+                            <!--/ko-->
+                        </div>
+                        <div class="tab-pane fade"  id="Photo">
+                            <!--ko if:NewsResults!= null-->
+                            <!-- ko foreach:NewsResults -->
+                            <!--ko if:NewsType()=="Photo"-->
+                            <div class="clearfix paddingtop20">
+                                <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()}">
+                                    <img width="139px" height="100px" data-bind="attr:{ src:'@path'+ PhotoVideoTitle()}" class="pull-left marginright20" />
+                                </a>
+                                <h4 class="no-margin"><strong><a class="news-heading" data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()},text:NewsTitle"></a></strong><span class="news-btn margintop5" data-bind="text:NewsSectionTitle"></span></h4>
+                                <p class="text-justify" data-bind="trimText:NewsDescription,trimTextLength: 400"></p>
+                                <p class="text-right border-bottom grey clearfix" data-bind="text:NewsDate"></p>
+                            </div>
+                            <!--/ko-->
+                            <!--/ko-->
+                            <!--/ko-->
+                        </div>*@
+
+                        <div class="tab-pane fade" id="NewsLetter" style="text-align:justify;">
+                            @if (Model.newsLetter != null)
+                            {
+                                @Html.Raw(Model.newsLetter.NewsLetterContent)
+                            }
+                          
+                            @*<!--ko if:NewsResults!= null-->
+                            <!-- ko foreach:NewsResults -->
+                            <!--ko if:NewsType()=="Photo"-->
+                            <div class="clearfix paddingtop20">
+                                <a data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()}">
+                                    <img width="139px" height="100px" data-bind="attr:{ src:'@path'+ PhotoVideoTitle()}" class="pull-left marginright20" />
+                                </a>
+                                <h4 class="no-margin"><strong><a class="news-heading" data-bind="attr: { href:'../News/NewsDetail?NewsID='+ EncryptedNewsID()+ '&NewsType='+NewsType()},text:NewsTitle"></a></strong><span class="news-btn margintop5" data-bind="text:NewsSectionTitle"></span></h4>
+                                <p class="text-justify" data-bind="trimText:NewsDescription,trimTextLength: 400"></p>
+                                <p class="text-right border-bottom grey clearfix" data-bind="text:NewsDate"></p>
+                            </div>
+                            <!--/ko-->
+                            <!--/ko-->
+                            <!--/ko-->*@
+                        </div>
+
+
+                    </div>
+                    <div id="pagingNav">
+                        <input type="hidden" name="hidSkip" data-bind="value:Skip" />
+                        <nav class="margin-left">
+                            @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                        </nav>
+                    </div>
+                </div>
+              
+            </div>
+            <!-- col-sm-9 -->
+        </div>
+        <!-- row -->
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/News/NewsDetailViewModel.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/knockout/ko.pager.js")"></script>
+ 
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var newsDetailViewModel = new NewsDetailViewModel();
+        newsDetailViewModel.Init(model);
+        ko.applyBindings(newsDetailViewModel, $("#divmainnews1").get(0));
+    </script>
+
+    @*Iscroll Start Here*@
+
+
+
+    @*Iscroll End Here*@
+
+}

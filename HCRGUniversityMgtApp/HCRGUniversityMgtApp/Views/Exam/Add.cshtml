@@ -1,0 +1,232 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+@section header{
+    <a class="navbar-brand" href="#">Exam</a>
+}
+<div id="divAddExamQuestion">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Add Exam</div>
+                    @using (Html.BeginForm(GlobalConst.Actions.ExamController.Add, GlobalConst.Controllers.Exam, FormMethod.Post, new
+                    {
+                        id = "frmAddExam",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddExamDetailSuccess(responseText);},beforeSubmit : ExamFormBeforeSubmit}"
+                    }))
+                    {
+                        <div>
+                            <div class="row mtb-20">
+                                <div class="col-md-2 col-sm-4 padd-0"><label>Exam Name:<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" class="form-control" id="txtExamName" required="required" name="Exam.ExamName" maxlength="500" data-bind="value:ExamName, enable:IsenableExamName,jqBootstrapValidation: {}" placeholder="Exam Name">
+                                        <input type="hidden" name="ExamQuestion.ExamQuestionID" data-bind="value:ExamQuestionID" />
+                                        <input type="hidden" id="ExamID" name="Exam.ExamID" data-bind="value:ExamID" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-20">
+                                <div class="col-md-2 col-sm-4 padd-0"><label>Question <span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" class="form-control" name="ExamQuestion.ExamQues" maxlength="1024" placeholder="Question" data-bind="value:ExamQues,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-20">
+                                <div class="col-md-2 col-sm-4 padd-0"><label> Answer Type <span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <select name="ExamQuestion.ExamAnswerType" id="drpExamAnswerType" class="form-control" required="required"
+                                                data-bind="options: ExamAnswerTypes, optionsText: 'AnswerTypeName',
+                                                     optionsValue: 'AnswerTypeValue',value: selectedItemId,
+                                                        optionsCaption: 'Select Any Option',
+                                                     jqBootstrapValidation: {}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="divMultipleChoice" style="display:none">
+                                <div class="row mtb-20">
+                                    <div class="col-md-2 col-sm-4 padd-0"><label>Choice A <span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                    <div class="col-md-5 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" class="form-control" name="ExamQuestion.ExamOptionA" maxlength="250" placeholder="Choice" data-bind="value:ExamOptionA,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-20">
+                                    <div class="col-md-2 col-sm-4 padd-0"><label>Choice B<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                    <div class="col-md-5 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" class="form-control" name="ExamQuestion.ExamOptionB" maxlength="250" placeholder="Choice" data-bind="value:ExamOptionB,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-20">
+                                    <div class="col-md-2 col-sm-4 padd-0"><label>Choice C<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                    <div class="col-md-5 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" class="form-control" name="ExamQuestion.ExamOptionC" maxlength="250" placeholder="Choice" data-bind="value:ExamOptionC,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-20">
+                                    <div class="col-md-2 col-sm-4 padd-0"><label>Choice D<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                    <div class="col-md-5 col-sm-8">
+                                        <div class="form-group">
+                                            <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" class="form-control" name="ExamQuestion.ExamOptionD" maxlength="250" placeholder="Choice" data-bind="value:ExamOptionD,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-20" id="examanswerID">
+                                    <div class="col-md-2 col-sm-4 padd-0"><label>Answer<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                    <div class="col-md-1 col-sm-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ExamQuestion.ExamAnswer" data-bind="checked: ExamAnswer, checkedValue: 'A',jqBootstrapValidation: {}" value="A" required="required">
+                                                A
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ExamQuestion.ExamAnswer" data-bind="checked: ExamAnswer, checkedValue: 'B',jqBootstrapValidation: {}" value="B" required="required">
+                                                B
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ExamQuestion.ExamAnswer" data-bind="checked: ExamAnswer, checkedValue: 'C',jqBootstrapValidation: {}" value="C" required="required">
+                                                C
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ExamQuestion.ExamAnswer" data-bind="checked: ExamAnswer, checkedValue: 'D',jqBootstrapValidation: {}" value="D" required="required">
+                                                D
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="divTrueorFalse" style="display:none;" >
+                                <div class="row mtb-20">
+                                        <div class="col-md-2 col-sm-4 padd-0"><label>Answer<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                  
+                                    <div class="col-md-5 col-sm-8">
+                                        <div class="form-group">
+                                            <div class="col-md-2 col-sm-4">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" required="required" name="ExamQuestion.ExamAnswerTrueFalse" data-bind="checked: ExamAnswerTrueFalse,jqBootstrapValidation: {}" value="true">
+                                                        True
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-4">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" required="required" name="ExamQuestion.ExamAnswerTrueFalse" data-bind="checked: ExamAnswerTrueFalse,jqbootstrapvalidation: {}" value="false">
+                                                        False
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <input type="submit" class="btn btn-default" value="Submit">
+                            </div>
+                        </div>
+                    }
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Exam Questions Items</div>
+                            <!-- Table -->
+                            <table class="table table-fixed-1 table-striped ">
+                                <thead>
+                                    <tr class="clearfix">
+                                        <th class="col-md-8 col-sm-7">Exam Question:</th>
+                                        <th class="col-md-2 col-sm-3">Answer Type:</th>
+                                        <th class="col-md-2 col-sm-2">Action</th>
+                                </thead>
+                                <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                    <!--ko if:ExamQuestions!= null-->
+                                    <!-- ko foreach:ExamQuestions -->
+                                    <tr class="clearfix">
+                                        <td class="col-md-8 col-sm-7"><span data-bind="text:ExamQues" /> </td>
+                                        <td class="col-md-2 col-sm-3"><span data-bind="text:ExamAnswerType" /> </td>
+                                        <td class="col-md-2 col-sm-2">
+                                            <a href="#" class="inner-content-link blue" style="color:#808080;" data-bind="click:$root.editExamQuestionLineItems">Edit</a>
+                                        </td>
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                    </div>
+                </div>
+            </div>
+            <!-- row-end -->
+        </div><!-- /inner-wrapper -->
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <link href="~/Content/ui/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/knockout/viewmodel/views/Exam/AddExamViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var addExamViewModel = new AddExamViewModel();
+        addExamViewModel.Init(model);
+        ko.applyBindings(addExamViewModel, $("#divAddExamQuestion").get(0));
+    </script>
+
+<script type="text/javascript">
+    function setgrdDesign() {
+        //if (!$('#main').hasScrollBar()) {
+        //    var className;
+        //    $('#main > tr').each(function() {
+        //        $(this).children('td').addClass(function (index) {
+        //            $(this).removeClass("marginleft10");
+        //            return 'paddingleft-none';
+        //        })
+        //    });
+        //}
+    }
+    jQuery(function($) {
+        $('#main')
+          .bind('afterShow', function() {
+              alert('afterShow');
+          })
+          .show(1000, function() {
+              //setgrdDesign();
+          })
+          .show();
+    });
+   
+</script>
+
+}

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+  <xs:element name="AddCollege">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="college" nillable="true" type="q1:College" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCollegeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCollegeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCollege">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="college" nillable="true" type="q2:College" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCollegeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCollegeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCollege">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="collegeID" type="xs:int" />
+        <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCollegeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollegeByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="collegeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollegeByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetCollegeByIDResult" nillable="true" type="q3:College" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCollegeWeb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCollegeWebResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllCollegeWebResult" nillable="true" type="q4:ArrayOfCollege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCollegeActiveWeb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCollegeActiveWebResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllCollegeActiveWebResult" nillable="true" type="q5:ArrayOfCollege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllCollege">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllCollegeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="getAllCollegeResult" nillable="true" type="q6:ArrayOfCollege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllCollegeActive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllCollegeActiveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="getAllCollegeActiveResult" nillable="true" type="q7:ArrayOfCollege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedCollege">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="clientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedCollegeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedCollegeResult" nillable="true" type="q8:PagedCollege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="_faculty" nillable="true" type="q9:Faculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddFacultyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="_faculty" nillable="true" type="q10:Faculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateFacultyResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedFaculty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+        <xs:element minOccurs="0" name="organizationID" type="xs:int" />
+        <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedFacultyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedFacultyResult" nillable="true" type="q11:PagedFaculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacultyById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacultyByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetFacultyByIdResult" nillable="true" type="q12:Faculty" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCollegeByOrganizationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_organizationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCollegeByOrganizationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllCollegeByOrganizationIDResult" nillable="true" type="q13:ArrayOfCollege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

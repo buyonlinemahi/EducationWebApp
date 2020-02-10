@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+  <xs:element name="AddCertificationTitleOption">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="_certificationTitleOption" nillable="true" type="q1:CertificationTitleOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCertificationTitleOptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCertificationTitleOptionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCertificationTitleOption">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="_certificationTitleOption" nillable="true" type="q2:CertificationTitleOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCertificationTitleOptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCertificationTitleOptionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCertificationTitleOption">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCertificationTitleOptionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCertificationTitleOptions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCertificationTitleOptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetAllCertificationTitleOptionsResult" nillable="true" type="q3:ArrayOfCertificationTitleOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCourseDropDownList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCourseDropDownListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetCourseDropDownListResult" nillable="true" type="q4:ArrayOfCourseNameDropDownList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCertificationTitleOptionsByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CertificationTitleOptionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCertificationTitleOptionsByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetCertificationTitleOptionsByIDResult" nillable="true" type="q5:CertificationTitleOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCertificationTitleOptionsByEducationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CertificationTitleOptionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCertificationTitleOptionsByEducationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="GetCertificationTitleOptionsByEducationIDResult" nillable="true" type="q6:CertificationTitleOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedCertificationTitleOption">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skip" type="xs:int" />
+        <xs:element minOccurs="0" name="take" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPagedCertificationTitleOptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" minOccurs="0" name="GetAllPagedCertificationTitleOptionResult" nillable="true" type="q7:PagedCertificationTitleOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

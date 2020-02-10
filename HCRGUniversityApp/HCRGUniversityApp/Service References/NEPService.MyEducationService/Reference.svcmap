@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bdae7e4a-9369-433f-a074-7aefcac42e49" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MyEducationService.xsd" MetadataType="Schema" ID="b77faba8-f591-4d2f-8894-476507812775" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MyEducationService1.xsd" MetadataType="Schema" ID="2221905b-70e3-4f07-8f25-6e8821080728" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MyEducationService.wsdl" MetadataType="Wsdl" ID="4450a49e-3207-43aa-9256-6d94942860f4" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?wsdl" />
+    <MetadataFile FileName="MyEducationService2.xsd" MetadataType="Schema" ID="04f7766a-b353-4f90-ac76-212fe63147f2" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MyEducationService.disco" MetadataType="Disco" ID="638995e3-8e2d-4dfb-87ff-1442a9ee1408" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?disco" />
+    <MetadataFile FileName="MyEducationService3.xsd" MetadataType="Schema" ID="20fa83cb-cbcd-4b4e-b983-a8d4901326d4" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/MyEducationService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ShoppingEducationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IShoppingEducationService_AddEducationToShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationToShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_AddEducationToShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationToShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateEducationToShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationToShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateEducationToShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationToShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_DeleteEducationFromShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationFromShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_DeleteEducationFromShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationFromShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetEducationShoppingCartByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationShoppingCartByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetEducationShoppingCartByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationShoppingCartByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetShoppingDetailsByShippingPaymentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShoppingDetailsByShippingPaymentID" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetShoppingDetailsByShippingPaymentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShoppingDetailsByShippingPaymentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_checkEducationinShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkEducationinShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_checkEducationinShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkEducationinShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_checkCoursePurchaseValidationByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkCoursePurchaseValidationByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_checkCoursePurchaseValidationByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkCoursePurchaseValidationByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_ResetShippingOrderQuentityStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetShippingOrderQuentityStock" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_ResetShippingOrderQuentityStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetShippingOrderQuentityStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_AddProductShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_AddProductShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateProductShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateProductShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_DeleteProductShoppingCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductShoppingCart" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_DeleteProductShoppingCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductShoppingCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_DeleteProductShoppingCartByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductShoppingCartByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_DeleteProductShoppingCartByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductShoppingCartByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_CheckAnyProductsIsOutOfStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAnyProductsIsOutOfStock" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_CheckAnyProductsIsOutOfStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAnyProductsIsOutOfStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetShoppingCartCoursesByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShoppingCartCoursesByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetShoppingCartCoursesByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShoppingCartCoursesByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetEducationShoppingTempByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationShoppingTempByID" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetEducationShoppingTempByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationShoppingTempByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_AddEducationShoppingOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationShoppingOrder" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_AddEducationShoppingOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationShoppingOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_AddEducationShoppingOrderAllAccessPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationShoppingOrderAllAccessPass" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_AddEducationShoppingOrderAllAccessPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationShoppingOrderAllAccessPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateEducationShoppingOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationShoppingOrder" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateEducationShoppingOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationShoppingOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateProductShoppingOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductShoppingOrder" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_UpdateProductShoppingOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductShoppingOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetProductShoppingTempByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductShoppingTempByID" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingEducationService_GetProductShoppingTempByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductShoppingTempByIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IShoppingEducationService">
+    <wsdl:operation name="AddEducationToShoppingCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/AddEducationToShoppingCart" message="tns:IShoppingEducationService_AddEducationToShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/AddEducationToShoppingCartResponse" message="tns:IShoppingEducationService_AddEducationToShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationToShoppingCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateEducationToShoppingCart" message="tns:IShoppingEducationService_UpdateEducationToShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateEducationToShoppingCartResponse" message="tns:IShoppingEducationService_UpdateEducationToShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationFromShoppingCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/DeleteEducationFromShoppingCart" message="tns:IShoppingEducationService_DeleteEducationFromShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/DeleteEducationFromShoppingCartResponse" message="tns:IShoppingEducationService_DeleteEducationFromShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationShoppingCartByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/GetEducationShoppingCartByUserID" message="tns:IShoppingEducationService_GetEducationShoppingCartByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/GetEducationShoppingCartByUserIDResponse" message="tns:IShoppingEducationService_GetEducationShoppingCartByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShoppingDetailsByShippingPaymentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/GetShoppingDetailsByShippingPaymentID" message="tns:IShoppingEducationService_GetShoppingDetailsByShippingPaymentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/GetShoppingDetailsByShippingPaymentIDResponse" message="tns:IShoppingEducationService_GetShoppingDetailsByShippingPaymentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkEducationinShoppingCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/checkEducationinShoppingCart" message="tns:IShoppingEducationService_checkEducationinShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/checkEducationinShoppingCartResponse" message="tns:IShoppingEducationService_checkEducationinShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkCoursePurchaseValidationByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/checkCoursePurchaseValidationByUserID" message="tns:IShoppingEducationService_checkCoursePurchaseValidationByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/checkCoursePurchaseValidationByUserIDResponse" message="tns:IShoppingEducationService_checkCoursePurchaseValidationByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetShippingOrderQuentityStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/ResetShippingOrderQuentityStock" message="tns:IShoppingEducationService_ResetShippingOrderQuentityStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/ResetShippingOrderQuentityStockResponse" message="tns:IShoppingEducationService_ResetShippingOrderQuentityStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProductShoppingCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/AddProductShoppingCart" message="tns:IShoppingEducationService_AddProductShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/AddProductShoppingCartResponse" message="tns:IShoppingEducationService_AddProductShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductShoppingCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateProductShoppingCart" message="tns:IShoppingEducationService_UpdateProductShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateProductShoppingCartResponse" message="tns:IShoppingEducationService_UpdateProductShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductShoppingCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/DeleteProductShoppingCart" message="tns:IShoppingEducationService_DeleteProductShoppingCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/DeleteProductShoppingCartResponse" message="tns:IShoppingEducationService_DeleteProductShoppingCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductShoppingCartByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/DeleteProductShoppingCartByUserID" message="tns:IShoppingEducationService_DeleteProductShoppingCartByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/DeleteProductShoppingCartByUserIDResponse" message="tns:IShoppingEducationService_DeleteProductShoppingCartByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAnyProductsIsOutOfStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/CheckAnyProductsIsOutOfStock" message="tns:IShoppingEducationService_CheckAnyProductsIsOutOfStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/CheckAnyProductsIsOutOfStockResponse" message="tns:IShoppingEducationService_CheckAnyProductsIsOutOfStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShoppingCartCoursesByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/GetShoppingCartCoursesByUserID" message="tns:IShoppingEducationService_GetShoppingCartCoursesByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/GetShoppingCartCoursesByUserIDResponse" message="tns:IShoppingEducationService_GetShoppingCartCoursesByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationShoppingTempByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/GetEducationShoppingTempByID" message="tns:IShoppingEducationService_GetEducationShoppingTempByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/GetEducationShoppingTempByIDResponse" message="tns:IShoppingEducationService_GetEducationShoppingTempByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationShoppingOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/AddEducationShoppingOrder" message="tns:IShoppingEducationService_AddEducationShoppingOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/AddEducationShoppingOrderResponse" message="tns:IShoppingEducationService_AddEducationShoppingOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationShoppingOrderAllAccessPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/AddEducationShoppingOrderAllAccessPass" message="tns:IShoppingEducationService_AddEducationShoppingOrderAllAccessPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/AddEducationShoppingOrderAllAccessPassResponse" message="tns:IShoppingEducationService_AddEducationShoppingOrderAllAccessPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationShoppingOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateEducationShoppingOrder" message="tns:IShoppingEducationService_UpdateEducationShoppingOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateEducationShoppingOrderResponse" message="tns:IShoppingEducationService_UpdateEducationShoppingOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductShoppingOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateProductShoppingOrder" message="tns:IShoppingEducationService_UpdateProductShoppingOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/UpdateProductShoppingOrderResponse" message="tns:IShoppingEducationService_UpdateProductShoppingOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductShoppingTempByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingEducationService/GetProductShoppingTempByID" message="tns:IShoppingEducationService_GetProductShoppingTempByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingEducationService/GetProductShoppingTempByIDResponse" message="tns:IShoppingEducationService_GetProductShoppingTempByID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IShoppingEducationService" type="tns:IShoppingEducationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddEducationToShoppingCart">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/AddEducationToShoppingCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationToShoppingCart">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/UpdateEducationToShoppingCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationFromShoppingCart">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/DeleteEducationFromShoppingCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationShoppingCartByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/GetEducationShoppingCartByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShoppingDetailsByShippingPaymentID">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/GetShoppingDetailsByShippingPaymentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkEducationinShoppingCart">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/checkEducationinShoppingCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkCoursePurchaseValidationByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/checkCoursePurchaseValidationByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetShippingOrderQuentityStock">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/ResetShippingOrderQuentityStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProductShoppingCart">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/AddProductShoppingCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductShoppingCart">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/UpdateProductShoppingCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductShoppingCart">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/DeleteProductShoppingCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductShoppingCartByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/DeleteProductShoppingCartByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAnyProductsIsOutOfStock">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/CheckAnyProductsIsOutOfStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShoppingCartCoursesByUserID">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/GetShoppingCartCoursesByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationShoppingTempByID">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/GetEducationShoppingTempByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationShoppingOrder">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/AddEducationShoppingOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationShoppingOrderAllAccessPass">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/AddEducationShoppingOrderAllAccessPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationShoppingOrder">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/UpdateEducationShoppingOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductShoppingOrder">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/UpdateProductShoppingOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductShoppingTempByID">
+      <soap:operation soapAction="http://tempuri.org/IShoppingEducationService/GetProductShoppingTempByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShoppingEducationService">
+    <wsdl:port name="BasicHttpBinding_IShoppingEducationService" binding="tns:BasicHttpBinding_IShoppingEducationService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

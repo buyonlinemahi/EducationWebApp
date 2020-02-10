@@ -1,0 +1,382 @@
+﻿@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "NewsDetail";
+}
+@{
+  @* string path = @ViewBag.StoragePath + "NewsPhotos/";*@
+ string path = @ViewBag.StoragePath + GlobalConst.FolderName.Org + (@ViewBag.OrganizationID) + GlobalConst.ConstantChar.ForwardSlash + GlobalConst.FolderName.NewsPhotos+GlobalConst.ConstantChar.ForwardSlash;
+}
+
+
+<div id="divfulldetail">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title">
+                    <h2>HCRG News</h2>
+                </header>
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-sm-3">
+               
+                <!-- /input-group -->
+                <div id="divnewsSection">
+                    @Html.Partial("News/_NewsSectionPartial")
+                </div>
+              @*  <a href="#" class="blue subscribe-btn clearfix">
+                    <img src="../Content/img/email_rgb.png" /><span>
+                        Subscribe to the
+                        <div class="clearfix visible-lg visible-md"></div>
+                                                                  <span id="spanWebsiteName"></span> Newsletter
+                    </span>
+                </a>*@
+            </div>
+            <!-- col-sm-3 -->
+            <div id="divnewsdetail">
+                <!--ko if:NewsDetailLength()>1-->
+                <div id="divprintnewsdetail" class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="news-btn margintop5" data-bind="text:NewsResults()[0].NewsSectionTitle()"></span>
+                            <h1 class="black-heading margintop10 marginbottom10" data-bind="text:NewsResults()[0].NewsTitle()"></h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="clearfix">
+                                <div id="slider1_container" style="position: relative; width: 480px !important; height: 300px !important; overflow: hidden;" class="pull-left marginright20">
+                                    <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+                                        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; background-color: #000; top: 0px; left: 0px; width: 100%; height: 100%;">
+                                        </div>
+                                        <div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;">
+                                        </div>
+                                    </div>
+                                    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px;  width: 480px !important; height: 300px !important; overflow: hidden;">
+                                        <!--ko if:NewsResults!= null-->
+                                        <!-- ko foreach:NewsResults -->
+                                        <div>
+                                            <img u="image" data-bind="attr:{ src:'@path'+ PhotoVideoTitle()}" />
+                                            <img u="thumb" data-bind="attr:{ src:'@path'+ PhotoVideoTitle()}" />
+                                        </div>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </div>
+                                    <div u="thumbnavigator" class="jssort07" style="position: absolute; width: 480px; height: 85px; left: 0px; bottom: 0px; overflow: hidden;">
+                                        <div style="background-color: #000; filter: alpha(opacity=30); opacity: .3; width: 100%; height: 100%;"></div>
+                                        <!-- Thumbnail Item Skin Begin -->
+                                        <style>
+                                            /* jssor slider thumbnail navigator skin 07 css */
+                                            /*
+                                            .jssort07 .p            (normal)
+                                            .jssort07 .p:hover      (normal mouseover)
+                                            .jssort07 .pav          (active)
+                                            .jssort07 .pav:hover    (active mouseover)
+                                            .jssort07 .pdn          (mousedown)
+                                            */
+                                            .jssort07 .i {
+                                                position: absolute;
+                                                top: 0px;
+                                                left: 0px;
+                                                width: 90px;
+                                                height: 60px;
+                                                filter: alpha(opacity=80);
+                                                opacity: .8;
+                                            }
+
+                                            .jssort07 .p:hover .i, .jssort07 .pav .i {
+                                                filter: alpha(opacity=100);
+                                                opacity: 1;
+                                            }
+
+                                            .jssort07 .o {
+                                                position: absolute;
+                                                top: 0px;
+                                                left: 0px;
+                                                width: 90px;
+                                                height: 60px;
+                                                border: 1px solid #000;
+                                                transition: border-color .6s;
+                                                -moz-transition: border-color .6s;
+                                                -webkit-transition: border-color .6s;
+                                                -o-transition: border-color .6s;
+                                            }
+
+                                            * html .jssort07 .o {
+                                                /* ie quirks mode adjust */
+                                                width /**/: 90px;
+                                                height /**/: 60px;
+                                            }
+
+                                            .jssort07 .pav .o, .jssort07 .p:hover .o {
+                                                border-color: #fff;
+                                            }
+
+                                            .jssort07 .pav:hover .o {
+                                                border-color: #0099FF;
+                                            }
+
+                                            .jssort07 .p:hover .o {
+                                                transition: none;
+                                                -moz-transition: none;
+                                                -webkit-transition: none;
+                                                -o-transition: none;
+                                            }
+                                        </style>
+                                        <div u="slides" style="cursor: move;">
+                                            <div u="prototype" class="p" style="POSITION: absolute; WIDTH: 90px; HEIGHT: 60px; TOP: 0; LEFT: 0;">
+                                                <thumbnailtemplate class="i" style="position: absolute;"></thumbnailtemplate>
+                                                <div class="o">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Thumbnail Item Skin End -->
+                                        <!-- Arrow Navigator Skin Begin -->
+                                        <style>
+                                            /* jssor slider arrow navigator skin 11 css */
+                                            /*
+                                            .jssora11l              (normal)
+                                            .jssora11r              (normal)
+                                            .jssora11l:hover        (normal mouseover)
+                                            .jssora11r:hover        (normal mouseover)
+                                            .jssora11ldn            (mousedown)
+                                            .jssora11rdn            (mousedown)
+                                            */
+                                            .jssora11l, .jssora11r, .jssora11ldn, .jssora11rdn {
+                                                position: absolute;
+                                                cursor: pointer;
+                                                display: block;
+                                                background: url(../img/a11.png) no-repeat;
+                                                overflow: hidden;
+                                            }
+
+                                            .jssora11l {
+                                                background-position: -11px -41px;
+                                            }
+
+                                            .jssora11r {
+                                                background-position: -71px -41px;
+                                            }
+
+                                            .jssora11l:hover {
+                                                background-position: -131px -41px;
+                                            }
+
+                                            .jssora11r:hover {
+                                                background-position: -191px -41px;
+                                            }
+
+                                            .jssora11ldn {
+                                                background-position: -251px -41px;
+                                            }
+
+                                            .jssora11rdn {
+                                                background-position: -311px -41px;
+                                            }
+                                        </style>
+                                        <!-- Arrow Left -->
+                                        <span u="arrowleft" class="jssora11l" style="width: 37px; height: 37px; top: 123px; left: 8px;"></span>
+                                        <!-- Arrow Right -->
+                                        <span u="arrowright" class="jssora11r" style="width: 37px; height: 37px; top: 123px; right: 8px"></span>
+                                        <!-- Arrow Navigator Skin End -->
+                                    </div>
+                                </div>
+                                <div class="margintop10 pleftlong">
+                                    <!--ko if:NewsResults!= null-->
+                                    <p class="">
+                                        By: <strong><span data-bind="text:NewsResults()[0].NewsAuthor"></span></strong><br />
+                                        <span class="margintop5 date_bottom" data-bind="text:NewsResults()[0].NewsDate"></span>
+                                    </p>
+                                    @*<p class="text-justify" data-bind="text:NewsResults()[0].NewsDate">
+                </p>*@
+                                    <!--/ko-->
+                                    <div class="margintop10 marginbottom10">
+                                        @*<img src="~/Content/img/send-email-icon.png" class="img-responsive pull-left marginright10 " />*@
+ <a  onclick ='PrintNewsDetail()' href="#">
+                                        <img id="ImgPrintNewDetail" class="PrintNewDetailImg" src="~/Content/img/print-icon.png" class="img-responsive pull-left" />
+</a>
+                                        <br /><br />
+                                    </div>
+                                    <!--ko if:NewsResults!= null-->
+                                    @*<p class="text-justify" data-bind="text:NewsResults()[0].NewsDescription()">*@
+                                   
+                                    </p>
+                                    <!--/ko-->
+                                </div>
+                            </div>
+                            <div data-bind="html: NewsResults()[0].NewsDescription()" class="clearfix margintop20"></div>
+                            <br />
+                          
+                        </div>
+                        <div class="col-sm-12">
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+
+                <script type="text/javascript" src="~/Scripts/jquery-1.9.1.min.js"></script>
+                <script src="~/Scripts/jssor.js" type="text/javascript"></script>
+                <script src="~/Scripts/jssor.slider.js" type="text/javascript"></script>
+
+                <script>
+                    jQuery(document).ready(function ($) {
+                        var options = {
+                            $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                            $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                            $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                            $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                            $UISearchMode: 0,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+
+                            $ThumbnailNavigatorOptions: {
+                                $Class: $JssorThumbnailNavigator$,              //[Required] Class to create thumbnail navigator instance
+                                $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+
+                                $Loop: 2,                                       //[Optional] Enable loop(circular) of carousel or not, 0: stop, 1: loop, 2 rewind, default value is 1
+                                $SpacingX: 3,                                   //[Optional] Horizontal space between each thumbnail in pixel, default value is 0
+                                $SpacingY: 3,                                   //[Optional] Vertical space between each thumbnail in pixel, default value is 0
+                                $DisplayPieces: 6,                              //[Optional] Number of pieces to display, default value is 1
+                                $ParkingPosition: 204,                          //[Optional] The offset position to park thumbnail,
+
+                                $ArrowNavigatorOptions: {
+                                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                                    $Steps: 6                                       //[Optional] Steps to go for each navigation request, default value is 1
+                                }
+                            }
+                        };
+                        if( $('#slider1_container').length)
+                            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+                        function ScaleSlider() {
+                            var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
+                            if (parentWidth)
+                                jssor_slider1.$ScaleWidth(Math.min(parentWidth, 480));
+                            else
+                                window.setTimeout(ScaleSlider, 30);
+                        }
+                        if( $('#slider1_container').length)
+                            ScaleSlider();
+                        if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
+                            $(window).bind('resize', ScaleSlider);
+                        }
+                    });
+                </script>
+                <!-- col-sm-9 -->
+                <!--/ko-->
+                <!--ko if:NewsDetailLength()==1-->
+                <!--ko if:NewsResults!= null-->
+                <!-- ko foreach:NewsResults -->
+                <!--ko if:NewsType()=="Photo"-->
+                <div class="col-sm-9">
+                    <h3 class="no-margin marginbottom20 black-heading" data-bind="text:NewsTitle"></h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="clearfix">
+                                <img width="381px" height="244px" data-bind="attr:{ src:'@path'+ PhotoVideoTitle()}" class="img-responsive pull-left marginright20 float-none" />
+                                <p class="pleft">
+                                    By:  <strong><span data-bind="text:NewsAuthor"></span></strong><br />
+                                    <span data-bind="text:NewsDate"></span>
+                                </p>
+                                <div class="margintop10 marginbottom10">
+                                    @*<img src="~/Content/img/send-email-icon.png" class="img-responsive pull-left marginright10" />*@
+                                    <a  onclick ='PrintNewsDetail()' href="#">
+                                    <img id="ImgPrintNewDetail" class="PrintNewDetailImg" src="~/Content/img/print-icon.png" class="img-responsive pull-left" />
+                                        </a>
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
+                            @* <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />(Photo/Courtesy by James Bogle)</p>*@
+                            <div data-bind="html: NewsDescription" class="clearfix margintop20"></div>
+                            @*<p class="text-justify margintop10" data-bind="text:NewsDescription"></p>*@
+                        </div>
+                        <!-- col-sm-6 -->
+                        <div class="col-sm-12">
+                            @*<p class="text-justify margintop10" data-bind="text:NewsDescription"></p>*@
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!--/ko-->
+                <!--/ko-->
+                <!--/ko-->
+                <!--/ko-->
+                <!--ko if:NewsDetailLength()==1-->
+                <!--ko if:NewsResults!= null-->
+                <!-- ko foreach:NewsResults -->
+                <!--ko if:NewsType()=="Video"-->
+                <div class="col-sm-9">
+                    <div class="clearfix">
+                        <div class="col-lg-6 col-md-9 col-sm-12 col-xs-12">
+                            <div class="video-container marginbottom20">
+                              <iframe class="iframeVideo" width="560" height="315" data-bind="attr: { src: PhotoVideoTitle}" frameborder="0" allowfullscreen></iframe>
+
+                    @*<iframe width="640" height="360" src="https://www.youtube.com/embed/BBHvl5i059c?wmode=transparent" frameborder="0" allowfullscreen></iframe>*@
+                                
+                            </div>
+                        </div>
+                        <span class="col-lg-6 col-md-6 col-sm-6 col-xs-7 marginbottom15 marginbottom195">
+                            <span class="news-btn margintop5" data-bind="text:NewsSectionTitle"></span>
+
+                        </span>
+                        <span class="col-lg-6 col-md-6 col-sm-6 col-xs-5 marginbottom15 text-right-g">
+                            <p>
+                                By: <strong><span data-bind="text:NewsAuthor"></span></strong><br />
+                                <span class="margintop5 date_bottom" data-bind="text:NewsDate"></span>
+                            </p>
+                                <div class="margintop10 marginbottom10">
+                                    @*<img src="~/Content/img/send-email-icon.png" class="img-responsive pull-left marginright10" />*@
+                                    <a  onclick ='PrintNewsDetail()' href="#">
+                                    <img id="ImgPrintNewDetail" class="PrintNewDetailImg" src="~/Content/img/print-icon.png" class="img-responsive pull-left" />
+                                        </a>
+                                    <br />
+                                    <br />
+                                </div>
+                        </span>
+                    </div>
+                    <h3 class="black-heading marginbottom10">
+                        Video:<span data-bind="text:NewsTitle"></span>
+                    </h3>
+                    <div data-bind="html: NewsDescription" class="clearfix margintop10"></div>
+                    @*<p class="text-justify" data-bind="text:NewsDescription"></p>*@
+                </div>
+                <!--/ko-->
+                <!--/ko--> 
+                <!--/ko-->
+                <!--/ko-->
+            </div>
+            <!-- row -->
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="<script src="~/Scripts/jquery-1.11.0.min.js"><\/script>')</script>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/News/NewsFullDetailViewModel.js")"></script>
+ 
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var newsDetailViewModel = new NewsFullDetailViewModel();
+        newsDetailViewModel.Init(model);
+        ko.applyBindings(newsDetailViewModel, $("#divfulldetail").get(0));
+
+        function PrintNewsDetail() {
+            var prtContent = document.getElementById("divnewsdetail");
+            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=yes,status=0');
+            WinPrint.document.write('<html><head><title>News Detail</title><link href="~/Content/css/bootstrap.min.css" rel="stylesheet" /><link href="/Content/css/Custum/NewsDetail.css" rel="stylesheet" /></head><body onload=window.print();window.close();>');
+            WinPrint.document.write(prtContent.innerHTML);
+            WinPrint.document.write('</body></html>');
+            WinPrint.document.close();
+            WinPrint.focus();
+        }
+    </script>
+
+
+}

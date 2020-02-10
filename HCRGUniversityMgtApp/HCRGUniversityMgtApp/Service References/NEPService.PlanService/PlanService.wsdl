@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlanService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/PlanService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/PlanService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/PlanService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/PlanService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/PlanService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPlanService_AddPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_AddPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_UpdatePlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_UpdatePlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_DeletePlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_DeletePlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetPlanById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlanById" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetPlanById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlanByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_getAllRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRecords" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_getAllRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllPagedPlanByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedPlanByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllPagedPlanByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedPlanByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllPlanAccToPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlanAccToPackages" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllPlanAccToPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlanAccToPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllPlansByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlansByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllPlansByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlansByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_AddUserPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserPlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_AddUserPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_DeleteUserPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserPlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_DeleteUserPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetUsersPlanAccToPlanID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersPlanAccToPlanID" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetUsersPlanAccToPlanID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersPlanAccToPlanIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllUsersPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersPlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllUsersPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_AddMyEducationRecordByPlanID_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMyEducationRecordByPlanID" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_AddMyEducationRecordByPlanID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMyEducationRecordByPlanIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_AddCoursePlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCoursePlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_AddCoursePlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCoursePlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_DeleteCoursePlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCoursePlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_DeleteCoursePlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCoursePlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetCoursesPlanAccToPlanID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoursesPlanAccToPlanID" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetCoursesPlanAccToPlanID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoursesPlanAccToPlanIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllCoursesPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCoursesPlan" />
+  </wsdl:message>
+  <wsdl:message name="IPlanService_GetAllCoursesPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCoursesPlanResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPlanService">
+    <wsdl:operation name="AddPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/AddPlan" message="tns:IPlanService_AddPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/AddPlanResponse" message="tns:IPlanService_AddPlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/UpdatePlan" message="tns:IPlanService_UpdatePlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/UpdatePlanResponse" message="tns:IPlanService_UpdatePlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/DeletePlan" message="tns:IPlanService_DeletePlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/DeletePlanResponse" message="tns:IPlanService_DeletePlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlanById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetPlanById" message="tns:IPlanService_GetPlanById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetPlanByIdResponse" message="tns:IPlanService_GetPlanById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/getAllRecords" message="tns:IPlanService_getAllRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/getAllRecordsResponse" message="tns:IPlanService_getAllRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedPlanByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetAllPagedPlanByClientID" message="tns:IPlanService_GetAllPagedPlanByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetAllPagedPlanByClientIDResponse" message="tns:IPlanService_GetAllPagedPlanByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlanAccToPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetAllPlanAccToPackages" message="tns:IPlanService_GetAllPlanAccToPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetAllPlanAccToPackagesResponse" message="tns:IPlanService_GetAllPlanAccToPackages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlansByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetAllPlansByClientID" message="tns:IPlanService_GetAllPlansByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetAllPlansByClientIDResponse" message="tns:IPlanService_GetAllPlansByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/AddUserPlan" message="tns:IPlanService_AddUserPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/AddUserPlanResponse" message="tns:IPlanService_AddUserPlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/DeleteUserPlan" message="tns:IPlanService_DeleteUserPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/DeleteUserPlanResponse" message="tns:IPlanService_DeleteUserPlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersPlanAccToPlanID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetUsersPlanAccToPlanID" message="tns:IPlanService_GetUsersPlanAccToPlanID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetUsersPlanAccToPlanIDResponse" message="tns:IPlanService_GetUsersPlanAccToPlanID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetAllUsersPlan" message="tns:IPlanService_GetAllUsersPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetAllUsersPlanResponse" message="tns:IPlanService_GetAllUsersPlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMyEducationRecordByPlanID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/AddMyEducationRecordByPlanID" message="tns:IPlanService_AddMyEducationRecordByPlanID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/AddMyEducationRecordByPlanIDResponse" message="tns:IPlanService_AddMyEducationRecordByPlanID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCoursePlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/AddCoursePlan" message="tns:IPlanService_AddCoursePlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/AddCoursePlanResponse" message="tns:IPlanService_AddCoursePlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCoursePlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/DeleteCoursePlan" message="tns:IPlanService_DeleteCoursePlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/DeleteCoursePlanResponse" message="tns:IPlanService_DeleteCoursePlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoursesPlanAccToPlanID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetCoursesPlanAccToPlanID" message="tns:IPlanService_GetCoursesPlanAccToPlanID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetCoursesPlanAccToPlanIDResponse" message="tns:IPlanService_GetCoursesPlanAccToPlanID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCoursesPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlanService/GetAllCoursesPlan" message="tns:IPlanService_GetAllCoursesPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlanService/GetAllCoursesPlanResponse" message="tns:IPlanService_GetAllCoursesPlan_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPlanService" type="tns:IPlanService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/AddPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/UpdatePlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/DeletePlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlanById">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetPlanById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRecords">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/getAllRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedPlanByClientID">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetAllPagedPlanByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlanAccToPackages">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetAllPlanAccToPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlansByClientID">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetAllPlansByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserPlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/AddUserPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserPlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/DeleteUserPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersPlanAccToPlanID">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetUsersPlanAccToPlanID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersPlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetAllUsersPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMyEducationRecordByPlanID">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/AddMyEducationRecordByPlanID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCoursePlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/AddCoursePlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCoursePlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/DeleteCoursePlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoursesPlanAccToPlanID">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetCoursesPlanAccToPlanID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCoursesPlan">
+      <soap:operation soapAction="http://tempuri.org/IPlanService/GetAllCoursesPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PlanService">
+    <wsdl:port name="BasicHttpBinding_IPlanService" binding="tns:BasicHttpBinding_IPlanService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/PlanService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

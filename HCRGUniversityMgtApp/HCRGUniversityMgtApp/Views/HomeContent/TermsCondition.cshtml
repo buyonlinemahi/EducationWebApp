@@ -1,0 +1,146 @@
+﻿@using HCRGUniversityMgtApp.Infrastructure.Global;
+
+@{
+    ViewBag.Title = "Terms & Conditions";
+}
+
+@section header{
+    <a class="navbar-brand" href="#">Terms & Conditions</a>
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/HomeContent/TermsConditionResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var TermsConditionGridViewModel = new TermsConditionGridViewModel();
+        TermsConditionGridViewModel.Init(model);
+        ko.applyBindings(TermsConditionGridViewModel, $("#divTermsCondition").get(0));
+    </script>
+}
+
+
+<div class="inner-content">
+    <div id="divTermsCondition">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Terms & Conditions Screen</div>
+                    <!-- Default panel contents -->
+                    @using (Html.BeginForm(GlobalConst.Actions.HomeContentController.UpdateTermsCondition, GlobalConst.Controllers.HomeContent, FormMethod.Post, new
+{
+    id = "frmTermsCondition",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){TermsConditionDetailSuccess(responseText);},beforeSubmit : TermsConditionInfoFormBeforeSubmit ,clearForm : true}"
+}))
+                    {
+                        <div class="panel-body">
+                            <div class="col-md-3 col-sm-5 padd-0"><label>Terms & Conditions  Content:</label> <a href="#" class="inner-content-link"> </a></div>
+                            <div class="col-md-4 col-sm-5">
+
+                                <div class="form-group">
+                                      <input type="hidden" name="hdTermsConditionID" id="hdTermsConditionID" data-bind="value: TermsConditionID" />
+                                    <button type="button" data-target="#EditorModal" id="EditorModalPopUp" data-backdrop="static" data-keyboard="false" class="btn btn-default">Update Content</button>
+                                    <input type="hidden" id="hd" name="TermsConditionContent" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <button type="submit" onclick="submitform()" class="btn btn-default">Save and Continue</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <!-- row-end -->
+        </div><!-- /inner-wrapper -->
+
+        <div class="panel-body">
+            <div class="modal fade" id="EditorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog position-center set-popup">
+                    <div class="modal-content" style="height:830px;">
+                        <div class="modal-header">
+
+                            <button type="button" class="close btnClose" id="btnClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+
+                            <h4 class="modal-title">Add Content</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div id="divEditor">
+
+                                    @using (Html.BeginForm(GlobalConst.Actions.HomeContentController.TermsCondition, GlobalConst.Controllers.HomeContent, FormMethod.Post))
+                                    {
+                                        @Html.Raw(ViewBag.EditorPolicy)
+                                    }
+                                </div>
+                                <div style="padding-top:10px;">
+                                    <button type="button" data-dismiss="modal" aria-hidden="true" id="btnSaveandContinue" class="btn btn-default btnClose">Save and Continue</button>
+
+                                    <button type="button" aria-hidden="true" id="btnClose1" data-dismiss="modal" class="btn btn-default btnClose">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                    <div class="panel-body">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Term Condition Result</div>
+                                    <!-- Table -->
+                                    <div class="table-responsive height-400">
+                                        <table class="table table-striped ">
+                                            <!-- removed class (table-fixed-1) -->
+                                            <thead>
+                                                <tr class="clearfix text-center">
+                                                     <th class="col-md-10 col-sm-9">Term And Condition</th>
+                                                     <th class="col-md-2 col-sm-3">Action</th>
+                                                  
+                                                </tr>
+                                            </thead>
+                                            <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                                <!--ko if:TermConditionsData!= null-->
+                                                <!-- ko foreach:TermConditionsData -->
+                                                <tr class="clearfix row">
+                                                    <td class="col-md-10 col-sm-9"><span data-bind="text:DescriptionShort" />
+                                                          <input type="hidden" name="TermsConditionContent" id="TermsConditionContent" data-bind="value:TermsConditionContent" />
+                                                    </td>                                                                                                    
+                                                    <td class="col-md-2 col-sm-3"><a href="#" class="inner-content-link blue" " style="color: #808080;" data-bind="click:$root.EditTermConditionLineItems">Edit</a></td>
+                                              
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                    </div>
+
+                    </div>
+
+                </div>
+
+    
+<script type="text/javascript">
+    function RichTextEditor_OnExecUICommand(editor, arg) {
+        var a0 = arg.Arguments[1];
+        if (a0 == "FullScreen") {
+            return false;
+        }
+    }
+</script>
+
+<style>
+    .panel-body p {
+        text-align: left;
+    }
+</style>
+
+
+
+
+
+

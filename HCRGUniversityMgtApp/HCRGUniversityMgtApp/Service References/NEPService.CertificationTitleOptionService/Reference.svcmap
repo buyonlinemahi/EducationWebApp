@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="313e8fc4-594d-458f-97c9-b124b440968b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CertificationTitleOptionService.wsdl" MetadataType="Wsdl" ID="c4186194-8739-49af-8dab-4cf6ef08e4a5" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?wsdl" />
+    <MetadataFile FileName="CertificationTitleOptionService.xsd" MetadataType="Schema" ID="d5d2edb2-1eb0-4430-85ea-63fde805b4a6" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CertificationTitleOptionService1.xsd" MetadataType="Schema" ID="38ffd523-23b2-477c-beb6-78a549645d8c" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CertificationTitleOptionService.disco" MetadataType="Disco" ID="886489ce-10ad-4ebe-9cba-ddc99644d348" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?disco" />
+    <MetadataFile FileName="CertificationTitleOptionService2.xsd" MetadataType="Schema" ID="b1136563-89d9-48bc-b527-47d8af109fda" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CertificationTitleOptionService3.xsd" MetadataType="Schema" ID="7c298d5e-246b-490f-ba0c-ca6bce4cd40d" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

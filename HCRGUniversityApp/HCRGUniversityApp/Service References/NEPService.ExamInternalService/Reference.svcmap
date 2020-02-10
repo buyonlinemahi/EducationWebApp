@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e3583dd5-ada4-4b9c-aa53-cf64d0ad14d8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ExamInternalService.xsd" MetadataType="Schema" ID="7de81ded-ca64-4132-bb78-c5d2ad889386" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ExamInternalService.disco" MetadataType="Disco" ID="9aeacd00-74d9-4cf4-8e28-d94021e21a8a" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?disco" />
+    <MetadataFile FileName="ExamInternalService.wsdl" MetadataType="Wsdl" ID="01a81813-2c24-427b-b02a-a79100d7bb37" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?wsdl" />
+    <MetadataFile FileName="ExamInternalService1.xsd" MetadataType="Schema" ID="0297ae38-e8fe-4ea5-a4ab-8ab0da4c76b9" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ExamInternalService2.xsd" MetadataType="Schema" ID="c68fc054-28a5-4b45-b4b2-3fa2275686c7" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

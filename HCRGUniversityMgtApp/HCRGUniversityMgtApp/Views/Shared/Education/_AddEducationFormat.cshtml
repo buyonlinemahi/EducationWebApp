@@ -1,0 +1,25 @@
+﻿<div class="modal fade" id="divEducationFormat" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog position-center">
+        <div class="modal-content box-height">
+            <div class="modal-header header-bg">
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <label>Education Format</label>
+                            <a href="#" class="inner-content-link"> </a>
+                        </div>
+                        <select class="form-control-widget col-md-6" id="EducatoinFormat" name="CollegeID" required="required" data-bind="options: EducationFormats, optionsText: 'EducationFormatType',
+                                   optionsValue: 'EducationFormatID',
+                                    optionsCaption: 'Select Any Format',jqBootstrapValidation: {}">
+                        </select>
+                    </div>
+                    <button data-bind="click:addEducationFormat" class="btn btn-default">Add Format</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

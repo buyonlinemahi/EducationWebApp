@@ -1,0 +1,168 @@
+﻿
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+
+@section header{
+    <a class="navbar-brand" href="#">Certifications</a>
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Certification/CertificationResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var CertificationnGridViewModel = new CertificationnGridViewModel();
+        CertificationnGridViewModel.Init(model);
+        ko.applyBindings(CertificationnGridViewModel, $("#divCertification").get(0));
+    </script>
+}
+
+
+<div class="inner-content">
+    <div id="divCertification">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Certifications Screen</div>
+                    <!-- Default panel contents -->
+                    @using (Html.BeginForm(GlobalConst.Actions.CertificationController.Update, GlobalConst.Controllers.Certification, FormMethod.Post, new
+{
+    id = "frmCertification",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){CertificationDetailSuccess(responseText);},beforeSubmit : CertificationInfoFormBeforeSubmit ,clearForm : true}"
+}))
+                    {
+                        <div id="divCertificationData" class="row mtb-10">
+                        <div class="panel-body">
+                            <div class="col-md-3"><label>Certification Content:</label> <a href="#" class="inner-content-link"> </a></div>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                      <input type="hidden" name="hdCertificationID" id="hdCertificationID" data-bind="value: CertificationID" />
+                                    <button type="button" data-target="#EditorModal" id="EditorModalPopUp" data-backdrop="static" data-keyboard="false" class="btn btn-default">Update Content</button>
+                                     <input type="hidden" name="OrganizationName" data-bind="value: OrganizationName" />
+                                   <input type="hidden" name="OrganizationID" data-bind="value: OrganizationID" />  
+                                    <input type="hidden" id="hd" name="CertificationContent" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <button type="submit" onclick="submitform()" class="btn btn-default">Save and Continue</button>
+                        </div>
+                       </div>
+                    }
+
+                </div>
+            </div>
+            <!-- row-end -->
+        </div><!-- /inner-wrapper -->
+         <!--ko if:IsHCRGAdmin() == true-->
+            <div class="row mtb-10">
+                                <div class="col-md-2 col-sm-3">
+                                    <label>Organizations:</label>
+                                </div>
+                                <div class="col-md-5 col-sm-9">
+                                    <div class="form-group">
+                                        <select id="DrpOrgID"  class="form-control"  data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                          <input type="hidden" id="hdfOrgID"  />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-12 padd-l0">
+                             <button type="button" id="btnSearch" class="btn btn-default" data-bind="click: function(){ $root.SearchCertification()}">Search</button>
+                                </div>
+                            </div>
+           <!--/ko-->
+
+        <div class="panel-body">
+            <div class="modal fade" id="EditorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog position-center set-popup">
+                    <div class="modal-content" style="height:830px;">
+                        <div class="modal-header">
+
+                            <button type="button" class="close btnClose" id="btnClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+
+                            <h4 class="modal-title">Add Content</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div id="divEditor">
+
+                                    @using (Html.BeginForm(GlobalConst.Actions.CertificationController.Index, GlobalConst.Controllers.Certification, FormMethod.Post))
+                                    {
+                                        @Html.Raw(ViewBag.EditorCertification)
+                                    }
+                                </div>
+                                <div style="padding-top:10px;">
+                                    <button type="button" data-dismiss="modal" aria-hidden="true" id="btnSaveandContinue" class="btn btn-default btnClose">Save and Continue</button>
+
+                                    <button type="button" aria-hidden="true" id="btnClose1" data-dismiss="modal" class="btn btn-default btnClose">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+             <div class="panel-body mtop_20">
+                              <div class="panel panel-default">
+                                    <div class="panel-heading">Certification Content</div>
+                                    <!-- Table -->
+                                    <div class="table-responsive height-400">
+                                        <table class="table table-striped ">
+                                            <!-- removed class (table-fixed-1) -->
+                                            <thead>
+                                                <tr class="clearfix text-center">
+                                                     <th class="col-md-7 col-sm-8">Certification Content</th>
+                                                    <th class="col-md-7 col-sm-8">Organization</th>
+                                                     <th class="col-md-5 col-sm-4">Action</th>
+                                                  
+                                                </tr>
+                                            </thead>
+                                            <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                                <!--ko if:CertificationData!= null-->
+                                                <!-- ko foreach:CertificationData -->
+                                                <tr class="clearfix row">
+                                                    <td class="col-md-7 col-sm-8"><span data-bind="text:DescriptionShort" />
+                                                          <input type="hidden" name="CertificationContent" id="CertificationContent" data-bind="value:CertificationContent" />
+                                                    </td>   
+                                                    <td class="col-md-7 col-sm-8"><span data-bind="text:OrganizationName" /></td>                                                                                                   
+                                                    <td class="col-md-5 col-sm-4"><a href="#" class="inner-content-link blue" " style="color: #808080;" data-bind="click:$root.EditCertificationLineItems">Edit</a></td>
+                                              
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                    </div>
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    function RichTextEditor_OnExecUICommand(editor, arg) {
+        var a0 = arg.Arguments[1];
+        if (a0 == "FullScreen") {
+            return false;
+        }
+    }
+</script>
+
+<style>
+    .panel-body p
+    {
+        text-align: left;
+    }
+</style>
+
+
+
+
+
+

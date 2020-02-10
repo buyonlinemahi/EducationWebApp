@@ -1,0 +1,82 @@
+﻿@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="divProduct">
+<div id="container" class="container">
+<input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+<input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+  <div class="">
+                <div class="marginbottom20">
+                  @*  <h3 class="paddingtop-none margintop-none red-heading">WELCOME TO HCRG BOOK STORE</h3>*@
+                  @*  <p class="news-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>*@
+                </div>
+                <!-- grey-box -->
+                <div class="col-md-12 paddingleft-none paddingright-none">
+                    <span class="list-heads margintop10 marginbottom20">Latest Products</span>
+                                <!--ko if:ProductResults!= null-->
+                                <!-- ko foreach:ProductResults -->
+
+                    <!--ko if:ProductCurrentBalance()!= 0-->
+                        <div class="col-md-3 rd-bdr1 text-center prod_align padding10 marginbottom20 marginleft10">
+
+                            <a data-bind="click:$root.LearnMore">
+                                <img  data-bind="attr:{src:'/Storage/ProductImage/'+ProductImage()}"  class="img-responsive text-center img-size cursor-hand" /></a>
+                          <div style="height:60px;" class="margintop5">  <a data-bind="click:$root.LearnMore" class="text-center product_title dark-text"><strong> <span data-bind="text:ProductName"></span></strong></a></div>
+                            <p class="text-center product_price margintop5 marginbottom15"><strong> $<span data-bind="text:ProductPrice"></span></strong></p>
+                            <a href="#" data-bind="click:$root.LearnMore" class="btnview">View Detail</a>
+                        </div>
+                    <!--/ko-->
+                        <!--ko if:ProductCurrentBalance()== 0-->
+
+                            <div class="col-md-3 rd-bdr1 text-center prod_align padding10 marginbottom20 marginleft10">
+                                 <a data-bind="click:$root.LearnMore">  
+                                <img  data-bind="attr:{src:'/Storage/ProductImage/'+ProductImage()}"  class="img-responsive text-center img-size cursor-hand" />
+                                    <img  src="~/Content/img/sold-out.jpg"  class="img-responsive text-center img-size sold-out margin-left-sold cursor-hand" /></a>
+                              <div style="height:60px;" class="margintop5">  <a  data-bind="click:$root.LearnMore" class="text-center product_title dark-text"  ><strong> <span data-bind="text:ProductName"></span></strong></a></div>
+                                <p class="text-center product_price margintop5 marginbottom15"><strong > $<span data-bind="text:ProductPrice" ></span></strong></p>
+                                <a href="#" data-bind="click:$root.LearnMore"  class="btnview">View Detail</a>
+                            </div>
+                        <!--/ko-->
+                      <!--/ko-->
+                    <!--/ko-->
+
+
+                </div>
+   <nav class="margin-left">
+                            @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                        </nav>
+<div>
+<h3><strong> Store Information</strong></h3>
+<div class="margintop5">  
+<a  href="#" data-bind="click:DeliveryTermConditions" data-target="#DeliveryTermConditions" data-toggle="modal" data-backdrop="static" data-keyboard="false" id="btnDeliveryTermConditions"  class="text-center product_title dark-text">Delivery Terms & Conditions</a><br />
+<a  href="#" data-bind="click:ReturnPolicy" data-target="#ReturnPolicys" data-toggle="modal" data-backdrop="static" data-keyboard="false" id="btnReturnPolicys"  class="text-center product_title dark-text">Return Policy</a>
+</div>
+</div>
+
+<div id="divDeliveryTermConditionPartial">
+            @{Html.RenderPartial("~/Views/Shared/Store/_DeliveryTermConditionPartial.cshtml");}
+            @{Html.RenderPartial("~/Views/Shared/Store/_RetrunPolicyPartial.cshtml");}
+
+        </div>
+
+
+            </div>
+
+
+
+</div>
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/Product/ProductGridViewModel.js")"></script>
+ 
+    <script src="~/Scripts/knockout/ko.pager.js"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-extenders.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var product = new ProductGridViewModel();
+        product.Init(model);
+        ko.applyBindings(product, $("#divProduct").get(0));
+    </script>
+}

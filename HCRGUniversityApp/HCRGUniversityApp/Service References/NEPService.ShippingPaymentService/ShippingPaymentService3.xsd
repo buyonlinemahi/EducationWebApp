@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ShippingPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BillingAddressID" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsPaymentRecevied" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PaymentStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShippingAddressID" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingMethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingPaymentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TransactionDatetime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransactionNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShippingPayment" nillable="true" type="tns:ShippingPayment" />
+  <xs:complexType name="ArrayOfShippingPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShippingPayment" nillable="true" type="tns:ShippingPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShippingPayment" nillable="true" type="tns:ArrayOfShippingPayment" />
+  <xs:complexType name="BillingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BAAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BAAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BACity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BAFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BALastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BAPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BAPostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BAStateID" type="xs:int" />
+      <xs:element minOccurs="0" name="BAUserID" type="xs:int" />
+      <xs:element minOccurs="0" name="BillingAddressID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BillingAddress" nillable="true" type="tns:BillingAddress" />
+  <xs:complexType name="ArrayOfBillingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BillingAddress" nillable="true" type="tns:BillingAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBillingAddress" nillable="true" type="tns:ArrayOfBillingAddress" />
+  <xs:complexType name="ShippingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SAAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAAddress2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SABillingAddressSame" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SACity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAPostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAStateID" type="xs:int" />
+      <xs:element minOccurs="0" name="SAUserID" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingAddressID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShippingAddress" nillable="true" type="tns:ShippingAddress" />
+  <xs:complexType name="ArrayOfShippingAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShippingAddress" nillable="true" type="tns:ShippingAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShippingAddress" nillable="true" type="tns:ArrayOfShippingAddress" />
+</xs:schema>

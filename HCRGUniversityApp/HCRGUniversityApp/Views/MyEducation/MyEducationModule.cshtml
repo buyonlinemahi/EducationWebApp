@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "MyEducationModule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Views/Shared/_Loader.cshtml")
+<div id="divMyEducationModule">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 marginbottom5">
+            
+                <a id="backbutton" href="/MyEducation/" class="bts"><span class="glyphicon glyphicon-chevron-left round back-to-courses"></span><span class="hide-mobile">Back to All Courses</span></a>     
+
+            </div>
+ </div>
+<br />
+
+ <div class="col-sm-12 margintop10">
+                <header class="site-block-title">
+                    <h2><span data-bind="text:CourseName"></span></h2>
+                    <input type="hidden" id="hdfMEID" data-bind="value:MEID" />
+                </header>
+               
+                @*<div class="time_bar text-center"><span class="days-left " data-bind="text:ExpireDaysLeft"></span> <span class="days-text">&nbsp; days left for completing this Course </span></div>*@
+
+            </div>
+
+            <!-- col-sm-12 -->
+       
+        <div class="marginbottom10"></div>
+      
+        <!-- row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="grey-box clearfix padding10 marginbottom5">
+                    <div class="dark-grey padding10 clearfix">
+                        <div class="row">
+                            <div class="col-xs-12 col-lg-12">
+                                <div class="col-md-11">
+                                    <h3 class="text-white no-margin marginbottom5">@Model.MyEducationModuleDetail.EducationModuleName</h3>
+                                </div>
+                                @if (@Model.MyEducationModuleDetail.Completed == false)
+                                {
+                                   @* <a href="#" class="font-16 pull-right continue">Continue with this lecture</a>*@
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <!-- dark-grey -->
+                    <p class="margintop10">You completed @Model.CompletedModules out of @Model.TotalModules Modules</p>
+                    <div class="padding15 white-back">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" data-bind="style:{width: percentage}">
+                                <span class="sr-only">80% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- grey-box -->
+                <div class="grey-box clearfix padding10 marginbottom5">
+                    <div class="white-back">
+                        <!--ko if:MyEducationModuleDetail!= null-->
+                        <!-- ko foreach:MyEducationModuleDetail -->
+                        <div class="row">
+                            <div class="clearfix padding10">
+                                <div class="col-sm-12">
+                                    <input type="hidden" data-bind="value:EducationModuleDescription" />
+                                    <input type="hidden" data-bind="value:MEMID" />
+                                    <p class="font-18">
+                                        <!-- ko if: Completed() == true || EducationModulePosition() ==  @Model.MyEducationModuleDetail.EducationModulePosition-->
+                                        <a href="#" data-bind="click:$root.ShowModuleContent"><span data-bind="text:EducationModuleName"></span></a>
+                                        <!-- /ko -->
+                                        <!-- ko if: Completed() != true && EducationModulePosition() !=  @Model.MyEducationModuleDetail.EducationModulePosition-->
+                                        <a><span data-bind="text:EducationModuleName"></span></a>
+                                        <!-- /ko -->
+                                    
+                                    </p>
+                                    <p>
+                                    
+                                            <!-- ko if: Completed() != true && EducationModulePosition() ==  @Model.MyEducationModuleDetail.EducationModulePosition && EducationModuleTime()==TimeLeft()-->
+                                        <a href="#" data-bind="click:$root.ShowModuleMedia" class="course-btn font-12 margintop5 pull-right Module">Start Module</a>
+                                        <!-- /ko -->
+                                        <!-- ko if: Completed() != true && EducationModulePosition() !=  @Model.MyEducationModuleDetail.EducationModulePosition && EducationModuleTime()==TimeLeft()-->
+                                        <a href="#" data-bind="click:$root.ShowModuleMedia" disabled="disabled" class="disable_btn course-btn font-12 margintop5 pull-right Module">Start Module</a>
+                                        <!-- /ko -->
+                                        <!-- ko if: Completed() != true && EducationModulePosition() ==  @Model.MyEducationModuleDetail.EducationModulePosition && EducationModuleTime()!=TimeLeft()-->
+                                        <a href="#" data-bind="click:$root.ShowModuleMedia" class=" course-btn font-12 margintop5 pull-right Module">Continue Module</a>
+                                        <!-- /ko -->
+                                        <span class="marginright10" data-bind="text:TimeLeft()"></span>
+                                        <!-- ko if: Completed() == true-->
+                                        <span class="pull-right">
+                                            <a href="#" data-bind="click:$root.ShowModuleMedia" class="course-btn font-16 pull-right Module">Revisit Lecture</a>
+                                        </span>
+                                        <!-- /ko -->
+                                    </p>
+
+                                </div>
+                                <!-- col-sm-11 -->
+                            </div>
+                           @* <hr class="no-margin" />*@
+                        </div>
+                        <!-- row -->
+                        <!--/ko-->
+                        <!--/ko-->
+                    </div>
+                    <!-- white-back -->
+                </div>
+                <!-- grey-box -->
+            </div>
+            <!-- col-sm-6 -->
+         @*   <div class="col-sm-6 self-study">
+                <ul id="myTab" class="nav nav-tabs tabbed-panel" role="tablist">
+                    <li class="active"><a href="#home" role="tab" data-toggle="tab" class="font-18"><strong>Course Overview</strong></a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content marginbottom10">
+                    <div class="tab-pane fade in active paddingright15" id="home">
+                        <div data-bind="html: ModuleContent" class="textjustify" ></div>
+                      
+                       
+                    </div>
+                </div>
+            </div>*@
+            <!-- col-sm-6 -->
+        </div>
+        <!-- row -->
+    </div>
+    <!-- container -->
+    <input type="text" id="mytext"class="hidediv" />
+</div>
+@section scripts{
+<script src="~/Scripts/backfix.min.js"></script>
+    <script src="~/Scripts/knockout/viewmodel/views/MyEducation/MyEducationModuleViewModel.js"></script>
+  
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var myEducationModuleGridViewModel = new MyEducationModuleGridViewModel();
+        myEducationModuleGridViewModel.Init(model);
+        ko.applyBindings(myEducationModuleGridViewModel, $("#divMyEducationModule").get(0));
+    </script>
+}

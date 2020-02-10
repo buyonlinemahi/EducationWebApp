@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CollegeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICollegeService_AddCollege_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCollege" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_AddCollege_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCollegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_UpdateCollege_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCollege" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_UpdateCollege_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCollegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_DeleteCollege_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCollege" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_DeleteCollege_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCollegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetCollegeByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollegeByID" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetCollegeByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollegeByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllCollegeWeb_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCollegeWeb" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllCollegeWeb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCollegeWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllCollegeActiveWeb_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCollegeActiveWeb" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllCollegeActiveWeb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCollegeActiveWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_getAllCollege_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCollege" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_getAllCollege_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCollegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_getAllCollegeActive_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCollegeActive" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_getAllCollegeActive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCollegeActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllPagedCollege_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedCollege" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllPagedCollege_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedCollegeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_AddFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFaculty" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_AddFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_UpdateFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFaculty" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_UpdateFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllPagedFaculty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedFaculty" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllPagedFaculty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedFacultyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetFacultyById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacultyById" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetFacultyById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacultyByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllCollegeByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCollegeByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="ICollegeService_GetAllCollegeByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCollegeByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICollegeService">
+    <wsdl:operation name="AddCollege">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/AddCollege" message="tns:ICollegeService_AddCollege_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/AddCollegeResponse" message="tns:ICollegeService_AddCollege_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCollege">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/UpdateCollege" message="tns:ICollegeService_UpdateCollege_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/UpdateCollegeResponse" message="tns:ICollegeService_UpdateCollege_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCollege">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/DeleteCollege" message="tns:ICollegeService_DeleteCollege_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/DeleteCollegeResponse" message="tns:ICollegeService_DeleteCollege_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/GetCollegeByID" message="tns:ICollegeService_GetCollegeByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/GetCollegeByIDResponse" message="tns:ICollegeService_GetCollegeByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCollegeWeb">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/GetAllCollegeWeb" message="tns:ICollegeService_GetAllCollegeWeb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/GetAllCollegeWebResponse" message="tns:ICollegeService_GetAllCollegeWeb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCollegeActiveWeb">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/GetAllCollegeActiveWeb" message="tns:ICollegeService_GetAllCollegeActiveWeb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/GetAllCollegeActiveWebResponse" message="tns:ICollegeService_GetAllCollegeActiveWeb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCollege">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/getAllCollege" message="tns:ICollegeService_getAllCollege_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/getAllCollegeResponse" message="tns:ICollegeService_getAllCollege_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCollegeActive">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/getAllCollegeActive" message="tns:ICollegeService_getAllCollegeActive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/getAllCollegeActiveResponse" message="tns:ICollegeService_getAllCollegeActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedCollege">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/GetAllPagedCollege" message="tns:ICollegeService_GetAllPagedCollege_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/GetAllPagedCollegeResponse" message="tns:ICollegeService_GetAllPagedCollege_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/AddFaculty" message="tns:ICollegeService_AddFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/AddFacultyResponse" message="tns:ICollegeService_AddFaculty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/UpdateFaculty" message="tns:ICollegeService_UpdateFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/UpdateFacultyResponse" message="tns:ICollegeService_UpdateFaculty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedFaculty">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/GetAllPagedFaculty" message="tns:ICollegeService_GetAllPagedFaculty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/GetAllPagedFacultyResponse" message="tns:ICollegeService_GetAllPagedFaculty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacultyById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/GetFacultyById" message="tns:ICollegeService_GetFacultyById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/GetFacultyByIdResponse" message="tns:ICollegeService_GetFacultyById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCollegeByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICollegeService/GetAllCollegeByOrganizationID" message="tns:ICollegeService_GetAllCollegeByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICollegeService/GetAllCollegeByOrganizationIDResponse" message="tns:ICollegeService_GetAllCollegeByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICollegeService" type="tns:ICollegeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCollege">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/AddCollege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCollege">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/UpdateCollege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCollege">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/DeleteCollege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeByID">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/GetCollegeByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCollegeWeb">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/GetAllCollegeWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCollegeActiveWeb">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/GetAllCollegeActiveWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCollege">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/getAllCollege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCollegeActive">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/getAllCollegeActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedCollege">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/GetAllPagedCollege" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFaculty">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/AddFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFaculty">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/UpdateFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedFaculty">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/GetAllPagedFaculty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacultyById">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/GetFacultyById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCollegeByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/ICollegeService/GetAllCollegeByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CollegeService">
+    <wsdl:port name="BasicHttpBinding_ICollegeService" binding="tns:BasicHttpBinding_ICollegeService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

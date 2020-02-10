@@ -1,0 +1,211 @@
+﻿@model HCRGUniversityApp.Domain.ViewModels.EducationTypeAvailableViewModel.EducationTypesAvailableViewModel
+@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+<div id="maindiv">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8" style="text-align:justify;">
+                <header class="site-block-title">
+                    <p class="font-17 margintop15">
+                        @Model.EducationDetailPageResults.CourseName
+                    </p>
+                </header>
+ <div id="Diveducationcontent" class=" marginbottom10 paddingright15">
+                </div>
+                @*@Model.EducationDetailPageResults.PContent*@
+                @*<img src="../content/img/utilization.jpg" class="marginbottom20 img-responsive" />*@
+            </div><!-- col-sm-12 -->
+
+            <div class="col-sm-4 margintop15">
+                <span class="list-head font-18">COURSE PURCHASE INCLUDES</span>
+ @{
+                    if (Session[GlobalConst.SessionKeys.USER] == null)
+                    {
+                        using (Html.BeginForm(GlobalConst.Actions.UserController.Index, GlobalConst.Controllers.User, FormMethod.Get, null))
+                        {
+                            @Html.AntiForgeryToken()
+                           
+                            @Html.Partial("~/Views/Shared/EducationCredits/_EducationCredit.cshtml")
+<br />
+                            <div class="font-15 text-center marginbottom20">
+                                @*<input id="btnRegister" type="submit" class="submit-btn register-btn" value="Register">*@
+                                <input id="btnRegister" type="submit" class="submit-btn register-btn" value="Take This Course">
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div id="divAddEducationShopping">
+                            @using (Html.BeginForm(GlobalConst.Actions.ShoppingCartController.Add, GlobalConst.Controllers.ShoppingCart, FormMethod.Post, new
+                            {
+                                id = "frmAddEducationShoppingCartTemp",
+                                enctype = "multipart/form-data"
+                                // data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddtocartDetailSuccess(responseText);},beforeSubmit : AddtocartBeforeSubmit ,clearForm : true}"
+                            }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Partial("~/Views/Shared/EducationCredits/_EducationCredit.cshtml")
+<br />
+                                <h3 class="text-center no-margin marginbottom10">ORDER COURSE</h3>
+                                <div class="form-group marginbottom15 clearfix">
+                                    <label for="inputPassword3" class="col-md-4 control-label align-left member-label">Quantity</label>
+                                    <div class="col-md-8">
+                                        <input type="hidden" name="EducationTypeID" value="@GlobalConst.EducationType.Online" />
+                                        <input type="text" class="form-control" value="1" readonly />
+                                    </div>
+                                </div>
+                                <div class="clearfix text-center marginbottom20">
+                                    <input type="submit" class="submit-btn register-btn" value="Add to Cart">
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+                <div class="clearfix">
+                    @foreach (HCRGUniversityApp.Domain.Models.EducationModel.EducationTypesAvailable viewmodel in @Model.EducationTypesAvailableResults)
+                    {
+                       <span class="font-18 pull-left">Course Price</span>
+                       if (viewmodel.Price == 0)
+                        {
+                            <span class="font-18 active-link reg-price">FREE<br /></span>
+                        }
+                        else
+                        {
+                            <span class="font-18 active-link reg-price">$@string.Format("{0:0.00}", viewmodel.Price)<br /></span>
+                        }
+                        
+                    }
+                </div>
+                @*<div class="clearfix margintop10">
+                    <span class="font-18 pull-left">Start Date</span>
+                    <span class="font-18 active-link reg-price">@String.Format("{0:MMM dd, yyyy}", @Model.Education.CourseStartDate)<br /></span>
+                </div>
+                <div class="clearfix margintop10">
+                    <span class="font-18 pull-left">End Date</span>
+                    <span class="font-18 active-link reg-price">@String.Format("{0:MMM dd, yyyy}", @Model.Education.CourseEndDate)<br /></span>
+                </div>
+                <div class="clearfix margintop10">
+                    <span class="font-18 pull-left">Time Allocated</span>
+                    <span class="font-18 active-link reg-price">@Model.Education.CourseAllotedTime  @Model.Education.CouseAllotedDaysMonth <br /></span>
+                    <input type="hidden" id="hndPurchase" value="@Model.Education.CanPurchase" />
+                </div>*@
+                <span>____________________________________________________________________</span>
+                @*<div clss="clearfix visible-sm visible-xs"><hr /></div>
+                <div class="clearfix visible-sm visible-xs"><hr /></div>*@
+                <div class="clearfix ">                   
+                    <span class="font-17 pull-left">Time Length</span>
+                    <span class="font-17 fontbold pull-right reg-price">@Model.Education.CourseTime<br /></span>                   
+                </div>
+             
+                <div class="clearfix">
+                    <span class="font-17 pull-left ">Includes</span>     
+                    @if (@Model.Education.CourseFile != null && @Model.Education.CourseFile != "")
+                    {
+                        <span class="font-17 fontbold pull-right reg-price">Certificate , eBook<br /></span>
+                    }
+                    else
+                    {
+                        <span class="font-17 fontbold pull-right reg-price">Certificate<br /></span>
+                    }                
+                </div>
+
+                <div class="clearfix">
+                    <span class="font-18 pull-left">
+                       </span>
+                  
+                    <span class="font-18  reg-price col-md-6">
+                       
+                        @if (@Model.Education.CourseFile != null && @Model.Education.CourseFile != "")
+                        {
+                            <img src="~/Content/img/cert.png" class="marginbottom20 img-responsive marginleft20" style="float:left;" />
+                        <img src="~/Content/img/Ebook.png" class="marginbottom20 img-responsive" style="float:right;"/>
+                        }
+                        else
+                        {
+                           <img src="~/Content/img/cert.png" class="marginbottom20 img-responsive marginleft20" style="float:right;" />
+                        }
+                            </span>
+                        
+
+                </div>
+
+            </div>
+        </div>
+       
+</div>
+</div>
+  
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/EducationShopping/AddEducationShoppingViewModel.js")"></script>
+   
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        //var addEducationShoppingGridViewModel = new CartDetail();
+        //ko.applyBindings(addEducationShoppingGridViewModel, $("#divAddEducationShopping").get(0));
+        var showEducationContentGridViewModel = new ShowEducationContentGridViewModel(model);
+        ko.applyBindings(showEducationContentGridViewModel, $("#Diveducationcontent").get(0));
+        $('#frmAddEducationShoppingCartTemp').ajaxForm({
+            beforeSubmit : function(arr, $form, options){
+                if ($form.jqBootstrapValidation('hasErrors')) {
+                    return false;
+                }
+                if(model.EducationCredentialResults[0]!=null)
+                {
+                    if (!$("input[name='CredentialID']:checked").val()) {
+                        alertify.alert("Please Select a Continued Education Unit Type");
+                        return false;
+                    }
+                }
+            },
+            success : function(responseText){
+                
+                if (responseText == "\"Already Add to Cart\"") {
+                    alertify.confirm("Already Added to Cart", function (e) {
+                        if (e) {
+                            window.location = '/ShoppingCart/';
+                        }
+                    });
+                }
+                else if (responseText == "\"GoToMyEducation\"") {
+                    window.location = '/MyEducation/';
+                }
+                else if (responseText == "\"UserSubscriptionsTimeComplate\"") {
+                    {
+                        alertify.alert("Your All Access Pass User Subscriptions Pack time is Complate, Please register agian.", function (e) {
+                            if (e) {
+                                //window.location = '/ShoppingCart/';
+                            }
+                        });
+
+                    }
+                }
+                else if (responseText == "\"This Course is already in Progress in your account.\"") {
+                    alertify.confirm("This Course is already inprogress in your account.", function (e) {
+                        if (e) {
+                            //window.location = '/ShoppingCart/';
+                        }
+                    });
+                }
+                else {
+                    window.location = '/ShoppingCart/';
+                }
+            }
+        });
+        $( document ).ready(function() {
+            if($('#hndPurchase').val()==false)
+            {
+                $('input[type="submit"]').prop('disabled', true);
+                $('input[type="submit"]').addClass('disable_btnRegister');
+            }
+        });
+    </script>
+}
+<style type="text/css">
+    #alertify-cancel {
+        display: none !important;
+    }
+</style>

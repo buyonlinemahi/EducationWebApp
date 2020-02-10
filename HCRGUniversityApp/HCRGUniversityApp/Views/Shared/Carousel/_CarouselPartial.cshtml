@@ -1,0 +1,11 @@
+﻿<link href="~/Content/css/crousel/adaptive.css" rel="stylesheet" />
+<link href="~/Content/css/crousel/enhanced.css" rel="stylesheet" />
+<link href="~/Content/css/crousel/screen.css" rel="stylesheet" />
+<div class="carousel" id="hp_carousel" style="position: relative;">
+    <div class="carousel-controls"><a class="previous" href="#">Previous</a><a class="pause play" href="#">Play/Pause</a><a class="next" href="#">Next</a></div>
+    <div class="view view-hedu-homepage-carousel view-id-hedu_homepage_carousel view-display-id-block view-dom-id-546f67710c3edc3640be77daec3be283">
+        <div class="view-content">
+            @{Html.RenderAction("bindCarousel", "Home");}
+        </div>
+    </div>
+</div>

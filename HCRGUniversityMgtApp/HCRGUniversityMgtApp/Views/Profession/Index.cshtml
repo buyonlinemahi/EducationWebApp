@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    <a class="navbar-brand" href="#">Profession Screen</a>
+}
+
+
+<div class="inner-content">
+    <div id="divAddProfession">
+        <div class="row">
+            @Html.Partial("Profession/_ProfessionInfoPartial")
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Profession/ProfessionResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var ProfessionallresultViewModel = new ProfessionGridViewModel();
+        ProfessionallresultViewModel.Init(model);
+        ko.applyBindings(ProfessionallresultViewModel, $("#divProfession").get(0));
+    </script>
+
+    <script type="text/javascript">
+        if (!$('#main').hasScrollBar()) {
+
+            $("td[class*='paddingleft']").removeClass(function () {
+                var className = this.className.match(/paddingleft\d+/);
+                $(this).removeClass(className[0]);
+            });
+        }
+    </script>
+}

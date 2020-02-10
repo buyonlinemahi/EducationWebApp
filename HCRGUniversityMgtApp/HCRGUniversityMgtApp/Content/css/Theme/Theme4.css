@@ -1,0 +1,265 @@
+﻿.topbar
+{
+    background-color: #5e9104;
+}
+
+.topbar
+{
+    color: #ffffff;
+}
+
+.header-wrapper
+{
+    background-color: rgb(66, 66, 66);
+}
+
+.list-head
+{
+    background-color: #5e9104;
+}
+
+.caption
+{
+    background-color: rgb(66, 66, 66);
+}
+
+.caption
+{
+    color: #fff;
+}
+
+.search-btn-l
+{
+    background-color: #5e9104;
+}
+
+.font20
+{
+    color: #5e9104;
+}
+
+.list-footer
+{
+    background-color: #5e9104;
+}
+
+.list-head1
+{
+    background-color: rgb(147, 147, 147);
+}
+
+.navbar-inverse
+{
+    background-color: rgb(147, 147, 147);
+}
+
+.faculty-btn
+{
+    background-color: rgb(147, 147, 147);
+}
+
+.learn-more
+{
+    background-color: rgb(147, 147, 147);
+}
+
+.learn-more
+{
+    color: #ffffff;
+}
+
+.news-list
+{
+    color: rgb(66, 66, 66);
+}
+
+#mc_embed_signup .button
+{
+    color: #ffffff;
+}
+
+#mc_embed_signup .button
+{
+    background-color: #5e9104;
+}
+
+.submit-btn
+{
+    background-color: rgb(147, 147, 147);
+}
+
+.red-pagging
+{
+    background-color: #5e9104;
+}
+
+.red-pagging
+{
+    border-color: #5e9104;
+}
+
+.box-head
+{
+    background-color: #5e9104;
+}
+
+.colorblue
+{
+    color: #5e9104;
+}
+
+.list-style
+{
+    color: rgb(66, 66, 66);
+}
+
+.resources-redhead
+{
+    background-color: #5e9104;
+}
+
+.register-head
+{
+    background-color: #5e9104;
+}
+
+.active-link
+{
+    color: #5e9104;
+}
+
+.submit-btn
+{
+    background-color: rgb(66, 66, 66);
+}
+
+.submit-btn
+{
+    color: #fff;
+}
+
+.course-row:hover
+{
+    color: #5e9104;
+}
+
+.course-btn
+{
+    background-color: rgb(66, 66, 66);
+}
+
+.course-btn
+{
+    color: #fff;
+}
+
+.faq-topic
+{
+    background-color: #5e9104;
+}
+
+.faq-links a
+{
+    color: #5e9104;
+}
+
+.monthfont
+{
+    color: #5e9104;
+}
+
+.well
+{
+    background-color: #5e9104;
+}
+
+.product_price
+{
+    color: #5e9104;
+}
+
+.btnview
+{
+    background-color: rgb(66, 66, 66);
+}
+
+.register-head-1
+{
+    background-color: #5e9104;
+}
+
+.form-panel-heading
+{
+    background-color: #5e9104;
+}
+
+.monthfont
+{
+    color: #5e9104;
+}
+
+.loader
+{
+    color: #5e9104;
+}
+
+    .loader::before
+    {
+        background-color: #5e9104;
+    }
+
+    .loader::after
+    {
+        background-color: #5e9104;
+    }
+    
+.progress-bar-danger {
+    background-image: -webkit-linear-gradient(top,#5e9104 0,#5e9104 100%);
+    background-image: linear-gradient(to bottom,#5e9104 0,#5e9104 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc9302c', GradientType=0);
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #5e9104;
+    border-color: #5e9104;
+    cursor: default;
+}
+.form-panel-heading:hover {
+    background-color: #5e9104;
+}
+.alertify-button {
+		background-color:#5e9104;
+	}
+.alertify-button:hover, .alertify-button:focus {
+    outline: none;
+    background-color: #5e9104;
+}
+.faculty-btn:hover, .faculty-btn:focus, .faculty-btn:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #5e9104 !important;
+}
+.pagination > li > a:active, .pagination > li > span
+{
+   background-color: #5e9104;
+            border: 1px solid #5e9104;
+}
+.submit-btn:hover, .submit-btn:focus, .submit-btn:active {
+     background-color: #5e9104;
+}
+.input-payment
+{color:#5e9104;}
+.monthfont, .datefont
+{
+    color: #5e9104 !important;
+}
+.fc-first th, .fc-event{
+      background:#5e9104;
+    }
+.contact-list li i
+{color: #5e9104 !important;}
+label i {
+    color: #5e9104;
+}

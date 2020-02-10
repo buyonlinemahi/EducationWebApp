@@ -1,0 +1,78 @@
+﻿@model HCRGUniversityApp.Domain.Models.ShippingPayment.PaypalDetail
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Pay</title>
+</head>
+<body>
+    <script src="~/Script/jquery-1.7.1.min.js"></script>
+
+    <form id="payForm" method="post" action="@Model.URL">
+        <input type="hidden" name="cmd" value="@Model.cmd" />
+        @*<input type="hidden" name="upload" value="1" />*@
+
+        <input type="hidden" name="business" value="@Model.business" />
+        <input type="hidden" name="CurrencyCode" value="@Model.CurrencyCode" />
+        <input type="hidden" name="item_name" value="@Model.ProductName" />
+        <input type="hidden" name="amount" value="@Model.Amount" />
+        <input type="hidden" name="quantity" value="1" />
+
+        <input type="hidden" name="no_shipping" value="@Model.no_shipping">
+        <input type="hidden" name="custom" value="@Model.request_id" />
+        @*<input type="hidden" name="invoice" value="@Model.invoice" />*@
+        <input type="hidden" name="rm" value="@Model.rm">
+
+        <input type="hidden" name="no_note" value="@Model.no_note">
+        <input type="hidden" name="UseSandbox" value="false">
+
+        <input type="hidden" name="return" value="@Model.return_url" />
+        <input type="hidden" name="cancel_return" value="@Model.cancel_url" />
+        <input type="hidden" name="notify_url" value="@Model.notify_url" />
+
+
+        <input type="hidden" name="first_name" value="@Model.first_name" />
+        <input type="hidden" name="last_name" value="@Model.last_name" />
+        <input type="hidden" name="EmailID" value="@Model.email" />
+        <!-- User id-->
+        <input type="hidden" name="item_number" value="@Model.UserID" />
+
+        <!-- Enable override of buyers's address stored with PayPal . -->
+        <input type="hidden" name="address_override" value="1">
+        <!-- Set variables that override the address stored with PayPal. -->
+        <input type="hidden" name="first_name" value="@Model.first_name" />
+        <input type="hidden" name="last_name" value="@Model.last_name" />
+        <input type="hidden" name="address1" value="@Model.address1">
+        <input type="hidden" name="city" value="@Model.city">
+        <input type="hidden" name="state" value="@Model.state">
+        <input type="hidden" name="zip" value="@Model.zip">
+        <input type="hidden" name="country" value="@Model.country">
+
+        <!-- Product id -->
+        @*<input type="hidden" name="custom" value="@Model.ProductID.ToString()" />*@
+    </form>
+
+
+<div class="text-center">
+<br /><br /><br /> 
+<p class="p-payment1">You are redirecting to PayPal </p>
+</div>
+     <br /><br />     
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#payForm").submit();
+        });
+
+    </script>
+</body>
+
+
+
+</html>

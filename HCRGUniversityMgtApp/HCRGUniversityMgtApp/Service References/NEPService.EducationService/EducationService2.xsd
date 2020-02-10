@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="Education">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowRevisit" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CourseAllotedTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CourseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseCredential" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CourseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CourseDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CourseEndTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseFile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CoursePresenterName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CoursePrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CourseStartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CourseStartTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CourseUploadDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CouseAllotedDaysMonth" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+          <xs:element minOccurs="0" name="IndustryID" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCoursePreview" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsProgramRequired" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPublished" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTimerRequired" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReadyToDisplay" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StateID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Education" nillable="true" type="tns:Education" />
+  <xs:complexType name="ArrayOfEducation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Education" nillable="true" type="tns:Education" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducation" nillable="true" type="tns:ArrayOfEducation" />
+  <xs:complexType name="ArrayOfEducationSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationSearchResult" nillable="true" type="tns:EducationSearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationSearchResult" nillable="true" type="tns:ArrayOfEducationSearchResult" />
+  <xs:complexType name="EducationSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CollegeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseUploadDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsCoursePreview" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPublished" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NumberOfModule" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReadyToDisplay" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationSearchResult" nillable="true" type="tns:EducationSearchResult" />
+  <xs:complexType name="ArrayOfEducationDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationDetail" nillable="true" type="tns:EducationDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationDetail" nillable="true" type="tns:ArrayOfEducationDetail" />
+  <xs:complexType name="EducationDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CollegeCourseID" type="xs:int" />
+      <xs:element minOccurs="0" name="CollegeID" type="xs:int" />
+      <xs:element minOccurs="0" name="CollegeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseAllotedTime" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CourseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseEndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoursePrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CourseStartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CourseTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseUploadDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CouseAllotedDaysMonth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationFormat" nillable="true" type="tns:ArrayOfEducationFormat" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCoursePreview" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPublished" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTimerRequired" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationDetail" nillable="true" type="tns:EducationDetail" />
+  <xs:complexType name="ArrayOfEducationFormat">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationFormat" nillable="true" type="tns:EducationFormat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationFormat" nillable="true" type="tns:ArrayOfEducationFormat" />
+  <xs:complexType name="EducationFormat">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q2:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EducationFormatID" type="xs:int" />
+          <xs:element minOccurs="0" name="EducationFormatType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EducationPriority" type="xs:int" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EducationFormat" nillable="true" type="tns:EducationFormat" />
+  <xs:complexType name="ArrayOfEducationProfessionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationProfessionDetail" nillable="true" type="tns:EducationProfessionDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationProfessionDetail" nillable="true" type="tns:ArrayOfEducationProfessionDetail" />
+  <xs:complexType name="EducationProfessionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationProfessionID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProfessionID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProfessionTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationProfessionDetail" nillable="true" type="tns:EducationProfessionDetail" />
+  <xs:complexType name="ArrayOfEducationFormatDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationFormatDetail" nillable="true" type="tns:EducationFormatDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationFormatDetail" nillable="true" type="tns:ArrayOfEducationFormatDetail" />
+  <xs:complexType name="EducationFormatDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationAvailableID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationFormatID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationFormatType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationPriority" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationFormatDetail" nillable="true" type="tns:EducationFormatDetail" />
+  <xs:complexType name="ArrayOfCollegeEducationSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CollegeEducationSearch" nillable="true" type="tns:CollegeEducationSearch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCollegeEducationSearch" nillable="true" type="tns:ArrayOfCollegeEducationSearch" />
+  <xs:complexType name="CollegeEducationSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CollegeCourseID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CollegeID" type="xs:int" />
+      <xs:element minOccurs="0" name="CollegeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollegeEducationSearch" nillable="true" type="tns:CollegeEducationSearch" />
+  <xs:complexType name="Profession">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q3:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfessionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProfessionTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Profession" nillable="true" type="tns:Profession" />
+  <xs:complexType name="ArrayOfProfession">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Profession" nillable="true" type="tns:Profession" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfession" nillable="true" type="tns:ArrayOfProfession" />
+  <xs:complexType name="EducationProfession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationProfessionID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProfessionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationProfession" nillable="true" type="tns:EducationProfession" />
+  <xs:complexType name="EducationFormatAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EducationAvailableID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationFormatID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationFormatAvailable" nillable="true" type="tns:EducationFormatAvailable" />
+  <xs:complexType name="CollegeEducation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CollegeCourseID" type="xs:int" />
+      <xs:element minOccurs="0" name="CollegeID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CollegeEducation" nillable="true" type="tns:CollegeEducation" />
+  <xs:complexType name="ArrayOfEducationNewsSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationNewsSearch" nillable="true" type="tns:EducationNewsSearch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationNewsSearch" nillable="true" type="tns:ArrayOfEducationNewsSearch" />
+  <xs:complexType name="EducationNewsSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NewsType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descriptions" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationNewsSearch" nillable="true" type="tns:EducationNewsSearch" />
+  <xs:complexType name="EducationTypesAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationTypeAID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationTypesAvailable" nillable="true" type="tns:EducationTypesAvailable" />
+  <xs:complexType name="ArrayOfEducationTypesAvailable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationTypesAvailable" nillable="true" type="tns:EducationTypesAvailable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationTypesAvailable" nillable="true" type="tns:ArrayOfEducationTypesAvailable" />
+  <xs:complexType name="EducationDetailPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EPageID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="PContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationDetailPage" nillable="true" type="tns:EducationDetailPage" />
+  <xs:complexType name="EducationDetailPageWithEducation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EPageID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="PContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationDetailPageWithEducation" nillable="true" type="tns:EducationDetailPageWithEducation" />
+  <xs:complexType name="Accreditor">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q4:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccreditorID" type="xs:int" />
+          <xs:element minOccurs="0" name="AccreditorName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Accreditor" nillable="true" type="tns:Accreditor" />
+  <xs:complexType name="ArrayOfAccreditor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Accreditor" nillable="true" type="tns:Accreditor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccreditor" nillable="true" type="tns:ArrayOfAccreditor" />
+  <xs:complexType name="EducationCredential">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccreditorID" type="xs:int" />
+      <xs:element minOccurs="0" name="AccreditorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificateMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CredentialID" type="xs:int" />
+      <xs:element minOccurs="0" name="CredentialProgram" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CredentialType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CredentialUnit" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationCredential" nillable="true" type="tns:EducationCredential" />
+  <xs:complexType name="ArrayOfEducationCredential">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationCredential" nillable="true" type="tns:EducationCredential" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationCredential" nillable="true" type="tns:ArrayOfEducationCredential" />
+  <xs:complexType name="ArrayOfCourseExpirySendEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CourseExpirySendEmail" nillable="true" type="tns:CourseExpirySendEmail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCourseExpirySendEmail" nillable="true" type="tns:ArrayOfCourseExpirySendEmail" />
+  <xs:complexType name="CourseExpirySendEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CourseExpirySendEmail" nillable="true" type="tns:CourseExpirySendEmail" />
+</xs:schema>

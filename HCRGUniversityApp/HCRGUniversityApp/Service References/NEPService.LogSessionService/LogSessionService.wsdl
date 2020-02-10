@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogSessionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILogSessionService_AddSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSession" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_AddSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_LogModuleOrExam_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogModuleOrExam" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_LogModuleOrExam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogModuleOrExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_CheckLogModuleOrExam_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLogModuleOrExam" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_CheckLogModuleOrExam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckLogModuleOrExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_DeleteSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSession" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_DeleteSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_getLogSessionByUserIDAndMEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLogSessionByUserIDAndMEID" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_getLogSessionByUserIDAndMEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLogSessionByUserIDAndMEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_DeleteSessionAfterSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSessionAfterSchedule" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_DeleteSessionAfterSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSessionAfterScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_getAllLogSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllLogSession" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_getAllLogSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllLogSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_GetLogSessionByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogSessionByUserName" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_GetLogSessionByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogSessionByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_DeleteSessionByAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSessionByAdmin" />
+  </wsdl:message>
+  <wsdl:message name="ILogSessionService_DeleteSessionByAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSessionByAdminResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILogSessionService">
+    <wsdl:operation name="AddSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/AddSession" message="tns:ILogSessionService_AddSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/AddSessionResponse" message="tns:ILogSessionService_AddSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogModuleOrExam">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/LogModuleOrExam" message="tns:ILogSessionService_LogModuleOrExam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/LogModuleOrExamResponse" message="tns:ILogSessionService_LogModuleOrExam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLogModuleOrExam">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/CheckLogModuleOrExam" message="tns:ILogSessionService_CheckLogModuleOrExam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/CheckLogModuleOrExamResponse" message="tns:ILogSessionService_CheckLogModuleOrExam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/DeleteSession" message="tns:ILogSessionService_DeleteSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/DeleteSessionResponse" message="tns:ILogSessionService_DeleteSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLogSessionByUserIDAndMEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/getLogSessionByUserIDAndMEID" message="tns:ILogSessionService_getLogSessionByUserIDAndMEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/getLogSessionByUserIDAndMEIDResponse" message="tns:ILogSessionService_getLogSessionByUserIDAndMEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSessionAfterSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/DeleteSessionAfterSchedule" message="tns:ILogSessionService_DeleteSessionAfterSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/DeleteSessionAfterScheduleResponse" message="tns:ILogSessionService_DeleteSessionAfterSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllLogSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/getAllLogSession" message="tns:ILogSessionService_getAllLogSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/getAllLogSessionResponse" message="tns:ILogSessionService_getAllLogSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogSessionByUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/GetLogSessionByUserName" message="tns:ILogSessionService_GetLogSessionByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/GetLogSessionByUserNameResponse" message="tns:ILogSessionService_GetLogSessionByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSessionByAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogSessionService/DeleteSessionByAdmin" message="tns:ILogSessionService_DeleteSessionByAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogSessionService/DeleteSessionByAdminResponse" message="tns:ILogSessionService_DeleteSessionByAdmin_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILogSessionService" type="tns:ILogSessionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSession">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/AddSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogModuleOrExam">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/LogModuleOrExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLogModuleOrExam">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/CheckLogModuleOrExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSession">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/DeleteSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLogSessionByUserIDAndMEID">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/getLogSessionByUserIDAndMEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSessionAfterSchedule">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/DeleteSessionAfterSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllLogSession">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/getAllLogSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogSessionByUserName">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/GetLogSessionByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSessionByAdmin">
+      <soap:operation soapAction="http://tempuri.org/ILogSessionService/DeleteSessionByAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogSessionService">
+    <wsdl:port name="BasicHttpBinding_ILogSessionService" binding="tns:BasicHttpBinding_ILogSessionService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<HCRGUniversityApp.Domain.Models.Carousel.CarouselDetail>
+    @foreach (var item in Model)
+    {
+        <div class="wrap carousel-item" style="z-index: 3; position: relative; top: 0px; left: 0px; opacity: 1; display: block;">
+            <div class="slide-caption  @item.CarouselBgColor">
+                <!-- switching between .green, .grey, .blue, .red rotates the bg color of the caption-->
+                <h2>
+                    <a href="~/News/NewsDetail?NewsID=@item.EncryptedNewsID&NewsType=@item.NewsType">@item.CarouselTitle</a>
+                </h2>
+
+                <div class="slide-callout">
+                    <p><a href="~/News/NewsDetail?NewsID=@item.EncryptedNewsID&NewsType=@item.NewsType">@item.CarouselDescription</a></p>
+
+                    <p class="more"><a href="~/News/NewsDetail?NewsID=@item.EncryptedNewsID&NewsType=@item.NewsType">Read More…</a></p>
+                </div>
+            </div>
+            <!-- with JS disabled, only the main image will show. With JS we will show the prev and next slideshow images. Commented out here, will be removed from source and written to page with JS -->
+            <div class="carousel-image">
+                <a href="~/News/NewsDetail?NewsID=@item.EncryptedNewsID&NewsType=@item.NewsType">
+                    <img class="main-image" src="@item.NewsPhotoUrl" alt="" width="522" height="348">                    
+                </a>
+            </div>
+        </div>
+    }

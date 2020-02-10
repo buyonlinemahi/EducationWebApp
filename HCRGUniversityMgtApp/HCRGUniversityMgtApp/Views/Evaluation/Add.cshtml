@@ -1,0 +1,128 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+@section header{
+    <a class="navbar-brand" href="#">Evaluation</a>
+}
+
+<div id="divAddEvaluation">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Add Evaluation</div>
+
+                    @using (Html.BeginForm(GlobalConst.Actions.EvaluationController.Add, GlobalConst.Controllers.Evaluation, FormMethod.Post, new
+                    {
+                        id = "frmAddEvaluation",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddEvaluationDetailSuccess(responseText);},beforeSubmit : EvaluationFormBeforeSubmit}"
+                    }))
+                    {
+                        <div>
+                            <div class="row mtb-20">
+                                <div class="col-md-2 col-sm-4 padd-0"><label>Evaluation Name:<span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" class="form-control" id="txtEvaluationName" required="required" maxlength="500" name="Evaluation.EvaluationName" data-bind="value:EvaluationName, enable:IsenableEvaluationName,jqBootstrapValidation: {}" placeholder="Evaluation Name">
+                                        <input type="hidden"  name="EvaluationQuestion.EvaluationQuestionID" data-bind="value:EvaluationQuestionID" />
+                                        <input type="hidden" id="EvaluationID" name="Evaluation.EvaluationID" data-bind="value:EvaluationID" />
+                                        <input type="hidden" name="EvaluationQuestion.IsStatus" data-bind="value:IsStatus" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mtb-20">
+                                <div class="col-md-2 col-sm-4 padd-0"><label>Question <span class="red">*</span></label> <a href="#" class="inner-content-link"> </a></div>
+                                <div class="col-md-5 col-sm-8">
+                                    <div class="form-group">
+                                        <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" class="form-control" name="EvaluationQuestion.EvaluationQues" maxlength="1024" placeholder="Question" data-bind="value:EvaluationQues,jqBootstrapValidation: {}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <input type="submit" class="btn btn-default" value="Submit">
+                                <input type="button" id="addPredefinedQuestionsID" class="btn btn-default" value="Add Standardized Questions" data-bind="click:$root.AddPredefinedQuestions">
+
+                            </div>
+                        </div>
+                    }
+
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Evaluation Questions Items</div>
+                            <!-- Table -->
+                            <table class="table table-striped table-fixed-1">
+                                <thead>
+                                    <tr class="clearfix">
+                                        <th class="col-md-8 col-sm-7">Evaluation Question:</th>
+                                        <th class="col-md-2 col-sm-3"></th>
+                                        <th class="col-md-2 col-sm-2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody  id="main" data-bind="event: { scroll: scrolled }">
+                                    <!--ko if:EvaluationQuestions!= null-->
+                                    <!-- ko foreach:EvaluationQuestions -->
+                                    <tr class="clearfix">
+                                        <td class="col-md-8 col-sm-7"><span data-bind="text:EvaluationQues" />
+                                         </td>
+                                        <td class="col-md-2 col-sm-3">
+                                            <a href="#" class="inner-content-link blue paddingleft15" style="color:#808080;" data-bind="click:$root.editEvaluationQuestionLineItems">Edit</a>
+                                        </td>
+                                        <td class="col-md-2 col-sm-2">
+                                            <a href="#" class="inner-content-link blue" data-bind="click:$root.DeleteQuestions" style="color:#808080;"><span data-bind="text:IsStatus" /></a>
+                                        </td>
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                    </div>
+
+                </div>
+            </div>
+            <!-- row-end -->
+        </div><!-- /inner-wrapper -->
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <link href="~/Content/ui/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/knockout/viewmodel/views/Evaluation/AddEvaluationViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var addEvaluationViewModel = new AddEvaluationViewModel();
+        addEvaluationViewModel.Init(model);
+        ko.applyBindings(addEvaluationViewModel, $("#divAddEvaluation").get(0));
+    
+    </script>
+    <style type="text/css">
+        #main {
+            height: 500px;
+            overflow-y: scroll;
+        }
+    </style>
+<script type="text/javascript">
+    if (!$('#main').hasScrollBar()) {
+
+        $("td[class*='paddingleft']").removeClass(function () {
+            var className = this.className.match(/paddingleft\d+/);
+            $(this).removeClass(className[0]);
+            $(this).addClass("paddingleft30");
+        });
+    }
+</script>
+}

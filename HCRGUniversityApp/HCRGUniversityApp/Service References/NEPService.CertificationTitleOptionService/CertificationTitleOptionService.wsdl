@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CertificationTitleOptionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICertificationTitleOptionService_AddCertificationTitleOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCertificationTitleOption" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_AddCertificationTitleOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCertificationTitleOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_UpdateCertificationTitleOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCertificationTitleOption" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_UpdateCertificationTitleOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCertificationTitleOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_DeleteCertificationTitleOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCertificationTitleOption" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_DeleteCertificationTitleOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCertificationTitleOptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetAllCertificationTitleOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCertificationTitleOptions" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetAllCertificationTitleOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCertificationTitleOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetCourseDropDownList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseDropDownList" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetCourseDropDownList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseDropDownListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetCertificationTitleOptionsByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificationTitleOptionsByID" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetCertificationTitleOptionsByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificationTitleOptionsByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetCertificationTitleOptionsByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificationTitleOptionsByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetCertificationTitleOptionsByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificationTitleOptionsByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetAllPagedCertificationTitleOption_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedCertificationTitleOption" />
+  </wsdl:message>
+  <wsdl:message name="ICertificationTitleOptionService_GetAllPagedCertificationTitleOption_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedCertificationTitleOptionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICertificationTitleOptionService">
+    <wsdl:operation name="AddCertificationTitleOption">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/AddCertificationTitleOption" message="tns:ICertificationTitleOptionService_AddCertificationTitleOption_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/AddCertificationTitleOptionResponse" message="tns:ICertificationTitleOptionService_AddCertificationTitleOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCertificationTitleOption">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/UpdateCertificationTitleOption" message="tns:ICertificationTitleOptionService_UpdateCertificationTitleOption_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/UpdateCertificationTitleOptionResponse" message="tns:ICertificationTitleOptionService_UpdateCertificationTitleOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCertificationTitleOption">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/DeleteCertificationTitleOption" message="tns:ICertificationTitleOptionService_DeleteCertificationTitleOption_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/DeleteCertificationTitleOptionResponse" message="tns:ICertificationTitleOptionService_DeleteCertificationTitleOption_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCertificationTitleOptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetAllCertificationTitleOptions" message="tns:ICertificationTitleOptionService_GetAllCertificationTitleOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetAllCertificationTitleOptionsResponse" message="tns:ICertificationTitleOptionService_GetAllCertificationTitleOptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseDropDownList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetCourseDropDownList" message="tns:ICertificationTitleOptionService_GetCourseDropDownList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetCourseDropDownListResponse" message="tns:ICertificationTitleOptionService_GetCourseDropDownList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificationTitleOptionsByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetCertificationTitleOptionsByID" message="tns:ICertificationTitleOptionService_GetCertificationTitleOptionsByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetCertificationTitleOptionsByIDResponse" message="tns:ICertificationTitleOptionService_GetCertificationTitleOptionsByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificationTitleOptionsByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetCertificationTitleOptionsByEducationID" message="tns:ICertificationTitleOptionService_GetCertificationTitleOptionsByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetCertificationTitleOptionsByEducationIDResponse" message="tns:ICertificationTitleOptionService_GetCertificationTitleOptionsByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedCertificationTitleOption">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetAllPagedCertificationTitleOption" message="tns:ICertificationTitleOptionService_GetAllPagedCertificationTitleOption_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertificationTitleOptionService/GetAllPagedCertificationTitleOptionResponse" message="tns:ICertificationTitleOptionService_GetAllPagedCertificationTitleOption_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICertificationTitleOptionService" type="tns:ICertificationTitleOptionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddCertificationTitleOption">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/AddCertificationTitleOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCertificationTitleOption">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/UpdateCertificationTitleOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCertificationTitleOption">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/DeleteCertificationTitleOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCertificationTitleOptions">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/GetAllCertificationTitleOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseDropDownList">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/GetCourseDropDownList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificationTitleOptionsByID">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/GetCertificationTitleOptionsByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificationTitleOptionsByEducationID">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/GetCertificationTitleOptionsByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedCertificationTitleOption">
+      <soap:operation soapAction="http://tempuri.org/ICertificationTitleOptionService/GetAllPagedCertificationTitleOption" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CertificationTitleOptionService">
+    <wsdl:port name="BasicHttpBinding_ICertificationTitleOptionService" binding="tns:BasicHttpBinding_ICertificationTitleOptionService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/CertificationTitleOptionService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CertificationTitleOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CertificationContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificationTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificationTitleOptionID" type="xs:int" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CertificationTitleOption" nillable="true" type="tns:CertificationTitleOption" />
+  <xs:complexType name="ArrayOfCertificationTitleOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CertificationTitleOption" nillable="true" type="tns:CertificationTitleOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCertificationTitleOption" nillable="true" type="tns:ArrayOfCertificationTitleOption" />
+  <xs:complexType name="ArrayOfCourseNameDropDownList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CourseNameDropDownList" nillable="true" type="tns:CourseNameDropDownList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCourseNameDropDownList" nillable="true" type="tns:ArrayOfCourseNameDropDownList" />
+  <xs:complexType name="CourseNameDropDownList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CourseNameDropDownList" nillable="true" type="tns:CourseNameDropDownList" />
+</xs:schema>

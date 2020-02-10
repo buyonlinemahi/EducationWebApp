@@ -1,0 +1,220 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "EducationModuleUploadedFilePartial";
+}
+
+<style type="text/css">
+    .Editmodel {
+        z-index: 4;
+        width: 1209px;
+        margin-left: -39px;
+        height: 660px;
+        margin-top: -32px;
+    }
+
+    .progress {
+        position: relative;
+        width: 97%;
+        border: 1px solid #ddd;
+        padding: 1px;
+        float: left;
+    }
+
+    .progress-bar {
+        width: 0px;
+        height: 27px;
+        background-color: #57be65;
+    }
+
+    .cls {
+        width: 23px;
+        margin-left: 5px;
+        float: left;
+    }
+</style>
+@using (Html.BeginForm("UpdateEducationModuleFile", GlobalConst.Controllers.EducationModule, FormMethod.Post, new
+        {
+            id = "frmAddEducationModuleFile",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddEducationModuleFileDetailSuccess(responseText);},beforeSubmit: EducationModuleFileInfoFormBeforeSubmit}"
+        }))
+{
+    <div id="contentwrapper" class="contentwrapper nopadding">
+        <div class="progress" id="myProgress1" style="display: none;">
+            <div class="progress-bar" style="font-size: 18px;">0%</div>
+        </div>
+        <div class="cls">
+            <input type="image" id="loading1" src="~/Content/imgs/loading.gif" style="width: 23px; display: none;">
+        </div>
+
+        <div class="panel-body">
+            <div class="col-md-3">
+                <label>Upload File:</label>
+            </div>
+            <div class="col-md-2">
+                <div class="radio">
+                    <label>
+                        <input type="radio" id="rbUploadPDF1" onclick="javascript: ShowPanel1();" name="UploadFile" data-bind="checked: radioSelectedOptionValue" value="Upload Content">
+                        Upload Content
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="radio">
+                    <label>
+                        <input type="radio" id="rbUploadPPT1" onclick="javascript: ShowPanel1();" name="UploadFile" data-bind="checked: radioSelectedOptionValue" value="Upload PPT">
+                        Upload PPT (as PDF)
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="radio">
+                    <label>
+                        <input type="radio" id="rbUploadVideo1" onclick="javascript: ShowPanel1();" data-bind="checked: radioSelectedOptionValue" name="UploadFile" value="Upload video">
+                        Upload video
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <input type="hidden" name="EducationModuleID" data-bind="value:EducationModuleID" />
+            <input type="hidden" id="hndFiletypeid" name="FileTypeID" data-bind="value:FileTypeID" />
+            <input type="hidden" name="EducationModuleFileID" data-bind="value:EducationModuleFileID" />
+            <input type="hidden" name="EducationModuleTime" id="test1" class="classEducationModuleTime" />
+        </div>
+        <div class="panel-body" id="panelUploadPDF1">
+            <div class="col-md-3">
+                <label>Update Content:</label>
+            </div>
+            <di v class="col-md-9">
+                <div class="form-group">
+                    <input type="hidden" name="EducationModuleText" class="form-control" id="hndUploadEditText">
+                    <button  data-toggle="modal" data-target="#EditorModal2" data-backdrop="static" data-keyboard="false" id="EditorEditModalPopUp" class="btn btn-default">Edit Module Content</button>
+                   
+                    @*<div clss="col-md-12 clearfix">
+                        <iframe id="iframePdf" data-bind="attr:{src:ModuleFilePDF()}" width="100%" height="530px"></iframe>
+                    </div>*@
+                </div>
+            </di>
+        </div>
+        <div class="panel-body" id="panelUploadPPT1">
+            <div class="col-md-3">
+                <label>Upload PPT:</label>
+            </div>
+            <div class="col-md-6 col-sm-9">
+                <div class="form-group">
+                    <input type="hidden" name="ModuleFile" data-bind="value:ModuleFilePPT" />
+                    <input type="file" class="col-md-6 clearfix form-control" data-bind="jqBootstrapValidation: {}" name="list_ModuleFile1" id="UploadPPT1">
+                    <div id="diviframe">
+                       @* <a id="iframePPTPDF" href="#" target="_blank" style="color: black" download>Download</a>*@
+                        <a data-bind="attr: { 'href': '@Url.Action("Download", "EducationModule")?educationmoduleid='+EducationModuleID()}" style="color: black">Download</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body" id="panelUploadVideo1">
+            <div class="col-md-3">
+                <label>Upload Video:</label>
+            </div>
+            <div class="col-md-6 col-sm-9">
+                <div class="form-group">
+                    <input type="file" class="col-md-4 clearfix form-control" name="EducationModuleVideo" id="UploadVideo1" />
+                    <div id="divVideo">
+                        <iframe id="v1" title="video player" class="video-player" type="text/html" allowfullscreen="" allowtransparency="true" mozallowfullscreen="" webkitallowfullscreen="" 
+                            width="546" height="308" frameborder="0">
+                           </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="form_submit1()" class="btn btn-default" id="tesst" style="margin-bottom: 10px; margin-left: 35px;">Upload</button>
+        <button type="button" id="getvideotime1" style="visibility: hidden; display: none;" onclick="setFileInfo2()" class="btn btn-default">getvideotime</button>
+        <button type="button" id="btnclosepopup" data-dismiss="modal" aria-hidden="true" style="display: none"></button>
+    </div>
+@*<div id="loaderDiv" style="display:none" class="loaderbg">
+        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+    </div>*@
+  
+
+}
+<div class="panel-body">
+    @*<div class="modal fade  set-popup front in" id="EditorModal2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:auto; height:764px;">*@
+    <div class="modal fade set-popup" id="EditorModal2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow: hidden; height: 827px;">
+        <div class="modal-dialog position-center align-popup">
+
+            <div class="modal-content midContent">
+                <div class="modal-header">
+                    <button id="btnCloseedit" type="button" aria-hidden="true" class="close">&times;</button>
+                    @*<button   type="button" id="btnClose12">&times;</button>*@
+                    <h4 class="modal-title">Add Content</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+
+                        <div id="divEditoredit">
+
+                            @using (Html.BeginForm(GlobalConst.Actions.EducationModuleController.ShowEditEditorModule, GlobalConst.Controllers.EducationModule, FormMethod.Post))
+                            {
+                                @Html.Raw(ViewBag.Editor3)
+                            }
+
+
+                        </div>
+
+                        <div style="padding-top: 10px;">
+                            <button type="button" aria-hidden="true" id="btnSaveandContinueeditModule" class="btn btn-default">Save and Continue</button>
+                            <button type="button" aria-hidden="true" id="btnCloseeditmodule" class="btn btn-default">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
+}
+<style>
+    /*.jssora03l, .jssora03r {
+        display: block;
+        position: absolute;
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+        background: url('../../../Content/imgs/a03.png') no-repeat;
+        overflow: hidden;
+    }
+
+    .jssora03l {
+        background-position: -3px -33px;
+    }
+
+    .jssora03r {
+        background-position: -63px -33px;
+    }
+
+    .jssora03l:hover {
+        background-position: -123px -33px;
+    }
+
+    .jssora03r:hover {
+        background-position: -183px -33px;
+    }
+
+    .jssora03l.jssora03ldn {
+        background-position: -243px -33px;
+    }
+
+    .jssora03r.jssora03rdn {
+        background-position: -303px -33px;
+    }*/
+
+    .iframe-wdth {
+        width: 100% !important;
+        height: 500px;
+        margin-top: 10px;
+    }
+</style>

@@ -1,0 +1,96 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+
+    ViewBag.Title = "User Subcriptions";
+}
+@section header{
+    <a class="navbar-brand" href="#">User Subcription </a>
+}
+<div id="divUserSubcriptions">
+    <div id="divAddNew">
+        <div class="panel-body" style="padding:7px !important;">
+            <a class="btn-edu" href="#" data-bind="click:AddUserSubcription">Add New</a>
+        </div>
+  </div>
+     <!--ko if:IsHCRGAdmin() == true-->
+          
+                            <div class="row mtb-20">
+                                <div class="col-md-2 col-sm-3">
+                                    <label>Organizations:</label>
+                                </div>
+                                <div class="col-md-5 col-sm-9">
+                                    <div class="form-group">
+                                        <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                                        <input type="hidden" id="hdfOrgID" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-12 padd-l0">
+                                     <button type="button" class="btn btn-default pul-rht1" data-bind="click: function(){ $root.SearchUserSubByOrgID()}">Search</button>
+                                </div>
+                            </div>
+     <!--/ko-->
+                           
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row mtop_20">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                  <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">User Subcription Details</div>
+                            <!-- Table -->
+                            <div class="table-responsive height-400">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-5 col-sm-5">AllAccessPassPricing</th>
+                                            <th class="col-md-4 col-sm-4">EnterprisePricing</th>
+                                             <th class="col-md-4 col-sm-4">OrganizationName</th>
+                                              <th class="col-md-3 col-sm-3">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                        <!--ko if:UserSubscriptionResults!= null-->
+                                        <!-- ko foreach:UserSubscriptionResults -->
+                                        <tr>
+                                            <td class="col-md-5 col-sm-5">
+                                                <span data-bind="text:AllAccessPassPricing" />
+                                            </td>
+                                             <td class="col-md-3 col-sm-3"><span data-bind="text:EnterprisePricing" /></td>
+                                               <td class="col-md-3 col-sm-3"><span data-bind="text:OrganizationName" /></td>
+                                              <input type="hidden" name="EncryptedUserSubscriptionID" id="hdEncryptedUserSubscriptionID" data-bind="value:EncryptedUserSubscriptionID" />
+                                            <td><a href="#" class="inner-content-link blue pull-right" style="color: #808080;" data-bind="click:$root.updateUserSubscription">Edit</a></td>
+
+                                        </tr>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row-end -->
+    </div>
+    <!-- /inner-wrapper -->
+</div>
+
+
+
+@section scripts{
+   <script src="~/Scripts/knockout/viewmodel/views/UserSubscription/SearchUserSubcriptionViewModel.js"></script>
+    <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+      var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var searchUserSubcriptionViewModel = new SearchUserSubcriptionViewModel();
+        searchUserSubcriptionViewModel.Init(model);
+        ko.applyBindings(searchUserSubcriptionViewModel, $("#divUserSubcriptions").get(0));
+    </script>
+
+
+}

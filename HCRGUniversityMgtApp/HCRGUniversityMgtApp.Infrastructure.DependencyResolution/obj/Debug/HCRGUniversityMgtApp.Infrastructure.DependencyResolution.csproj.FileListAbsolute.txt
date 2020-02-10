@@ -1,0 +1,9 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\bin\Debug\HCRGUniversityMgtApp.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\bin\Debug\HCRGUniversityMgtApp.Infrastructure.DependencyResolution.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\bin\Debug\System.Web.Mvc.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\bin\Debug\System.Web.Mvc.xml
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\obj\Debug\HCRGUniversityMgtApp.Infrastructure.DependencyResolution.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\obj\Debug\HCRGUniversityMgtApp.Infrastructure.DependencyResolution.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.DependencyResolution\obj\Debug\HCRGUniversityMgtApp.Infrastructure.DependencyResolution.csprojResolveAssemblyReference.cache

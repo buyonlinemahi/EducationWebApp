@@ -1,0 +1,168 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@using System.Web.Routing;
+@{
+    ViewBag.Title = "Exam";
+}
+<div id="AddExamResult">
+    <div class="container">
+        @using (Html.BeginForm(GlobalConst.Actions.ExamController.AddExamResult, GlobalConst.Controllers.ExamController, FormMethod.Post, new
+{
+    id = "frmAddExamResult",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddExamDetailSuccess(responseText);},beforeSubmit : AddExamInfoFormBeforeSubmit ,clearForm : true}"
+}))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-sm-12">
+                    <header class="site-block-title">
+                        <h2>Utilization reviewer certification program</h2>
+                    </header>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 self-study">
+                    <h3 class="margintop-none grey-box clearfix padding10 table-content">Take Final Exam</h3>
+                    <div id="myTabContent" class="tab-content marginbottom10">
+                        <p>Answer the questions below and click the submit button.</p>
+                        <div id="DivFinalExam">
+                            <div class="col-md-12 clearfix">
+                                <input type="hidden" id="hdfMEID" data-bind="value:MEID" />
+                                <input type="hidden" id="Hdnmeid" name="MEID" value=@ViewContext.RouteData.Values["meID"] />
+                                <input type="hidden" id="Hdneid" value="@ViewContext.RouteData.Values["educationID"]" />
+                                <!--ko if:ExamQuestionDetailResults!= null-->
+                                <!-- ko foreach:ExamQuestionDetailResults -->
+                                @*<span data-bind="text:ExamAnswer()"></span>*@
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionResult['+ $index() + '\].ExamQuestionID' },value:ExamQuestionID" />
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionDetail['+ $index() + '\].ExamID' },value:ExamID" />
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionResult['+ $index() + '\].ExamAnswer' , id: 'hdfExamAnswer_'+ $index() }" />
+                                <span data-bind="text:$index() + 1 +')' "></span>&nbsp;
+                                <span data-bind="text:ExamQues"></span>
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionResult['+ $index() + '\].ExamAnswerType',value:ExamAnswerType }" />
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionResult['+ $index() + '\].ExamAnswerTrueFalse' , id: 'hdfExamAnswerTrueFalse_'+ $index() }" />
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionDetail['+ $index() + '\].ExamAnswer' },value:ExamAnswer" />
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionDetail['+ $index() + '\].ExamAnswerTrueFalse' },value:ExamAnswerTrueFalse" />
+                                <input type="hidden" data-bind="attr: { name: 'ExamQuestionDetail['+ $index() + '\].ExamQuestionID' },value:ExamQuestionID" />
+                                <div class="divMultipleChoice">
+                                    <!--ko if:ExamAnswerType()=="Multiple Choice" || ExamAnswerType()==null-->
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'ExamQuestionResult_'+ $index(),name:$index }" value="A">
+                                                <span data-bind="text: ExamOptionA" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'ExamQuestionResult_'+ $index(),name:$index }" value="B">
+                                                <span data-bind="text:ExamOptionB" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'ExamQuestionResult_'+ $index(),name:$index }" value="C">
+                                                <span data-bind="text: ExamOptionC" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'ExamQuestionResult_'+ $index(),name:$index }" value="D">
+                                                <span data-bind="text:ExamOptionD" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!--/ko-->
+                                </div>
+                                <div class="divTrueorFalse">
+                                    <!--ko if:ExamAnswerType()=="True or False"-->
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'ExamQuestionResult_'+ $index(),name:$index }" value="True">
+                                                <span>True</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'ExamQuestionResult_'+ $index(),name:$index }" value="False">
+                                                <span>False</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!--/ko-->
+                                </div>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </div>
+                            <!--ko if:ExamQuestionDetailResults().length>0-->
+                            <div class="col-md-12 clearfix">
+                                <p class="btn clearfix">
+<button id="examSubmit" type="submit" class="submit-btn pull-right adjust-margin">Submit</button>
+                                    
+                                </p>
+                            </div>
+                            <!--/ko-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+<script src="~/Scripts/backfix.min.js"></script>
+    <script src="~/Scripts/alertify/alertify.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Exam/FinalExamViewModel.js")"></script>
+ 
+    <script type="text/javascript">
+        var model = @System.Web.Mvc.MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var ExamViewModel = new FinalExamViewModel(model);
+        ko.applyBindings(ExamViewModel, $("#AddExamResult").get(0));
+    </script>
+    <style>
+        .mCSB_container input,
+        .mCSB_container span {
+            display: inline-block !important;
+        }
+        .mCSB_container input {
+            margin-top: 4px !important;
+        }
+        .scrollbody {
+            z-index: auto;
+        }
+        .pass {
+            color: #00AF00;
+        }
+        .fail {
+            color: #ab1133;
+        }
+        .rd_bdr {
+            border: 7px solid red;
+            padding: 0px 10px 30px 10px;
+        }
+        #alertify-cancel {
+            display: none !important;
+        }
+    </style>
+    <script>
+        $(".divMultipleChoice :input:radio").change(function(){
+            var index = this.id.substr(this.id.indexOf("_") + 1)
+            $("#hdfExamAnswer_"+index).val(this.value);
+        });
+        $(".divTrueorFalse :input:radio").change(function(){
+            var index = this.id.substr(this.id.indexOf("_") + 1)
+            $("#hdfExamAnswerTrueFalse_"+index).val(this.value);
+        });
+    </script>
+
+
+}

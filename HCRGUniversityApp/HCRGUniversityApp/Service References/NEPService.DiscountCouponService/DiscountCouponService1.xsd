@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DiscountCoupon">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoupanValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CouponCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CouponDiscount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CouponEducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="CouponExpiryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CouponID" type="xs:int" />
+      <xs:element minOccurs="0" name="CouponIssueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CouponProduactID" type="xs:int" />
+      <xs:element minOccurs="0" name="CouponType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiscountCoupon" nillable="true" type="tns:DiscountCoupon" />
+  <xs:complexType name="ArrayOfDiscountCoupon">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiscountCoupon" nillable="true" type="tns:DiscountCoupon" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiscountCoupon" nillable="true" type="tns:ArrayOfDiscountCoupon" />
+  <xs:complexType name="ArrayOfDiscountCouponForCourses">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiscountCouponForCourses" nillable="true" type="tns:DiscountCouponForCourses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiscountCouponForCourses" nillable="true" type="tns:ArrayOfDiscountCouponForCourses" />
+  <xs:complexType name="DiscountCouponForCourses">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoupanValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CouponCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CouponDiscount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CouponEducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="CouponExpiryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CouponID" type="xs:int" />
+      <xs:element minOccurs="0" name="CouponIssueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CouponProduactID" type="xs:int" />
+      <xs:element minOccurs="0" name="CouponType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiscountCouponForCourses" nillable="true" type="tns:DiscountCouponForCourses" />
+</xs:schema>

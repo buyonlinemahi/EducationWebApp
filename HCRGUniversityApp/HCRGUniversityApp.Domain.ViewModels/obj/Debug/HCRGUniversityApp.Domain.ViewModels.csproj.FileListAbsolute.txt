@@ -1,0 +1,7 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.ViewModels\bin\Debug\HCRGUniversityApp.Domain.ViewModels.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.ViewModels\bin\Debug\HCRGUniversityApp.Domain.ViewModels.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.ViewModels\bin\Debug\HCRGUniversityApp.Domain.Models.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.ViewModels\bin\Debug\HCRGUniversityApp.Domain.Models.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.ViewModels\obj\Debug\HCRGUniversityApp.Domain.ViewModels.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.ViewModels\obj\Debug\HCRGUniversityApp.Domain.ViewModels.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.ViewModels\obj\Debug\HCRGUniversityApp.Domain.ViewModels.pdb

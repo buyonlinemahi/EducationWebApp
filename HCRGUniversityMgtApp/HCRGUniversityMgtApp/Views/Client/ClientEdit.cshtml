@@ -1,0 +1,200 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Client Project";
+}
+@section header{
+    <a class="navbar-brand" href="#">Client Project</a>
+}
+<div id="divClientProject">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Client Project Setup</div>                                  
+                          @using (Html.BeginForm(GlobalConst.Actions.ClientController.SaveClient, GlobalConst.Controllers.Client, FormMethod.Post, new
+                    {
+                        id = "frmAddExam",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){}"
+                    }))
+                    {
+                    <div style="margin-top:20px;margin-bottom:20px;">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-8">
+                            <div class="col-md-3" style="top: 10%;">
+                                <label>First Name :</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" id="txtFirstName" required="required" class="form-control set-padding" name="FirstName"  placeholder="First Name" data-bind="value:FirstName,jqBootstrapValidation:{}">
+                                     <input type="hidden" name="ClientID" id="ClientID" data-bind="value:ClientID"/>
+                                     <input type="hidden" name="OrganizationID" id="OrganizationID" data-bind="value:OrganizationID"/>
+                                    <input type="hidden" name="IsEmailSent" id="IsEmailSent" data-bind="value:IsEmailSent"/>
+
+                                </div>
+                            </div>
+                          
+                                <div class="col-md-3" style="top: 10%;">
+                                <label>Last Name :</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" id="txtLastName" required="required" class="form-control set-padding" name="LastName" placeholder="Last Name" data-bind="value:LastName,jqBootstrapValidation:{}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3" style="top: 10%;">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="Email" id="txtEmail"  required="required" class="form-control set-padding" name="EmailID" placeholder="Email" data-bind="value:EmailID,jqBootstrapValidation:{}">
+                                </div>
+                            </div>
+                        
+                                  <div class="col-md-3" style="top: 10%;">
+                                <label>Address:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" id="txtAddress" required="required" class="form-control set-padding" name="Address" placeholder="Address" data-bind="value:Address,jqBootstrapValidation:{}">
+                                </div>
+                            </div>
+                          
+                                <div class="col-md-3" style="top: 10%;">
+                                <label>Address 2:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" id="txtAddress2" required="required" class="form-control set-padding" name="Address2" placeholder="Address2" data-bind="value:Address2,jqBootstrapValidation:{}">
+                                </div>
+                            </div>
+                          
+                                <div class="col-md-3" style="top: 10%;">
+                                <label>City:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" id="txtCity" required="required" class="form-control set-padding" name="City" placeholder="City" data-bind="value:City,jqBootstrapValidation:{}">
+                                </div>
+                            </div>
+                           
+                                <div class="col-md-3">
+                                    <label>State:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <select id="StateID" required="required" class="form-control" name="StateID" data-bind="options: States, optionsText: 'StateName', optionsValue: 'StateID', optionsCaption:'Select State', value: selectedState,jqBootstrapValidation:{}"></select>
+                                    </div>
+                                </div>
+                           
+                            <div class="col-md-3" style="top: 10%;">
+                                <label>Zip:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" id="txtZip" required="required" class="form-control set-padding" name="Zip" placeholder="Zip" data-bind="value:Zip,jqBootstrapValidation:{}">
+                                </div>
+                            </div>
+                          
+                                <div class="col-md-3" style="top: 10%;">
+                                <label>Phone:</label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" id="txtPhone" required="required" class="form-control set-padding" name="Phone" placeholder="Phone" data-bind="value:Phone,jqBootstrapValidation:{}">
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-9">
+                               
+
+
+                            <div class="col-md-3">
+                                    <label>Is Approve:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input name="IsApproved" id="IsApproved" style="width:20px;height:20px;" type="checkbox" class="form-control" data-bind="checked:IsApproved" value="true">
+                                     
+                                    </div>
+                                </div>
+                         
+                             <div class="col-md-3">
+                                    <label>Is Active:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input name="IsActive" id="IsActive" style="width:20px;height:20px;" type="checkbox" class="form-control" data-bind="checked:IsActive" value="true">
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        
+
+                              <div class="col-md-3">
+                            <input type="submit" class="btn btn-default"   value="Submit">
+                              </div>
+                          </div>
+                       
+                          <div class="col-md-6 col-sm-4"></div> 
+                            </div>
+                          }
+                    </div>
+           
+
+                    @*<div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                    </div>*@
+                </div>
+            </div>
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+
+
+@section scripts{
+    <script src="~/Scripts/bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+        <link href="~/Content/ui/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/knockout/viewmodel/views/Client/ClientViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var clientViewModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _clientViewModel = new ClientViewModel(clientViewModel);
+        ko.applyBindings(_clientViewModel, $("#divClientProject").get(0));
+    </script>
+
+    <script type="text/javascript">
+        function setgrdDesign() {
+            if (!$('#main').hasScrollBar()) {
+                var className;
+                $('#main > tr').each(function() {
+                    $(this).children('td').addClass(function (index) {
+                        $(this).removeClass("marginleft10");
+                        return 'paddingleft-none';
+                    })
+                });
+            }
+        }
+        jQuery(function($) {
+            $('#main')
+              .bind('afterShow', function() {
+                  alert('afterShow');
+              })
+              .show(1000, function() {
+                  setgrdDesign();
+              })
+              .show();
+        });
+   
+    </script>
+       
+}
+ 

@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="divFAQ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title">
+                    <h2>Frequently Asked Questions</h2>
+                </header>
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="faq-links">
+                    <!--ko if:FAQCategoryResults!= null-->
+                    <!-- ko foreach:FAQCategoryResults -->
+                    <li><a href="#" data-bind="click:$root.ShowFAQ"><span data-bind="text:FAQCategoryTitle"></span></a></li>
+                    <!--/ko-->
+                    <!--/ko-->
+
+                </ul>
+                <h3 class="faq-topic"><span data-bind="text:FaqCatName"></h3>
+                <div class="panel-group" id="accordion">
+                    <!--ko if:FAQResults!= null-->
+                    <!-- ko foreach:FAQResults -->
+                    <div class="panel panel-default faq-accordian">
+                        <div class="panel-heading">
+                            <h4 class="panel-title faq-title">
+                                <a data-toggle="collapse" data-parent="#accordion" data-bind="attr:{href:'#' + FAQID()}, click:$root.ShowArrowImg">
+                                    <img data-bind="attr:{id:'imgid' + FAQID()}" src="~/Content/img/r-arrow.png" class="marginright10" />
+                                    <span data-bind="text:FAQues"></span>
+
+                                </a>
+                            </h4>
+                        </div>
+                        <div data-bind="attr: { id: FAQID }" class="panel-collapse collapse">
+                            <div class="panel-body text-justify">
+                                <span data-bind="text:FAQAns"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--/ko-->
+                    <!--/ko-->
+
+
+
+                </div>
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <!-- row -->
+    </div>
+    <!-- container -->
+</div>
+
+@section scripts{
+    <script src="~/Scripts/knockout/viewmodel/views/Resourses/FAQDetailViewModel.js"></script>
+ 
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var faqDetailViewModel = new FAQDetailViewModel();
+        faqDetailViewModel.Init(model);
+        ko.applyBindings(faqDetailViewModel, $("#divFAQ").get(0));     
+               
+    </script>
+
+}

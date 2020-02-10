@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bb381889-9123-4830-9c16-8fa4983aec0d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CollegeService.xsd" MetadataType="Schema" ID="deafa887-af4b-4317-b415-4b695de33f9f" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CollegeService.disco" MetadataType="Disco" ID="d150ce91-4673-457b-8f05-00bc94b69402" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?disco" />
+    <MetadataFile FileName="CollegeService.wsdl" MetadataType="Wsdl" ID="2a8a62db-4471-43fc-a78c-85ac1929cb7f" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?wsdl" />
+    <MetadataFile FileName="CollegeService1.xsd" MetadataType="Schema" ID="0f5b5dce-8559-4c6d-b36e-1924477b6812" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CollegeService2.xsd" MetadataType="Schema" ID="716cfe7d-f7a6-49ba-b8e8-47c4fbf1d5f7" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CollegeService5.xsd" MetadataType="Schema" ID="b51fcc22-edde-4b7b-896b-4102bb4e7bea" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CollegeService3.xsd" MetadataType="Schema" ID="a428357b-fbe8-4f93-9f91-11afd77c9413" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/CollegeService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

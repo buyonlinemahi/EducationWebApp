@@ -1,0 +1,138 @@
+﻿@model HCRGUniversityMgtApp.Domain.ViewModels.EducationModuleFileViewModel.EducationModuleFileViewModel
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "MyEducationModuleMedia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/sliderppt.css" rel="stylesheet" />
+<style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+    }
+</style>
+
+<script type="text/javascript">
+    // this javscript code used to stop the working of browser back button
+    history.pushState(null, null, null);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, null);
+    });
+</script>
+
+<div id="divCourseDetailData">
+    <header class="site-block-title">
+        <h2><span data-bind="text:CourseName()"></span></h2>
+    </header>
+    <input type="hidden" id="hndmeid" />
+    <div class="col-sm-11 col-md-offset-1">
+        <a id="backbutton" href="~/Education/SearchCourseCatalog" class="bts"><span class="glyphicon glyphicon-chevron-left round back-to-courses"></span><span class="hide-mobile">Back to All Courses</span></a>
+    </div>
+    <div class="col-md-8  col-md-offset-1 col-sm-8 mtop-10">
+        <div class="bs-docs-section">
+            <div class="bs-example">
+                <div id="divModuleVideo">
+                    <iframe id="vid1" title="video player" data-bind="attr:{src:ModuleFile()}" class="video-player embeded_video_align" type="text/html"
+                        allowfullscreen="" allowtransparency="true" mozallowfullscreen="" webkitallowfullscreen="" frameborder="0"></iframe>
+                </div>
+                <div id="divModuleContent" class="marginbottom10 margintop30 ">
+                     <div id="divModuleFile"></div>
+                </div>
+                <div id="divModulePDF" style="display: none">
+                    <div id="slider1_container" class="slider_container">
+                        <iframe data-bind="attr:{src:UploadFilePath()}" class="iframe-wdth" allowfullscreen webkitallowfullscreen></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-sm-4">
+        <div class="col-sm-12 col-xs-12 padd-0">
+            <!--ko if:$root.LastModule() == 0-->
+            <a id="btnNext" href="#" data-bind="click:nextClick" class="faculty-btn pull-right hide">Next</a>
+            <!-- /ko -->
+            <!--ko if:$root.FirstModule() == 0 -->
+            <a id="btnPrevious" data-bind="click:previousClick" href="#" class="faculty-btn pull-left ml10 hide">Previous</a>
+            <!-- /ko -->
+            <!--ko if:$root.LastModule() == 1-->
+            <a id="btnFinished" data-bind="click:finishedClick" href="#" class="faculty-btn pull-right hide">Finished</a>
+            <!-- /ko -->
+        </div>
+        <div class="clear"></div>
+        <!--ko if:EducationModulesData!= null-->
+        <!-- ko foreach:EducationModulesData -->
+        <div class="panel panel-default">
+            <div class="panel-heading fc-event-draggable panel-head" data-bind="click: function(){$root.PreviewModuleContent($index, EncryptedEDUModuleID)},attr : {'id' : EducationModuleID, 'name': ('EM_' + $index())}">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="panel-title">
+                                <a data-parent="#accordion" data-bind="attr: { href: '#collapseOne' + $index()}">
+                                    <span data-bind="attr: { id: 'right' +'#'+ $index()  }" class="icon expand-icon glyphicon glyphicon-chevron-right spanfloatleft"></span>
+                                    <span style="display: none" data-bind="attr: { id: 'down' +'#' + $index() }" class="icon expand-icon glyphicon glyphicon-chevron-down spanfloatleft"></span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="panel-title align-left">
+                                @* <a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="text:EducationModuleName"></a>*@
+                                <div data-bind="text:EducationModuleName"></div>
+                                
+                                <input type="hidden" name="EncryptedEDUModuleID" id="EncryptedEDUModuleID" data-bind="value:EncryptedEDUModuleID" />
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--ko if:EducationModuleFileResults().length > 0-->
+            <div data-bind="attr: { id: 'collapseOne' + EducationModuleID() }" class="panel-collapse collapse EducationModuleFile">
+                <div class="panel-body">
+                    <table class="table">
+                        <tbody>
+                            <!-- ko foreach:EducationModuleFileResults -->
+                            <tr>
+                                <td class="tdSubMenu">
+                                    <span class="text-primary"></span>
+                                    @*<a download href="#" target="_blank" data-bind="attr: { 'href': ModuleFile()}">*@
+                                    <a download  target="_blank" data-bind="attr: { 'href': '@Url.Action("DownloadModuleAttachment", "Education")?Filename='+ModuleFile()+ '&MEMID=' + EducationModuleID() }">
+
+                                        <!--ko if:ModuleFileExtension()=='pdf'-->
+                                        <span class="spanColorRed" data-bind="text:DocumentName"></span>
+                                        <!-- /ko -->
+                                        <!--ko if:ModuleFileExtension()=='xlt'|| ModuleFileExtension()=='xls' -->
+                                        <span class="spanColorGreen" data-bind="text:DocumentName"></span>
+                                        <!-- /ko -->
+                                        <!--ko if:ModuleFileExtension()!='xls' && ModuleFileExtension()!='xlsx' && ModuleFileExtension() !='pdf' && ModuleFileExtension()!='xlt'  -->
+                                        <span class="spanColorBlue" data-bind="text:DocumentName"></span>
+                                        <!-- /ko -->
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+        <!--/ko-->
+        <!-- /ko -->
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/knockout/viewmodel/views/Education/PreviewEducationViewModel.js"></script>
+    <script src="~/Scripts/jssor.js"></script>
+    <script src="~/Scripts/jssor.slider.js"></script>
+
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var previewEducationViewModel = new PreviewEducationViewModel();
+        previewEducationViewModel.Init(model);
+        ko.applyBindings(previewEducationViewModel, $("#divCourseDetailData").get(0));
+    </script>
+}

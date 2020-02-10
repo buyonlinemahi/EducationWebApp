@@ -1,0 +1,10 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityApp.Infrastructure.ApplicationServices.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\bin\Debug\BCrypt.Net.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityApp.Infrastructure.Global.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\obj\Debug\HCRGUniversityApp.Infrastructure.ApplicationServices.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\obj\Debug\HCRGUniversityApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Infrastructure.ApplicationServices\obj\Debug\HCRGUniversityApp.Infrastructure.ApplicationServices.pdb

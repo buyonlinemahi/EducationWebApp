@@ -1,0 +1,193 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+<!--start row -->
+@section header{
+    <a class="navbar-brand" href="#">Certification Title Option</a>
+}
+@section scripts{
+<script type="text/javascript">
+    if ($('#main').hasScrollBar()) {
+        setgrdDesign();
+    }
+    function setgrdDesign() {
+        if ($('#main').hasScrollBar()) {
+            $('#main tr td').each(function(index){
+                var className = this.className.match(/paddingleft\d+/);
+                if(className !=null){
+                    $(this).removeClass(className[0]);
+                }
+                $(this).addClass("paddingleft45");
+            });
+        }
+    }
+</script>
+<script type="text/javascript">
+    document.onkeydown = function(){
+        switch (event.keyCode){
+            case 116 : //F5 button
+                event.returnValue = false;
+                event.keyCode = 0;
+                return false;
+            case 82 : //R button
+                if (event.ctrlKey){
+                    event.returnValue = false;
+                    event.keyCode = 0;
+                    return false;
+                }
+        }
+    }
+    var editor1;
+    function RichTextEditor_OnLoad(editor) {
+        editor1 = editor;
+    }
+    function RichTextEditor_OnExecUICommand(editor, arg) {
+        var a0 = arg.Arguments[1];
+        if (a0 == "FullScreen")
+        {
+            return false;
+        }
+    }
+</script>
+<link href="~/Content/css/Popup/style.css" rel="stylesheet" />
+    <script  src="@Url.Content("~/Scripts/knockout/viewmodel/views/CertificationTitleOption/CertificationTitleOptionViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _certificationTitleOptionViewModel = new CertificationTitleOptionViewModel();
+        _certificationTitleOptionViewModel.Init(model);
+        ko.applyBindings(_certificationTitleOptionViewModel, $("#divAddCertificationTitleOption").get(0));
+    </script>   
+    
+}
+<div id="divAddCertificationTitleOption">
+
+    <div class="row">
+        <div class="panel-wrapper">
+            <div class="panel panel-default">
+                <div class="panel-heading">Add Certification Option Screen</div>    
+                <div class="panel-body">
+                    <div class="modal fade EditorModal" id="EditorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog position-center set-popup">
+                            <div class="modal-content" style="height:830px;">
+                                <div class="modal-header">
+                                    <button type="button" id="btnClose" class="close btnClose" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Add Content</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="panel-body">
+                                        <div id="divEditor">
+                                        @using (Html.BeginForm(GlobalConst.Actions.CertificationTitleOptionController.ShowEditor, GlobalConst.Controllers.CertificationTitleOption, FormMethod.Post))
+                                        {
+                                        @Html.Raw(ViewBag.Editor)
+                                        }
+                                        </div>
+                                        <div style="padding-top:10px;">
+                                            <button type="button" aria-hidden="true" id="btnSaveandContinue" class="btn btn-default">Save and Continue</button>
+                                            <button type="button" aria-hidden="true" id="btnClose1" class="btn btn-default btnClose">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+           </div>
+
+                    @using (Html.BeginForm(GlobalConst.Actions.CertificationTitleOptionController.Add, GlobalConst.Controllers.CertificationTitleOption, FormMethod.Post, new
+                {
+                    id = "frmAddCertificationTitle",
+                    enctype = "multipart/form-data",
+                    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddCertificationSuccess(responseText);},beforeSubmit : CertificationTitleInfoFormBeforeSubmit}"
+                }))
+                    {
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label> Certification Title :</label>
+                            </div>
+                            <div class="col-md-5 col-sm-9">
+                                <input type="hidden" name="CertificationTitleOptionID" id="hdCertificationTitleOptionID" data-bind="value:CertificationTitleOptionID" />
+                                <input type="text" maxlength="50" class="form-control" id="hdCertificationTitle" required="required" data-bind="value:CertificationTitle,jqBootstrapValidation: {}, event :{change : CheckSubmitForm}" name="CertificationTitle" placeholder="Title">
+                            </div>
+                       
+                            <div class="col-md-1 col-sm-12">                              
+                                <button type="button" data-target="#EditorModal" id="EditorModalPopUp"  data-backdrop="static" data-keyboard="false" class="btn btn-default">
+                                    Add Content
+                                </button>
+                                <input type="hidden" id="hd" name="CertificationContent" />
+                                <input type="hidden" id="hdEducationID" name="EducationID" />
+                                <input type="hidden" id="hdCourseName" name="CourseName" />
+                            </div>
+
+                        </div>
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label> Certification Valid for Courses :</label>
+                            </div>
+                            <div class="col-md-5 col-sm-9">
+                                <div class="form-group">
+                                    <div id="divAllEducation" class="elem text-box-style form-control">
+                                        <ul data-bind="foreach: Educations">
+                                            <li>
+                                                <input type="radio" name="EducationID" value="EducationID" data-bind="checked:isDone,checkedValue : isDoneChecked,click:$root.PutEducations" checked />
+                                                <span data-bind="text:CourseName" />                                               
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <button type="submit" id="createOptionID" class=" btn btn-default">Create Certification Option</button>
+                        </div>
+                    }
+
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Certification Options</div>
+
+                            <!-- Table -->
+                            <table class="table table-striped table-fixed-1">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-6"> Titles </th>
+                                        <th class="col-md-3">Edit</th>
+                                        <th class="col-md-3">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                    <!--ko if:CertificationTitleOptionResults!= null-->
+                                    <!-- ko foreach:CertificationTitleOptionResults -->
+                                    <tr>
+                                        <td class="text-justify col-md-6 col-sm-6">
+                                            <span data-bind="text:CertificationTitle" />
+                                            <input type="hidden" data-bind="attr: { name: 'CertificationTitleOptionRecords['+ $index() + '\].CertificationTitleOptionID' },value:CertificationTitleOptionID" />
+                                            <input type="hidden" data-bind="attr: { name: 'CertificationTitleOptionRecords['+ $index() + '\].CertificationTitle' },value:CertificationTitle" />
+                                            <input type="hidden" data-bind="attr: { name: 'CertificationTitleOptionRecords['+ $index() + '\].CertificationContent' },value:CertificationContent" />
+                                            <input type="hidden" data-bind="attr: { name: 'CertificationTitleOptionRecords['+ $index() + '\].EducationId' },value:EducationId" />
+                                            <input type="hidden" data-bind="attr: { name: 'CertificationTitleOptionRecords['+ $index() + '\].CourseName' },value:CourseName" />
+
+                                        </td>
+                                        <td class="col-md-3 col-sm-3">
+                                            <a href="#" class="inner-content-link blue" style="color: #2b2b2b" data-bind="click:$root.ViewCertificationTitleLineItems">Edit</a>
+                                        </td>
+                                        <td class="col-md-3 col-sm-3">
+                                            <a href="#" class="inner-content-link blue" style="color: #2b2b2b" data-bind="click:$root.DeleteCertificationTitleLineItems">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="loaderDiv" class="loaderbg">
+                            <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

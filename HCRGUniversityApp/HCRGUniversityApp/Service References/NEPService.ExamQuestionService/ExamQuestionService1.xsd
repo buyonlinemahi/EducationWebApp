@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ExamQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExamAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamAnswerTrueFalse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExamAnswerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamOptionA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamOptionB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamOptionC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamOptionD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamQues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamQuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExamQuestion" nillable="true" type="tns:ExamQuestion" />
+  <xs:complexType name="ArrayOfExamQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExamQuestion" nillable="true" type="tns:ExamQuestion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExamQuestion" nillable="true" type="tns:ArrayOfExamQuestion" />
+  <xs:complexType name="ArrayOfExamQuestionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExamQuestionDetail" nillable="true" type="tns:ExamQuestionDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExamQuestionDetail" nillable="true" type="tns:ArrayOfExamQuestionDetail" />
+  <xs:complexType name="ExamQuestionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamAnswerTrueFalse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExamAnswerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamOptionA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamOptionB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamOptionC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamOptionD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamQues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamQuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExamQuestionDetail" nillable="true" type="tns:ExamQuestionDetail" />
+  <xs:complexType name="PreTestQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PreTestAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestAnswerTrueFalse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PreTestAnswerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestOptionA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestOptionB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestOptionC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestOptionD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestQues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestQuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreTestQuestion" nillable="true" type="tns:PreTestQuestion" />
+  <xs:complexType name="ArrayOfPreTestQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PreTestQuestion" nillable="true" type="tns:PreTestQuestion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPreTestQuestion" nillable="true" type="tns:ArrayOfPreTestQuestion" />
+  <xs:complexType name="ArrayOfPreTestQuestionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PreTestQuestionDetail" nillable="true" type="tns:PreTestQuestionDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPreTestQuestionDetail" nillable="true" type="tns:ArrayOfPreTestQuestionDetail" />
+  <xs:complexType name="PreTestQuestionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestAnswerTrueFalse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PreTestAnswerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestOptionA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestOptionB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestOptionC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestOptionD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestQues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestQuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreTestQuestionDetail" nillable="true" type="tns:PreTestQuestionDetail" />
+  <xs:complexType name="EducationExamQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseExamID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationExamQuestion" nillable="true" type="tns:EducationExamQuestion" />
+  <xs:complexType name="EducationPreTestQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoursePreTestID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PreTestID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationPreTestQuestion" nillable="true" type="tns:EducationPreTestQuestion" />
+  <xs:complexType name="Exam">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExamID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamStatus" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exam" nillable="true" type="tns:Exam" />
+  <xs:complexType name="ArrayOfExam">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Exam" nillable="true" type="tns:Exam" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExam" nillable="true" type="tns:ArrayOfExam" />
+  <xs:complexType name="PreTest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PreTestID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestStatus" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreTest" nillable="true" type="tns:PreTest" />
+  <xs:complexType name="ArrayOfPreTest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PreTest" nillable="true" type="tns:PreTest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPreTest" nillable="true" type="tns:ArrayOfPreTest" />
+  <xs:complexType name="Evaluation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationStatus" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Evaluation" nillable="true" type="tns:Evaluation" />
+  <xs:complexType name="ArrayOfEvaluation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Evaluation" nillable="true" type="tns:Evaluation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvaluation" nillable="true" type="tns:ArrayOfEvaluation" />
+  <xs:complexType name="EvaluationQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationQues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationQuestionID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsStatus" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EvaluationQuestion" nillable="true" type="tns:EvaluationQuestion" />
+  <xs:complexType name="ArrayOfEvaluationQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EvaluationQuestion" nillable="true" type="tns:EvaluationQuestion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvaluationQuestion" nillable="true" type="tns:ArrayOfEvaluationQuestion" />
+  <xs:complexType name="ArrayOfEvaluationQuestionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EvaluationQuestionDetail" nillable="true" type="tns:EvaluationQuestionDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvaluationQuestionDetail" nillable="true" type="tns:ArrayOfEvaluationQuestionDetail" />
+  <xs:complexType name="EvaluationQuestionDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseEvaluationID" type="xs:int" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationQues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationQuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EvaluationQuestionDetail" nillable="true" type="tns:EvaluationQuestionDetail" />
+  <xs:complexType name="EducationEvaluation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CourseEvaluationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationEvaluation" nillable="true" type="tns:EducationEvaluation" />
+</xs:schema>

@@ -1,0 +1,138 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Client Project";
+}
+@section header{
+    <a class="navbar-brand" href="#">Index</a>
+}
+<div id="divClientProject">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Index</div>
+              @*      @{ Html.RenderPartial("~/Views/Shared/Organization/_OrganizationPartial.cshtml");  }*@
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Clients Result</div>
+                            <!-- Table -->
+                            <div class="table-responsive height-400">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-3 col-sm-3 col-xs-3">First Name</th>
+                                            <th class="col-md-3 col-sm-3 col-xs-3">Last Name</th>
+                                            <th class="col-md-3 col-sm-4 col-xs-4">Email</th>
+                                            <th class="col-md-3 col-sm-2 col-xs-2"><span class="pull-right">Action</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="main">
+                                        <!--ko if:Clients!= null-->
+                                        <!-- ko foreach:Clients -->
+                                        <tr>
+                                            <td class="col-md-3 col-sm-3 col-xs-3">
+
+                                                <span data-bind="text:FirstName" />
+                                            </td>
+                                            <td class="col-md-3 col-sm-3 col-xs-3"><span data-bind="text:LastName" /></td>
+                                            <td class="col-md-3 col-sm-4 col-xs-4"><span data-bind="text:EmailID" /></td>
+                                            <td class="col-md-3 col-sm-2 col-xs-2">
+                                                <input type="hidden" name="EncryptedClientID" id="hdEncryptedClientID" data-bind="value:EncryptedClientID" />
+                                                <a href="#" class="inner-content-link blue pull-right" style="color: #808080;" data-bind="click:$root.updateClient">Edit</a>
+                                            </td>
+                                        </tr>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </tbody>
+
+                                    <tfoot>
+                                        <!--ko if:Clients()==null || Clients().length==0-->
+                                        <tr>
+                                            <td colspan="9">
+                                                <div class="alert alert-info">
+                                                    <button type="button" class="close" data-dismiss="alert">
+                                                        &times;
+                                                    </button>
+                                                    No Result Found.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- /ko -->
+                                    </tfoot>
+
+                                    @*<nav class="margin20">
+                                @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                            </nav>*@
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+
+
+
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <link href="~/Content/ui/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/knockout/ko.PopupPager.js"></script>
+
+    <script src="~/Scripts/knockout/viewmodel/views/Client/ClientViewModel.js"></script>
+    <script src="@Url.Content("~/Scripts/knockout/ko.pager.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var clientViewModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _clientViewModel = new ClientViewModel(clientViewModel);
+        ko.applyBindings(_clientViewModel, $("#divClientProject").get(0));
+    </script>
+
+    <script type="text/javascript">
+        function setgrdDesign() {
+            if (!$('#main').hasScrollBar()) {
+                var className;
+                $('#main > tr').each(function() {
+                    $(this).children('td').addClass(function (index) {
+                        $(this).removeClass("marginleft10");
+                        return 'paddingleft-none';
+                    })
+                });
+            }
+        }
+        jQuery(function($) {
+            $('#main')
+              .bind('afterShow', function() {
+                  alert('afterShow');
+              })
+              .show(1000, function() {
+                  setgrdDesign();
+              })
+              .show();
+        });
+   
+    </script>
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alertify.alert("@ViewBag.Message");
+                };
+        </script>
+    }
+
+}

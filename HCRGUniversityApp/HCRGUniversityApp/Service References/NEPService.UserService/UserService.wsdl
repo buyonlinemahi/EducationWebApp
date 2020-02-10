@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/UserService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_GetUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersAll" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmailAndOrganizationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailAndOrganizationId" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmailAndOrganizationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailAndOrganizationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResetUserFailedAttemptCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetUserFailedAttemptCount" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResetUserFailedAttemptCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetUserFailedAttemptCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserFailedAttemptCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserFailedAttemptCount" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserFailedAttemptCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserFailedAttemptCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllPagedUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllPagedUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserResetTempPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResetTempPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserResetTempPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResetTempPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUserResetTempPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResetTempPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUserResetTempPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResetTempPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_matchUserResetTempPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:matchUserResetTempPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_matchUserResetTempPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:matchUserResetTempPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateUserVerification_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserVerification" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateUserVerification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserVerificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_clearedUserDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:clearedUserDetail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_clearedUserDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:clearedUserDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserVerifiedDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserVerifiedDetails" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserVerifiedDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserVerifiedDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersByPlanID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByPlanID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersByPlanID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByPlanIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetDefaulClientAdminByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaulClientAdminByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetDefaulClientAdminByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaulClientAdminByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUserMenuGroupAndPremissionAccordingToOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserMenuGroupAndPremissionAccordingToOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUserMenuGroupAndPremissionAccordingToOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserMenuGroupAndPremissionAccordingToOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetClientAndUserbySearchCriterias_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientAndUserbySearchCriterias" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetClientAndUserbySearchCriterias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientAndUserbySearchCriteriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserSessionIDByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserSessionIDByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserSessionIDByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserSessionIDByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResetUserSessionID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetUserSessionID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResetUserSessionID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetUserSessionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_addUserCardDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:addUserCardDetail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_addUserCardDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addUserCardDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateUserCardDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserCardDetail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateUserCardDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserCardDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserCardDetailByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserCardDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserCardDetailByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserCardDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserCardDetailByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserCardDetailByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserCardDetailByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserCardDetailByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserSubscription_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserSubscription" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserSubscription_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserSubscription" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserSubscriptionDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSubscriptionDetails" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserSubscriptionDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSubscriptionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUserSubscriptionByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserSubscriptionByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUserSubscriptionByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserSubscriptionByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserSubscriptionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSubscriptionByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserSubscriptionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserSubscriptionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_addEnterprisePackageRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:addEnterprisePackageRegister" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_addEnterprisePackageRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addEnterprisePackageRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateEnterprisePackageRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateEnterprisePackageRegister" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateEnterprisePackageRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateEnterprisePackageRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_deleteEnterprisePackageRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEnterprisePackageRegister" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_deleteEnterprisePackageRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEnterprisePackageRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getEnterprisePackageRegisterByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterprisePackageRegisterByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getEnterprisePackageRegisterByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getEnterprisePackageRegisterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllPagedEnterprisePackageRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEnterprisePackageRegister" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllPagedEnterprisePackageRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEnterprisePackageRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllEnterprisePackageRegistersByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEnterprisePackageRegistersByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllEnterprisePackageRegistersByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEnterprisePackageRegistersByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_addUserAllAccessPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:addUserAllAccessPass" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_addUserAllAccessPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addUserAllAccessPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateUserAllAccessPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserAllAccessPass" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_updateUserAllAccessPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserAllAccessPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserAllAccessPassByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAllAccessPassByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserAllAccessPassByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAllAccessPassByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserAllAccessPassByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAllAccessPassByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_getUserAllAccessPassByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserAllAccessPassByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_checkUserAllAccessPassByUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkUserAllAccessPassByUserID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_checkUserAllAccessPassByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkUserAllAccessPassByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUserMenuGroupByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserMenuGroupByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUserMenuGroupByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserMenuGroupByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserMenuGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserMenuGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserMenuGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserMenuGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserMenuGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserMenuGroup" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserMenuGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserMenuGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroupByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroupByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroupByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroupByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserMenuPermission_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserMenuPermission" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserMenuPermission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserMenuPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserMenuPermission_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserMenuPermission" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserMenuPermission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserMenuPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuPermissionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPermissionByID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuPermissionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPermissionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuPermissionByUserMenuGroupID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPermissionByUserMenuGroupID" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuPermissionByUserMenuGroupID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuPermissionByUserMenuGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroupByMenuIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroupByMenuIDs" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroupByMenuIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroupByMenuIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroupByGroupName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroupByGroupName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserMenuGroupByGroupName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMenuGroupByGroupNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="GetUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByID" message="tns:IUserService_GetUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByIDResponse" message="tns:IUserService_GetUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddUser" message="tns:IUserService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddUserResponse" message="tns:IUserService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUser" message="tns:IUserService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserResponse" message="tns:IUserService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserPassword" message="tns:IUserService_UpdateUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserPasswordResponse" message="tns:IUserService_UpdateUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByUserName" message="tns:IUserService_GetUserByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByUserNameResponse" message="tns:IUserService_GetUserByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersAll" message="tns:IUserService_GetUsersAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersAllResponse" message="tns:IUserService_GetUsersAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersByName" message="tns:IUserService_GetUsersByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersByNameResponse" message="tns:IUserService_GetUsersByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailAndOrganizationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailAndOrganizationId" message="tns:IUserService_GetUserByEmailAndOrganizationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailAndOrganizationIdResponse" message="tns:IUserService_GetUserByEmailAndOrganizationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetUserFailedAttemptCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ResetUserFailedAttemptCount" message="tns:IUserService_ResetUserFailedAttemptCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ResetUserFailedAttemptCountResponse" message="tns:IUserService_ResetUserFailedAttemptCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserFailedAttemptCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserFailedAttemptCount" message="tns:IUserService_UpdateUserFailedAttemptCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserFailedAttemptCountResponse" message="tns:IUserService_UpdateUserFailedAttemptCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllPagedUser" message="tns:IUserService_GetAllPagedUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllPagedUserResponse" message="tns:IUserService_GetAllPagedUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserResetTempPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddUserResetTempPassword" message="tns:IUserService_AddUserResetTempPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddUserResetTempPasswordResponse" message="tns:IUserService_AddUserResetTempPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserResetTempPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteUserResetTempPassword" message="tns:IUserService_DeleteUserResetTempPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteUserResetTempPasswordResponse" message="tns:IUserService_DeleteUserResetTempPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="matchUserResetTempPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/matchUserResetTempPassword" message="tns:IUserService_matchUserResetTempPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/matchUserResetTempPasswordResponse" message="tns:IUserService_matchUserResetTempPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserVerification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/updateUserVerification" message="tns:IUserService_updateUserVerification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/updateUserVerificationResponse" message="tns:IUserService_updateUserVerification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="clearedUserDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/clearedUserDetail" message="tns:IUserService_clearedUserDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/clearedUserDetailResponse" message="tns:IUserService_clearedUserDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserVerifiedDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/getUserVerifiedDetails" message="tns:IUserService_getUserVerifiedDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/getUserVerifiedDetailsResponse" message="tns:IUserService_getUserVerifiedDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByPlanID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersByPlanID" message="tns:IUserService_GetUsersByPlanID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersByPlanIDResponse" message="tns:IUserService_GetUsersByPlanID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaulClientAdminByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetDefaulClientAdminByOrganizationID" message="tns:IUserService_GetDefaulClientAdminByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetDefaulClientAdminByOrganizationIDResponse" message="tns:IUserService_GetDefaulClientAdminByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserMenuGroupAndPremissionAccordingToOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllUserMenuGroupAndPremissionAccordingToOrganizationID" message="tns:IUserService_GetAllUserMenuGroupAndPremissionAccordingToOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllUserMenuGroupAndPremissionAccordingToOrganizationIDResponse" message="tns:IUserService_GetAllUserMenuGroupAndPremissionAccordingToOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAndUserbySearchCriterias">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetClientAndUserbySearchCriterias" message="tns:IUserService_GetClientAndUserbySearchCriterias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetClientAndUserbySearchCriteriasResponse" message="tns:IUserService_GetClientAndUserbySearchCriterias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserSessionIDByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserSessionIDByUserID" message="tns:IUserService_UpdateUserSessionIDByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserSessionIDByUserIDResponse" message="tns:IUserService_UpdateUserSessionIDByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetUserSessionID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ResetUserSessionID" message="tns:IUserService_ResetUserSessionID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ResetUserSessionIDResponse" message="tns:IUserService_ResetUserSessionID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addUserCardDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/addUserCardDetail" message="tns:IUserService_addUserCardDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/addUserCardDetailResponse" message="tns:IUserService_addUserCardDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserCardDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/updateUserCardDetail" message="tns:IUserService_updateUserCardDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/updateUserCardDetailResponse" message="tns:IUserService_updateUserCardDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserCardDetailByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/getUserCardDetailByID" message="tns:IUserService_getUserCardDetailByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/getUserCardDetailByIDResponse" message="tns:IUserService_getUserCardDetailByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserCardDetailByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/getUserCardDetailByUserID" message="tns:IUserService_getUserCardDetailByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/getUserCardDetailByUserIDResponse" message="tns:IUserService_getUserCardDetailByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserSubscription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddUserSubscription" message="tns:IUserService_AddUserSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddUserSubscriptionResponse" message="tns:IUserService_AddUserSubscription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserSubscription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserSubscription" message="tns:IUserService_UpdateUserSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserSubscriptionResponse" message="tns:IUserService_UpdateUserSubscription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSubscriptionDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserSubscriptionDetails" message="tns:IUserService_GetUserSubscriptionDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserSubscriptionDetailsResponse" message="tns:IUserService_GetUserSubscriptionDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserSubscriptionByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllUserSubscriptionByOrganizationID" message="tns:IUserService_GetAllUserSubscriptionByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllUserSubscriptionByOrganizationIDResponse" message="tns:IUserService_GetAllUserSubscriptionByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSubscriptionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserSubscriptionByID" message="tns:IUserService_GetUserSubscriptionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserSubscriptionByIDResponse" message="tns:IUserService_GetUserSubscriptionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addEnterprisePackageRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/addEnterprisePackageRegister" message="tns:IUserService_addEnterprisePackageRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/addEnterprisePackageRegisterResponse" message="tns:IUserService_addEnterprisePackageRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterprisePackageRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/updateEnterprisePackageRegister" message="tns:IUserService_updateEnterprisePackageRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/updateEnterprisePackageRegisterResponse" message="tns:IUserService_updateEnterprisePackageRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteEnterprisePackageRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/deleteEnterprisePackageRegister" message="tns:IUserService_deleteEnterprisePackageRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/deleteEnterprisePackageRegisterResponse" message="tns:IUserService_deleteEnterprisePackageRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getEnterprisePackageRegisterByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/getEnterprisePackageRegisterByID" message="tns:IUserService_getEnterprisePackageRegisterByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/getEnterprisePackageRegisterByIDResponse" message="tns:IUserService_getEnterprisePackageRegisterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEnterprisePackageRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllPagedEnterprisePackageRegister" message="tns:IUserService_GetAllPagedEnterprisePackageRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllPagedEnterprisePackageRegisterResponse" message="tns:IUserService_GetAllPagedEnterprisePackageRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEnterprisePackageRegistersByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllEnterprisePackageRegistersByOrganizationID" message="tns:IUserService_GetAllEnterprisePackageRegistersByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllEnterprisePackageRegistersByOrganizationIDResponse" message="tns:IUserService_GetAllEnterprisePackageRegistersByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addUserAllAccessPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/addUserAllAccessPass" message="tns:IUserService_addUserAllAccessPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/addUserAllAccessPassResponse" message="tns:IUserService_addUserAllAccessPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUserAllAccessPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/updateUserAllAccessPass" message="tns:IUserService_updateUserAllAccessPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/updateUserAllAccessPassResponse" message="tns:IUserService_updateUserAllAccessPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserAllAccessPassByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/getUserAllAccessPassByID" message="tns:IUserService_getUserAllAccessPassByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/getUserAllAccessPassByIDResponse" message="tns:IUserService_getUserAllAccessPassByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserAllAccessPassByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/getUserAllAccessPassByUserID" message="tns:IUserService_getUserAllAccessPassByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/getUserAllAccessPassByUserIDResponse" message="tns:IUserService_getUserAllAccessPassByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkUserAllAccessPassByUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/checkUserAllAccessPassByUserID" message="tns:IUserService_checkUserAllAccessPassByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/checkUserAllAccessPassByUserIDResponse" message="tns:IUserService_checkUserAllAccessPassByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroup" message="tns:IUserService_GetUserMenuGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroupResponse" message="tns:IUserService_GetUserMenuGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserMenuGroupByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllUserMenuGroupByOrganizationID" message="tns:IUserService_GetAllUserMenuGroupByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllUserMenuGroupByOrganizationIDResponse" message="tns:IUserService_GetAllUserMenuGroupByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserMenuGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddUserMenuGroup" message="tns:IUserService_AddUserMenuGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddUserMenuGroupResponse" message="tns:IUserService_AddUserMenuGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserMenuGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserMenuGroup" message="tns:IUserService_UpdateUserMenuGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserMenuGroupResponse" message="tns:IUserService_UpdateUserMenuGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroupByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroupByID" message="tns:IUserService_GetUserMenuGroupByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroupByIDResponse" message="tns:IUserService_GetUserMenuGroupByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserMenuPermission">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddUserMenuPermission" message="tns:IUserService_AddUserMenuPermission_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/AddUserMenuPermissionResponse" message="tns:IUserService_AddUserMenuPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserMenuPermission">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserMenuPermission" message="tns:IUserService_UpdateUserMenuPermission_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserMenuPermissionResponse" message="tns:IUserService_UpdateUserMenuPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPermissionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserMenuPermissionByID" message="tns:IUserService_GetUserMenuPermissionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserMenuPermissionByIDResponse" message="tns:IUserService_GetUserMenuPermissionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPermissionByUserMenuGroupID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserMenuPermissionByUserMenuGroupID" message="tns:IUserService_GetUserMenuPermissionByUserMenuGroupID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserMenuPermissionByUserMenuGroupIDResponse" message="tns:IUserService_GetUserMenuPermissionByUserMenuGroupID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroupByMenuIDs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroupByMenuIDs" message="tns:IUserService_GetUserMenuGroupByMenuIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroupByMenuIDsResponse" message="tns:IUserService_GetUserMenuGroupByMenuIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroupByGroupName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroupByGroupName" message="tns:IUserService_GetUserMenuGroupByGroupName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserMenuGroupByGroupNameResponse" message="tns:IUserService_GetUserMenuGroupByGroupName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserByID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserName">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersAll">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUsersAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByName">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUsersByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailAndOrganizationId">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByEmailAndOrganizationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetUserFailedAttemptCount">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ResetUserFailedAttemptCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserFailedAttemptCount">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserFailedAttemptCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllPagedUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserResetTempPassword">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddUserResetTempPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserResetTempPassword">
+      <soap:operation soapAction="http://tempuri.org/IUserService/DeleteUserResetTempPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="matchUserResetTempPassword">
+      <soap:operation soapAction="http://tempuri.org/IUserService/matchUserResetTempPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserVerification">
+      <soap:operation soapAction="http://tempuri.org/IUserService/updateUserVerification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clearedUserDetail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/clearedUserDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserVerifiedDetails">
+      <soap:operation soapAction="http://tempuri.org/IUserService/getUserVerifiedDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByPlanID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUsersByPlanID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaulClientAdminByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetDefaulClientAdminByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserMenuGroupAndPremissionAccordingToOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllUserMenuGroupAndPremissionAccordingToOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientAndUserbySearchCriterias">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetClientAndUserbySearchCriterias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserSessionIDByUserID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserSessionIDByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetUserSessionID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ResetUserSessionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUserCardDetail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/addUserCardDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserCardDetail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/updateUserCardDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCardDetailByID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/getUserCardDetailByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCardDetailByUserID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/getUserCardDetailByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserSubscription">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddUserSubscription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserSubscription">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserSubscription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSubscriptionDetails">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserSubscriptionDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserSubscriptionByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllUserSubscriptionByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSubscriptionByID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserSubscriptionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addEnterprisePackageRegister">
+      <soap:operation soapAction="http://tempuri.org/IUserService/addEnterprisePackageRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEnterprisePackageRegister">
+      <soap:operation soapAction="http://tempuri.org/IUserService/updateEnterprisePackageRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEnterprisePackageRegister">
+      <soap:operation soapAction="http://tempuri.org/IUserService/deleteEnterprisePackageRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEnterprisePackageRegisterByID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/getEnterprisePackageRegisterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEnterprisePackageRegister">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllPagedEnterprisePackageRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEnterprisePackageRegistersByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllEnterprisePackageRegistersByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUserAllAccessPass">
+      <soap:operation soapAction="http://tempuri.org/IUserService/addUserAllAccessPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUserAllAccessPass">
+      <soap:operation soapAction="http://tempuri.org/IUserService/updateUserAllAccessPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAllAccessPassByID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/getUserAllAccessPassByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAllAccessPassByUserID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/getUserAllAccessPassByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkUserAllAccessPassByUserID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/checkUserAllAccessPassByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroup">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserMenuGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserMenuGroupByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllUserMenuGroupByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserMenuGroup">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddUserMenuGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserMenuGroup">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserMenuGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroupByID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserMenuGroupByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserMenuPermission">
+      <soap:operation soapAction="http://tempuri.org/IUserService/AddUserMenuPermission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserMenuPermission">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserMenuPermission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPermissionByID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserMenuPermissionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuPermissionByUserMenuGroupID">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserMenuPermissionByUserMenuGroupID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroupByMenuIDs">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserMenuGroupByMenuIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMenuGroupByGroupName">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserMenuGroupByGroupName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/UserService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

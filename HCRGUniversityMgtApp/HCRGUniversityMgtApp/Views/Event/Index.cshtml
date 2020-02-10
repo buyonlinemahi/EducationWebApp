@@ -1,0 +1,229 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+@section header{
+    <a class="navbar-brand" href="#">Events</a>
+}
+<div id="divEventSection">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Main Event Screen</div>
+                    <div id="contentwrapper" class="contentwrapper nopadding">
+                        <div id="divEvents">
+                            @using (Html.BeginForm(GlobalConst.Actions.EventController.Add, GlobalConst.Controllers.EventController, FormMethod.Post, new
+                                {
+                                    id = "frmAddEvent",
+                                    enctype = "multipart/form-data",
+                                    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddEventDetailSuccess(responseText);},beforeSubmit: EventInfoFormBeforeSubmit}"
+                                }))
+                            {
+                                <div class="row mtb-8 mtop-10">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>Event Name:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-9">
+                                        <div class="form-group">
+                                            <input required="required" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" maxlength="50" type="text" class="form-control" data-bind="value:EventName,jqBootstrapValidation: {}" name="EventName" placeholder="Event Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-8">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>Event Date:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-9">
+                                        <div class="form-group">
+                                            <input type="hidden" name="NewsID" data-bind="value:NewsID()" />
+                                            <input type="hidden" name="EducationID" data-bind="value:EducationID()" />
+                                            <input type="hidden" name="OrganizationID" data-bind="value:OrganizationID()" />
+                                            <input type="hidden" name="EventID" data-bind="value:EventID()" />
+                                            <input required="required" id="Eventdate" type="text" class="form-control" data-bind="value:EventDate,jqBootstrapValidation: {}" name="EventDate" placeholder="Event Date" data-validation-regex-regex='^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d+$' data-validation-regex-message="MM/DD/YYYY">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-8">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>Event Description:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-9">
+                                        <div class="form-group">
+                                            <textarea required="required" maxlength="350" name="EventDescription" data-bind="value:EventDescription,jqBootstrapValidation: {}" placeholder="Description" class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-8">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>Link Type:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-9">
+                                        <div class="form-group">
+                                            <select id="drpLinkType" class="form-control" required data-bind="options: LinkTypes, optionsText: 'LinkTypeName', optionsValue: 'LinkTypeValue',value: selectedItemId,jqBootstrapValidation: {}"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mtb-8">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label><span data-bind="text: selectedItem().LinkTypeValue"></span></label>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 padd-r0">
+                                        <div class="form-group">
+                                            <input type="text" id="SearchText1" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" class="form-control " readonly="readonly" required="required" data-bind="value:TitleResult,jqBootstrapValidation: {}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-1 col-sm-3">
+                                        <button type="button" data-target="#mySearchModel" data-backdrop="static" data-keyboard="false" data-toggle="modal" class="btn btn-default padding-btn color-black pull-right" data-bind="click:ResetGrid,text:'Link '+ selectedItem().LinkTypeName"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                            }
+                        </div>
+                        <!--ko if:IsHCRGAdmin() == true-->
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label>Organizations:</label>
+                            </div>
+                            <div class="col-md-5 col-sm-9">
+                                <div class="form-group">
+                                    <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                                    <input type="hidden" id="hdfOrgID" />
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12 padd-l0">
+                                <button type="button" class="btn btn-default pul-rht-r" data-bind="click: function(){ $root.SearchEvent()}">Search</button>
+                            </div>
+                        </div>
+                        <!--/ko-->
+
+                        @*      <!--ko with:EventGridViewModel-->*@
+                        <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+                        <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+                        <input type="hidden" name="FileSearchText" id="FileSearchText" data-bind="value: $root.FileText" />
+                        @*    <!--/ko-->*@
+                        <span class="clearfix"></span>
+                        <!--ko if:(TotalItemCount() > 0 || TotalItemCount() == 0 )-->
+                        <div class="panel-body">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Events Results</div>
+                                <!-- Table -->
+                                <div class="table-responsive height-400">
+                                    <table class="table table-striped">
+                                        <!-- remove class(table-fixed-event)-->
+                                        <thead>
+                                            <tr class="clearfix">
+                                                <th class="col-md-2 col-sm-2">Event Name</th>
+                                                <th class="col-md-2 col-sm-2">Event Date</th>
+                                                <th class="col-md-3 col-sm-4">Event Description</th>
+                                                <th class="col-md-1 col-sm-2">EventType</th>
+                                                <th class="col-md-2 col-sm-3">Course / Article Name</th>
+                                                <th class="col-md-2 col-sm-3">Organization</th>
+                                                <th class="col-md-1 col-sm-1">Edit</th>
+                                                <th class="col-md-1 col-sm-1">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!--ko if:EventResults!= null-->
+                                            <!-- ko foreach:EventResults -->
+                                            <tr class="clearfix">
+
+                                                <td class="col-md-2 col-sm-2"><span data-bind="text:EventName" /></td>
+                                                <td class="col-md-2 col-sm-2">
+                                                    <span data-bind="text:EventDate" />
+                                                    <input type="hidden" data-bind="value:EventDate" />
+                                                    <input type="hidden" data-bind="value:EventID" />
+                                                </td>
+                                                <td class="col-md-3 col-sm-4">
+                                                    <span data-bind="text:EventDescription" />
+                                                    <input type="hidden" data-bind="value:NewsID" />
+                                                    <input type="hidden" data-bind="value:EducationID" />
+                                                </td>
+                                                <!--ko if:NewsID()!= null-->
+                                                <td class="col-md-1 col-sm-2">Article</td>
+                                                <!--/ko-->
+                                                <!--ko ifnot:NewsID()!= null-->
+                                                <td class="col-md-2 col-sm-2">Course</td>
+                                                <!--/ko-->
+                                                <!--ko if:NewsID()!= null-->
+                                                <td class="col-md-2 col-sm-2"><span data-bind="text:NewsTitle" /></td>
+                                                <!--/ko-->
+                                                <!--ko ifnot:NewsID()!= null-->
+                                                <td class="col-md-2 col-sm-3"><span data-bind="text:CourseName" /></td>
+                                                <!--/ko-->
+                                                <td class="col-md-2 col-sm-3"><span data-bind="text:OrganizationName" /></td>
+                                                <td class="col-md-1 col-sm-1"><a href="#" class="inner-content-link blue" data-bind="click:$root.editEvent" style="color: #808080;">Edit</a></td>
+                                                <td class="col-md-1 col-sm-1"><a href="#" class="inner-content-link blue" data-bind="click:$root.DeleteEvent" style="color: #808080;">Delete</a></td>
+                                            </tr>
+                                            <!--/ko-->
+                                            <!--/ko-->
+                                        </tbody>
+                                        <tfoot>
+                                            <!--ko if:EventResults()==null || EventResults().length==0-->
+                                            <tr>
+                                                <td colspan="12">
+                                                    <div class="alert alert-info">
+                                                        <button type="button" class="close" data-dismiss="alert">
+                                                            &times;
+                                                        </button>
+                                                        No Result Found.
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- /ko -->
+                                        </tfoot>
+                                    </table>
+                                </div>
+                             @*   <nav class="margin-left">
+                                    @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                                </nav>*@
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mySearchModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center popwidthadj">
+            <div class="modal-content">
+                <div class="modal-header panel-heading">
+                    <button type="button" class="close" id="sectionClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" data-bind="text:'Select '+selectedItem().LinkTypeName"></h4>
+                </div>
+                <div class="modal-body">
+                    @{ Html.RenderPartial("~/Views/Shared/Event/_EventLink.cshtml");  }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/InputMaskViewModel.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Event/EventResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/knockout/ko.pager.js")"></script>
+    <script src="~/Scripts/knockout/ko.PopupPager.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var EventallresultViewModel = new EventGridViewModel();
+        EventallresultViewModel.Init(model);
+        ko.applyBindings(EventallresultViewModel, $("#divEventSection").get(0));
+    </script>
+    <script src="~/Scripts/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#Eventdate" ).datepicker();
+            $('#Eventdate').mask('99/99/9999');
+        });
+    </script>
+}

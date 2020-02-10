@@ -1,0 +1,162 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "SearchCourseCatalog";
+}
+@section header{
+    <a class="navbar-brand" href="#">Education Course Catalog</a>
+}
+<div id="divSearchCourseCatalog">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Search Course Catalog</div>
+                    <div class="mtb-20">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4">
+                                <label>Search Course Catalog </label>
+                                <a href="#" class="inner-content-link"></a>
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                @using (Html.BeginForm("SearchCourseCatalog", GlobalConst.Controllers.Education, FormMethod.Post, new
+                                {
+                                    id = "frmSearchCourseCatalog",
+                                    enctype = "multipart/form-data",
+                                    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ SearchCourseCatalogSuccess(responseText);},beforeSubmit: EducationSearchFormBeforeSubmit}"
+                                }))
+                                {
+                                    <div class="form-group col-md-8 padd-edu0">
+                                        <select class="form-control"  id="selectTestSearch" name="searchText" >
+                                            <option value="0">All</option>
+                                            <option value="1">Preview</option>
+                                            <option value="2">Published</option>
+                                            <option value="3">Expired</option>
+                                        </select> 
+                                    </div>
+                                    <button type="submit" class="btn btn-default pul-rht-r">Search</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <!--ko if:IsHCRGAdmin() == true-->
+                    <div class="row mtb-10">
+                        <div class="col-md-3 col-sm-4">
+                            <label>Organizations:</label>
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="form-group col-md-8 padd-edu0">
+                                <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                                <input type="hidden" id="hdfOrgID" />
+                            </div>
+                        
+                            <button type="button" id="btnSearch" class="btn btn-default pul-rht-r" data-bind="click: function(){ $root.SearchCourseCatalogByOrgID()}">Search</button>
+                        </div>
+                    </div>
+                    <!--/ko-->
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Education Course Catalog</div>
+                            <!-- Table -->
+                            <div class="table-responsive height-400">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2 col-sm-3">Subject Matter</th>
+                                            <th class="col-md-2 col-sm-3">Education Name</th>
+                                            <th class="col-md-1 col-sm-2"># of Modules</th>
+                                            <th class="col-md-1 col-sm-2">Date Added</th>
+                                            <th class="col-md-2 col-sm-2">Phases Completed</th>
+                                            <th class="col-md-1 col-sm-1">Client Name</th>
+                                            <th class="col-md-2 col-sm-2">Organization</th>
+                                            <th class="col-md-1 col-sm-1">Edit</th>
+                                            <th class="col-md-1 col-sm-1">Preview</th>
+                                            <th class="col-md-1 col-sm-1">Publish</th>
+                                            
+
+                                    </thead>
+                                    <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                        <!-- ko if:EducatoinSearchResults!= null-->
+                                        <!-- ko foreach:EducatoinSearchResults -->
+                                        <tr>
+                                            <td class="col-md-2">
+                                                <span data-bind="text:CollegeName"></span>
+                                            </td>
+                                            <td class="col-md-2">
+                                                <span data-bind="text:CourseName"></span>
+                                            </td>
+                                            <td class="col-md-1">
+                                                <span data-bind="text:NumberOfModule"></span>
+                                            </td>
+                                            <td class="col-md-1">
+                                                <span data-bind="text:CourseUploadDate"></span>
+                                            </td>                                            
+                                            <td class="col-md-2">
+                                                <span data-bind="text:ReadyToDisplay"></span>
+                                            </td>
+                                            <td class="col-md-2">
+                                                <span data-bind="text:ClientName"></span>
+                                            </td>
+                                             <td class="col-md-2">
+                                                <span data-bind="text:OrganizationName"></span>
+                                            </td>
+                                            <td class="col-md-1">
+                                                <!-- ko if:IsPublished()==true-->
+                                                <a href="#" class="inner-content-link blue" disabled style="color: #808080; cursor: not-allowed;">Edit</a>
+                                                <!--/ko-->
+                                                <!-- ko if:IsPublished()!=true-->
+                                                <a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="click:$root.updateEducation">Edit</a>
+                                                <!--/ko-->
+
+                                            </td>
+                                            <td class="col-md-1">
+                                                <!-- ko if:IsCoursePreview()==true || IsPublished()==true -->
+                                                <a href="#" class="inner-content-link blue" disabled style="color: #808080; cursor: not-allowed;">Previewed</a>
+                                                <!--/ko-->
+                                                <!-- ko if:IsCoursePreview()!=true &&  IsPublished()!=true -->
+                                                <a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="click:$root.coursePreviewEducation">Preview</a>
+                                                <!--/ko-->
+                                            </td>
+                                            <td class="col-md-1">
+                                                <!-- ko if:IsPublished()== null || IsPublished()==false-->
+                                                <!-- ko if:ReadyToDisplay() == false-->
+                                                <span class="inner-content-link blue" style="color: #808080;">Publish</span>
+                                                <!--/ko-->
+                                                <!-- ko if:ReadyToDisplay()!=false-->
+                                                <a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="click:$root.publishEducation">Publish</a>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                                <!-- ko if: IsPublished()==true-->
+                                                <span class="inner-content-link blue" disabled style="color: #808080; cursor: not-allowed;">Published</span>
+                                                <!--/ko-->
+                                            </td>
+                                        </tr>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading1" src="~/Content/imgs/loading.gif">
+                    </div>
+                </div>
+            </div>
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/knockout/viewmodel/views/Education/SearchCourseCatalogViewModel.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var SearchCourseCatalogViewModel = new SearchCourseCatalogViewModel();
+        SearchCourseCatalogViewModel.Init(model);
+        ko.applyBindings(SearchCourseCatalogViewModel, $("#divSearchCourseCatalog").get(0));
+    </script>
+}

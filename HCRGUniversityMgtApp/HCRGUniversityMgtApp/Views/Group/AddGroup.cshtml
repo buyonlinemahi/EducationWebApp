@@ -1,0 +1,65 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@model HCRGUniversityMgtApp.Domain.ViewModels.GroupViewModel.GroupViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+@section header{    
+    <a id="pageHeading" class="navbar-brand" href="#">Add Group</a>
+}
+<div id="divAddGroup">
+    <div class="inner-content">
+        <div class="panel-body">            
+              @using (Html.BeginForm(GlobalConst.Actions.GroupController.AddGroup, GlobalConst.Controllers.Group, FormMethod.Post, new
+              {
+                  id = "frmAddUserGroup",
+                  enctype = "multipart/form-data",
+                  data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddGroupSuccess(responseText);}}"
+              }))
+              {
+                <div class="panel panel-default">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div class="row mtb-20">
+                                <div class="col-md-3 padd-0">
+                                    <label>Add Group Name:</label>
+                                </div>
+                                <div class="col-md-8 padd-0">
+                                    <div class="form-group">
+                                        <input type="hidden" id="hdnUserMenuGroupID" name="UserMenuGroup.UserMenuGroupID" data-bind="value:UserMenuGroupID" />
+                                        <input type="hidden" id="hdnUserMenuPermissionID" name="UserMenuPermission.UserMenuPermissionID" data-bind="value:UserMenuPermissionID" />
+                                        <input type="text" id="txtGroupName" placeholder="Enter Group Name" class="form-control" data-bind="value:MenuName" name="UserMenuGroup.UserMenuGroupName" maxlength="25" required />
+                                        <input type="hidden" name="UserMenuPermission.MenuIDs" id="hdnMenuIDs" data-bind="value: $root.selectedMenu" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            @{ Html.RenderPartial("~/Views/Shared/Group/_GroupPartial.cshtml");  }
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 pull-right">
+                            <button type="button" data-bind="click:CheckAndSubmit" class="btn btn-default mtb-20 pull-right">Save and Continue</button>
+                        </div>
+                    </div>
+                </div>
+              }
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/knockout/viewmodel/views/Group/GroupViewModel.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var groupViewModel = new GroupViewModel();
+        ko.applyBindings(groupViewModel, $("#divAddGroup").get(0));
+        groupViewModel.init(model);
+        $(document).ready(function () {
+            
+            $("#MenuOption1").attr("disabled","disabled");
+        });
+    </script>
+}

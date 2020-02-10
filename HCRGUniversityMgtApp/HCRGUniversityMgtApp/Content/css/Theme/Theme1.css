@@ -1,0 +1,259 @@
+﻿.topbar
+{
+    background-color: #ff0808;
+}
+
+.topbar
+{
+    color: #ffffff;
+}
+
+.header-wrapper
+{
+    background-color: #ffffff;
+}
+
+.list-head
+{
+    background-color: #ff0808;
+}
+
+.caption
+{
+    color: #ff0808;
+}
+
+.caption
+{
+    background-color: #a7a7a7;
+}
+
+.search-btn-l
+{
+    background-color: #ff0808;
+}
+
+.list-footer
+{
+    background-color: #ff0808;
+}
+
+.list-head1
+{
+    background-color: #a7a7a7;
+}
+
+.font20
+{
+    color: #ff0808;
+}
+
+.faculty-btn
+{
+    background-color: #a7a7a7;
+}
+.faculty-btn:hover, .faculty-btn:focus, .faculty-btn:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff0808 !important;
+}
+.news-list
+{
+    color: #ff0808;
+}
+
+#mc_embed_signup .button
+{
+    color: #ffffff;
+}
+
+#mc_embed_signup .button
+{
+    background-color: #a7a7a7;
+}
+
+.navbar-inverse
+{
+    background-color: #a7a7a7;
+}
+
+.red-pagging
+{
+    background-color: #ff0808;
+}
+
+.red-pagging
+{
+    border-color: #ff0808;
+}
+
+.box-head
+{
+    background-color: #ff0808;
+}
+
+.colorblue
+{
+    color: #ff0808;
+}
+
+.list-style
+{
+    color: #ffcc00;
+}
+
+.resources-redhead
+{
+    background-color: #ff0808;
+}
+
+.register-head
+{
+    background-color: #ff0808;
+}
+
+.active-link
+{
+    color: #ff0808;
+}
+
+.submit-btn
+{
+    background-color: #a7a7a7;
+}
+
+.caption
+{
+    color: #fff;
+}
+
+.course-btn
+{
+    background-color: #3366cc;
+}
+
+.course-btn
+{
+    color: #fff;
+}
+
+.learn-more
+{
+    background-color: #3366cc;
+}
+
+.learn-more
+{
+    color: #ffffff;
+}
+
+.faq-topic
+{
+    background-color: #ff0808;
+}
+
+.faq-links a
+{
+    color: #ff0808;
+}
+
+.well
+{
+    background-color: #ff0808;
+}
+
+.product_price
+{
+    color: #ff0808;
+}
+
+.btnview
+{
+    background-color: rgb(133, 133, 133);
+}
+
+.register-head-1
+{
+    background-color: #ff0808;
+}
+
+.news-btn
+{
+    background-color: #ff0808;
+}
+
+.form-panel-heading
+{
+    background-color: #ff0808;
+}
+
+.loader
+{
+    color: #ff0808;
+}
+
+    .loader::before
+    {
+        background-color: #ff0808;
+    }
+
+    .loader::after
+    {
+        background-color: #ff0808;
+    }
+
+.course-row:hover
+{
+    color: #ff0808;
+}
+
+.progress-bar-danger {
+    background-image: -webkit-linear-gradient(top,#ff0808 0,#ff0808 100%);
+    background-image: linear-gradient(to bottom,#ff0808 0,#ff0808 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc9302c', GradientType=0);
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #ff0808;
+    border-color: #ff0808;
+    cursor: default;
+}
+.form-panel-heading:hover {
+    background-color: #ff0808;
+}
+.alertify-button {
+		background-color:#ff0808;
+	}
+.alertify-button:hover, .alertify-button:focus {
+    outline: none;
+    background-color: #ff0808;
+}
+.faculty-btn:hover, .faculty-btn:focus, .faculty-btn:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff0808 !important;
+}
+.input-payment
+{color:#ff0808;}
+.form-panel-heading:hover {
+    background-color: #ff0808;
+}
+.monthfont, .datefont
+{
+    color: #ff0808 !important;
+}
+.pagination > li > a:active, .pagination > li > span
+{
+   background-color: #ff0808;
+   border: 1px solid #ff0808;
+}
+.fc-first th, .fc-event{
+      background:#ff0808;
+    }
+.contact-list li i
+{color: #ff0808 !important;}
+label i {
+    color: #ff0808;
+}

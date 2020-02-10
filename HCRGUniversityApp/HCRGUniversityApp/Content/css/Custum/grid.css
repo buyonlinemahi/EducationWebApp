@@ -1,0 +1,156 @@
+/**
+ * Demo Styles
+ */
+   .row.no-gutter {
+    margin-left: 0px !important;
+    margin-right: 0px !important;;
+  }
+
+.wrapper {
+  position: relative;
+}
+
+
+.example .row .well {
+    background-color: #a7a7a7;
+    text-align: left;
+    padding: 6px 0;
+    border: none;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    background-image:none;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    
+}
+
+
+
+.example .row .row .well {
+  background-color: hsla(0, 0%, 87%, 0.6);
+}
+
+
+/* Give `.wrapper` a maximum width and center it within its parent*/
+.wrapper {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+
+/* Don’t honor column widths until viewport is at least 600px wide */
+@media (min-width: 1024px) {
+  .row {
+    margin-right: -1.333%;
+    margin-left: -1.333%;
+  }
+
+  [class^="col-"],
+  [class*=" col-"]{
+    position: relative;
+    float: left;
+    padding-right: 1.333%;
+    padding-left: 1.333%;
+    min-height: 1px;
+    
+  }
+
+  /* Remove space between `.col-*` elements with `.no-gutter` class */
+
+  .row.no-gutter [class^="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Column widths */
+  .col-1  { width: 8.333%;  }
+  .col-2  { width: 16.666%; }
+  .col-3  { width: 25%;     }
+  .col-4  { width: 33.333%; }
+  .col-5  { width: 41.666%; }
+  .col-6  { width: 50%;     }
+  .col-7  { width: 58.333%; }
+  .col-8  { width: 66.666%; }
+  .col-9  { width: 75%;     }
+  .col-10 { width: 83.333%; }
+  .col-11 { width: 91.666%; }
+  .col-12 { width: 100%;    }
+
+}
+
+/* Clear floats */
+.container:before,
+.container:after,
+.wrapper:before,
+.wrapper:after,
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+
+.container:after,
+.wrapper:after,
+.row:after {
+  clear: both;
+}
+
+
+    .gridbackground :hover {
+        background: #d5d5d5 none repeat scroll 0 0;
+        cursor:pointer;
+    } 
+     .course-row:hover .course-name {
+        color: #ab1135;
+    }
+
+.gridbackground :hover .link-course-name{
+    color:#ab1135;
+}
+
+.gridbackground :hover .learn-more {
+    background-color:#ab1135;
+}
+.verticalmiddle {
+    line-height:50%;
+
+}
+
+@media (min-width:1024px) and (max-width:1200px) {
+
+    .learn-more {
+    
+    padding: 5px 5px !important;
+    
+    }
+
+}
+
+@media (min-width:320px) and (max-width:1024px) {
+
+   
+    .hidem
+    {
+        display: none;
+    }
+    .btm5
+    {
+        margin-bottom:5px;
+    }
+    .top10
+    {
+        margin-top:10px;
+    }
+
+    .box-design
+    {
+        border: 1px solid #dcdcdc;
+    }
+      .row.no-gutter {
+    margin-left: 0px !important;
+    margin-right: 0px !important;;
+  }
+
+}
+

@@ -1,0 +1,201 @@
+﻿@model HCRGUniversityApp.Domain.Models.FacultyModel.Faculty
+@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc;
+@{
+    ViewBag.Title = "JoinFaculty";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/alertify/alertify.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="site-block-title">
+                <h2>Join our faculty</h2>
+            </header>
+        </div><!-- col-sm-12 -->
+    </div><!-- row -->
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="font-16 text-justify">Explore opportunities as an academic leader at <span class="spanWebsiteName1"></span>. Our faculty members are recognized nationally and internationally as experts in their respective disciplines. The instructors at <span class="spanWebsiteName1"></span> provide high-quality academic instruction, supported by the best and latest teaching tools.</p>
+            <p class="font-16 text-justify">We are currently pursuing experts with the desire to help enhance the practice and fields of Workers’ Compensation, Healthcare, Business & Management and Information Technology.</p>
+            <p class="font-16 text-justify">Are you a subject matter expert interested in teaching others in your field?</p>
+            <p class="font-16 text-justify">  If so, please fully complete the form below and our Speaker Development team will consider your application.</p>
+        </div><!-- col-sm-12 -->
+    </div><!-- row -->
+    <div class="row faculty-form">
+        @using (Html.BeginForm(HCRGUniversityApp.Infrastructure.Global.GlobalConst.Actions.CollegeController.JoinFaculty, HCRGUniversityApp.Infrastructure.Global.GlobalConst.Controllers.College, System.Web.Mvc.FormMethod.Post, new
+     {
+         id = "frmAddFaculty",
+         enctype = "multipart/form-data"
+     }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-sm-6 padd-l0 padd-t10">
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1" class="member-label">First Name<span class="active-link">*</span></label>
+                    <input type="text" class="form-control" required="required" data-bind="jqBootstrapValidation: {}" maxlength="20" name="FirstName" placeholder="First" value="@Model.FirstName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputPassword1" class="member-label">Last Name<span class="active-link">*</span></label>
+                    <input type="text" class="form-control" required="required" data-bind="jqBootstrapValidation: {}" maxlength="20" name="LastName" placeholder="Last" value="@Model.LastName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1" class="member-label">Email<span class="active-link">*</span></label>
+                    <input type="email" id="Email" class="form-control" required="required" data-bind="jqBootstrapValidation: {}" data-validation-regex-regex='^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$'
+                           data-validation-regex-message="Not a valid email address" name="Email" maxlength="25" placeholder="Your email address" value="@Model.Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputPassword1" class="member-label">Company<span class="active-link">*</span></label>
+                    <input type="text" class="form-control" required="required" data-bind="jqBootstrapValidation: {}" name="Company" maxlength="50" placeholder="Your Company" value="@Model.Company">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1" class="member-label">Phone (Optional)</label>
+                    <input type="text" class="form-control phonemask"  value="@Model.Phone">
+                    <input type="hidden" id="hdfPhone" name="Phone" value="" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputPassword1" class="member-label">Professional Title<span class="active-link">*</span></label>
+                    <input type="text" class="form-control" required="required" maxlength="50" data-bind="jqBootstrapValidation: {}" name="ProfessionalTitle" value="@Model.ProfessionalTitle">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1" class="member-label">Address : Street <span class="active-link">*</span></label>
+                    <input type="text" class="form-control upr_case" name="AddressStreet" maxlength="50" required="required" data-bind="jqBootstrapValidation: {}" placeholder="Address" value="@Model.AddressStreet">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputPassword1" class="member-label">Apt | Suite | Floor</label>
+                    <input type="text" class="form-control" name="AddressFloor" maxlength="50" value="@Model.AddressFloor">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1" class="member-label">City<span class="active-link">*</span></label>
+                    <input type="text" class="form-control" required="required" maxlength="50" data-bind="jqBootstrapValidation: {}" name="City" value="@Model.City">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputPassword1" class="member-label">State<span class="active-link">*</span></label>
+                    <input type="text" class="form-control" required="required" maxlength="2" data-bind="jqBootstrapValidation: {}" name="State" placeholder="State" value="@Model.State">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1" class="member-label"> Zip Code<span class="active-link">*</span></label>
+                    <input type="text" class="form-control zipmask" required="required" id="zip" maxlength="5" minlegth="5" data-bind="jqBootstrapValidation: {}" name="Zip" value="@Model.Zip">
+                </div>
+                <div class="form-group col-md-12 ">
+                    <label for="exampleInputPassword1" class="member-label mt-10">Upload your resume/cv<span class="active-link">*</span>(pdf or word file)</label>
+                    <input type="file" name="ResumeFile" id="ResumeFile" required="required" data-bind="jqBootstrapValidation: {}">
+                </div>
+                <div class="form-group col-md-12 ">
+                    @Html.Captcha("Refresh", "Please enter the characters above", 5, "Is required field", true)
+                </div>
+                <div style="clear:both;"></div>
+                @if (@ViewBag.ErrMessage == "Success")
+                {
+                    <script>
+                        alertify.alert("Add Successfully");
+                        $('#frmAddFaculty')[0].reset();
+                    </script>
+                }
+                else
+                {
+                    <div class="col-md-6">
+                        <p class="Error" id="CaptchaError">@ViewBag.ErrMessage </p>
+                    </div>
+                }
+            </div>
+            <div class="col-sm-6 padd-r0 padd-t10">
+                <div class="form-group padd-l15">
+                    <label for="exampleInputEmail1" class="member-label">Areas of Expertise</label>
+                    <textarea class="form-control" style="resize:none;height:105px;" rows="6" name="AreaOfExpertise">@Model.AreaOfExpertise</textarea>
+                </div>
+                <div class="form-group padd-l15 mt-20">
+                    <label for="exampleInputEmail1" class="member-label">Please tell us about the topics you would like to present</label>
+                    <textarea class="form-control" style="resize:none;height:105px;" name="Topics" rows="6">@Model.Topics</textarea>
+                </div>
+
+               
+
+            </div><!-- col-sm-6 -->
+                
+            <div class="col-sm-12">
+                <button type="button" id="btnAddfaculty" class="submit-btn clearfix margintop10 marginbottom10 pull-left">Submit My Information</button>
+            </div>
+        }
+        <!-- col-sm-6 -->
+    </div><!-- row -->
+</div><!-- container -->
+@section scripts{
+    <script src="~/Scripts/bootstrapValidator.js"></script>
+    <script src="~/Scripts/jquery.form.js"></script>
+<script src="~/Scripts/jquery.maskedinput.min.js"></script>
+<script src="~/Scripts/InputMaskViewModel.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.phonemask').mask('(999)-999-9999');
+            $("#ResumeFile").change(function () {
+                $("#ResumeFile").removeClass("validation-error");
+                var fileExtension = ['pdf', 'doc', 'docx'];
+                if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                    alertify.alert("Only PDF,DOC,DOCX formats are allowed.");
+                    $("#ResumeFile").val("");
+                    $("#ResumeFile").replaceWith($("#ResumeFile").clone(true));
+                }
+            });
+            $("#CaptchaInputText").click(function () {
+                $("#CaptchaError").text("");
+            });
+            $("#btnAddfaculty").click(function () {
+                $("#CaptchaError").text("");
+               
+                $('#hdfPhone').val($(".phonemask").val().replace(/-/gi, "").replace(/\(/gi, "").replace(/\)/gi, ""));
+                $("input,select,textarea,file").not("[type=button]").jqBootstrapValidation();
+                $('.form-group').removeClass('has-error has-feedback');
+                $('.form-group').find('.help-block').hide();
+                $('.form-group').find('i.form-control-feedback').hide();
+                if ($("#ResumeFile").val() == "") {
+                    $("#ResumeFile").addClass("validation-error");
+                }
+                if ($('#zip').val().length < 5 && $('#zip').val().length > 0) {
+                    $("#zip").addClass("validation-error");
+                    alertify.alert("Please enter min and max 5 Zip Code");
+                    return false;
+                }
+                $("#frmAddFaculty").submit();
+
+            });
+        });
+        $("#Email").change(function () {
+            var email = document.getElementById('Email');
+            var filter = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            if (!filter.test(email.value)) {
+                $("#Email").addClass("validation-error");
+                return false;
+            }
+            else {
+                $("#Email").removeClass("validation-error");
+            }
+        });
+        $('#zip').change(function () {
+            if ($('#zip').val().length < 5) {
+                $("#zip").addClass("validation-error");
+                return false;
+            }
+            else {
+                $("#zip").removeClass("validation-error");
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#CaptchaInputText').css("width", "245px");
+            $("#CaptchaInputText").attr("required", "required");
+            $("#CaptchaInputText").addClass("form-control");
+            $("#CaptchaInputText").attr("data-bind", "jqBootstrapValidation: {}");
+        });
+    </script>
+    <style type="text/css">
+        .validation-error {
+            border: 1px solid #a94442;
+        }
+        .Error {
+            color: #a94442;
+        }
+    
+    </style>
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="72325600-ca84-4ce8-a040-0c41d11a8910" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NewsService.xsd" MetadataType="Schema" ID="27963bf9-6af3-4474-9889-a119cb3769e1" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsService4.xsd" MetadataType="Schema" ID="3d52adee-b659-4d8f-96b2-f92b8458e41e" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?xsd=xsd4" />
+    <MetadataFile FileName="NewsService.disco" MetadataType="Disco" ID="a30d5ee1-1802-48a2-9ef4-1d47efd99d06" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?disco" />
+    <MetadataFile FileName="NewsService1.xsd" MetadataType="Schema" ID="634368fb-1e65-45e2-9601-595116275eaf" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="NewsService2.xsd" MetadataType="Schema" ID="250e0bdf-3781-4f5d-9619-522813d1dec6" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?xsd=xsd3" />
+    <MetadataFile FileName="NewsService.wsdl" MetadataType="Wsdl" ID="f174e1a8-c6a6-4b97-a628-5913b6a1d31e" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?wsdl" />
+    <MetadataFile FileName="NewsService3.xsd" MetadataType="Schema" ID="75172121-16c4-4e9b-8dcb-420ec3537c00" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/NewsService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

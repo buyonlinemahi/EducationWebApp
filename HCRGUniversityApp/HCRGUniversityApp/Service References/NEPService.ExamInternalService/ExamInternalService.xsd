@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PreTestResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPass" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MEID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestResultID" type="xs:int" />
+      <xs:element minOccurs="0" name="UID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreTestResult" nillable="true" type="tns:PreTestResult" />
+  <xs:complexType name="PreTestQuestionResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PreTestAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreTestAnswerTrueFalse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PreTestQuestionID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestQuestionResultID" type="xs:int" />
+      <xs:element minOccurs="0" name="PreTestResultID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreTestQuestionResult" nillable="true" type="tns:PreTestQuestionResult" />
+  <xs:complexType name="ExamResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExamID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamResultID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPass" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MEID" type="xs:int" />
+      <xs:element minOccurs="0" name="UID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExamResult" nillable="true" type="tns:ExamResult" />
+  <xs:complexType name="ArrayOfExamResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExamResult" nillable="true" type="tns:ExamResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExamResult" nillable="true" type="tns:ArrayOfExamResult" />
+  <xs:complexType name="ExamQuestionResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExamAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamAnswerTrueFalse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExamQuestionID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamQuestionResultID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamResultID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExamQuestionResult" nillable="true" type="tns:ExamQuestionResult" />
+  <xs:complexType name="EvaluationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationResultID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPass" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MEID" type="xs:int" />
+      <xs:element minOccurs="0" name="Suggestions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EvaluationResult" nillable="true" type="tns:EvaluationResult" />
+  <xs:complexType name="EvaluationQuestionResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EvaluationAnswerID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationQuestionID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationQuestionResultID" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationResultID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EvaluationQuestionResult" nillable="true" type="tns:EvaluationQuestionResult" />
+  <xs:complexType name="ArrayOfEvaluationAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EvaluationAnswer" nillable="true" type="tns:EvaluationAnswer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvaluationAnswer" nillable="true" type="tns:ArrayOfEvaluationAnswer" />
+  <xs:complexType name="EvaluationAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EvaluationAns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationAnswerID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EvaluationAnswer" nillable="true" type="tns:EvaluationAnswer" />
+</xs:schema>

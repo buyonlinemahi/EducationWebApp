@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExamQuestionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExamQuestionService_AddExamQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExamQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddExamQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExamQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateExamQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateExamQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteExamQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExamQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteExamQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExamQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetExamQuestionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamQuestionByID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetExamQuestionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamQuestionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedExamQuestionByExamID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedExamQuestionByExamID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedExamQuestionByExamID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedExamQuestionByExamIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllExamQuestionDetailByEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllExamQuestionDetailByEID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllExamQuestionDetailByEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllExamQuestionDetailByEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetExamQuestionWrongAnswered_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamQuestionWrongAnswered" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetExamQuestionWrongAnswered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamQuestionWrongAnsweredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddPreTestQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTestQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddPreTestQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTestQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdatePreTestQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdatePreTestQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeletePreTestQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePreTestQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeletePreTestQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePreTestQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetPreTestQuestionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreTestQuestionByID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetPreTestQuestionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreTestQuestionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedPreTestQuestionByPreTestID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedPreTestQuestionByPreTestID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedPreTestQuestionByPreTestID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedPreTestQuestionByPreTestIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPreTestQuestionDetailByEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPreTestQuestionDetailByEID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPreTestQuestionDetailByEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPreTestQuestionDetailByEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEducationExamQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationExamQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEducationExamQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationExamQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEducationExamQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationExamQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEducationExamQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationExamQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEducationExamQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationExamQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEducationExamQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationExamQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEducationExamQuestionByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationExamQuestionByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEducationExamQuestionByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationExamQuestionByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEducationPreTestQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationPreTestQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEducationPreTestQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationPreTestQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEducationPreTestQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationPreTestQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEducationPreTestQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationPreTestQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEducationPreTestQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationPreTestQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEducationPreTestQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationPreTestQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEducationPreTestQuestionByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationPreTestQuestionByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEducationPreTestQuestionByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationPreTestQuestionByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddExam_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExam" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddExam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateExam_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExam" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateExam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteExam_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExam" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteExam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetExamByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamByID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetExamByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedExam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedExam" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedExam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllActiveExam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveExam" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllActiveExam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddPreTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTest" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddPreTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdatePreTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTest" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdatePreTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeletePreTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePreTest" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeletePreTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePreTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetPreTestByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreTestByID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetPreTestByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreTestByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedPreTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedPreTest" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedPreTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedPreTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllActivePreTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActivePreTest" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllActivePreTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActivePreTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEvaluationByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationByID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEvaluationByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllActiveEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllActiveEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEvaluationQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEvaluationQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEvaluationQuestionsFromEvaluationPredefinedQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationQuestionsFromEvaluationPredefinedQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEvaluationQuestionsFromEvaluationPredefinedQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationQuestionsFromEvaluationPredefinedQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluationQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluationQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluationQuestionStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationQuestionStatus" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEvaluationQuestionStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationQuestionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEvaluationQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvaluationQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEvaluationQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvaluationQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEvaluationQuestionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationQuestionByID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEvaluationQuestionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationQuestionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedEvaluationQuestionByEvaluationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEvaluationQuestionByEvaluationID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllPagedEvaluationQuestionByEvaluationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEvaluationQuestionByEvaluationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllEvaluationQuestionDetailByEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEvaluationQuestionDetailByEID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetAllEvaluationQuestionDetailByEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEvaluationQuestionDetailByEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEducationEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_AddEducationEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEducationEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_UpdateEducationEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEducationEvaluation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationEvaluation" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_DeleteEducationEvaluation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationEvaluationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEducationEvaluationByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationEvaluationByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IExamQuestionService_GetEducationEvaluationByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationEvaluationByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IExamQuestionService">
+    <wsdl:operation name="AddExamQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddExamQuestion" message="tns:IExamQuestionService_AddExamQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddExamQuestionResponse" message="tns:IExamQuestionService_AddExamQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateExamQuestion" message="tns:IExamQuestionService_UpdateExamQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateExamQuestionResponse" message="tns:IExamQuestionService_UpdateExamQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExamQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteExamQuestion" message="tns:IExamQuestionService_DeleteExamQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteExamQuestionResponse" message="tns:IExamQuestionService_DeleteExamQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExamQuestionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetExamQuestionByID" message="tns:IExamQuestionService_GetExamQuestionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetExamQuestionByIDResponse" message="tns:IExamQuestionService_GetExamQuestionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedExamQuestionByExamID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedExamQuestionByExamID" message="tns:IExamQuestionService_GetAllPagedExamQuestionByExamID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedExamQuestionByExamIDResponse" message="tns:IExamQuestionService_GetAllPagedExamQuestionByExamID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllExamQuestionDetailByEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllExamQuestionDetailByEID" message="tns:IExamQuestionService_GetAllExamQuestionDetailByEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllExamQuestionDetailByEIDResponse" message="tns:IExamQuestionService_GetAllExamQuestionDetailByEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExamQuestionWrongAnswered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetExamQuestionWrongAnswered" message="tns:IExamQuestionService_GetExamQuestionWrongAnswered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetExamQuestionWrongAnsweredResponse" message="tns:IExamQuestionService_GetExamQuestionWrongAnswered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPreTestQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddPreTestQuestion" message="tns:IExamQuestionService_AddPreTestQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddPreTestQuestionResponse" message="tns:IExamQuestionService_AddPreTestQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdatePreTestQuestion" message="tns:IExamQuestionService_UpdatePreTestQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdatePreTestQuestionResponse" message="tns:IExamQuestionService_UpdatePreTestQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePreTestQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeletePreTestQuestion" message="tns:IExamQuestionService_DeletePreTestQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeletePreTestQuestionResponse" message="tns:IExamQuestionService_DeletePreTestQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreTestQuestionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetPreTestQuestionByID" message="tns:IExamQuestionService_GetPreTestQuestionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetPreTestQuestionByIDResponse" message="tns:IExamQuestionService_GetPreTestQuestionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedPreTestQuestionByPreTestID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedPreTestQuestionByPreTestID" message="tns:IExamQuestionService_GetAllPagedPreTestQuestionByPreTestID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedPreTestQuestionByPreTestIDResponse" message="tns:IExamQuestionService_GetAllPagedPreTestQuestionByPreTestID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPreTestQuestionDetailByEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPreTestQuestionDetailByEID" message="tns:IExamQuestionService_GetAllPreTestQuestionDetailByEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPreTestQuestionDetailByEIDResponse" message="tns:IExamQuestionService_GetAllPreTestQuestionDetailByEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationExamQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddEducationExamQuestion" message="tns:IExamQuestionService_AddEducationExamQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddEducationExamQuestionResponse" message="tns:IExamQuestionService_AddEducationExamQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationExamQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEducationExamQuestion" message="tns:IExamQuestionService_UpdateEducationExamQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEducationExamQuestionResponse" message="tns:IExamQuestionService_UpdateEducationExamQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationExamQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEducationExamQuestion" message="tns:IExamQuestionService_DeleteEducationExamQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEducationExamQuestionResponse" message="tns:IExamQuestionService_DeleteEducationExamQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationExamQuestionByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetEducationExamQuestionByEducationID" message="tns:IExamQuestionService_GetEducationExamQuestionByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetEducationExamQuestionByEducationIDResponse" message="tns:IExamQuestionService_GetEducationExamQuestionByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationPreTestQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddEducationPreTestQuestion" message="tns:IExamQuestionService_AddEducationPreTestQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddEducationPreTestQuestionResponse" message="tns:IExamQuestionService_AddEducationPreTestQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationPreTestQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEducationPreTestQuestion" message="tns:IExamQuestionService_UpdateEducationPreTestQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEducationPreTestQuestionResponse" message="tns:IExamQuestionService_UpdateEducationPreTestQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationPreTestQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEducationPreTestQuestion" message="tns:IExamQuestionService_DeleteEducationPreTestQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEducationPreTestQuestionResponse" message="tns:IExamQuestionService_DeleteEducationPreTestQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationPreTestQuestionByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetEducationPreTestQuestionByEducationID" message="tns:IExamQuestionService_GetEducationPreTestQuestionByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetEducationPreTestQuestionByEducationIDResponse" message="tns:IExamQuestionService_GetEducationPreTestQuestionByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddExam" message="tns:IExamQuestionService_AddExam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddExamResponse" message="tns:IExamQuestionService_AddExam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateExam" message="tns:IExamQuestionService_UpdateExam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateExamResponse" message="tns:IExamQuestionService_UpdateExam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteExam" message="tns:IExamQuestionService_DeleteExam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteExamResponse" message="tns:IExamQuestionService_DeleteExam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExamByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetExamByID" message="tns:IExamQuestionService_GetExamByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetExamByIDResponse" message="tns:IExamQuestionService_GetExamByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedExam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedExam" message="tns:IExamQuestionService_GetAllPagedExam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedExamResponse" message="tns:IExamQuestionService_GetAllPagedExam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveExam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllActiveExam" message="tns:IExamQuestionService_GetAllActiveExam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllActiveExamResponse" message="tns:IExamQuestionService_GetAllActiveExam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPreTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddPreTest" message="tns:IExamQuestionService_AddPreTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddPreTestResponse" message="tns:IExamQuestionService_AddPreTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdatePreTest" message="tns:IExamQuestionService_UpdatePreTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdatePreTestResponse" message="tns:IExamQuestionService_UpdatePreTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePreTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeletePreTest" message="tns:IExamQuestionService_DeletePreTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeletePreTestResponse" message="tns:IExamQuestionService_DeletePreTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreTestByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetPreTestByID" message="tns:IExamQuestionService_GetPreTestByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetPreTestByIDResponse" message="tns:IExamQuestionService_GetPreTestByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedPreTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedPreTest" message="tns:IExamQuestionService_GetAllPagedPreTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedPreTestResponse" message="tns:IExamQuestionService_GetAllPagedPreTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActivePreTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllActivePreTest" message="tns:IExamQuestionService_GetAllActivePreTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllActivePreTestResponse" message="tns:IExamQuestionService_GetAllActivePreTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddEvaluation" message="tns:IExamQuestionService_AddEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddEvaluationResponse" message="tns:IExamQuestionService_AddEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluation" message="tns:IExamQuestionService_UpdateEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluationResponse" message="tns:IExamQuestionService_UpdateEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluationStatus" message="tns:IExamQuestionService_UpdateEvaluationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluationStatusResponse" message="tns:IExamQuestionService_UpdateEvaluationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEvaluation" message="tns:IExamQuestionService_DeleteEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEvaluationResponse" message="tns:IExamQuestionService_DeleteEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetEvaluationByID" message="tns:IExamQuestionService_GetEvaluationByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetEvaluationByIDResponse" message="tns:IExamQuestionService_GetEvaluationByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedEvaluation" message="tns:IExamQuestionService_GetAllPagedEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedEvaluationResponse" message="tns:IExamQuestionService_GetAllPagedEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllActiveEvaluation" message="tns:IExamQuestionService_GetAllActiveEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllActiveEvaluationResponse" message="tns:IExamQuestionService_GetAllActiveEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddEvaluationQuestion" message="tns:IExamQuestionService_AddEvaluationQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddEvaluationQuestionResponse" message="tns:IExamQuestionService_AddEvaluationQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationQuestionsFromEvaluationPredefinedQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddEvaluationQuestionsFromEvaluationPredefinedQuestions" message="tns:IExamQuestionService_AddEvaluationQuestionsFromEvaluationPredefinedQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddEvaluationQuestionsFromEvaluationPredefinedQuestionsResponse" message="tns:IExamQuestionService_AddEvaluationQuestionsFromEvaluationPredefinedQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluationQuestion" message="tns:IExamQuestionService_UpdateEvaluationQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluationQuestionResponse" message="tns:IExamQuestionService_UpdateEvaluationQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationQuestionStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluationQuestionStatus" message="tns:IExamQuestionService_UpdateEvaluationQuestionStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEvaluationQuestionStatusResponse" message="tns:IExamQuestionService_UpdateEvaluationQuestionStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvaluationQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEvaluationQuestion" message="tns:IExamQuestionService_DeleteEvaluationQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEvaluationQuestionResponse" message="tns:IExamQuestionService_DeleteEvaluationQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationQuestionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetEvaluationQuestionByID" message="tns:IExamQuestionService_GetEvaluationQuestionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetEvaluationQuestionByIDResponse" message="tns:IExamQuestionService_GetEvaluationQuestionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEvaluationQuestionByEvaluationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedEvaluationQuestionByEvaluationID" message="tns:IExamQuestionService_GetAllPagedEvaluationQuestionByEvaluationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllPagedEvaluationQuestionByEvaluationIDResponse" message="tns:IExamQuestionService_GetAllPagedEvaluationQuestionByEvaluationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvaluationQuestionDetailByEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllEvaluationQuestionDetailByEID" message="tns:IExamQuestionService_GetAllEvaluationQuestionDetailByEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetAllEvaluationQuestionDetailByEIDResponse" message="tns:IExamQuestionService_GetAllEvaluationQuestionDetailByEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/AddEducationEvaluation" message="tns:IExamQuestionService_AddEducationEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/AddEducationEvaluationResponse" message="tns:IExamQuestionService_AddEducationEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEducationEvaluation" message="tns:IExamQuestionService_UpdateEducationEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/UpdateEducationEvaluationResponse" message="tns:IExamQuestionService_UpdateEducationEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationEvaluation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEducationEvaluation" message="tns:IExamQuestionService_DeleteEducationEvaluation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/DeleteEducationEvaluationResponse" message="tns:IExamQuestionService_DeleteEducationEvaluation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationEvaluationByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamQuestionService/GetEducationEvaluationByEducationID" message="tns:IExamQuestionService_GetEducationEvaluationByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamQuestionService/GetEducationEvaluationByEducationIDResponse" message="tns:IExamQuestionService_GetEducationEvaluationByEducationID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IExamQuestionService" type="tns:IExamQuestionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddExamQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddExamQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateExamQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExamQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeleteExamQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExamQuestionByID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetExamQuestionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedExamQuestionByExamID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllPagedExamQuestionByExamID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllExamQuestionDetailByEID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllExamQuestionDetailByEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExamQuestionWrongAnswered">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetExamQuestionWrongAnswered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPreTestQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddPreTestQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdatePreTestQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePreTestQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeletePreTestQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreTestQuestionByID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetPreTestQuestionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedPreTestQuestionByPreTestID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllPagedPreTestQuestionByPreTestID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPreTestQuestionDetailByEID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllPreTestQuestionDetailByEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationExamQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddEducationExamQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationExamQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateEducationExamQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationExamQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeleteEducationExamQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationExamQuestionByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetEducationExamQuestionByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationPreTestQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddEducationPreTestQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationPreTestQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateEducationPreTestQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationPreTestQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeleteEducationPreTestQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationPreTestQuestionByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetEducationPreTestQuestionByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExam">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExam">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExam">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeleteExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExamByID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetExamByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedExam">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllPagedExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveExam">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllActiveExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPreTest">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddPreTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTest">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdatePreTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePreTest">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeletePreTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreTestByID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetPreTestByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedPreTest">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllPagedPreTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActivePreTest">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllActivePreTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationStatus">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateEvaluationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeleteEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationByID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetEvaluationByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllPagedEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllActiveEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddEvaluationQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationQuestionsFromEvaluationPredefinedQuestions">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddEvaluationQuestionsFromEvaluationPredefinedQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateEvaluationQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationQuestionStatus">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateEvaluationQuestionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvaluationQuestion">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeleteEvaluationQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationQuestionByID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetEvaluationQuestionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEvaluationQuestionByEvaluationID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllPagedEvaluationQuestionByEvaluationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvaluationQuestionDetailByEID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetAllEvaluationQuestionDetailByEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/AddEducationEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/UpdateEducationEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationEvaluation">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/DeleteEducationEvaluation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationEvaluationByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IExamQuestionService/GetEducationEvaluationByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExamQuestionService">
+    <wsdl:port name="BasicHttpBinding_IExamQuestionService" binding="tns:BasicHttpBinding_IExamQuestionService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

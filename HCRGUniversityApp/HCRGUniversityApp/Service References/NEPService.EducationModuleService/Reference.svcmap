@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1406ebc6-e327-4d88-9eae-ebd2ab5a0ec1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EducationModuleService.xsd" MetadataType="Schema" ID="f71ffa5f-7291-49b7-b457-36f90e9493ac" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd3" />
+    <MetadataFile FileName="EducationModuleService.disco" MetadataType="Disco" ID="999945b0-5922-454d-a862-4d24f867df32" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?disco" />
+    <MetadataFile FileName="EducationModuleService1.xsd" MetadataType="Schema" ID="09179cbf-030c-4de7-a753-e3d57e899c3a" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EducationModuleService2.xsd" MetadataType="Schema" ID="ee36de1a-e601-4320-9ba9-5d174444bd34" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EducationModuleService3.xsd" MetadataType="Schema" ID="766bfe2f-542d-4c86-b9f6-9413cf7443e3" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EducationModuleService.wsdl" MetadataType="Wsdl" ID="e3c096ad-299e-4fbd-9159-e51c37dd8d29" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

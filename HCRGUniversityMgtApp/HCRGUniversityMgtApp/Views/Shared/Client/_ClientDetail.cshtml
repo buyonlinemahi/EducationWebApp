@@ -1,0 +1,130 @@
+﻿
+        <div class="modal-body">
+            <div class="col-md-8 col-sm-12">
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>First Name :</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" id="txtFirstName" required="required" class="form-control set-padding" name="FirstName" placeholder="First Name" data-bind="value:FirstName,jqBootstrapValidation:{}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>Last Name :</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="hidden" id="hiddenClientID" name="ClientID" data-bind="value : ClientID"/>
+                        <input type="text" id="txtLastName" required="required" class="form-control set-padding" name="LastName" placeholder="Last Name" data-bind="value:LastName,jqBootstrapValidation:{}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>Email:</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="hidden" id="hiddenIsEmailSent" name="IsEmailSent" data-bind="value : IsEmailSent"/>
+                        <input type="Email" id="txtEmail" required="required" class="form-control set-padding" name="EmailID" placeholder="Email" data-bind="value:EmailID,jqBootstrapValidation:{}">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>Address:</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" id="txtAddress" required="required" class="form-control set-padding" name="Address" placeholder="Address" data-bind="value:Address,jqBootstrapValidation:{}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>Address 2:</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" id="txtAddress2" class="form-control set-padding" name="Address2" placeholder="Address2" data-bind="value:Address2">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>City:</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" id="txtCity" required="required" class="form-control set-padding" name="City" placeholder="City" data-bind="value:City,jqBootstrapValidation:{}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>State:</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <select id="StateID" required="required" class="form-control" name="StateID" data-bind="options: StatesClient, optionsText: 'StateName', optionsValue: 'StateID', optionsCaption:'Select State', value: selectedState,jqBootstrapValidation:{}"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>Zip:</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" id="txtZip" required="required" class="form-control set-padding" name="Zip" placeholder="Zip" data-bind="value:Zip,jqBootstrapValidation:{}" maxlength="10">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="top: 10%;">
+                    <label>Phone:</label>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" id="txtPhone" required="required" class="form-control set-padding" name="Phone" placeholder="Phone" data-bind="value:Phone,jqBootstrapValidation:{}" maxlength="10">
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-md-4 col-sm-6" style="top: 10%;">
+                    <label>Is Approve:</label>
+                </div>
+                <div class="col-md-8 col-sm-4">
+                    <div class="form-group">
+                        <input id="IsApproved" style="width: 20px; height: 20px;" type="checkbox" class="form-control" data-bind="checked:IsApproved" >
+                        <input type="hidden" name="IsApproved"  id="IsApprovedHidden"/>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-md-4 col-sm-6" style="top: 10%;">
+                    <label>Is Active:</label>
+                </div>
+                <div class="col-md-8 col-sm-4">
+                    <div class="form-group">
+                        <input  id="IsActiveClient" style="width: 20px; height: 20px;" type="checkbox" class="form-control" data-bind="checked:IsActive">
+                         <input type="hidden" name="IsActive"  id="IsActiveHidden"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="marging10">
+            <div class="col-md-7 col-sm-10">
+            <button class="btn btn-default" type="button" aria-hidden="true" data-bind="click:SaveClientDetails">Save</button>
+             <button class="btn btn-default style="display:none" id="btnResetClientPwd" type="button" aria-hidden="true" data-bind="click:ResetClientPassword">Reset Password</button>
+            </div>
+            </div>
+            </div>
+          
+        </div>
+            </div>
+    

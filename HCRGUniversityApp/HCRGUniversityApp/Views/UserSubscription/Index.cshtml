@@ -1,0 +1,148 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+<div id="divUserSubscription">
+     <div class="container">
+        <div class="row">
+            <div class="col-sm-12 float-none">
+                <header class="site-block-title">
+                    <h2>PLANS & PRICING</h2>
+                </header>
+            </div>
+            <!-- col-sm-12 -->
+     
+      
+            
+
+                @*<div class="col-md-4 col-sm-4 blue-bdr1 text-center plan_align paddingnone marginbottom20">
+                <span class="box-head marginbottom-none padding10"><span class="glyphicon glyphicon-user"></span>
+                    Individual Access </span>
+                <h1><i>$25-99</i></h1>
+                <i class="grey font-14 font-bold">per course</i>
+                <ul>
+                    <li class="list-style"><span class="span-color-black">Pay for Each Course Individually</span></li>
+                    <li class="list-style"><span class="span-color-black">Live Webinars</span></li>
+                    <li class="list-style"><span class="span-color-black">OnDemand Courses</span></li>
+                    <li class="list-style"><span class="span-color-black">Course Slides & eBooks</span></li>
+                    <li class="list-style"><span class="span-color-black">Student portal Access</span></li>
+                </ul>
+                 
+                <a href="#" data-bind="click:getIndividualAccessTermsOfService" data-target="#IndividualAccess-AllAccessPass" data-toggle="modal" data-backdrop="static" data-keyboard="false"  class="font-12">
+                    Individual Access
+                    <br />
+                    Full Terms of Service.
+                </a>
+                <br />
+                <a href="#" data-bind="click:OpenOnlineCourse" class="btn submit-btn marginbottom10 margintop10">Browse Courses</a>
+            </div>*@
+
+<div class="col-md-2 col-sm-1 text-center paddingnone marginbottom20"></div>
+           
+ <div class="col-md-4 col-sm-5 blue-bdr1 text-center middle-space plan_align paddingnone marginbottom20 text-center padding10 m-lt-rt">
+                <span class="box-head marginbottom-none padding10">
+                    <img src=" ~/Content/img/pass.png" alt="technology">    
+                    All-Access Pass
+                </span>
+                <h1 class="italic"> $<i  data-bind="text:AllAccessPassPricing"></i> </h1>
+                 <i class="grey font-14 font-bold">per year</i>
+                <ul>
+                    <li class="list-style"><span class="span-color-black">Individual 12 Month Access Pass</span></li>
+
+                    <li class="list-style"><span class="span-color-black">Access All On Demand Single Courses</span></li>
+                    <li class="list-style"><span class="span-color-black">Student Portal Access</span></li>
+                    <li class="list-style"><span class="span-color-black">Perfect for Individual Professionals</span></li>
+                </ul>
+
+                    <span class="colorblue"  >Credential Courses Not Included *</span> <br />
+                <a href="#" data-bind="click:getAllAccessTermsOfService" data-target="#IndividualAccess-AllAccessPass" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="font-12">
+                    All-Access Pass
+                    <br />
+                    Full Terms of Service.
+                </a>
+                <br />
+                <button type="button" data-bind="click:AddAllAccessPass" class="btn submit-btn marginbottom10 margintop10">Register</button>
+            </div>
+
+ <div class="col-md-4 col-sm-5 blue-bdr1 text-center plan_align paddingnone marginbottom20 m-lt-rt">
+                <span class="box-head marginbottom-none padding10">
+                    <img src="~/Content/img/tech.png" alt="technology">
+                    Enterprise Package
+                </span>
+                <h1 class="italic">$<i data-bind="text:EnterprisePricing"></i></h1>
+                <i class="grey font-14 font-bold">up to 12 users</i>
+                <ul>
+                    <li class="list-style"><span class="span-color-black">12 All Access Passes with Pin Numbers</span></li>
+                    <li class="list-style"><span class="span-color-black">Access All On Demand Single Courses</span></li>
+                    <li class="list-style"><span class="span-color-black">12 Student Portal Access Accounts</span></li>
+                    <li class="list-style"><span class="span-color-black">Perfect for Business Group Training</span></li>
+    
+                </ul>
+              
+                    <span  class="colorblue">Credential Courses Not Included *</span> <br />
+                    <a href="#" class="font-12" data-bind="click:getEnterprisePackage" data-target="#Enterprise-Package" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+                        Enterprise Package<br />
+                        Full Terms of Service.
+                    </a>
+                        <br />
+                    <a href="#" data-bind="click:AddEnterprisePackageRegistor" class="btn submit-btn marginbottom10 margintop10">More Information</a>
+ 
+            </div>
+
+
+            <!-- row -->
+        </div>
+        <!-- container -->
+</div>
+
+    <div id="divIndividualAccess-AllAccessPass">
+        <div class="panel-body">
+            <div class="modal fade" id="IndividualAccess-AllAccessPass" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg position-center set-popup">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <button data-dismiss="modal" type="button" id="btnClose" class="close" aria-hidden="true" style="text-indent: 0;">&times;</button>
+                            @*<h4 id="IndividualAccessAllAccessPass" class="modal-title"></h4>*@
+                            <h4 class="modal-title">All-Access Pass</h4>
+                        </div>
+                        <div class="margintop15 marginbottom15 marginleft15 marginright15 " id="divAllAccessTermsOfService"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="divEnterprise-Package">
+        <div class="panel-body">
+            <div class="modal fade" id="Enterprise-Package" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg position-center set-popup">
+                    <div class="panel panel-default" >
+                        <div class="panel-heading">
+                            <button data-dismiss="modal" type="button" id="btnClose" class="close" aria-hidden="true" style="text-indent: 0;">&times;</button>
+                            <h4 class="modal-title">Enterprise Package</h4>
+                        </div>
+                        <div class="margintop15 marginbottom15 marginleft15 marginright15 " id="divEnterpriseTermsOfService"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+        @section scripts{
+            <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/UserSubscription/UserSubscriptionDetailViewModel.js")"></script>
+ 
+            <script src="~/Scripts/knockout/ko.pager.js"></script>
+            <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-extenders.js")"></script>
+            <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+            <script type="text/javascript">
+                var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+                var _userSubscriptionDetailViewModel = new UserSubscriptionDetailViewModel();
+                _userSubscriptionDetailViewModel.Init(model);
+                ko.applyBindings(_userSubscriptionDetailViewModel, $("#divUserSubscription").get(0));
+            </script>
+        }

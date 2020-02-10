@@ -1,0 +1,37 @@
+﻿@model HCRGUniversityApp.Domain.Models.ShippingPayment.ShippingPayment
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-md-offset-2 col-sm-10 col-xs-12">
+<br /><br /><br />
+
+<div class="text-center">
+ @if(Model.TransactionNumber != "")
+{
+<h1 class="h1-payment">Thank you for your payment !</h1>
+<br /><br /><br />
+<div class="text-center">
+<p class="p-payment">Your transaction Number is </p>
+
+ <input type="text" name="TransactionNumber" class="input-payment" value="@Model.TransactionNumber" /><br /><br />
+  <p class="p-payment">and your Payment Status is </p>
+<input type="text" name="PaymentStatus" class="input-payment" value="@Model.PaymentStatus" />
+</div>
+<br /><br /><br />
+<a href="~/MyEducation/" class="a-payment">Back To My Courses</a>
+}
+else
+{
+<h1 class="h1-payment">Your payment is unsuccessful!</h1>
+<br /><br /><br />
+<a href="~/MyEducation/" class="a-payment">Back To My Courses</a>
+<br /><br /><br /><br />
+}
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e9e3fdc7-4d51-42a1-a922-e936265b2ecd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClientService.xsd" MetadataType="Schema" ID="cdeb1c41-67ee-4331-a512-0fbe69139b3d" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClientService.disco" MetadataType="Disco" ID="59b6e402-5ad9-4d1c-a366-caad1a9b6699" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?disco" />
+    <MetadataFile FileName="ClientService1.xsd" MetadataType="Schema" ID="0d58e0a0-608f-4b0b-9cba-58bb63286752" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ClientService2.xsd" MetadataType="Schema" ID="d0e6edda-7507-4604-870a-ab4a2be379f6" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClientService3.xsd" MetadataType="Schema" ID="a1d3ba07-db28-466e-b4e6-006f8fd7c2c2" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ClientService4.xsd" MetadataType="Schema" ID="a14ebfcb-ca3a-43a1-af6d-313f1b00c20b" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ClientService.wsdl" MetadataType="Wsdl" ID="33a05e7b-2ed0-47a3-b936-b4477a20635e" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

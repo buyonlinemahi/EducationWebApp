@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+  <xs:complexType name="PagedExamQuestion">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="ExamQuestions" nillable="true" type="q1:ArrayOfExamQuestion" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedExamQuestion" nillable="true" type="tns:PagedExamQuestion" />
+  <xs:complexType name="PagedPreTestQuestion">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="PreTestQuestions" nillable="true" type="q2:ArrayOfPreTestQuestion" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPreTestQuestion" nillable="true" type="tns:PagedPreTestQuestion" />
+  <xs:complexType name="PagedExam">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="Exams" nillable="true" type="q3:ArrayOfExam" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedExam" nillable="true" type="tns:PagedExam" />
+  <xs:complexType name="PagedPreTest">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="PreTests" nillable="true" type="q4:ArrayOfPreTest" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedPreTest" nillable="true" type="tns:PagedPreTest" />
+  <xs:complexType name="PagedEvaluation">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="Evaluations" nillable="true" type="q5:ArrayOfEvaluation" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedEvaluation" nillable="true" type="tns:PagedEvaluation" />
+  <xs:complexType name="PagedEvaluationQuestion">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" minOccurs="0" name="EvaluationQuestions" nillable="true" type="q6:ArrayOfEvaluationQuestion" />
+      <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagedEvaluationQuestion" nillable="true" type="tns:PagedEvaluationQuestion" />
+</xs:schema>

@@ -1,0 +1,67 @@
+﻿<div id="contentwrapper" class="contentwrapper nopadding wrapper-width" style="float:left;">
+    <input type="hidden" id="HndPhotoNewsID" data-bind="value:NewsPhotoNewsID" />
+
+    <div class="imageCroppercontainer" style="float:left;">
+        <div id="imageBox" class="imageBox" style="float:left;">
+            <div id="thumbBox" class="thumbBox" style="float:left;"></div>
+            <div id="spinner" class="spinner" style="display: none;float:left;">Loading...</div>
+        </div>
+        <div class="action" style="float:left;">
+            <label style="float:left; width: 75px; line-height:40px;">Slide Pics: </label>
+            <input type="file"  accept=".png" id="file1" class="fileCrop btn" style="float:left; width: 250px">
+            <input type="button" class="btn button-crop-popup" id="btnCrop1" value="Crop" style="float: right">
+            <input type="button" class="btn button-crop-popup" id="btnZoomIn1" value="+" style="float: right">
+            <input type="button" class="btn button-crop-popup" id="btnZoomOut1" value="-" style="float: right">
+        </div>
+        <div class="btnPhotos-upload-div">
+            <button id="btnUploadPhotos" type="submit" class="btn btn-default">Upload Photos</button>
+        </div>
+    </div>
+
+    <div class="heightcrop" style="float:left;">
+        <div id="cropList1" class="cropped" style="float:left;">
+        </div>        
+    </div>        
+
+    @*<div class="input_fields_wrap1">
+
+        <div class="panel-body">
+            <div class="col-md-3">
+                <label>Pics: </label>
+                <a href="#" class="inner-content-link"><i class="glyphicon glyphicon-calendar"></i></a>
+            </div>
+            <div class="col-md-4">
+                <input required type="file" name="NewsPhotoFile" data-bind="value:NewsPhotoFile,jqBootstrapValidation: {}" id="pic1">
+            </div>
+        </div>
+        <button class="add_field_button1">Add More Photos</button>
+    </div>*@
+</div>
+
+
+
+<!--prodhead-->
+
+@*<div class="gallerywrapper" style="border:1px solid;">
+
+</div>*@
+<div style="float:left; margin-left:50px;">    
+    <ul id="savedImageList" class="imagelist saved-imagelist" style="float:left;">        
+        <!--ko if:NewsPhotoResult!= null-->
+        <!-- ko foreach:{ data:NewsPhotoResult, afterRender:checkPhotoLimit} -->
+        <li style="float:left; margin: 0 0 0 0">
+            <input type="hidden" data-bind="value:NewsPhotoID" />
+            <input type="hidden" data-bind="value:NewsPhotoNewsID" />
+            <img data-bind="attr:{src:NewsPhotopic() }" alt="" style="width: 150px; margin-bottom:8px; height: 100px;">
+            <span style="float: left;"></span>
+            <span>
+                <a data-bind="click:$root.DeletePhoto" class="delete">
+                    <img src="~/Content/imgs/trash.png" onclick="javascript: enableFileButtonEdit()" alt="" style="width: 16px; height: 16px; margin-bottom:5px;">
+                </a>
+            </span>
+        </li>
+        <!--/ko-->
+        <!--/ko-->
+    </ul>
+</div>
+<!--gallerywrapper-->

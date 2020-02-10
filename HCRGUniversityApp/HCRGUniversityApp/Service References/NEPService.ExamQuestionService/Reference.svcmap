@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="69b9f60b-d211-4546-9eac-a94de7b58663" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ExamQuestionService.disco" MetadataType="Disco" ID="2cd94565-dfdd-457a-9be9-97063b8e6205" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?disco" />
+    <MetadataFile FileName="ExamQuestionService.wsdl" MetadataType="Wsdl" ID="ac08e27f-4b96-493c-8b9b-b59ce17ade97" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?wsdl" />
+    <MetadataFile FileName="ExamQuestionService.xsd" MetadataType="Schema" ID="de8e031e-2c46-4f7c-8a02-01888eadae5f" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ExamQuestionService1.xsd" MetadataType="Schema" ID="fd9d774a-dff1-4cb1-973c-44ba2928d7b6" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ExamQuestionService2.xsd" MetadataType="Schema" ID="435f3bad-819d-4f87-a99d-8a998780ce71" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ExamQuestionService3.xsd" MetadataType="Schema" ID="383964cf-dc03-476e-9ffd-95359c044fd8" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ExamQuestionService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

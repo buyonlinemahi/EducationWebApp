@@ -1,0 +1,5 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.Models\bin\Debug\HCRGUniversityApp.Domain.Models.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.Models\bin\Debug\HCRGUniversityApp.Domain.Models.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.Models\obj\Debug\HCRGUniversityApp.Domain.Models.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.Models\obj\Debug\HCRGUniversityApp.Domain.Models.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityApp\HCRGUniversityApp.Domain.Models\obj\Debug\HCRGUniversityApp.Domain.Models.csprojResolveAssemblyReference.cache

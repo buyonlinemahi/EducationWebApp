@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AAPCouponID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ClearedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ClearedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FailedAttemptCount" type="xs:int" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAllAccessPricing" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCleared" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCoursePreview" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLocked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsManagement" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsVerified" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastLoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfessionalTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecialMenuIDs" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UID" type="xs:int" />
+          <xs:element minOccurs="0" name="UserAllAccessPassID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UserMenuGroupID" type="xs:int" />
+          <xs:element minOccurs="0" name="UserSessionID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VerifiedOn" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="ArrayOfUserMenuGroupAndPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserMenuGroupAndPermission" nillable="true" type="tns:UserMenuGroupAndPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserMenuGroupAndPermission" nillable="true" type="tns:ArrayOfUserMenuGroupAndPermission" />
+  <xs:complexType name="UserMenuGroupAndPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MenuIDs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserMenuGroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserMenuGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserMenuPermissionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserMenuGroupAndPermission" nillable="true" type="tns:UserMenuGroupAndPermission" />
+  <xs:complexType name="ArrayOfClientAndUserbySearchCriterias">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientAndUserbySearchCriterias" nillable="true" type="tns:ClientAndUserbySearchCriterias" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientAndUserbySearchCriterias" nillable="true" type="tns:ArrayOfClientAndUserbySearchCriterias" />
+  <xs:complexType name="ClientAndUserbySearchCriterias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientAndUserbySearchCriterias" nillable="true" type="tns:ClientAndUserbySearchCriterias" />
+  <xs:complexType name="UserCardDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeletedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DeletedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserCardDetailID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserCardExpiry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCardName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserCardDetail" nillable="true" type="tns:UserCardDetail" />
+  <xs:complexType name="ArrayOfUserCardDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserCardDetail" nillable="true" type="tns:UserCardDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserCardDetail" nillable="true" type="tns:ArrayOfUserCardDetail" />
+  <xs:complexType name="UserSubscription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllAccessIncludeProgram" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllAccessParametersCoursePriceEnd" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AllAccessParametersCoursePriceStart" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AllAccessPassPricing" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AllAccessTermsOfService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EnterprisePricing" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EnterpriseTermsOfService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndividualAccessPricing" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IndividualAccessPricingEnd" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IndividualAccessPricingStart" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IndividualAccessTermsOfService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserSubscriptionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserSubscription" nillable="true" type="tns:UserSubscription" />
+  <xs:complexType name="ArrayOfUserSubscription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserSubscription" nillable="true" type="tns:UserSubscription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserSubscription" nillable="true" type="tns:ArrayOfUserSubscription" />
+  <xs:complexType name="EnterprisePackageRegister">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EPRCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EPRCreatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EPREmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EPRID" type="xs:int" />
+      <xs:element minOccurs="0" name="EPRName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EPRPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnterprisePackageRegister" nillable="true" type="tns:EnterprisePackageRegister" />
+  <xs:complexType name="ArrayOfEnterprisePackageRegister">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnterprisePackageRegister" nillable="true" type="tns:EnterprisePackageRegister" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnterprisePackageRegister" nillable="true" type="tns:ArrayOfEnterprisePackageRegister" />
+  <xs:complexType name="UserAllAccessPass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AAPCouponID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AllAccessEndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AllAccessStartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsAllAccessPricingAmountRecevied" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShippingPaymentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserAllAccessPassID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserSubscriptionID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserAllAccessPass" nillable="true" type="tns:UserAllAccessPass" />
+  <xs:complexType name="ArrayOfUserMenuGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserMenuGroup" nillable="true" type="tns:UserMenuGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserMenuGroup" nillable="true" type="tns:ArrayOfUserMenuGroup" />
+  <xs:complexType name="UserMenuGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserMenuGroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserMenuGroupName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserMenuGroup" nillable="true" type="tns:UserMenuGroup" />
+  <xs:complexType name="UserMenuPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MenuIDs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserMenuGroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserMenuPermissionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserMenuPermission" nillable="true" type="tns:UserMenuPermission" />
+</xs:schema>

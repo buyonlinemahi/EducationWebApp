@@ -1,0 +1,337 @@
+﻿@{
+    ViewBag.Title = "_EducationInfoPartial";
+}
+@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "_EducationModulePartial";
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.base.css")" />
+<link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.theme.css")" />
+
+<style>
+    .progress {
+        position: relative;
+        width: 97%;
+        border: 1px solid #ddd;
+        padding: 1px;
+        float:left;
+    }
+
+    .progress-bar {
+        width: 0px;
+        height: 27px;
+        background-color: #57be65;
+    }
+    .cls {
+    /*display: block;
+width: 31px;
+text-align: center;
+margin-left:49%;
+float:left;
+margin-bottom: 1%;*/
+        width: 23px;
+        margin-left:5px;
+        float:left;
+    }
+</style>
+<div id="rdEducat">
+
+    @using (Html.BeginForm(GlobalConst.Actions.EducationModuleController.Add, GlobalConst.Controllers.EducationModule, FormMethod.Post, new
+        {
+            id = "frmAddEducationModule",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddEducationModuleDetailSuccess(responseText);},beforeSubmit: EducationModuleInfoFormBeforeSubmit}"
+        }))
+    {
+        <div id="contentwrapper" class="contentwrapper nopadding">
+            <div class="progress" id="myProgress" style="display:none;" >
+                <div class="progress-bar" style="font-size:18px;">0%</div>
+                </div>
+            <div class="cls"><input type="image" id="loading" src="~/Content/imgs/loading.gif" style="display:none; width:23px;"></div>
+            
+            <div class="panel-body">
+                
+                <input type="hidden" id="hfEducationID" name="EducationID" value="@ViewBag.EdcationID" />
+                <input type="hidden" id="hfTimerReq" name="EducationID" value="@ViewBag.IsTimerRequired" />
+                <input type="hidden" name="hdEducationModuleID" id="hdEducationModuleID" data-bind="value: EducationModuleID" />
+                <div class="col-md-3">
+                    <label>Module Name:</label>
+                    <a href="#" class="inner-content-link"> </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input required="required" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$"  type="text" class="form-control" data-bind="value:EducationModuleName,jqBootstrapValidation: {}" name="EducationModuleName" id="EducationModuleName">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <label>Module Description:</label>
+                    <a href="#" class="inner-content-link"> </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+
+                        @*<textarea id="EducationModuleDescription" required="required" name="EducationModuleDescription" data-bind="value: EducationModuleDescription,jqBootstrapValidation: {}" placeholder="Description" class="form-control resize" rows="3"></textarea>*@
+                        <input type="hidden" name="EducationModuleDescription" class="form-control" data-bind="jqBootstrapValidation: {}" id="hndEducationModuleDescription">
+                        <input type="hidden" id="hfUploadFileType" name="UploadFileType"/>
+                        <button data-toggle="modal" data-target="#EditorModalDesc" data-backdrop="static" data-keyboard="false" id="EditorModalPopUpDesc" class="btn btn-default">Add Module Description</button>
+                     
+                      </div>
+                </div>
+            </div>
+
+            <div class="panel-body" id="panelUpload">
+                
+                <div class="col-md-3">
+                    <label>Upload File:</label>
+                </div>
+                <div class="col-md-2">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" id="rbUploadPDF"  onclick="javascript: ShowPanel();" checked name="UploadFile" value="Upload Content">
+                            Upload Content
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" id="rbUploadPPT" onclick="javascript: ShowPanel();" name="UploadFile" value="Upload PPT">
+                            Upload PPT (as PDF)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" id="rbUploadVideo" onclick="javascript: ShowPanel();" name="UploadFile" value="Upload video">
+                            Upload video
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" id="panelUploadPDF" style="display:block">
+                <div class="col-md-3">
+                    <label>Upload Content:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="hidden" name="EducationModuleText" class="form-control" data-bind="jqBootstrapValidation: {}" id="hndUploadText">
+                          <button data-toggle="modal" data-target="#EditorModal1" data-backdrop="static" data-keyboard="false" id="EditorModalPopUp" class="btn btn-default">Add Module Content</button>                       
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" id="panelUploadPPT" style="display:none">
+                <div class="col-md-3">
+                    <label>Upload PPT:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="hidden" id="pptUID" name="pptUID" />
+                        <input type="file" name="list_ModuleFile2"  id="UploadPPT" data-bind="jqBootstrapValidation: {}" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" id="panelUploadVideo" style="display:none">
+                <div class="col-md-3">
+                    <label>Upload Video:</label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="file" name="EducationModuleVideo" id="UploadVideo" data-bind="jqBootstrapValidation: {}" class="form-control" >
+                        <button type="button" id="getvideotime" style="visibility:hidden;display:none;" onclick="setFileInfo1()" class="btn btn-default"> getvideotime</button>
+                        <video id="video-container" width="100%" height="437px" controls="controls" style="visibility:hidden;display:none;"></video>
+                        @* <input type="text" name="EducationModuleVideoName" id="UploadVideof" class="form-control" data-bind="jqBootstrapValidation: {}">*@
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" id="panelModuleTime">
+                <div class="col-md-3">
+                    <label>Module Time:</label>
+                    <a href="#" class="inner-content-link"> </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input  type="text" class="form-control classEducationModuleTime" data-bind="value:EducationModuleTime,jqBootstrapValidation: {},masked: EducationModuleTime,mask : '99:99'" placeholder="HH:MM" name="EducationModuleTime" id="EducationModuleTime">
+                        <input type="hidden" name="moduleTime" data-bind="value:EducationModuleTime1" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-3">
+                    <label>Position:</label>
+                    <a href="#" class="inner-content-link"> </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control-widget col-md-10 form-control" style="margin-left: 0px!important" id="EducationModulePosition" name="EducationModulePosition"
+                                data-bind="options: MainModulePositions, optionsText: 'EducationModulePosition',value: $root.ModuleselectedItem,
+                                   optionsValue: 'EducationModulePosition'"></select>
+                    </div>
+                </div>
+            </div>                
+          
+                <div class="panel-body">
+                   <div class="col-md-12"> 
+                     <button type="button" id="save" class="btn btn-default" onclick="form_submit()">Save and Continue</button>
+                    <button type="button" id="btnmoduleclosepopup" data-dismiss="modal" aria-hidden="true" style="display:none"></button>
+               </div> </div>
+                <span class="clearfix"></span>
+            </div>
+        @*<div id="loaderDivmain" style="display:none" class="loaderbg">
+            <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+        </div>*@
+    }
+<div class="panel-body" id="panelUploadMultipleModules" style="display:none">
+    <div class="col-md-3">
+        <label>Upload:</label>
+    </div>
+@using (Html.BeginForm(GlobalConst.Actions.EducationModuleController.UploadMultipleModuleFiles, GlobalConst.Controllers.EducationModule, FormMethod.Post, new
+{
+    id = "_UploadModuleFileBeginForm",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddNewDocumentFileSuccess(responseText);},beforeSubmit: UploadModuleInfoFormBeforeSubmit}"
+}))
+    {
+    <div class="col-md-4">
+        <div class="form-group">
+            
+                <input type="hidden" name="hdEducationModuleID" id="hdMultipleUploadEducationModuleID" data-bind="value:EducationModuleID" />
+                <input type="file" name="moduleMultiplefiles" id="UploadModulesFiles" accept="application/pdf" required data-bind="jqBootstrapValidation: {}" class="form-control" onchange="checkModuleFileType()">
+                
+            
+        </div>
+    </div>
+    <div class="col-md-4">
+    <button type="submit" id="AddUploadMultipleModuleBTN" class="btn btn-default">Add</button>
+    </div>
+    }
+</div>
+
+<div class="panel-body" id="panelUploadMultipleModulesGrid" style="display:none">
+        <div class="col-sm-12">
+            <div class="white-background">
+                <table class="table table-bordered table-striped table-condensed home-table">
+                    <thead>
+                        <tr>
+                            <th>Uploaded Document(s) </th>
+                            <th>Upload Date</th>
+                            <th>User Upload</th>
+                            <th>Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko if:DocumentArr()!= null-->
+                        <!-- ko foreach:DocumentArr -->
+                        <tr>
+                            <td>
+                                <span data-bind="text:DocumentName"></span>
+                                <input type="hidden" data-bind="attr: { name: 'EducationModuleFileID['+ $index() + '\].EducationModuleFileID' },value:EducationModuleFileID" />
+                                <input type="hidden" data-bind="attr: { name: 'EducationModuleID['+ $index() + '\].EducationModuleID' },value:EducationModuleID" />
+                                <input type="hidden" data-bind="attr: { name: 'FileTypeID['+ $index() + '\].FileTypeID' },value:FileTypeID" />
+                                <input type="hidden" data-bind="attr: { name: 'ModuleFile['+ $index() + '\].ModuleFile' },value:ModuleFile" />
+                                
+                            </td>
+                            <td>
+                                <span data-bind="text:DocumentUploadedDate"></span>
+                            </td>
+                            <td>
+                                <span data-bind="text:UserName"></span>
+                            </td>
+                            <td> <a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="click:$root.removeDocumentFile">Delete</a> </td>
+                        </tr>
+                        <!--/ko-->
+                        <!--/ko-->
+                    </tbody>
+                    <tfoot>
+                        <!--ko if:DocumentArr()==null || DocumentArr().length==0-->
+                        <tr>
+                            <td colspan="6">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        &times;
+                                    </button>
+                                    No Result Found.
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tfoot>
+                </table>
+                <button type="submit" id="CloseUploadMultipleModuleBTN" style="float:right;" class="btn btn-default">Close</button>
+            </div><!-- white-background -->
+
+        </div><!-- col-sm-12 -->
+  </div>
+
+<div>
+    <div class="modal fade set-popup" id="EditorModal1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:hidden; height:827px;">
+        <div class="modal-dialog position-center align-popup">
+
+            <div class="modal-content midContent">
+                <div class="modal-header">
+                    <button id="btnClose12" type="button" aria-hidden="true" class="close">&times;</button>
+                    <h4 class="modal-title">Add Content</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divEditor1">
+
+                        @using (Html.BeginForm(GlobalConst.Actions.EducationModuleController.ShowEditorModule, GlobalConst.Controllers.EducationModule, FormMethod.Post))
+                        {
+                            @Html.Raw(ViewBag.Editor2)
+                        }
+
+                    </div>
+
+                    <div style="padding-top:10px;">
+                        <button type="button" aria-hidden="true" id="btnSaveandContinueModule" class="btn btn-default">Save and Continue</button>
+                        <button type="button" aria-hidden="true" id="btnClosemodule" class="btn btn-default">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="modal fade set-popup" id="EditorModalDesc" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow:hidden;height:827px;">
+        <div class="modal-dialog position-center align-popup">
+
+            <div class="modal-content contentEditor4">
+                <div class="modal-header">
+                    <button id="btnCloseDesc" type="button" aria-hidden="true" class="close">&times;</button>
+                    <h4 class="modal-title">Add Content</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="divEditor1">
+
+                        @using (Html.BeginForm(GlobalConst.Actions.EducationModuleController.ShowEditorModule, GlobalConst.Controllers.EducationModule, FormMethod.Post))
+                        {
+                            @Html.Raw(ViewBag.Editor4)
+                        }
+
+                    </div>
+
+                    <div style="padding-top:10px;">
+                        <button type="button" aria-hidden="true" id="btnSaveandContinueeditModuledesc" class="btn btn-default">Save and Continue</button>
+                        <button type="button" aria-hidden="true" id="btnClosemoduledesc" class="btn btn-default">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+@section scripts{
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    
+}
+
+</div>
+
+</div>
+

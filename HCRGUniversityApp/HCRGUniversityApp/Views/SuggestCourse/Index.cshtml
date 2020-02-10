@@ -1,0 +1,157 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div id="divSuggestCourse">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title textcenter">
+                    <h2>SUGGEST A COURSE</h2>
+                </header>
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <!-- row -->
+        <div class="row">
+            @using (Html.BeginForm(GlobalConst.Actions.SuggestCourseController.AddSuggestCourse, GlobalConst.Controllers.SuggestCourse, System.Web.Mvc.FormMethod.Post, new
+                        {
+                            id = "frmAddSuggestCourse",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm:{ success: function(responseText, statusText,xhr ,$form){ AddSuggestCourseDetailSuccess(responseText)},beforeSubmit: AddSuggestCourseInfoFormBeforeSubmit ,clearForm : true }"
+                        }))
+            {
+
+
+                <div class="col-sm-12 margintop20">
+                    <p class="fontsize14 textjustify">Thank you for taking the time to suggest a topic for a course. <span id="spanWebsiteName"></span> is allways interested in ideas for new topics.<br /> Your Suggestion is appreciated.</p>
+                    <p class="fontsize14 textjustify"><span class="spanColorRed">*</span> Denotes a required field.</p>
+                    <br />
+                    <span class=" glyphicon glyphicon-user"></span>    <span class="font-17"><strong>Individual Information :</strong> </span>
+                    <div class="clearfix margintop20">
+                        <div class="clearfix row">
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> My Occupation : </span><span class="spanColorRed">*</span></label>
+                                <input type="text" name="SCMyOccupation" required="required" data-bind="value:SCMyOccupation,jqBootstrapValidation: {}" maxlength="50" class="form-control set-padding" placeholder="My Occupation">
+                                <input type="hidden" name="SuggestCourseID" data-bind="value:SuggestCourseID" id="hfSuggestCourseID">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> State/Province : </span><span class="spanColorRed">*</span></label>
+                                <select class="form-control" id="SCStateID" name="SCStateID" data-bind="options: SCStates, optionsText: 'StateName', optionsValue: 'StateID', value: SCselectedItem"></select>
+                            </div>
+                        </div>
+
+                        <div class="clearfix row">
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> Name :</span><span class="spanColorRed">*</span></label>
+                                <input type="text" name="SCName" class="form-control set-padding" required="required" placeholder="Name" maxlength="50" data-bind="value:SCName,jqBootstrapValidation: {}">
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> Phone :</span><span class="spanColorRed">*</span></label>
+                                <input type="text" name="SCPhone" class="form-control set-padding phonemask" required="required" placeholder="Phone" maxlength="14" data-bind="value:SCPhone,jqBootstrapValidation: {}">
+                            </div>
+                        </div>
+
+                        <div class="clearfix row">
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> E-mail :</span><span class="spanColorRed">*</span></label>
+                                <input type="email" id="emailIDExists" class="form-control set-padding" required="required"
+                                       maxlength="50" name="SCEmail" placeholder="Email" data-bind="value:SCEmail,jqBootstrapValidation: {}" />
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> Possible Title :</span><span class="spanColorRed">*</span></label>
+                                <input type="text" id="emailIDExists" class="form-control set-padding" required="required"
+                                       maxlength="100" name="SCPossibleTitle" placeholder="Possible Title" data-bind="value:SCPossibleTitle,jqBootstrapValidation: {}" />
+
+                            </div>
+                        </div>
+
+                        <div class="clearfix row">
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> Brief Agenda outline :</span><span class="spanColorRed">*</span></label>
+                                <input type="text" id="emailIDExists" class="form-control set-padding" required="required"
+                                       name="SCBriefAgendaOutline" placeholder="Brief Agenda Outline" data-bind="value:SCBriefAgendaOutline,jqBootstrapValidation: {}" />
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label class="textbox-label"><span class="smalltext"> Audience :</span><span class="spanColorRed">*</span></label>
+                                <input type="text" id="emailIDExists" class="form-control set-padding" required="required"
+                                       maxlength="100" name="SCAudience" placeholder="Audience" data-bind="value:SCAudience,jqBootstrapValidation: {}" />
+
+                            </div>
+                        </div>
+
+                        <hr />
+                        <p class="fontsize14 textjustify"> Please check one or both if the boxes below : <span class="spanColorRed">*</span> </p>
+                        <div class="clearfix">
+                            <div class="checkbox col-md-12">
+                                <label class="font-16">
+                                    <input   type="checkbox" data-bind="checked:SCSingleDaySeminarCourse" name="SCSingleDaySeminarCourse" id="chkSCSingleDaySeminarCourse" value="true" /> Single Day Seminar Course
+                                </label>
+
+                            </div>
+
+                            <div class="checkbox col-md-12">
+
+                                <label class="font-16">
+                                    <input   type="checkbox" data-bind="checked:SCOndemandLiveWebinarCourse " name="SCOndemandLiveWebinarCourse" id="chkSCOndemandLiveWebinarCourse" value="true" /> On Demand / Live Webinar Course
+                                </label>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="clearfix">
+                            <div class="checkbox form-group col-md-12">
+
+                                <label class="font-16">
+                                    <input type="checkbox" data-bind="checked:SCInterestedInstructor" name="SCInterestedInstructor" id="chkSCInterestedInstructor" value="true" /> I would be interested in being an instructor for my suggestion.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="checkbox col-md-12">
+
+                            <label>
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group mbt-50">
+                        <button type="submit" class="submit-btn adjust-margin pleft" name="signup" value="Submit">Submit Application</button>
+                    </div>
+
+                    <br>
+
+                </div>
+            }
+            <!-- col-sm-6 -->
+            <!-- col-sm-5 -->
+        </div>
+        <!-- row -->
+    </div>
+    <!-- container -->
+</div>
+
+
+@section scripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/SuggestCourse/SuggestCourseDetailViewModel.js")"></script>
+ 
+    <script src="~/Scripts/knockout/ko.pager.js"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-extenders.js")"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _suggestCourseDetailViewModel = new SuggestCourseDetailViewModel();
+        _suggestCourseDetailViewModel.Init(model);
+        ko.applyBindings(_suggestCourseDetailViewModel, $("#divSuggestCourse").get(0));
+    </script>
+}

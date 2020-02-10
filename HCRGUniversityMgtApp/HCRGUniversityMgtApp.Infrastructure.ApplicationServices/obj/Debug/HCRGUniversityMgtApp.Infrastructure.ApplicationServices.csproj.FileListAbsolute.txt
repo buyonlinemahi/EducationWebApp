@@ -1,0 +1,14 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\BCrypt.Net.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\DevOne.Security.Cryptography.BCrypt.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Domain.Models.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Infrastructure.Global.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\BCrypt.Net.xml
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\bin\Debug\HCRGUniversityMgtApp.Domain.Models.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\obj\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\obj\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices\obj\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.pdb

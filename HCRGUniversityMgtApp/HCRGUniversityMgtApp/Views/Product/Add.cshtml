@@ -1,0 +1,194 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@model HCRGUniversityMgtApp.Domain.Models.ProductModel.Product
+@{
+    ViewBag.Title = "Store";
+}
+@section header{
+    <a class="navbar-brand" href="#">Store Screen</a>
+}
+<div class="inner-content">
+    <!--start row -->
+    <div class="row">
+        <div class="panel-wrapper">
+            <div class="panel panel-default">
+                <div id="divProduct">
+
+                    @using (Html.BeginForm(GlobalConst.Actions.ProductController.Add, GlobalConst.Controllers.Product, FormMethod.Post, new
+    {
+        id = "frmProduct",
+        enctype = "multipart/form-data",
+        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddProductSuccess(responseText);},beforeSubmit: ProductFormBeforeSubmit}"
+    }))
+                    {
+
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Product Name :</label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" name="ProductID" id="hdProductID" data-bind="value: ProductID" />
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" data-bind="value: ProductName,jqBootstrapValidation: {}" maxlength="50" required="required" name="ProductName" placeholder="Product Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Product Description :</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <textarea required="required" name="ProductDesc" data-bind="value: ProductDesc,jqBootstrapValidation: {}" placeholder="Product Description" class="form-control resize" rows="3"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Product Price ($):</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" onkeypress="return validate(event)" required="required" data-bind="value: ProductPrice,jqBootstrapValidation: {}" id="ProductPrice" name="ProductPrice" placeholder="Product  Price" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Product Image:</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" id="ProductImage" accept="image/*" name="ProductImageFile" placeholder="Product Image" />
+                                    <input type="hidden" id="ProductImageName" name="ProductImage" data-bind="value: ProductImage" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+
+                                    <!-- ko if: ProductImage()!=null -->
+                                    <img data-toggle="popover" class="Product-icon" data-bind="attr:{src: '/Storage/ProductImage/'+ProductImage()}" />
+                                    @*<img id="pimg" height="100" width="100" data-bind=" attr:{src:'/Storage/ProductImage/'+ProductImage()}" />*@
+                                    <!-- /ko -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Product File:</label>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" id="ProductFile_File" name="ProductFile_File" placeholder="Product File" />
+                                    <input type="hidden" name="ProductFile" data-bind="value: ProductFile" />
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <!-- ko if: ProductFile()!=null -->
+
+                                    <a style="color:red" id="pfile" download="" target="_blank" data-bind="attr:{href:'/Storage/ProductFile/'+ProductFile()}">Product File</a>
+                                    <!-- /ko -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Type:</label>
+                                <a href="#" class="inner-content-link"> </a>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select id="ProductType" name="ProductType" class="form-control" data-bind="options:ProductTypeDll, optionsText:'TypeName',optionsValue:'Type',value: ProductType,event:{change:CheckProductType}"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Inventory Total:</label>
+                                <a href="#" class="inner-content-link"> </a>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="number"  id="inputProductTotalQuantity" readonly class="form-control" data-bind="value: ProductTotalQuantity,jqBootstrapValidation: {},event:{change:CheckProductTotalQuantity}" maxlength="50" required="required" name="ProductTotalQuantity" placeholder="Inventory Total">
+                                    <input type="hidden" id="hfProductTotalQuantity" />
+                                    <input type="hidden" id="hfProductPaidCount" data-bind="value: ProductPaidCount"  />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Current Inventory:</label>
+                                <a href="#" class="inner-content-link"> </a>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" readonly class="form-control" data-bind="value: ProductCurrentBalance" maxlength="50" id="inputProductCurrentBalance" name="ProductCurrentBalance" placeholder="Current Inventory">
+                                    <input type="hidden" id="hfProductCurrentBalance" data-bind="value: ProductCurrentBalance" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-body text-right">
+                            <button type="submit" class="btn btn-default">Save and Continue</button>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*<div id="loaderDiv1" class="loaderbg">
+            <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+        </div>*@
+    <div id="divscrollnew"></div>
+    <!-- row-end -->
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+
+    <script src="~/Scripts/knockout/viewmodel/views/Product/AddProductViewModel.js"></script>
+    <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var productGridViewModel = new ProductGridViewModel(model);
+        ko.applyBindings(productGridViewModel, $("#divProduct").get(0));
+        function validate(key) {
+            var keycode = (key.which) ? key.which : key.keyCode;
+            var phn = document.getElementById('ProductPrice');
+            if (!(keycode == 8 || keycode == 46) && (keycode < 48 || keycode > 57)) {
+                return false;
+            }
+            else {
+                if (phn.value.length < 9) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+    </script>
+
+
+
+
+
+}
+

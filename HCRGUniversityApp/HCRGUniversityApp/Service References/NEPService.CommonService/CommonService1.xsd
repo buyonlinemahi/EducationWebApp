@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/CommonService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="ArrayOfState">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="State" nillable="true" type="tns:State" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfState" nillable="true" type="tns:ArrayOfState" />
+  <xs:complexType name="State">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StateID" type="xs:int" />
+      <xs:element minOccurs="0" name="StateName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="State" nillable="true" type="tns:State" />
+  <xs:complexType name="ArrayOfShippingMethod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShippingMethod" nillable="true" type="tns:ShippingMethod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShippingMethod" nillable="true" type="tns:ArrayOfShippingMethod" />
+  <xs:complexType name="ShippingMethod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ShippingMethodAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ShippingMethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingMethodName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShippingMethod" nillable="true" type="tns:ShippingMethod" />
+  <xs:complexType name="ArrayOfMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Menu" nillable="true" type="tns:Menu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMenu" nillable="true" type="tns:ArrayOfMenu" />
+  <xs:complexType name="Menu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+      <xs:element minOccurs="0" name="MenuName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Menu" nillable="true" type="tns:Menu" />
+  <xs:complexType name="SuggestCourse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCAudience" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCBriefAgendaOutline" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCCreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SCEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCInterestedInstructor" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SCMyOccupation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCOndemandLiveWebinarCourse" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SCPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCPossibleTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCSingleDaySeminarCourse" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SCStateID" type="xs:int" />
+          <xs:element minOccurs="0" name="SuggestCourseID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SuggestCourse" nillable="true" type="tns:SuggestCourse" />
+  <xs:complexType name="ArrayOfSuggestCourse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SuggestCourse" nillable="true" type="tns:SuggestCourse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSuggestCourse" nillable="true" type="tns:ArrayOfSuggestCourse" />
+  <xs:complexType name="Enterprise">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q2:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EnterpriseAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnterpriseCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnterpriseClientName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnterpriseCourseEndPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EnterpriseCourseStartPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EnterpriseEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnterpriseEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EnterpriseID" type="xs:int" />
+          <xs:element minOccurs="0" name="EnterpriseNumberUser" type="xs:int" />
+          <xs:element minOccurs="0" name="EnterprisePhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnterpriseProgram" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnterpriseStateID" type="xs:int" />
+          <xs:element minOccurs="0" name="EnterpriseZip" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Enterprise" nillable="true" type="tns:Enterprise" />
+  <xs:complexType name="ArrayOfEnterprise">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Enterprise" nillable="true" type="tns:Enterprise" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnterprise" nillable="true" type="tns:ArrayOfEnterprise" />
+  <xs:complexType name="ArrayOfIndustry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Industry" nillable="true" type="tns:Industry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIndustry" nillable="true" type="tns:ArrayOfIndustry" />
+  <xs:complexType name="Industry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IndustryID" type="xs:int" />
+      <xs:element minOccurs="0" name="IndustryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Industry" nillable="true" type="tns:Industry" />
+  <xs:complexType name="ArrayOfClientType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientType" nillable="true" type="tns:ClientType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientType" nillable="true" type="tns:ArrayOfClientType" />
+  <xs:complexType name="ClientType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientType" nillable="true" type="tns:ClientType" />
+</xs:schema>

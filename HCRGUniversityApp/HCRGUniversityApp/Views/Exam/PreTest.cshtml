@@ -1,0 +1,139 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "PreTest";
+}
+<div id="AddPreTestResult">
+    <div class="container">
+        @using (Html.BeginForm(GlobalConst.Actions.ExamController.AddPreTestResult, GlobalConst.Controllers.ExamController, FormMethod.Post, new
+{
+    id = "frmAddPreTestResult",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddPreTestDetailSuccess(responseText);},beforeSubmit : AddPreTestInfoFormBeforeSubmit ,clearForm : true}"
+}))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-sm-12">
+                    <header class="site-block-title">
+                        <h2>Utilization reviewer certification program</h2>
+                    </header>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 self-study">
+                    <h3 class="margintop-none grey-box clearfix padding10 table-content">Take Pre-Test</h3>
+                    <div id="myTabContent" class="tab-content marginbottom10">
+                        <p>Answer the questions below and click the submit button.</p>
+                        <div id="#" class="Scrollbody">
+                            <div class="col-md-12 clearfix">
+                                <input type="hidden" name="PreTestResult.UID" />
+                                <input type="hidden" id="Hdnmeid" name="MEID" value=@ViewContext.RouteData.Values["meID"] />
+                                <!--ko if:PreTestQuestionDetailResults!= null-->
+                                <!-- ko foreach:PreTestQuestionDetailResults -->
+                                <input type="hidden" data-bind="attr: { name: 'PreTestQuestionResult['+ $index() + '\].PreTestQuestionID' },value:PreTestQuestionID" />
+                                <input type="hidden" data-bind="attr: { name: 'PreTestQuestionDetail['+ $index() + '\].PreTestID' },value:PreTestID" />
+                                <input type="hidden" data-bind="attr: { name: 'PreTestQuestionResult['+ $index() + '\].PreTestAnswer' , id: 'hdfPreTestAnswer_'+ $index() }" />
+                                <input type="hidden" data-bind="attr: { name: 'PreTestQuestionResult['+ $index() + '\].PreTestAnswerTrueFalse' , id: 'hdfPreTestAnswerTrueFalse_'+ $index() }" />
+                                <span data-bind="text:$index() + 1 +')' "></span>&nbsp;
+                                <span data-bind="text:PreTestQues"></span>
+                                <input type="hidden" data-bind="attr: { name: 'PreTestQuestionResult['+ $index() + '\].PreTestAnswerType',value:PreTestAnswerType }" />
+                                 <div class="divMultipleChoice">
+                                    <!--ko if:PreTestAnswerType()=="Multiple Choice" || PreTestAnswerType()==null-->
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'PreTestQuestionResult_'+ $index(),name:$index }" value="A">
+                                                <span data-bind="text: PreTestOptionA" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'PreTestQuestionResult_'+ $index(),name:$index }" value="B">
+                                                <span data-bind="text:PreTestOptionB" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'PreTestQuestionResult_'+ $index(),name:$index }" value="C">
+                                                <span data-bind="text: PreTestOptionC" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'PreTestQuestionResult_'+ $index(),name:$index }" value="D">
+                                                <span data-bind="text:PreTestOptionD" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!--/ko-->
+                                </div>
+                                <div class="divTrueorFalse">
+                                    <!--ko if:PreTestAnswerType()=="True or False"-->
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'PreTestQuestionResult_'+ $index(),name:$index }" value="True">
+                                                <span>True</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="radio marginleft20">
+                                            <label>
+                                                <input type="radio" required data-bind="attr: { id: 'PreTestQuestionResult_'+ $index(),name:$index }" value="False">
+                                                <span>False</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!--/ko-->
+                                </div>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </div>
+                            <!--ko if:PreTestQuestionDetailResults().length>0-->
+                            <div class="col-md-12 clearfix">
+                                <p class="btn clearfix">
+                <button  type="submit" class="submit-btn pull-right adjust-margin">Submit</button>
+
+                                    
+                                </p>
+                            </div>
+                            <!--/ko-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/alertify/alertify.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Exam/PreTestViewModel.js")"></script>
+ 
+    <script type="text/javascript">
+        var model = @System.Web.Mvc.MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var preTestViewModel = new PreTestViewModel(model);
+        ko.applyBindings(preTestViewModel, $("#AddPreTestResult").get(0));
+    </script>
+    <style>
+        
+    </style>
+    <script>
+        $(".divMultipleChoice :input:radio").change(function(){
+            var index = this.id.substr(this.id.indexOf("_") + 1)
+            $("#hdfPreTestAnswer_"+index).val(this.value);
+        });
+        $(".divTrueorFalse :input:radio").change(function(){
+            var index = this.id.substr(this.id.indexOf("_") + 1)
+            $("#hdfPreTestAnswerTrueFalse_"+index).val(this.value);
+        });
+    </script>
+
+}

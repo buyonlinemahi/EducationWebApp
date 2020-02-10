@@ -1,0 +1,192 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section header{
+    <a class="navbar-brand" href="#">FAQ</a>
+}
+<div id="divFAQSection">
+    <div class="inner-content">
+
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Main FAQ Screen</div>
+                    <div id="divFAQ">
+                        @using (Html.BeginForm(GlobalConst.Actions.FAQController.Add, GlobalConst.Controllers.FAQ, FormMethod.Post, new
+                        {
+                            id = "frmAddFAQ",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddFAQDetailSuccess(responseText);},beforeSubmit: FAQInfoFormBeforeSubmit}"
+                        }))
+                        {
+                            <div id="divAddFaq" class="row mtb-10">
+                            <div class="mtop-10">
+                                <div class="row mtb-8">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>Category</label>
+
+                                    </div>
+
+                                    <div class="form-group col-md-10 col-sm-9 padd-0">
+                                        <select class="form-control-widget col-md-5 col-sm-8" required id="FaqCategory" name="FAQCatID"
+                                            data-bind="options: FAQCategoryResults, optionsText: 'FAQCategoryTitle',
+                                   optionsValue: 'FAQCatID',value: selectedItem,
+                                 optionsCaption: 'Select Any Option',jqBootstrapValidation: {}">
+                                        </select>
+
+                                        <div class="col-md-1 col-sm-3 padd-r0"><a data-toggle="modal" data-target="#myModal" class="inner-content-link blue btn btn-default">Add</a> </div>
+                                    </div>
+
+                                    <!-- /input-group -->
+                                </div>
+
+                                <div class="row mtb-8">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>FAQ:</label>
+                                    </div>
+                                    <div class="col-md-5 col-sm-9">
+                                         <input type="hidden" name="OrganizationName" data-bind="value: OrganizationName" />
+                                          <input type="hidden" name="OrganizationID" data-bind="value: OrganizationID" />
+                                        <input type="hidden" name="hdFaqID" id="hdFAQID" data-bind="value: FAQID" />
+                                        <div class="form-group">
+                                            <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" name="FAQues" data-bind="value: FAQues,jqBootstrapValidation: {}" class="form-control" id="FAQues">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mtb-8">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>Answer:</label>
+                                    </div>
+                                    <div class="col-md-5 col-sm-9">
+                                        <div class="form-group">
+                                            <textarea required="required"  name="FAQAns" data-bind="value: FAQAns,jqBootstrapValidation: {}" class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <button type="submit" class="btn btn-default pul-rht-r">Save and Continue</button>
+                                </div>
+                            </div>
+                            
+                            </div>
+                            
+                                
+                        <!--ko if:IsHCRGAdmin() == true-->
+                            <div class="row mtb-10">
+                                <div class="col-md-2 col-sm-3">
+                                    <label>Organizations:</label>
+                                </div>
+                                <div class="col-md-5 col-sm-9">
+                                    <div class="form-group">
+                                        <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                                        <input type="hidden" id="hdfOrgID" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-12 padd-l0">
+                                     <button type="button" class="btn btn-default pul-rht-r" data-bind="click: function(){ $root.SearchFAQ()}">Search</button>
+                                </div>
+                            </div>
+                            <!--/ko-->
+                            <div class="panel-body">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">FAQ</div>
+                                    <!-- Table -->
+                                    <div class="table-responsive height-400">
+                                        <table class="table table-striped ">
+                                            <!-- removed class (table-fixed-1) -->
+                                            <thead>
+                                                <tr class="clearfix text-center">
+                                                    <th class="col-md-2 col-sm-2">FAQ Category</th>
+                                                    <th class="col-md-2 col-sm-2">FAQ</th>
+                                                    <th class="col-md-4 col-sm-6">Answer</th>
+                                                    <th class="col-md-2 col-sm-3">Organization</th>
+                                                    <th class="col-md-1 col-sm-1">Edit</th>
+                                                    <th class="col-md-1 col-sm-1">Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                                <!--ko if:FAQResults!= null-->
+                                                <!-- ko foreach:FAQResults -->
+                                                <tr class="clearfix row">
+                                                    <td class="col-md-2 col-sm-2"><span data-bind="text:FaqCategoryName" /></td>
+                                                    <td class="col-md-2 col-sm-2"><span data-bind="text:FAQues" /></td>
+                                                    <td class="text-justify col-md-4 col-sm-6">
+                                                        <span data-bind="text:FAQAns" />
+                                                        <input type="hidden" name="FAQID" id="FAQID" data-bind="value:FAQID" />
+                                                    </td>
+                                                    <td class="col-md-2 col-sm-3"><span data-bind="text:OrganizationName" /></td>
+                                                    <td class="col-md-1 col-sm-1"><a href="#" class="inner-content-link blue" data-bind="click:$root.editFAQ" style="color: #808080;">Edit</a></td>
+                                                    <td class="col-md-1 col-sm-1"><a href="#" class="inner-content-link blue" data-bind="click:$root.DeleteFAQ" style="color: #808080;">Delete</a></td>
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="loaderDiv" class="loaderbg">
+                                <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+
+    <div class="panel-body">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog position-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" id="sectionClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                        <h4 class="modal-title">Add FAQ Category</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            @{ Html.RenderPartial("~/Views/Shared/FAQ/_FAQCategoryPartial.cshtml");  }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/Scripts/knockout/viewmodel/views/FAQ/FAQViewModel.js"></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var faqViewModel = new FAQViewModel();
+        faqViewModel.Init(model);
+        ko.applyBindings(faqViewModel, $("#divFAQSection").get(0));
+    </script>
+    <script type="text/javascript">
+        if (!$('#main').hasScrollBar()) {
+
+            $("td[class*='paddingleft']").removeClass(function () {
+                var className = this.className.match(/paddingleft\d+/);
+                $(this).removeClass(className[0]);
+            });
+        }
+    </script>
+}

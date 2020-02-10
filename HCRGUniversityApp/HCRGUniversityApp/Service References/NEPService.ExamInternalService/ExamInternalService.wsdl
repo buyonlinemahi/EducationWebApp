@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExamInternalService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExamInternalService_AddPreTestResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTestResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddPreTestResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTestResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdatePreTestResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdatePreTestResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdatePreTestResultIsPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestResultIsPass" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdatePreTestResultIsPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestResultIsPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetPreTestAttemptByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreTestAttemptByUser" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetPreTestAttemptByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreTestAttemptByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddPreTestQuestionResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTestQuestionResults" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddPreTestQuestionResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPreTestQuestionResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdatePreTestQuestionResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestQuestionResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdatePreTestQuestionResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePreTestQuestionResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddExamResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExamResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddExamResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExamResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateExamResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateExamResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateExamResultIsPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamResultIsPass" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateExamResultIsPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamResultIsPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetExamAttempResulttByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamAttempResulttByUser" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetExamAttempResulttByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExamAttempResulttByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddExamQuestionResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExamQuestionResults" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddExamQuestionResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExamQuestionResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateExamQuestionResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamQuestionResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateExamQuestionResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExamQuestionResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddEvaluationResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddEvaluationResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateEvaluationResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateEvaluationResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateEvaluationResultIsPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationResultIsPass" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateEvaluationResultIsPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationResultIsPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetEvaluationAttemptByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationAttemptByUser" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetEvaluationAttemptByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationAttemptByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetEvaluationAttemptByUserAndMEID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationAttemptByUserAndMEID" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetEvaluationAttemptByUserAndMEID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvaluationAttemptByUserAndMEIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddEvaluationQuestionResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationQuestionResults" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_AddEvaluationQuestionResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvaluationQuestionResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateEvaluationQuestionResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationQuestionResult" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_UpdateEvaluationQuestionResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvaluationQuestionResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetAllEvaluationAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEvaluationAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IExamInternalService_GetAllEvaluationAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEvaluationAnswerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IExamInternalService">
+    <wsdl:operation name="AddPreTestResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/AddPreTestResult" message="tns:IExamInternalService_AddPreTestResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/AddPreTestResultResponse" message="tns:IExamInternalService_AddPreTestResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdatePreTestResult" message="tns:IExamInternalService_UpdatePreTestResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdatePreTestResultResponse" message="tns:IExamInternalService_UpdatePreTestResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestResultIsPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdatePreTestResultIsPass" message="tns:IExamInternalService_UpdatePreTestResultIsPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdatePreTestResultIsPassResponse" message="tns:IExamInternalService_UpdatePreTestResultIsPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreTestAttemptByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/GetPreTestAttemptByUser" message="tns:IExamInternalService_GetPreTestAttemptByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/GetPreTestAttemptByUserResponse" message="tns:IExamInternalService_GetPreTestAttemptByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPreTestQuestionResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/AddPreTestQuestionResults" message="tns:IExamInternalService_AddPreTestQuestionResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/AddPreTestQuestionResultsResponse" message="tns:IExamInternalService_AddPreTestQuestionResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestQuestionResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdatePreTestQuestionResult" message="tns:IExamInternalService_UpdatePreTestQuestionResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdatePreTestQuestionResultResponse" message="tns:IExamInternalService_UpdatePreTestQuestionResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExamResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/AddExamResult" message="tns:IExamInternalService_AddExamResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/AddExamResultResponse" message="tns:IExamInternalService_AddExamResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdateExamResult" message="tns:IExamInternalService_UpdateExamResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdateExamResultResponse" message="tns:IExamInternalService_UpdateExamResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamResultIsPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdateExamResultIsPass" message="tns:IExamInternalService_UpdateExamResultIsPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdateExamResultIsPassResponse" message="tns:IExamInternalService_UpdateExamResultIsPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExamAttempResulttByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/GetExamAttempResulttByUser" message="tns:IExamInternalService_GetExamAttempResulttByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/GetExamAttempResulttByUserResponse" message="tns:IExamInternalService_GetExamAttempResulttByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExamQuestionResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/AddExamQuestionResults" message="tns:IExamInternalService_AddExamQuestionResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/AddExamQuestionResultsResponse" message="tns:IExamInternalService_AddExamQuestionResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamQuestionResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdateExamQuestionResult" message="tns:IExamInternalService_UpdateExamQuestionResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdateExamQuestionResultResponse" message="tns:IExamInternalService_UpdateExamQuestionResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/AddEvaluationResult" message="tns:IExamInternalService_AddEvaluationResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/AddEvaluationResultResponse" message="tns:IExamInternalService_AddEvaluationResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdateEvaluationResult" message="tns:IExamInternalService_UpdateEvaluationResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdateEvaluationResultResponse" message="tns:IExamInternalService_UpdateEvaluationResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationResultIsPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdateEvaluationResultIsPass" message="tns:IExamInternalService_UpdateEvaluationResultIsPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdateEvaluationResultIsPassResponse" message="tns:IExamInternalService_UpdateEvaluationResultIsPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationAttemptByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/GetEvaluationAttemptByUser" message="tns:IExamInternalService_GetEvaluationAttemptByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/GetEvaluationAttemptByUserResponse" message="tns:IExamInternalService_GetEvaluationAttemptByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationAttemptByUserAndMEID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/GetEvaluationAttemptByUserAndMEID" message="tns:IExamInternalService_GetEvaluationAttemptByUserAndMEID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/GetEvaluationAttemptByUserAndMEIDResponse" message="tns:IExamInternalService_GetEvaluationAttemptByUserAndMEID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationQuestionResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/AddEvaluationQuestionResults" message="tns:IExamInternalService_AddEvaluationQuestionResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/AddEvaluationQuestionResultsResponse" message="tns:IExamInternalService_AddEvaluationQuestionResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationQuestionResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/UpdateEvaluationQuestionResult" message="tns:IExamInternalService_UpdateEvaluationQuestionResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/UpdateEvaluationQuestionResultResponse" message="tns:IExamInternalService_UpdateEvaluationQuestionResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvaluationAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExamInternalService/GetAllEvaluationAnswer" message="tns:IExamInternalService_GetAllEvaluationAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExamInternalService/GetAllEvaluationAnswerResponse" message="tns:IExamInternalService_GetAllEvaluationAnswer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IExamInternalService" type="tns:IExamInternalService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPreTestResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/AddPreTestResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdatePreTestResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestResultIsPass">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdatePreTestResultIsPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreTestAttemptByUser">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/GetPreTestAttemptByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPreTestQuestionResults">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/AddPreTestQuestionResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePreTestQuestionResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdatePreTestQuestionResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExamResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/AddExamResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdateExamResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamResultIsPass">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdateExamResultIsPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExamAttempResulttByUser">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/GetExamAttempResulttByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExamQuestionResults">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/AddExamQuestionResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamQuestionResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdateExamQuestionResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/AddEvaluationResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdateEvaluationResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationResultIsPass">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdateEvaluationResultIsPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationAttemptByUser">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/GetEvaluationAttemptByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluationAttemptByUserAndMEID">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/GetEvaluationAttemptByUserAndMEID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvaluationQuestionResults">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/AddEvaluationQuestionResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvaluationQuestionResult">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/UpdateEvaluationQuestionResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvaluationAnswer">
+      <soap:operation soapAction="http://tempuri.org/IExamInternalService/GetAllEvaluationAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExamInternalService">
+    <wsdl:port name="BasicHttpBinding_IExamInternalService" binding="tns:BasicHttpBinding_IExamInternalService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/ExamInternalService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

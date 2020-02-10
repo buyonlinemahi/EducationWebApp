@@ -1,0 +1,340 @@
+﻿@model IEnumerable<HCRGUniversityApp.Domain.Models.EducationModuleModel.EducationModule>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title">
+                    <h2>Utilization reviewer certification program (Self Study)</h2>
+                </header>
+            </div>
+            <!-- col-sm-12 -->
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="#" class="submit-btn marginbottom10">Print All</a>
+                <a href="#" class="pre-page-link">Previous Page</a>
+            </div><!-- col-sm-12 -->
+        </div><!--row -->
+        <div class="row">
+            
+            <div class="col-sm-8 self-study">
+                <ul id="myTab" class="nav nav-tabs tabbed-panel" role="tablist">
+                  <li class="active"><a href="#home" role="tab" data-toggle="tab" class="font-18"><strong>Course Content</strong></a></li>
+                  <li><a href="#profile" role="tab" data-toggle="tab" class="font-18"><strong>Announcements</strong></a></li>
+                  <li><a href="#dropdown1" role="tab" data-toggle="tab" class="font-18"><strong>Take Preset</strong></a></li>
+                  <li><a href="#dropdown2" role="tab" data-toggle="tab" class="font-18"><strong>Take Final Exam</strong></a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content marginbottom10">
+                    <div class="tab-pane fade in active scroll paddingright15" id="home">
+                          @foreach (var treeNode in Model)
+    { 
+                        <h2 id="@treeNode.EducationModuleName.Replace(" ","").Replace("&","")" class="red-heading paddingtop10">@treeNode.EducationModuleName</h2>
+                        <p class="news-desc">
+                            @treeNode.EducationModuleDescription
+                        </p>
+                        <div class="clearfix"></div>@*
+                      
+                                    @Html.Partial("EducationModuleTreeView/ModuleContentPartial", treeNode.EducationSubModule)<br />*@
+                          }
+                       @* <h2 class="red-heading">MISSION</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">QUALIFICATIONS</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">DIFFERENCE</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">TEAM</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">FACULTY</h2>
+                        <p class="news-desc">Donec qua	m felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <a name="standard">
+                            <h2 class="red-heading">Standards & Accreditation</h2>
+                        </a>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>*@
+                    </div>
+                    <div class="tab-pane fade scroll" id="profile">
+                        <h2 class="red-heading paddingtop10">Introduction</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
+                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                        </p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">MISSION</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">QUALIFICATIONS</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">DIFFERENCE</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">TEAM</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">FACULTY</h2>
+                        <p class="news-desc">Donec qua	m felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <a name="standard">
+                            <h2 class="red-heading">Standards & Accreditation</h2>
+                        </a>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="tab-pane fade paddingtop20 paddingbottom20 paddingright20 scroll" id="dropdown1">
+                        <h2 class="red-heading paddingtop10">Introduction</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
+                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                        </p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">MISSION</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">QUALIFICATIONS</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">DIFFERENCE</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">TEAM</h2>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <h2 class="red-heading">FACULTY</h2>
+                        <p class="news-desc">Donec qua	m felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <a name="standard">
+                            <h2 class="red-heading">Standards & Accreditation</h2>
+                        </a>
+                        <p class="news-desc">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="tab-pane fade scroll" id="dropdown2">
+                        <h3 class="text-center">Utilization Reviewer Certification Program final Exam</h3> 
+                        <p>Answer the questions below and click the submit button.</p>
+                        <p>Which of the statuses listed below is not a status in Squiz Matrix?</p>
+                        <form action="">
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                    Being Built
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    Pending Approval
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio1" value="option2">
+                                    Live
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio2" value="option2">
+                                    Safe Edit
+                                </label>
+                            </div>
+
+                            <p>Which of the statuses listed below is not a status in Squiz Matrix?</p>
+                        <form action="">
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio3" value="option1" checked>
+                                    Being Built
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio4" value="option2">
+                                    Pending Approval
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio5" value="option2">
+                                    Live
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio6" value="option2">
+                                    Safe Edit
+                                </label>
+                            </div>
+
+                            <p>Which of the statuses listed below is not a status in Squiz Matrix?</p>
+                        <form action="">
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio7" value="option1" checked>
+                                    Being Built
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio8" value="option2">
+                                    Pending Approval
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio9" value="option2">
+                                    Live
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio10" value="option2">
+                                    Safe Edit
+                                </label>
+                            </div>
+
+                            <p>Which of the statuses listed below is not a status in Squiz Matrix?</p>
+                        <form action="">
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio11" value="option1" checked>
+                                    Being Built
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio12" value="option2">
+                                    Pending Approval
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio13" value="option2">
+                                    Live
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio14" value="option2">
+                                    Safe Edit
+                                </label>
+                            </div>
+
+                            <p>Which of the statuses listed below is not a status in Squiz Matrix?</p>
+                        <form action="">
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio15" value="option1" checked>
+                                    Being Built
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio16" value="option2">
+                                    Pending Approval
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio17" value="option2">
+                                    Live
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio18" value="option2">
+                                    Safe Edit
+                                </label>
+                            </div>
+
+                            <p>Which of the statuses listed below is not a status in Squiz Matrix?</p>
+                        <form action="">
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio19" value="option1" checked>
+                                    Being Built
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio20" value="option2">
+                                    Pending Approval
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio21" value="option2">
+                                    Live
+                                </label>
+                            </div>
+                            <div class="radio marginleft20">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="Radio22" value="option2">
+                                    Safe Edit
+                                </label>
+                            </div>
+                            <p class="btn-position clearfix">
+                                <button type="button" class="btn btn-default btn-lg active btn-setting">Submit</button>
+                            </p>
+                        </form>     
+                    </div>
+                </div>
+            </div><!-- col-sm-8 -->
+            <div class="col-sm-4">
+                <div class="grey-box clearfix padding10 table-content">
+                    <h3 class="margintop-none">Table of Contents</h3>
+                    <span>Printer Friendy Page</span>
+              
+  
+       
+    @foreach (var treeNode in Model)
+    {    <div style="clear:both;"></div>
+           <ul id="tree"> <li>   <a  href="#@treeNode.EducationModuleName.Replace(" ","").Replace("&","")"> @treeNode.EducationModuleName
+                
+               </a>
+         
+     
+           
+               </li>     </ul>
+       
+        
+    }      
+       
+
+                </div>
+            </div><!-- col-sm-4 -->
+        </div><!-- row -->
+    </div><!-- container -->
+
+ 
+ @section scripts
+ {
+     <script src="~/Scripts/TreeView/jstree.js"></script>
+   
+    <script type="text/javascript">
+        $(function () {
+              $('#treeDemo').jstree();
+        });
+    </script> 
+     }
+ 

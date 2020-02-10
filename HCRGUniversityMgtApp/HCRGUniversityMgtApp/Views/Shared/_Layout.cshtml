@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html>
+@using AutoMapper;
+@using System.Web.Optimization;
+@using HCRGUniversityMgtApp.Infrastructure.Global
+@using HCRGUniversityMgtApp.Domain.Models.Client;
+@using HCRGUniversityMgtApp.Infrastructure.Base;
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>All Gate Learning - Mgmt</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/override.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/css/animate-custom.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap_landing.css" rel="stylesheet" />
+    <link href="~/Content/css/custom.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome-ie7.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/framework.css" rel="stylesheet" />
+    <link href="~/Content/css/icons.css" rel="stylesheet" />
+    <link href="~/Content/css/override.css" rel="stylesheet" />
+    <link href="~/Content/css/plugins.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="~/Scripts/alertify/alertify.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).load(function () {
+            var data = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Session["Client"]));
+            if(data.LogoPath != null)
+            {
+                $("#imgLogo").attr("src",data.LogoPath);
+            }
+            else
+            {
+                $("#imgLogo").attr("src","/Content/imgs/logo_new.png");
+            }
+
+            $('#sidebar > a').on('click', function (e) {
+                e.preventDefault();
+                if (!$(this).hasClass("active")) {
+                    var lastActive = $(this).closest("#sidebar").children(".active");
+                    lastActive.removeClass("active");
+                    lastActive.next('div').collapse('hide');
+                    $(this).addClass("active");
+                    $(this).next('div').collapse('show');
+                }
+            });
+
+        });//]]>
+        (function ($) {
+            $.fn.hasScrollBar = function () {
+                return this.get(0).scrollHeight > this.height();
+
+            }
+        })(jQuery);
+    </script>
+    <script type="text/javascript">
+        function disableRightClick() {
+            return false;
+        }
+    </script>
+    @Styles.Render("~/Content/themes/alertify");
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="~/Scripts/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="inner-content" style="overflow-x: hidden;" oncontextmenu=" return disableRightClick();">
+
+    <div class="inner-wrapper">
+        <div class="sidebar-wrapper">
+            <!-- Icons Sidebar -->
+            <ul class="nav nav-list">
+                <li class="active"></li>
+                <li><a href="~/Home/"><i class="icon-large icon-home"></i></a></li>
+                <li>
+
+                    <a class="logout" href="@Url.Action(HCRGUniversityMgtApp.Infrastructure.Global.GlobalConst.Actions.LoginController.LogOff, HCRGUniversityMgtApp.Infrastructure.Global.GlobalConst.Controllers.Login, null)">
+                        <i class="icon-large icon-off"></i>
+                    </a>
+                </li>
+                <li class="last">
+                    <p class="date-month">
+                        @DateTime.Now.Day.ToString()  /  @DateTime.Now.Month.ToString()
+                        <br />
+                        <span class="date-year">@DateTime.Now.Year.ToString() </span>
+                    </p>
+                </li>
+            </ul>
+            <!-- /Icons Sidebar -->
+            <!-- Tabs Sidebar -->
+            <div class="tab-content">
+                <div class="panel-default">
+                    <div id="sidebar" class="sidebar-group list-group">
+                        <h2 class="admin-logo">
+                            <a class="pageunload logo" href="~/Home/">
+                                <img id="imgLogo" class="logo-img" src="">
+                            </a>
+                        </h2>
+                        <a href="#" class="list-group-item font-bold">
+                            <i class="glyphicon glyphicon-user"></i>Admin Control
+                        </a>
+                        <div id="search" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/User/" class="list-group-item">User Setup
+                            </a>
+                            @{
+                                Client clientObj = new Client();
+                                clientObj = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+                                if (clientObj.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIdValue)
+                                {
+
+                                }
+                                else
+                                {
+                                <a href="~/Organization/Index" class="list-group-item">Organization Setup
+                                </a>
+                                }
+                            }
+                        </div>
+                        @{
+                            Client clientSession = new Client();
+                            clientSession = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+                            if (clientSession.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIDOne)
+                            {
+                            <a href="#" class="list-group-item font-bold">
+                                <i class="glyphicon glyphicon-user"></i>Session Control
+                            </a>
+                            }
+                        }
+
+                        <div id="Session" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/LogSession/" class="list-group-item">Log Session Setup
+                            </a>
+                        </div>
+                        <a href="#" class="list-group-item font-bold" data-parent="#sidebar">
+                            <i class="icon-tasks"></i>Course Setup
+                        </a>
+                        <div id="CourseSetup" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/Education/SearchEducation" class="list-group-item">Create New Course
+                            </a>
+                            <a href="~/Education/SearchCourseCatalog" class="list-group-item">Course Catalog
+                            </a>
+                            <a href="~/PreTest/" class="list-group-item">Pre-Test
+                            </a>
+                            <a href="~/Exam/" class="list-group-item">Post-Test
+                            </a>
+                            <a href="~/Evaluation/" class="list-group-item">Evaluation
+                            </a>
+                        </div>
+                        <a href="#" class="list-group-item font-bold" data-parent="#sidebar">
+                            <i class="icon-tasks"></i>Course Descriptor Control
+                        </a>
+                        <div id="search" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/College/" class="list-group-item">Subject Matter Screen
+                            </a>
+                            <a href="~/Profession/" class="list-group-item">Profession
+                            </a>
+                            <a href="~/Accreditor/" class="list-group-item">Accreditor
+                            </a>
+                        </div>
+                        @{
+                            Client clientOBJ = new Client();
+                            clientOBJ = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+                            if (clientOBJ.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIdValue)
+                            {
+
+                            }
+                            else
+                            {
+                            <a href="#" class="list-group-item font-bold" data-parent="#sidebar">
+                                <i class="icon-tasks"></i>Website Core Pages
+                            </a>
+                            }
+                        }
+
+                        <div id="search" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/HomeContent/" class="list-group-item">Homepage Content
+                            </a>
+                            <a href="~/CarouselSetUp/" class="list-group-item">Homepage Carousel
+                            </a>
+                            <a href="~/AboutUs/" class="list-group-item">About Us
+                            </a>
+                            <a href="~/Organization/OrgContactUsIndex" class="list-group-item">Organization ContactUs
+                            </a>
+
+                            @{
+                                Client clientMenus = new Client();
+                                clientOBJ = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+                                if (clientOBJ.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIDTwo)
+                                {
+                                    if (clientOBJ.ClientMenuIDS != null)
+                                    {
+                                        foreach (string a in clientOBJ.ClientMenuIDS)
+                                        {
+                                            switch (Convert.ToInt32(a))
+                                            {
+                                                case 1:
+                                                    break;
+                                                case 2:
+                                <a href="~/TrainingAndSeminar/" class="list-group-item">Onsite Training & Seminars
+                                </a>
+                                                    break;
+                                                case 3:
+                                <a href="~/Accreditation/" class="list-group-item">Accreditation
+                                </a>
+                                                    break;
+                                                case 4:
+                                <a href="~/Certification/" class="list-group-item">Certifications
+                                </a>
+                                                    break;
+                                                case 5:
+                                <a href="~/IndustryResearch/" class="list-group-item">Industry Research
+                                </a>
+                                                    break;
+                                                case 6:
+                                <a href="~/UserSubscription/AllSubcriptions" class="list-group-item">Plans and Pricing
+                                </a>
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                <a href="~/TrainingAndSeminar/" class="list-group-item">Onsite Training & Seminars
+                                </a>
+                                <a href="~/Accreditation/" class="list-group-item">Accreditation
+                                </a>
+                                <a href="~/Certification/" class="list-group-item">Certifications
+                                </a>
+                                <a href="~/IndustryResearch/" class="list-group-item">Industry Research
+                                </a>
+                                <a href="~/UserSubscription/AllSubcriptions" class="list-group-item">Plans and Pricing
+                                </a>
+                                }
+                            }
+
+
+                        </div>
+                        <a href="#" class="list-group-item font-bold" data-parent="#sidebar">
+                            <i class="icon-tasks"></i>News and Resources Control
+                        </a>
+                        <div id="searchNews" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/News/" class="list-group-item">News
+                            </a>
+
+                            @{
+                                Client clientSession2 = new Client();
+                                clientSession2 = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+                                if (clientSession2.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIDOne)
+                                {
+                                <a href="~/HomeContent/NewsLetter/" class="list-group-item">Newsletter Section
+
+                                </a>
+
+
+                                <a href="~/Event/" class="list-group-item">Events
+                                </a>
+                                }
+                                else if (clientSession2.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIDTwo)
+                                {
+                                <a href="~/HomeContent/NewsLetter/" class="list-group-item">Newsletter Section
+                                </a>
+                                <a href="~/Event/" class="list-group-item">Events
+                                </a>
+                                }
+                                else
+                                {
+                                    // not required
+                                }
+                            }
+
+                        </div>
+                        @{
+                            Client clientFaq = new Client();
+                            clientFaq = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+                            if (clientFaq.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIdValue)
+                            {
+
+                            }
+                            else
+                            {
+                            <a href="#" class="list-group-item font-bold" data-parent="#sidebar">
+                                <i class="icon-tasks"></i>FAQs / Policies
+                            </a>
+                            }
+                        }
+                        <div id="search" class="list-group subitem collapse" style="height: auto;">
+                            @{
+                                Client clientPolicy = new Client();
+                                clientPolicy = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+                                if (clientPolicy.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIdValue)
+                                {
+                                <a href="~/FAQ/" class="list-group-item">FAQ
+                                </a>
+                                <a href="~/PrivacyPolicy/" class="list-group-item">Privacy Policy
+                                </a>
+                                }
+                                else if (clientPolicy.ClientTypeID == GlobalConst.SessionKeys.ClientTypeIDTwo)
+                                {
+                                <a href="~/FAQ/" class="list-group-item">FAQ
+                                </a>
+                                <a href="~/PrivacyPolicy/" class="list-group-item">Privacy Policy
+                                </a>
+                                }
+                                else
+                                {
+                                <a href="~/FAQ/" class="list-group-item">FAQ
+                                </a>
+                                <a href="~/PrivacyPolicy/" class="list-group-item">Privacy Policy
+                                </a>
+                                }
+                            }
+                        </div>
+                        <a href="#" class="list-group-item font-bold" data-parent="#sidebar">
+                            <i class="icon-tasks"></i>Requests
+                        </a>
+                        <div id="search" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/College/getAllFaculties" class="list-group-item">Join the Faculty
+                            </a>
+                            <a href="~/Common/getAllSuggestCourses" class="list-group-item">Suggest a Course</a>
+                        </div>
+                        <a href="#" class="list-group-item font-bold" data-parent="#sidebar">
+                            <i class="icon-tasks"></i>Plan Control
+                        </a>
+                        <div id="search" class="list-group subitem collapse" style="height: auto;">
+                            <a href="~/Plan/Index" class="list-group-item">Plan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Tabs Sidebar -->
+        </div>
+        <!-- sidebar-wrapper -->
+        <!-- sidebar-wrapper -->
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @RenderSection("header", required: false)
+            </div>
+            <div class="user-name">
+                @{
+                    Client objClient = new Client();
+                    objClient = Mapper.Map<Client>(Session[GlobalConst.SessionKeys.CLIENT]);
+
+                    @(objClient.FirstName + " " + objClient.LastName)
+
+
+                }
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="inner-content">
+            @RenderBody()
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/alertify")
+    @Scripts.Render("~/bundles/HCRGUniversityScripts")
+    <script src="@Url.Content("~/Scripts/moment.min.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

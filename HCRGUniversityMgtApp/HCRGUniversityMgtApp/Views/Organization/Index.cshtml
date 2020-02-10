@@ -1,0 +1,79 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+
+    ViewBag.Title = "Organization";
+}
+@section header{
+    <a class="navbar-brand" href="#">Organization</a>
+}
+
+<div id="divOrganizationProject">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Organization Setup</div>
+                       <!--ko if:IsHCRGAdmin() == true-->
+                        <div class="panel-body" style="padding:7px !important;">
+                        <input type="button" id="btnAddNew" class="btn-edu col-md-12 col-sm-12" value="Add New"  data-bind="click:$root.Add"/>
+                        </div>
+                    <!--/ko-->
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Organization Detail</div>
+                            <!-- Table -->
+                            <div class="table-responsive height-400">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-5 col-sm-5">Organization Name</th>
+                                            <th class="col-md-4 col-sm-4">Organization Url</th>
+                                            <th class="col-md-3 col-sm-3">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                        <!--ko if:OrganizationResults!= null-->
+                                        <!-- ko foreach:OrganizationResults -->
+                                        <tr>
+                                            <td class="col-md-5 col-sm-5">
+                                                <span data-bind="text:OrganizationName" />
+                                            </td>
+                                            <td class="col-md-4 col-sm-4"><span data-bind="text:WebsiteName" /></td>
+
+                                            <td class="col-md-3 col-sm-3"><a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="click:$root.edit">Edit</a></td>
+
+                                        </tr>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row-end -->
+    </div>
+    <!-- /inner-wrapper -->
+</div>
+
+
+
+@section scripts{
+
+    <script src="~/Scripts/knockout/viewmodel/views/Organization/OrganizationViewModel.js"></script>
+    <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _organizationViewModel = new OrganizationViewModel(model);
+        ko.applyBindings(_organizationViewModel, $("#divOrganizationProject").get(0));
+
+    </script>
+
+
+}

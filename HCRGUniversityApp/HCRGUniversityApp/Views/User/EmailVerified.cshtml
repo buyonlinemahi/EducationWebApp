@@ -1,0 +1,31 @@
+﻿@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "ExamResult";
+}
+
+<div id="ExamResult">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 clearfix rd_bdr" style="margin-top:20%;">
+                <h2>
+                    Thank you for verifying your email. You may now
+                    <a class="" href="/User/">Login</a> to the site
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<script>    
+    $(".hideNav").hide();
+    $(".CoursesArticles").hide();
+    $(".hideTopBar").hide();
+    $(".showTopBar").show();
+    $(".logoHome").addClass("hidediv");
+    $(".logoHomeHide").removeClass("hidediv");
+    $("#btnLogin").hide();
+</script>
+<style>        
+    .footer {
+        display:none;
+    }
+</style>

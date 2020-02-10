@@ -1,0 +1,146 @@
+﻿
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+
+@{
+    ViewBag.Title = "Delivery Term";
+}
+
+@section header{
+    <a class="navbar-brand" href="#">Delivery Term</a>
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/HomeContent/DeliveryTermResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var DeliveryTermViewModel = new DeliveryTermViewModel();
+        DeliveryTermViewModel.Init(model);
+        ko.applyBindings(DeliveryTermViewModel, $("#divDeliveryTerm").get(0));
+    </script>
+}
+
+
+<div class="inner-content">
+    <div id="divDeliveryTerm">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Delivery Term Screen</div>
+                    <!-- Default panel contents -->
+                    @using (Html.BeginForm(GlobalConst.Actions.HomeContentController.UpdateDeliveryTerm, GlobalConst.Controllers.HomeContent, FormMethod.Post, new
+{
+    id = "frmDeliveryTerm",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){DeliveryTermsDetailSuccess(responseText);},beforeSubmit : DeliveryTermInfoFormBeforeSubmit ,clearForm : true}"
+}))
+                    {
+                        <div class="panel-body">
+                            <div class="col-md-3 col-sm-5 padd-0"><label>Delivery Term  Content:</label> <a href="#" class="inner-content-link"> </a></div>
+                            <div class="col-md-4 col-sm-5">
+
+                                <div class="form-group">
+                                    <input type="hidden" name="hdDeliveryConditionID" id="hdDeliveryConditionID" data-bind="value: DeliveryTermID" />
+                                    <button type="button" data-target="#EditorModal" id="EditorModalPopUp" data-backdrop="static" data-keyboard="false" class="btn btn-default">Update Content</button>
+
+                                    <input type="hidden" id="hd" name="DeliveryTermContents" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <button type="submit" onclick="submitform()" class="btn btn-default">Save and Continue</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <!-- row-end -->
+        </div><!-- /inner-wrapper -->
+
+        <div class="panel-body">
+            <div class="modal fade" id="EditorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog position-center set-popup">
+                    <div class="modal-content" style="height:830px;">
+                        <div class="modal-header">
+
+                            <button type="button" class="close btnClose" id="btnClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+
+                            <h4 class="modal-title">Add Content</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div id="divEditor">
+
+                                    @using (Html.BeginForm(GlobalConst.Actions.HomeContentController.DeliveryTerm, GlobalConst.Controllers.HomeContent, FormMethod.Post))
+                                    {
+                                        @Html.Raw(ViewBag.EditorDelivery)
+                                    }
+                                </div>
+                                <div style="padding-top:10px;">
+                                    <button type="button" data-dismiss="modal" aria-hidden="true" id="btnSaveandContinue" class="btn btn-default btnClose">Save and Continue</button>
+
+                                    <button type="button" aria-hidden="true" id="btnClose1" data-dismiss="modal" class="btn btn-default btnClose">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  
+                    
+                            <div class="panel-body">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Delivery Term Content</div>
+                                    <!-- Table -->
+                                    <div class="table-responsive height-400">
+                                        <table class="table table-striped ">
+                                            <!-- removed class (table-fixed-1) -->
+                                            <thead>
+                                                <tr class="clearfix text-center">
+                                                     <th class="col-md-7 col-sm-9">Delivery Term Content</th>
+                                                     <th class="col-md-5 col-sm-3">Action</th>
+                                                  
+                                                </tr>
+                                            </thead>
+                                            <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                                <!--ko if:DeliveryTermData!= null-->
+                                                <!-- ko foreach:DeliveryTermData -->
+                                                <tr class="clearfix row">
+                                                    <td class="col-md-7 col-sm-9"><span data-bind="text:DescriptionShort" />
+                                                          <input type="hidden" name="DeliveryTermContents" id="DeliveryTermContents" data-bind="value:DeliveryTermContents" />
+                                                    </td>                                                                                                    
+                                                    <td class="col-md-5 col-sm-3"><a href="#" class="inner-content-link blue" " style="color: #808080;" data-bind="click:$root.EditDeliveryConditionLineItems">Edit</a></td>
+                                              
+                                                </tr>
+                                                <!--/ko-->
+                                                <!--/ko-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                  </div>
+</div>
+<script type="text/javascript">
+    function RichTextEditor_OnExecUICommand(editor, arg) {
+        var a0 = arg.Arguments[1];
+        if (a0 == "FullScreen") {
+            return false;
+        }
+    }
+</script>
+
+<style>
+    .panel-body p {
+        text-align: left;
+    }
+</style>
+
+
+
+
+
+

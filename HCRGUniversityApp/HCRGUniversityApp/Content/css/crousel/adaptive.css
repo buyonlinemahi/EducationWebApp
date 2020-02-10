@@ -1,0 +1,398 @@
+/* CSS Document */
+
+/*-------------------------------------------
+
+      Media Queries
+-------------------------------------------*/
+
+* html .carousel {
+    height: 348px !important;
+}
+
+* html .slide-caption {
+    background-image: none !important;
+    height: 220px;
+}
+
+* html .carousel-item {
+    height: 348px;
+}
+
+.comp-b, .comp-b .slide-callout .more {
+    background-color: #8c8179;
+}
+
+.comp-c, .comp-c .slide-callout .more {
+    background-color: #293352;
+}
+
+.comp-d, .comp-d .slide-callout .more {
+    background-color: #a51c30;
+}
+
+.carousel-controls a {
+    display: block;
+    text-indent: -9999px;
+    background-color: transparent;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.carousel-controls {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    bottom: 43px;
+    width: 98px;
+    height: 32px;
+    margin-left: -449px;
+    overflow: hidden;
+}
+
+* html .carousel-controls {
+    bottom: 20px;
+}
+
+    .carousel-controls a {
+        float: left;
+        width: 32px;
+        height: 32px;
+        background-image: url(../img/controls-carousel.gif);
+    }
+
+    .carousel-controls .next {
+        background-position: -99px -32px;
+        border-left: 1px solid #333;
+    }
+
+        .carousel-controls .next:hover, .carousel-controls .next:focus {
+            background-position: -99px 0;
+            border-color: #ccc;
+        }
+
+    .carousel-controls .previous {
+        background-position: 0 -32px;
+    }
+
+        .carousel-controls .previous:hover, .carousel-controls .previous:focus {
+            background-position: 0 0;
+        }
+
+    .carousel-controls .pause {
+        background-position: -33px -32px;
+        border-left: 1px solid #333;
+    }
+
+        .carousel-controls .pause:hover, .carousel-controls .pause:focus {
+            background-position: -33px 0;
+            border-color: #ccc;
+        }
+
+    .carousel-controls .play {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        background-position: -66px -32px;
+        border-left: 1px solid #333;
+    }
+
+        .carousel-controls .play:hover, .carousel-controls .play:focus {
+            background-position: -66px 0;
+            border-color: #ccc;
+        }
+
+.carousel .prev-image {
+    position: absolute;
+    left: -978px;
+    top: 0;
+    opacity: 0.2;
+}
+
+.carousel .next-image {
+    position: absolute;
+    top: 0;
+    right: -522px;
+    opacity: 0.2;
+}
+
+.slide-caption {
+    min-height: 200px;
+    padding: 68px 40px 80px;
+}
+
+* html .slide-caption {
+    padding-bottom: 60px;
+}
+
+
+#prez_content .flexslider {
+    margin-bottom: 30px;
+    background: none;
+    border: 0 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+}
+
+    #prez_content .flexslider .slides li {
+        position: relative;
+    }
+
+    #prez_content .flexslider .flex-caption {
+        padding: 15px 20px 10px;
+        font-size: 13px;
+        color: #f3f3f3;
+        background: #2b2b2b;
+        position: absolute;
+        bottom: 25px;
+        left: 0;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+
+        #prez_content .flexslider .flex-caption a, #prez_content .flexslider .flex-caption a:hover {
+            color: white;
+        }
+
+    #prez_content .flexslider .flex-control-nav {
+        bottom: 0;
+    }
+
+#prez_content .region-content .flexslider ul {
+    padding-left: 0;
+}
+
+.flexslider .flex-direction-nav a {
+    width: 36px;
+    height: 38px;
+    margin: -20px 0 0;
+    display: block;
+    background: url(../screen/bg_direction_nav.png) no-repeat 0 0;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    text-indent: -9999px;
+    -moz-opacity: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+
+    .flexslider .flex-direction-nav a:hover {
+        -moz-opacity: 1;
+        opacity: 1;
+        filter: alpha(opacity=90);
+    }
+
+.flexslider .flex-direction-nav .flex-next {
+    background-position: 0 -39px;
+    right: 0px;
+}
+
+.flexslider .flex-direction-nav .flex-prev {
+    left: 0px;
+}
+
+.flexslider:hover .flex-next, .flexslider:hover .flex-prev {
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+div#president_history div.faust {
+    background: url("../../a/screen/bg-extra.gif") repeat-x scroll 0 bottom transparent;
+    margin-bottom: 30px;
+    padding: 0 0 20px;
+}
+
+
+@media screen and (min-width: 851px) {
+    html {
+        min-width: 978px;
+    }
+
+    #filter-drop {
+        width: 978px !important;
+    }
+}
+
+@media screen and (min-width: 651px) and (max-width: 850px) {
+    html {
+        min-width: 768px;
+    }
+
+    .wrap {
+        width: 768px;
+    }
+
+    .home .primary .wrap {
+        margin: 0 auto;
+    }
+}
+
+@media (min-width:320px) and (max-width:480px) {
+
+    html {
+        min-width: 320px;
+    }
+
+    .wrap {
+        width: 320px !important;
+    }
+
+    .carousel-controls {
+        bottom: 34px;
+        margin-left: 200px;
+    }
+
+    .slide-caption {
+        position: relative;
+        z-index: 10;
+        float: left;
+        width: 320px !important;
+        min-height: 200px;
+        padding: 10px 10px 0;
+        margin-top:250px;
+        
+    }
+
+    .carousel-image img {
+        width: 320px !important;
+        height: 450px !important;
+    }
+}
+
+
+@media screen and (min-width: 480px) and (max-width: 641px) {
+    html {
+        min-width: 400px;
+    }
+
+    .wrap {
+        width: 400px !important;
+    }
+
+      .carousel .next-image {
+            right: -550px !important;
+        }
+
+    .carousel-controls {
+        bottom: 25px !important;
+        margin-left: 0 !important;
+    }
+
+    .slide-caption {
+        position: relative;
+        z-index: 10;
+        float: left;
+        width: 400px !important;
+        min-height: 220px;
+        padding: 10px 10px 0;margin-top:335px;
+       
+    }
+
+    .carousel-image img {
+        width: 400px !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    html {
+        min-width: 768px;
+    }
+
+    .wrap {
+        width: 768px !important;
+    }
+
+    .carousel .next-image {
+        right: -750px !important;
+    }
+
+    .carousel-controls {
+        bottom: 34px;
+        left: 64% !important;
+    }
+
+    .slide-caption {
+        position: relative;
+        z-index: 10;
+        float: left;
+        width: 400px !important;
+        min-height: 220px;
+        padding: 10px 10px 0;
+    }
+
+    .carousel-image img {
+        width: 480px !important;
+    }
+}
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    /*header */
+
+
+    div#view_more {
+        display: none;
+    }
+
+    .carousel {
+        height: 273px;
+        overflow: hidden;
+        background: #262626;
+    }
+
+    .slide-caption {
+        position: relative;
+        z-index: 10;
+        float: left;
+        min-height: 120px;
+        padding: 10px 10px 0;
+    }
+
+        .slide-caption h2 {
+            margin-bottom: 25px;
+            color: #fff;
+            font-size: 3.2em;
+            line-height: 1.21;
+        }
+
+    .slide-callout {
+        width: 706px;
+    }
+
+        .slide-callout p {
+            max-width: 590px;
+            min-height: 15px;
+            margin-bottom: 4px;
+            padding: 7px 16px 5px 11px;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+
+        .slide-callout .more a {
+            min-height: 15px;
+            padding: 7px 8px 5px 8px;
+            font: italic 1.1em Georgia, "Times New Roman", serif;
+        }
+
+    .carousel-controls {
+        bottom: 34px;
+        margin-left: -360px !important;
+    }
+
+
+
+    

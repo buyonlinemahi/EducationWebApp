@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c31db678-7f51-4b0d-a6a9-0996b39aeb20" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ShippingPaymentService.disco" MetadataType="Disco" ID="0dcac15c-c48c-4034-afa0-47661b96a2f5" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?disco" />
+    <MetadataFile FileName="ShippingPaymentService.xsd" MetadataType="Schema" ID="7e907aa4-d47a-4b14-a308-72c4605c5640" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ShippingPaymentService1.xsd" MetadataType="Schema" ID="4ec6eb9d-326e-4867-9364-99d7ddb8ec0d" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ShippingPaymentService.wsdl" MetadataType="Wsdl" ID="a61dd0ca-dfc3-4a21-8583-aaf2582a2804" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?wsdl" />
+    <MetadataFile FileName="ShippingPaymentService2.xsd" MetadataType="Schema" ID="fc71d8d0-8776-4c11-9615-d85f361debfd" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ShippingPaymentService3.xsd" MetadataType="Schema" ID="a7e0113f-da34-4b33-9069-9637a9b7597b" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShippingPaymentService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="EducationModule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationModuleDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EducationModuleDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationModuleID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationModuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EducationModulePosition" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationModuleTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModuleFile" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationModule" nillable="true" type="tns:EducationModule" />
+  <xs:complexType name="ArrayOfEducationModule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationModule" nillable="true" type="tns:EducationModule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationModule" nillable="true" type="tns:ArrayOfEducationModule" />
+  <xs:complexType name="Client">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseDataColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientSessionID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsApproved" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsEmailSent" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateID" type="xs:int" />
+          <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="ArrayOfFileType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileType" nillable="true" type="tns:FileType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileType" nillable="true" type="tns:ArrayOfFileType" />
+  <xs:complexType name="FileType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="FileTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileType" nillable="true" type="tns:FileType" />
+  <xs:complexType name="EducationModuleFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentUploadedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EducationModuleFileID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationModuleID" type="xs:int" />
+      <xs:element minOccurs="0" name="FileTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModuleFile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationModuleFile" nillable="true" type="tns:EducationModuleFile" />
+  <xs:complexType name="ArrayOfEducationModuleFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationModuleFile" nillable="true" type="tns:EducationModuleFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationModuleFile" nillable="true" type="tns:ArrayOfEducationModuleFile" />
+</xs:schema>

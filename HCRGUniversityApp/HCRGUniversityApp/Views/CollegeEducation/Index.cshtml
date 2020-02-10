@@ -1,0 +1,200 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/css/Custum/grid.css" rel="stylesheet" />
+<!--ko with:CollegeEducationGridViewModel-->
+<input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+<input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+<!--/ko-->
+<div id="divCollegeEducation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <header class="site-block-title">
+                    <h2>All Education</h2>
+                </header>
+            </div>
+            <!-- col-sm-12\-->
+        </div>
+        <!-- row -->
+        <div class="row">
+            <input type="hidden" data-bind="value:ShowOnlineCourseOnly" name="ShowOnlineCourseOnly" id="ShowOnlineCourseOnly">
+            <!-- col-sm-2 -->
+            <div class="col-md-4">
+                <form class="form-horizontal set-dropdown" role="form">
+                    <div class="form-group marginbottom10 frm-colg margin-set-med">
+                        <label for="College" class="member-label col-sm-3 col-md-4 col-lg-4 control-label frm-mt">Subject Matter:</label>
+                        <div class="col-sm-9 col-md-8 col-lg-8">
+                            <select class="form-control upper-selectbox" id="College" name="CollegeID"
+                                    required data-bind="options: Colleges,optionsCaption: '<Any>', optionsText: 'CollegeName',  optionsValue: 'CollegeID',jqBootstrapValidation: {}"></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- col-sm-2 -->
+            <div class="col-md-3">
+                <form class="form-horizontal set-dropdown" role="form">
+                    <div class="form-group marginbottom10 frm-colg">
+                        <label for="EducationFormat" class="member-label col-sm-3 col-md-4 col-lg-4 control-label frm-mt">Format:</label>
+                        <div class="col-sm-9 col-md-8 col-lg-8">
+                            <select class="form-control upper-selectbox" id="EducationFormat" name="EducationFormatID"
+                                    required data-bind="options: EducationFormats,optionsCaption: '<Any>', optionsText: 'EducationFormatType',  optionsValue: 'EducationFormatID',value : selectedItemEducationFormats,jqBootstrapValidation: {}"></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form class="form-horizontal set-dropdown" role="form">
+                    <div class="form-group marginbottom5 frm-colg">
+                        <label for="College" class="member-label col-sm-3 col-md-4 col-lg-4 control-label frm-mt">Profession:</label>
+                        <div class="col-sm-9 col-md-8 col-lg-8">
+                            <select class="form-control upper-selectbox" id="Profession" name="ProfessionID"
+                                    required data-bind="options: Professions,optionsCaption: '<Any>', optionsText: 'ProfessionTitle',  optionsValue: 'ProfessionID',jqBootstrapValidation: {}"></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- col-sm-2 -->
+            <!-- col-sm-2 -->
+            <div class="col-md-1">
+                <a href="#" class="search-btn-l pull-right" data-bind="click:$root.ViewFilterRecords"><i><img src="~/Content/img/search.png" style="cursor:pointer" data-toggle="tooltip" title="Search" /></i></a>
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+<br /> <br />
+
+    <div class="container" role="document">
+        
+    
+    <div class="grid-overlay">
+      <div class="example">
+           
+            <!--ko if:EducationdetailResults!= null-->
+          <div class="row no-gutter hidem grid-grey-color">
+              <div class="col-7"><div class="well paddingleft10">Course Name</div></div>
+              <div class="col-2"><div class="well">Course ID#</div></div>
+              <div class="col-1"><div class="well">Time</div></div>
+              <div class="col-1"><div class="well">Price</div></div>
+              <div class="col-1"><div class="well">&nbsp;</div></div>
+          </div>
+                <!-- ko foreach:EducationdetailResults -->
+
+                    <!--ko if:Count()=='1'-->    
+                        <div style=" background-color: #eeeeee;" class="gridbackground">
+                             <div class="row no-gutter padding10 btm5 box-design" data-bind="click:$root.LearnMore">
+                                    <div class="col-7 paddingright5 btm5">
+                                        <a class="no-margin font-22 color-grey">
+                                              <a class="link-course-name no-margin font-22 color-grey course-name " data-bind="text:CourseName"></a>
+                                        </a>
+                                        <br />
+                                        <span class="color-light-grey textjustify" data-bind="text:CourseDescription" ></span>
+                                    </div>
+
+                                    <div class="col-2 btm5">
+                        
+                                            <span class="font-16 " data-bind="text:CourseCode"></span>
+                      
+                                    </div>
+
+                                    <div class="col-1 btm5"><span class="font-16 " data-bind="text:CourseTime"></span></div>
+
+                                    <div class="col-1 btm5">
+
+                                        <!--ko if:CoursePrice() == 0-->
+                                                        <span class="font-16">FREE</span>
+                                                <!--/ko-->
+                                                <!--ko if:CoursePrice() != 0-->
+                                                        <span class="font-16" data-bind="text:'$'+(CoursePrice.extend({numeric:2})())"></span>
+                                                <!--/ko-->
+                                            
+
+
+                                    </div>
+
+                                 @*   <div class="col-1 btm5">  <!--ko if:EducationFormatImagePath!= null-->
+                                                        <!-- ko foreach:EducationFormatImagePath -->
+                                                        <a href="#">
+                                                            <img data-bind="attr:{src:EducationFormatImagePath1}" class=" marginright10" />
+                                                        </a>
+                                                        <!--/ko-->
+                                                        <!--/ko--></div>*@
+ 
+                                    <div class="col-1 top10 course-row"><a href="#" class="learn-more">Learn More</a></div>
+                              </div>
+                        </div>
+                    <!--/ko-->
+                    <!--ko if:Count()=='0'-->    
+                        <div class="gridbackground">
+                             <div class="row no-gutter padding10 btm5 box-design" data-bind="click:$root.LearnMore">
+                                    <div class="col-7 paddingright5 btm5">
+                                        <a class="no-margin font-22 color-grey">
+                                              <a class="link-course-name no-margin font-22 color-grey course-name " data-bind="text:CourseName"></a>
+                                        </a>
+                                        <br />
+                                        <span class="color-light-grey textjustify" data-bind="text:CourseDescription" ></span>
+                                    </div>
+
+                                    <div class="col-2 btm5">
+                        
+                                            <span class="font-16 " data-bind="text:CourseCode"></span>
+                      
+                                    </div>
+
+                                    <div class="col-1 btm5"><span class="font-16 " data-bind="text:CourseTime"></span></div>
+
+                                    <div class="col-1 btm5">
+                                                <!--ko if:CoursePrice() == 0-->
+                                                        <span class="font-16">FREE</span>
+                                                <!--/ko-->
+                                                <!--ko if:CoursePrice() != 0-->
+                                                        <span class="font-16" data-bind="text:'$'+(CoursePrice.extend({numeric:2})())"></span>
+                                                <!--/ko-->
+                                            
+
+
+                                    </div>
+
+                                  @*  <div class="col-1 btm5">  <!--ko if:EducationFormatImagePath!= null-->
+                                                        <!-- ko foreach:EducationFormatImagePath -->
+                                                        <a href="#">
+                                                            <img data-bind="attr:{src:EducationFormatImagePath1}" class=" marginright10" />
+                                                        </a>
+                                                        <!--/ko-->
+                                                        <!--/ko--></div>*@
+ 
+                                    <div class="col-1 top10 course-row"><a href="#" class="learn-more">Learn More</a></div>
+                              </div>
+                        </div>
+                    <!--/ko-->
+                <!--/ko-->
+          <nav class="margin-left">
+              @Html.Partial("~/Views/Shared/_Paging.cshtml")
+          </nav>
+            <!--/ko-->
+         
+          <!--ko if:EducationdetailResults()== null || EducationdetailResults().length==0  -->
+          <div class="alert alert-info" id="EmptyGrid" style="margin-top: 10px; display:none;">
+                            No Courses Found
+          </div>
+          <!--/ko-->
+       </div>
+     </div>
+    
+</div>
+
+</div>
+@section scripts{
+    <script src="@Url.Content("~/Scripts/knockout/viewmodel/views/CollegeEducation/CollegeEducationGridViewModel.js")"></script>
+  
+    <script src="~/Scripts/knockout/ko.pager.js"></script>
+    <script src="@Url.Content("~/Scripts/knockout/custom/knockout.custom-extenders.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var collegeeducationGridViewModel = new CollegeEducationGridViewModel();
+        collegeeducationGridViewModel.Init(model);
+        ko.applyBindings(collegeeducationGridViewModel, $("#divCollegeEducation").get(0));
+    </script>
+}

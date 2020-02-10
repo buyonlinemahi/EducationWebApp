@@ -1,0 +1,1409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EducationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEducationService_AddEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllEducationActive_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEducationActive" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllEducationActive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEducationActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationLatest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationLatest" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationLatest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationLatestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByEducationNamePaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByEducationNamePaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByEducationNamePaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByEducationNamePagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationReadyToDisplayByEducationNamePaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationReadyToDisplayByEducationNamePaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationReadyToDisplayByEducationNamePaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationReadyToDisplayByEducationNamePagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetOnSiteEducationByStartDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnSiteEducationByStartDate" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetOnSiteEducationByStartDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnSiteEducationByStartDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_PublishEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_PublishEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_CoursePreviewEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CoursePreviewEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_CoursePreviewEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CoursePreviewEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationAndProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationAndProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationAndProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationAndProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationAndEducationFormat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationAndEducationFormat" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationAndEducationFormat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationAndEducationFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetCollegeEducationByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollegeEducationByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetCollegeEducationByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollegeEducationByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionEducationByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionEducationByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionEducationByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionEducationByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionByID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfessionActive_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfessionActive" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfessionActive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfessionActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfessionWeb_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfessionWeb" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfessionWeb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfessionWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfessionActiveWeb_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfessionActiveWeb" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllProfessionActiveWeb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllProfessionActiveWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionsByCollegeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionsByCollegeID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionsByCollegeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionsByCollegeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionNotAssociateWithEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionNotAssociateWithEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetProfessionNotAssociateWithEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfessionNotAssociateWithEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedProfessionByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedProfessionByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedProfessionByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedProfessionByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationFormat_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationFormat" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationFormat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationFormat_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationFormat" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationFormat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllEducationFormat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEducationFormat" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAllEducationFormat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEducationFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationFormatNotAssociateWithEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationFormatNotAssociateWithEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationFormatNotAssociateWithEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationFormatNotAssociateWithEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedEducationFormat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationFormat" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedEducationFormat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationFormatByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationFormatByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationFormatByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationFormatByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllEducationFormatByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationFormatByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllEducationFormatByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationFormatByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllEducationFormatByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationFormatByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllEducationFormatByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationFormatByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationFormatAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationFormatAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationFormatAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationFormatAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationFormatAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationFormatAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationFormatAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationFormatAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationFormatsByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationFormatsByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationFormatsByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationFormatsByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddCollegeEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCollegeEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddCollegeEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCollegeEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateCollegeEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCollegeEducation" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateCollegeEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCollegeEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeAllPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeAllPaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeAllPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeAllPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeByCollegeIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeByCollegeIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeByCollegeIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeByCollegeIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeByEducationFormatIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeByEducationFormatIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeByEducationFormatIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeByEducationFormatIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeByEducationFormatIDAndCollegeIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeByEducationFormatIDAndCollegeIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCollegeByEducationFormatIDAndCollegeIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCollegeByEducationFormatIDAndCollegeIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByProfessionIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByProfessionIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByProfessionIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByProfessionIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationNewsSearchByTextPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationNewsSearchByTextPaged" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationNewsSearchByTextPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationNewsSearchByTextPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationType" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationType" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationTypeByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationTypeByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationTypeByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationTypeByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationDetailPageContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationDetailPageContent" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationDetailPageContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationDetailPageContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationDetailPageContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationDetailPageContent" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationDetailPageContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationDetailPageContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationDetailPageContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationDetailPageContent" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationDetailPageContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationDetailPageContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedEducationProfession_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationProfession" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedEducationProfession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationProfessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedEducationByfilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationByfilter" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedEducationByfilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationByfilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetCourseCatalogByfilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseCatalogByfilter" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetCourseCatalogByfilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseCatalogByfilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddAccreditor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccreditor" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddAccreditor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccreditorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateAccreditor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccreditor" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateAccreditor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccreditorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_DeleteAccreditor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccreditor" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_DeleteAccreditor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccreditorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAll" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_getAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedAccreditor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedAccreditor" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllPagedAccreditor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedAccreditorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllAccreditorsByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccreditorsByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetAllAccreditorsByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccreditorsByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationCredential_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationCredential" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_AddEducationCredential_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationCredential_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationCredential" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationCredential_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_DeleteEducationCredential_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationCredential" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_DeleteEducationCredential_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationCredentialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCredentialByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCredentialByID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCredentialByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCredentialByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCredentialByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCredentialByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCredentialByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCredentialByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCredentialDetailByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCredentialDetailByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationCredentialDetailByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationCredentialDetailByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GETCourseExpirySendEmailAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:GETCourseExpirySendEmailAlert" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GETCourseExpirySendEmailAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GETCourseExpirySendEmailAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateMyEducationCompletedToPassed_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationCompletedToPassed" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateMyEducationCompletedToPassed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMyEducationCompletedToPassedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationModulesTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModulesTime" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_UpdateEducationModulesTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModulesTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationService_GetEducationByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEducationService">
+    <wsdl:operation name="AddEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddEducation" message="tns:IEducationService_AddEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddEducationResponse" message="tns:IEducationService_AddEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducation" message="tns:IEducationService_UpdateEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationResponse" message="tns:IEducationService_UpdateEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationByID" message="tns:IEducationService_GetEducationByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationByIDResponse" message="tns:IEducationService_GetEducationByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAllEducation" message="tns:IEducationService_getAllEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllEducationResponse" message="tns:IEducationService_getAllEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllEducationActive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAllEducationActive" message="tns:IEducationService_getAllEducationActive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllEducationActiveResponse" message="tns:IEducationService_getAllEducationActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationLatest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationLatest" message="tns:IEducationService_GetEducationLatest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationLatestResponse" message="tns:IEducationService_GetEducationLatest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByEducationNamePaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationByEducationNamePaged" message="tns:IEducationService_GetEducationByEducationNamePaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationByEducationNamePagedResponse" message="tns:IEducationService_GetEducationByEducationNamePaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationReadyToDisplayByEducationNamePaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationReadyToDisplayByEducationNamePaged" message="tns:IEducationService_GetEducationReadyToDisplayByEducationNamePaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationReadyToDisplayByEducationNamePagedResponse" message="tns:IEducationService_GetEducationReadyToDisplayByEducationNamePaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnSiteEducationByStartDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetOnSiteEducationByStartDate" message="tns:IEducationService_GetOnSiteEducationByStartDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetOnSiteEducationByStartDateResponse" message="tns:IEducationService_GetOnSiteEducationByStartDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/PublishEducation" message="tns:IEducationService_PublishEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/PublishEducationResponse" message="tns:IEducationService_PublishEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CoursePreviewEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/CoursePreviewEducation" message="tns:IEducationService_CoursePreviewEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/CoursePreviewEducationResponse" message="tns:IEducationService_CoursePreviewEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationAndProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationAndProfession" message="tns:IEducationService_GetEducationAndProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationAndProfessionResponse" message="tns:IEducationService_GetEducationAndProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationAndEducationFormat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationAndEducationFormat" message="tns:IEducationService_GetEducationAndEducationFormat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationAndEducationFormatResponse" message="tns:IEducationService_GetEducationAndEducationFormat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeEducationByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetCollegeEducationByEducationID" message="tns:IEducationService_GetCollegeEducationByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetCollegeEducationByEducationIDResponse" message="tns:IEducationService_GetCollegeEducationByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionEducationByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetProfessionEducationByEducationID" message="tns:IEducationService_GetProfessionEducationByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetProfessionEducationByEducationIDResponse" message="tns:IEducationService_GetProfessionEducationByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddProfession" message="tns:IEducationService_AddProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddProfessionResponse" message="tns:IEducationService_AddProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateProfession" message="tns:IEducationService_UpdateProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateProfessionResponse" message="tns:IEducationService_UpdateProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetProfessionByID" message="tns:IEducationService_GetProfessionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetProfessionByIDResponse" message="tns:IEducationService_GetProfessionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAllProfession" message="tns:IEducationService_getAllProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllProfessionResponse" message="tns:IEducationService_getAllProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfessionActive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAllProfessionActive" message="tns:IEducationService_getAllProfessionActive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllProfessionActiveResponse" message="tns:IEducationService_getAllProfessionActive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfessionWeb">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAllProfessionWeb" message="tns:IEducationService_getAllProfessionWeb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllProfessionWebResponse" message="tns:IEducationService_getAllProfessionWeb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfessionActiveWeb">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAllProfessionActiveWeb" message="tns:IEducationService_getAllProfessionActiveWeb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllProfessionActiveWebResponse" message="tns:IEducationService_getAllProfessionActiveWeb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionsByCollegeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetProfessionsByCollegeID" message="tns:IEducationService_GetProfessionsByCollegeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetProfessionsByCollegeIDResponse" message="tns:IEducationService_GetProfessionsByCollegeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionNotAssociateWithEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetProfessionNotAssociateWithEducation" message="tns:IEducationService_GetProfessionNotAssociateWithEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetProfessionNotAssociateWithEducationResponse" message="tns:IEducationService_GetProfessionNotAssociateWithEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedProfession" message="tns:IEducationService_GetAllPagedProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedProfessionResponse" message="tns:IEducationService_GetAllPagedProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedProfessionByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedProfessionByOrganizationID" message="tns:IEducationService_GetAllPagedProfessionByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedProfessionByOrganizationIDResponse" message="tns:IEducationService_GetAllPagedProfessionByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddEducationProfession" message="tns:IEducationService_AddEducationProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddEducationProfessionResponse" message="tns:IEducationService_AddEducationProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationProfession" message="tns:IEducationService_UpdateEducationProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationProfessionResponse" message="tns:IEducationService_UpdateEducationProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationFormat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddEducationFormat" message="tns:IEducationService_AddEducationFormat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddEducationFormatResponse" message="tns:IEducationService_AddEducationFormat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationFormat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationFormat" message="tns:IEducationService_UpdateEducationFormat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationFormatResponse" message="tns:IEducationService_UpdateEducationFormat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllEducationFormat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAllEducationFormat" message="tns:IEducationService_getAllEducationFormat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllEducationFormatResponse" message="tns:IEducationService_getAllEducationFormat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationFormatNotAssociateWithEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationFormatNotAssociateWithEducation" message="tns:IEducationService_GetEducationFormatNotAssociateWithEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationFormatNotAssociateWithEducationResponse" message="tns:IEducationService_GetEducationFormatNotAssociateWithEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationFormat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedEducationFormat" message="tns:IEducationService_GetAllPagedEducationFormat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedEducationFormatResponse" message="tns:IEducationService_GetAllPagedEducationFormat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationFormatByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationFormatByClientID" message="tns:IEducationService_GetEducationFormatByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationFormatByClientIDResponse" message="tns:IEducationService_GetEducationFormatByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationFormatByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllEducationFormatByClientID" message="tns:IEducationService_GetAllEducationFormatByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllEducationFormatByClientIDResponse" message="tns:IEducationService_GetAllEducationFormatByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationFormatByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllEducationFormatByOrganizationID" message="tns:IEducationService_GetAllEducationFormatByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllEducationFormatByOrganizationIDResponse" message="tns:IEducationService_GetAllEducationFormatByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationFormatAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddEducationFormatAvailable" message="tns:IEducationService_AddEducationFormatAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddEducationFormatAvailableResponse" message="tns:IEducationService_AddEducationFormatAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationFormatAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationFormatAvailable" message="tns:IEducationService_UpdateEducationFormatAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationFormatAvailableResponse" message="tns:IEducationService_UpdateEducationFormatAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationFormatsByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationFormatsByEducationID" message="tns:IEducationService_GetEducationFormatsByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationFormatsByEducationIDResponse" message="tns:IEducationService_GetEducationFormatsByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCollegeEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddCollegeEducation" message="tns:IEducationService_AddCollegeEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddCollegeEducationResponse" message="tns:IEducationService_AddCollegeEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCollegeEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateCollegeEducation" message="tns:IEducationService_UpdateCollegeEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateCollegeEducationResponse" message="tns:IEducationService_UpdateCollegeEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeAllPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeAllPaged" message="tns:IEducationService_GetEducationCollegeAllPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeAllPagedResponse" message="tns:IEducationService_GetEducationCollegeAllPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeByCollegeIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeByCollegeIDPaged" message="tns:IEducationService_GetEducationCollegeByCollegeIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeByCollegeIDPagedResponse" message="tns:IEducationService_GetEducationCollegeByCollegeIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeByEducationFormatIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeByEducationFormatIDPaged" message="tns:IEducationService_GetEducationCollegeByEducationFormatIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeByEducationFormatIDPagedResponse" message="tns:IEducationService_GetEducationCollegeByEducationFormatIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeByEducationFormatIDAndCollegeIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeByEducationFormatIDAndCollegeIDPaged" message="tns:IEducationService_GetEducationCollegeByEducationFormatIDAndCollegeIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationCollegeByEducationFormatIDAndCollegeIDPagedResponse" message="tns:IEducationService_GetEducationCollegeByEducationFormatIDAndCollegeIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByProfessionIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationByProfessionIDPaged" message="tns:IEducationService_GetEducationByProfessionIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationByProfessionIDPagedResponse" message="tns:IEducationService_GetEducationByProfessionIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged" message="tns:IEducationService_GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPagedResponse" message="tns:IEducationService_GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationNewsSearchByTextPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationNewsSearchByTextPaged" message="tns:IEducationService_GetEducationNewsSearchByTextPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationNewsSearchByTextPagedResponse" message="tns:IEducationService_GetEducationNewsSearchByTextPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddEducationType" message="tns:IEducationService_AddEducationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddEducationTypeResponse" message="tns:IEducationService_AddEducationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationType" message="tns:IEducationService_UpdateEducationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationTypeResponse" message="tns:IEducationService_UpdateEducationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationTypeByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationTypeByEducationID" message="tns:IEducationService_GetEducationTypeByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationTypeByEducationIDResponse" message="tns:IEducationService_GetEducationTypeByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationDetailPageContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddEducationDetailPageContent" message="tns:IEducationService_AddEducationDetailPageContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddEducationDetailPageContentResponse" message="tns:IEducationService_AddEducationDetailPageContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationDetailPageContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationDetailPageContent" message="tns:IEducationService_UpdateEducationDetailPageContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationDetailPageContentResponse" message="tns:IEducationService_UpdateEducationDetailPageContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationDetailPageContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationDetailPageContent" message="tns:IEducationService_GetEducationDetailPageContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationDetailPageContentResponse" message="tns:IEducationService_GetEducationDetailPageContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationProfession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedEducationProfession" message="tns:IEducationService_GetAllPagedEducationProfession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedEducationProfessionResponse" message="tns:IEducationService_GetAllPagedEducationProfession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationByfilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedEducationByfilter" message="tns:IEducationService_GetAllPagedEducationByfilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedEducationByfilterResponse" message="tns:IEducationService_GetAllPagedEducationByfilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseCatalogByfilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetCourseCatalogByfilter" message="tns:IEducationService_GetCourseCatalogByfilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetCourseCatalogByfilterResponse" message="tns:IEducationService_GetCourseCatalogByfilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccreditor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddAccreditor" message="tns:IEducationService_AddAccreditor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddAccreditorResponse" message="tns:IEducationService_AddAccreditor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccreditor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateAccreditor" message="tns:IEducationService_UpdateAccreditor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateAccreditorResponse" message="tns:IEducationService_UpdateAccreditor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccreditor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/DeleteAccreditor" message="tns:IEducationService_DeleteAccreditor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/DeleteAccreditorResponse" message="tns:IEducationService_DeleteAccreditor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/getAll" message="tns:IEducationService_getAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/getAllResponse" message="tns:IEducationService_getAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedAccreditor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedAccreditor" message="tns:IEducationService_GetAllPagedAccreditor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllPagedAccreditorResponse" message="tns:IEducationService_GetAllPagedAccreditor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccreditorsByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetAllAccreditorsByOrganizationID" message="tns:IEducationService_GetAllAccreditorsByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetAllAccreditorsByOrganizationIDResponse" message="tns:IEducationService_GetAllAccreditorsByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationCredential">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/AddEducationCredential" message="tns:IEducationService_AddEducationCredential_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/AddEducationCredentialResponse" message="tns:IEducationService_AddEducationCredential_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationCredential">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationCredential" message="tns:IEducationService_UpdateEducationCredential_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationCredentialResponse" message="tns:IEducationService_UpdateEducationCredential_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationCredential">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/DeleteEducationCredential" message="tns:IEducationService_DeleteEducationCredential_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/DeleteEducationCredentialResponse" message="tns:IEducationService_DeleteEducationCredential_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCredentialByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationCredentialByID" message="tns:IEducationService_GetEducationCredentialByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationCredentialByIDResponse" message="tns:IEducationService_GetEducationCredentialByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCredentialByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationCredentialByEducationID" message="tns:IEducationService_GetEducationCredentialByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationCredentialByEducationIDResponse" message="tns:IEducationService_GetEducationCredentialByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCredentialDetailByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationCredentialDetailByEducationID" message="tns:IEducationService_GetEducationCredentialDetailByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationCredentialDetailByEducationIDResponse" message="tns:IEducationService_GetEducationCredentialDetailByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GETCourseExpirySendEmailAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GETCourseExpirySendEmailAlert" message="tns:IEducationService_GETCourseExpirySendEmailAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GETCourseExpirySendEmailAlertResponse" message="tns:IEducationService_GETCourseExpirySendEmailAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationCompletedToPassed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateMyEducationCompletedToPassed" message="tns:IEducationService_UpdateMyEducationCompletedToPassed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateMyEducationCompletedToPassedResponse" message="tns:IEducationService_UpdateMyEducationCompletedToPassed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModulesTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationModulesTime" message="tns:IEducationService_UpdateEducationModulesTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/UpdateEducationModulesTimeResponse" message="tns:IEducationService_UpdateEducationModulesTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationService/GetEducationByClientID" message="tns:IEducationService_GetEducationByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationService/GetEducationByClientIDResponse" message="tns:IEducationService_GetEducationByClientID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEducationService" type="tns:IEducationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAllEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllEducationActive">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAllEducationActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationLatest">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationLatest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByEducationNamePaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationByEducationNamePaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationReadyToDisplayByEducationNamePaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationReadyToDisplayByEducationNamePaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnSiteEducationByStartDate">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetOnSiteEducationByStartDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/PublishEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CoursePreviewEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/CoursePreviewEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationAndProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationAndProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationAndEducationFormat">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationAndEducationFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollegeEducationByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetCollegeEducationByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionEducationByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetProfessionEducationByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionByID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetProfessionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAllProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfessionActive">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAllProfessionActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfessionWeb">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAllProfessionWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProfessionActiveWeb">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAllProfessionActiveWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionsByCollegeID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetProfessionsByCollegeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfessionNotAssociateWithEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetProfessionNotAssociateWithEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllPagedProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedProfessionByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllPagedProfessionByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddEducationProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducationProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationFormat">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddEducationFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationFormat">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducationFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllEducationFormat">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAllEducationFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationFormatNotAssociateWithEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationFormatNotAssociateWithEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationFormat">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllPagedEducationFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationFormatByClientID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationFormatByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationFormatByClientID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllEducationFormatByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationFormatByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllEducationFormatByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationFormatAvailable">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddEducationFormatAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationFormatAvailable">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducationFormatAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationFormatsByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationFormatsByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCollegeEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddCollegeEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCollegeEducation">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateCollegeEducation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeAllPaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationCollegeAllPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeByCollegeIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationCollegeByCollegeIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeByEducationFormatIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationCollegeByEducationFormatIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCollegeByEducationFormatIDAndCollegeIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationCollegeByEducationFormatIDAndCollegeIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByProfessionIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationByProfessionIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationByEducationFormatIDORCollegeIDORDeptIDORPrfIDPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationNewsSearchByTextPaged">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationNewsSearchByTextPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationType">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddEducationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationType">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationTypeByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationTypeByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationDetailPageContent">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddEducationDetailPageContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationDetailPageContent">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducationDetailPageContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationDetailPageContent">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationDetailPageContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationProfession">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllPagedEducationProfession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationByfilter">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllPagedEducationByfilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseCatalogByfilter">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetCourseCatalogByfilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccreditor">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddAccreditor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccreditor">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateAccreditor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccreditor">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/DeleteAccreditor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/getAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedAccreditor">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllPagedAccreditor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccreditorsByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetAllAccreditorsByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationCredential">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/AddEducationCredential" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationCredential">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducationCredential" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationCredential">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/DeleteEducationCredential" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCredentialByID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationCredentialByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCredentialByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationCredentialByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationCredentialDetailByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationCredentialDetailByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETCourseExpirySendEmailAlert">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GETCourseExpirySendEmailAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMyEducationCompletedToPassed">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateMyEducationCompletedToPassed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModulesTime">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/UpdateEducationModulesTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationByClientID">
+      <soap:operation soapAction="http://tempuri.org/IEducationService/GetEducationByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EducationService">
+    <wsdl:port name="BasicHttpBinding_IEducationService" binding="tns:BasicHttpBinding_IEducationService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/EducationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

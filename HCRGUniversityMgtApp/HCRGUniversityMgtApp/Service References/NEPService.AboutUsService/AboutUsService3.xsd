@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/AboutUsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="AboutUs">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AboutUsID" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AboutUs" nillable="true" type="tns:AboutUs" />
+  <xs:complexType name="ArrayOfAboutUs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AboutUs" nillable="true" type="tns:AboutUs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAboutUs" nillable="true" type="tns:ArrayOfAboutUs" />
+</xs:schema>

@@ -1,0 +1,28 @@
+﻿<div class="row">
+     <div class="col-xs-12">
+        <ul class="gp-list" data-bind="foreach: Menus">
+            <!--ko if:MenuName != null-->
+            <!--ko if:MenuID != 1-->
+            <li>
+                <input type="checkbox" class="menuCheck" name="MenuOptions" data-bind="attr: {'id': 'MenuOption' + MenuID},click: function(){return $root.MenuChange(MenuID);}, checkedValue: MenuID, checked: $parent.selectedMenu"><label data-bind="text:MenuName,attr: {'for':'MenuOption' + MenuID}"></label>
+            </li>
+            <!--/ko-->
+            <!--ko if:MenuID == 1-->
+            <li>
+                <input type="checkbox" class="menuCheck" name="MenuOptions"  data-bind="attr: {'id': 'MenuOption' + MenuID},click: function(){return $root.MenuChange(MenuID);}, checkedValue: MenuID, checked: $parent.selectedMenu"><label data-bind="text:MenuName,attr: {'for':'MenuOption' + MenuID}"></label>
+            </li>
+            <!--/ko-->
+            <!--/ko-->
+        </ul>
+</div>
+    </div>
+
+
+
+
+
+
+
+
+
+

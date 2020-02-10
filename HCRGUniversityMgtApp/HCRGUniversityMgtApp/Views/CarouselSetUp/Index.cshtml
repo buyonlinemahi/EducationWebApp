@@ -1,0 +1,187 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model HCRGUniversityMgtApp.Domain.ViewModels.CarouselSetUpViewModel.CarouselSetUpSearchViewModel
+<!--start row -->
+@section header{
+    <a class="navbar-brand" href="#">Carousel Setup Management</a>
+}
+<div class="inner-content">
+
+    <!--start row -->
+    <div class="row">
+        <div class="panel-wrapper">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Carousel Setup Screen</div>
+
+                <div id="divAddCarouselSetUp">
+                    @using (Html.BeginForm(GlobalConst.Actions.CarouselSetUpController.AddCarousel, GlobalConst.Controllers.CarouselSetUp, FormMethod.Post, new
+                    {
+                        id = "frmAddCarousel",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddCarousel(responseText);},beforeSubmit : CarouselInfoFormBeforeSubmit ,clearForm : true}"
+
+                    }))
+                    {
+                        
+                        <div id="divCarousel">
+                           
+                        <div class="row mtop-10 mtb-8">
+                            <div class="col-md-2 col-sm-4"><label> Title : </label> <a href="#" class="inner-content-link"> </a></div>
+                            <div class="col-md-5 col-sm-8">
+                                <div class="form-group">
+                                    <input required="required" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" type="text" class="form-control" maxlength="50" data-bind="value:CarouselTitle,jqBootstrapValidation: {}" name="CarouselTitle" id="CarouselTitle">
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="row mtb-8">
+                            <div class="col-md-2 col-sm-4"><label>Description :</label> <a href="#" class="inner-content-link"> </a></div>
+                            <div class="col-md-5 col-sm-8">
+                                <div class="form-group">
+                                    <input required="required" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" type="text" class="form-control" maxlength="80" data-bind="value:CarouselDescription,jqBootstrapValidation: {}" name="CarouselDescription" id="CarouselDescription">
+                                </div>
+                                <input type="hidden" class="form-control" id="hdfclgid" data-bind="value:CarouselID" name="CarouselID">
+                              <input type="hidden" name="OrganizationName" data-bind="value: OrganizationName" />
+                            <input type="hidden" name="OrganizationID" data-bind="value: OrganizationID" />
+                            </div>
+
+                        </div>
+                        <div class="row mtb-8"> 
+                            <div class="col-md-2 col-sm-4"><label>Background Color:</label> <a href="#" class="inner-content-link"> </a></div>
+                            <div class="col-md-5 col-sm-8">
+                                <div class="form-group">
+                                    <select required="required" type="text" class="form-control" data-bind="value:CarouselBgColor,jqBootstrapValidation: {}" name="CarouselBgColor" id="CarouselBgColor">
+                                        <option value="Green">Green</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="Gray">Gray</option>
+                                        <option value="Orange">Orange</option>
+                                    </select> 
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mtb-8">
+                        <div class="col-md-2 col-sm-4"><label>News Article:</label> <a href="#" class="inner-content-link"> </a></div>
+                        <div class="col-md-5 col-sm-8">
+                            <div class="form-group">
+                                <input required="required" readonly="readonly" class="form-control" data-bind="value:NewsTitle,jqBootstrapValidation: {}" name="NewsTitle" id="NewsTitle">          
+                                <input type="hidden"  data-bind="value:NewsID" name="NewsID" id="NewsID">  
+                                <input type="hidden"  data-bind="value:NewsDescription" name="NewsDescription" id="NewsDescription"> <br/>                       
+                                <button type="button" data-target="#myModal" id="SelectNewsModalPopUp" data-backdrop="static" data-keyboard="false" data-toggle="modal"  class="btn btn-default pul-rht1">Search</button>
+                            </div>
+                        </div>
+
+                    </div>
+                        <div class="row mtb-8">
+                            <div class="col-md-4 col-sm-6">
+                            <button type="submit" id="save" class="btn btn-default ">Save and Continue</button></div>
+                        </div>    
+                            </div>
+                         
+
+                        
+                    }
+                    <!--ko if:IsHCRGAdmin() == true-->
+                    <div class="row mtb-10">
+                                <div class="col-md-2 col-sm-3">
+                                    <label>Organizations:</label>
+                                </div>
+                                <div class="col-md-5 col-sm-9">
+                                    <div class="form-group">
+                                        <select id="DrpOrgID"  class="form-control"  data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                          <input type="hidden" id="hdfOrgID"  />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-12 padd-l0">
+                             <button type="button" id="btnSearch" class="btn btn-default pul-rht1" data-bind="click: function(){ $root.SearchCarouselSetUp()}">Search</button>
+                                </div>
+                            </div>
+                      <!--/ko-->
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Carousel Items</div>
+                            <!-- Table -->
+                            <div class="table-responsive height-400">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-2 col-sm-3 col-xs-3">Title</th>
+                                        <th class="col-md-4 col-sm-4 col-xs-4">Description</th>
+                                        <th class="col-md-1 col-sm-2 col-xs-2">Color</th>
+                                        <th class="col-md-2 col-sm-2 col-xs-2">News Article</th>
+                                        <th class="col-md-2 col-sm-2 col-xs-2">Organization</th>
+                                        <th class="col-md-1 col-sm-1 col-xs-1"><span class="pull-right">Action</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--ko if:CarouselDataResult!= null-->
+                                    <!-- ko foreach:CarouselDataResult -->
+                                    <tr>
+                                        <td class="col-md-2 col-sm-3 col-xs-3">
+                                            <span data-bind="text:CarouselTitle" />
+                                            <input type="hidden" name="CarouselID" id="hdfCarouselID" data-bind="value:CarouselID" />
+                                        </td>
+                                        <td class="col-md-4 col-sm-4 col-xs-4"><span data-bind="text:CarouselDescription" /></td>
+                                        <td class="col-md-1 col-sm-2 col-xs-2"><span data-bind="text:CarouselBgColor" /></td>
+                                        <td class="col-md-2 col-sm-2 col-xs-2">
+                                            <span data-bind="text:NewsTitle" />
+                                            <input type="hidden" name="NewsID" id="hdfNewsID" data-bind="value:NewsID" />
+                                            <input type="hidden" name="NewsDescription" id="hdfNewsDescription" data-bind="value:NewsDescription" />
+                                        </td>
+                                        <td class="col-md-2 col-sm-2 col-xs-2"><span data-bind="text:OrganizationName" /></td>
+                                        <td class="col-md-1 col-sm-1 col-xs-1"><a href="#" class="inner-content-link blue pull-right" data-bind="click:$root.EditCarouselData" style="color:#808080;">Edit</a></td>
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </tbody>
+                            </table>
+                         </div>
+                       </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- row-end -->
+    </div><!-- /inner-wrapper -->
+</div>
+
+<div class="panel-body">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="sectionClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                    <h4 class="modal-title">Add News Section</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="panel-body">
+
+                        @{ Html.RenderPartial("~/Views/Shared/CarouselSetUp/_NewsSectionCarousel.cshtml");  }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/CarouselSetUp/CarouselSetUpViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var CarouselResultSetupViewModel = new CarouselSetupViewModel(model);
+        ko.applyBindings(CarouselResultSetupViewModel, $("#divAddCarouselSetUp").get(0));
+        ko.applyBindings(CarouselResultSetupViewModel,$("#divNewsSectionCarousel").get(0));
+
+    </script>
+}
+

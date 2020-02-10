@@ -1,0 +1,251 @@
+﻿@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+}
+
+@section header{
+    <a class="navbar-brand" href="#">Subscription Plan(s)</a>
+}
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/UserSubscription/UserSubscriptionResultViewModel.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var _userSubscriptionResultViewModel = new UserSubscriptionResultViewModel();
+        _userSubscriptionResultViewModel.Init(model);
+        ko.applyBindings(_userSubscriptionResultViewModel, $("#divUserSubscription").get(0));
+    </script>
+}
+
+
+<div class="inner-content">
+    <div id="divUserSubscription">
+        <!--start row -->
+        <div class="row"> 
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Subscription Plan(s) Screen</div>
+                    <!-- Default panel contents -->
+                    @using (Html.BeginForm(GlobalConst.Actions.UserSubscriptionController.AddUserSubscription, GlobalConst.Controllers.UserSubscription, FormMethod.Post, new
+                    {
+                        id = "frmUserSubscription",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){UserSubscriptionDetailSuccess(responseText);},beforeSubmit : UserSubscriptionInfoFormBeforeSubmit }"
+                    }))
+                    {
+                        
+
+                            @*<div class="panel-body">
+                             <div class="col-md-3">
+                                 <label>Individual Access Pricing :</label>
+                             </div>
+                             <div class="col-md-4">
+                                 <div class="form-group">
+                                     <input type="text" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" id="IndividualAccessPricing" readonly data-bind="value: IndividualAccessPricing" name="IndividualAccessPricing" />
+                                     <input type="hidden" data-bind="IndividualAccessPricing" name="IndividualAccessPricing" id="hfIndividualAccessPricing" />
+                                     <input type="hidden" data-bind="UserSubscriptionID" name="UserSubscriptionID" id="hfUserSubscriptionID" />
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="panel-body">
+                             <div class="col-md-3">
+                                 <label>Individual Access Pricing Start :</label>
+                             </div>
+                             <div class="col-md-4">
+                                 <div class="form-group">
+                                     <input type="text" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" id="IndividualAccessPricingStart" readonly data-bind="value: IndividualAccessPricingStart" name="IndividualAccessPricingStart" />
+                                     <input type="hidden" data-bind="IndividualAccessPricingStart" name="IndividualAccessPricingStart" id="hfIndividualAccessPricingStart" />
+                                 </div>
+                             </div>
+                         </div>
+                        <div class="panel-body">
+                             <div class="col-md-3">
+                                 <label>Individual Access Pricing End :</label>
+                             </div>
+                             <div class="col-md-4">
+                                 <div class="form-group">
+                                     <input type="text" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" id="IndividualAccessPricingEnd" readonly data-bind="value: IndividualAccessPricingEnd" name="IndividualAccessPricingEnd" />
+                                     <input type="hidden" data-bind="IndividualAccessPricingEnd" name="IndividualAccessPricingEnd" id="hfIndividualAccessPricingEnd" />
+                                 </div>
+                             </div>
+                         </div>*@
+                            <div class="panel-body">
+                                <div class="col-md-3">
+                                    <label>All Access Pass Pricing :</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="hidden" data-bind="value: EncryptedUserSubscriptionID" name="EncryptedUserSubscriptionID" id="hfEncryptedUserSubscriptionID" />
+                                         <input type="hidden" data-bind="value: OrganizationID" name="OrganizationID" id="hfOrganizationID" />
+                                         <input type="hidden" data-bind="value: OrganizationName" name="OrganizationName" id="hfOrganizationName" />
+                                        <input type="text" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" required="required" id="AllAccessPassPricing" data-bind="value: AllAccessPassPricing" name="AllAccessPassPricing" />
+                                    </div>
+                                </div>
+                            </div>
+                         <div class="panel-body">
+                                <div class="col-md-3">
+                                    <label>All Access Parameters Course Price Start :</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" id="AllAccessParametersCoursePriceStart" data-bind="value: AllAccessParametersCoursePriceStart" name="AllAccessParametersCoursePriceStart" />
+                                        <span class="red" id="spnaAllAccessParametersCoursePriceStart"> </span>
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="panel-body">
+                                <div class="col-md-3">
+                                    <label>All Access Parameters Course Price End :</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" pattern="\d+(\.\d{1,2})?" title="$##.##" class="form-control" id="AllAccessParametersCoursePriceEnd" data-bind="value: AllAccessParametersCoursePriceEnd" name="AllAccessParametersCoursePriceEnd" />
+                                        <span class="red" id="spnaAllAccessParametersCoursePriceEnd"> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="panel-body">
+                                <div class="col-md-3">
+                                    <label>All Access Include Program :</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group marginright75">
+                                        <input type="checkbox" style="height:20px;width:20px;" class="form-control" id="AllAccessIncludeProgram" data-bind="checked: AllAccessIncludeProgram" value="True" name="AllAccessIncludeProgram">
+                                      @*  <input type="hidden" data-bind="checked: AllAccessIncludeProgram" name="AllAccessIncludeProgram" id="hfAllAccessIncludeProgram" />*@
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="panel-body">
+                                <div class="col-md-3">
+                                    <label>All Access Terms of Service :</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                        <button type="button" data-target="#EditorModal" id="AllAccessTermsOfServiceModalPopUp" data-backdrop="static" data-keyboard="false" class="btn btn-default">Add Content</button>
+                                              <input type="hidden" id="hdAllAccessTermsOfService" name="AllAccessTermsOfService" />
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <label>Enterprise Pricing :</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" pattern="\d+(\.\d{1,2})?" title="$##.##"  class="form-control" id="EnterprisePricing" data-bind="value: EnterprisePricing" name="EnterprisePricing" />
+                                            <input type="hidden" data-bind="EnterprisePricing" name="EnterprisePricing" id="hfEnterprisePricing" />
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="panel-body">
+                                <div class="col-md-3">
+                                    <label>Enterprise Terms of Service :</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                        <button type="button" data-target="#EditorModal2" id="EnterpriseTermsOfServiceEditorModalPopUp" data-backdrop="static" data-keyboard="false" class="btn btn-default">Add Content</button>
+                                            <input type="hidden" id="hdEnterpriseTermsOfService" name="EnterpriseTermsOfService" />
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        <div class="panel-body">
+                             <div class="col-md-3" >
+                            <button type="submit" onclick="submitform()" class="btn btn-default">Save and Continue</button>
+                                 </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <!-- row-end -->
+        </div><!-- /inner-wrapper -->
+
+        <div class="panel-body">
+            <div class="modal fade" id="EditorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog position-center set-popup">
+                    <div class="modal-content" style="height:830px;">
+                        <div class="modal-header">
+
+                            <button type="button" class="close btnClose" id="btnClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+
+                            <h4 class="modal-title">Add Content</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div id="divEditor">
+
+                                    @using (Html.BeginForm(GlobalConst.Actions.UserSubscriptionController.Index, GlobalConst.Controllers.UserSubscription, FormMethod.Post))
+                                    {
+                                        @Html.Raw(ViewBag.Editor)
+                                    }
+                                </div>
+                                <div style="padding-top:10px;">
+                                    <button type="button" data-dismiss="modal" aria-hidden="true" id="btnSaveandContinue" class="btn btn-default btnClose">Save and Continue</button>
+
+                                    <button type="button" aria-hidden="true" id="btnClose1" data-dismiss="modal" class="btn btn-default btnClose">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="EditorModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog position-center set-popup">
+                    <div class="modal-content" style="height:830px;">
+                        <div class="modal-header">
+
+                            <button type="button" class="close btnClose2" id="btnClose2" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+
+                            <h4 class="modal-title">Add Content</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div id="divEditor2">
+
+                                    @using (Html.BeginForm(GlobalConst.Actions.UserSubscriptionController.Index, GlobalConst.Controllers.UserSubscription, FormMethod.Post))
+                                    {
+                                        @Html.Raw(ViewBag.Editor2)
+                                    }
+                                </div>
+                                <div style="padding-top:10px;">
+                                    <button type="button" data-dismiss="modal" aria-hidden="true" id="btnSaveandContinue2" class="btn btn-default btnClose2">Save and Continue</button>
+
+                                    <button type="button" aria-hidden="true" id="btnClose21" data-dismiss="modal" class="btn btn-default btnClose2">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    function RichTextEditor_OnExecUICommand(editor, arg) {
+        var a0 = arg.Arguments[1];
+        if (a0 == "FullScreen") {
+            return false;
+        }
+    }
+</script>
+
+<style>
+    .panel-body p {
+        text-align: left;
+    }
+</style>
+
+
+
+
+

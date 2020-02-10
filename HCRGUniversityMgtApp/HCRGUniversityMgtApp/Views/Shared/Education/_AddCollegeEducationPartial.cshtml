@@ -1,0 +1,31 @@
+﻿<div class="modal fade" id="divEducationCollege" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog position-center">
+        <div class="modal-content box-height">
+            <div class="modal-header header-bg">
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            <label>Subject Matter</label>
+                            <a href="#" class="inner-content-link"> </a>
+                        </div>
+                        <select class="form-control-widget col-md-6" id="College" name="CollegeID" required="required" data-bind="options: Colleges, optionsText: 'CollegeName',
+                                   optionsValue: 'CollegeID',
+                                    optionsCaption: 'Select Any Subject Matter',jqBootstrapValidation: {}"></select>
+                    </div>
+
+      
+                    <div class="panel-body text-right ">
+                        <button class="btn btn-default " data-bind="click:addCollegeEducation">Add Subject Matter</button>
+                       
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

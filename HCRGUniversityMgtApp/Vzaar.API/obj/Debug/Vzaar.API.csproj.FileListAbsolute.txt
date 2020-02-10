@@ -1,0 +1,7 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\Vzaar.API\bin\Debug\Vzaar.API.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\Vzaar.API\bin\Debug\Vzaar.API.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\Vzaar.API\bin\Debug\Newtonsoft.Json.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\Vzaar.API\bin\Debug\Newtonsoft.Json.xml
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\Vzaar.API\obj\Debug\Vzaar.API.csprojResolveAssemblyReference.cache
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\Vzaar.API\obj\Debug\Vzaar.API.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\Vzaar.API\obj\Debug\Vzaar.API.pdb

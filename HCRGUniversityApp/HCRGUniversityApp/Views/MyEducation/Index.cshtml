@@ -1,0 +1,374 @@
+﻿@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@Html.Partial("~/Views/Shared/_Loader.cshtml")
+
+<script src="~/Scripts/alertify/alertify.min.js"></script>
+<script type="text/javascript">
+
+    // this javscript code used to stop the working of browser back button
+    history.pushState(null, null, null);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, null);
+    });
+
+    //------------------------------------------------------
+    var message = '@TempData["Message"]';
+    var shippingID = '@TempData["ShippingPaymentID"]';
+    var transactionID = '@TempData["TransactionID"]';
+    var userEmailID = '@TempData["UserEmailID"]';
+    if(message!=""){
+        alertify.alert(message);
+    }
+
+
+</script>
+<div class="container">
+    <!--ko with:MyEducationViewModel-->
+    <input type="hidden" name="Take" id="hidtake" data-bind="value: $root.Take" />
+    <input type="hidden" name="Skip" id="hidskip" data-bind="value: $root.Skip" />
+    <!--/ko-->
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="site-block-title">
+                <h2>My Courses</h2>
+            </header>
+        </div>
+        <!-- col-sm-12 -->
+    </div>
+    <div class="clearfix"></div>
+    <br />
+    <div class="row">
+        @*<div id="loaderDiv" class="loaderbg">
+                <input class="loader" type="image" id="loading" src="~/Content/img/loading.gif">
+            </div>*@
+        <div id="divMyEducationAndproducts">
+            <div id="divMyEducation">
+                <div class="col-sm-8 col-lg-7">
+                    <span class="resources-redhead col-sm-6">Courses In Progress</span><br /><br />
+                    <!--ko if:MyEducationDetailProgressResults!= null-->
+                    <!-- ko foreach:MyEducationDetailProgressResults -->
+                    <div class="grey-box clearfix padding20 marginbottom5">
+                        <div class="row">
+                            <h3 class="margintop-none font-20 col-md-9" data-bind="text:CourseName"></h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 ">
+                                <span data-bind="text:percentCompleted"></span>% Module Complete  <br /> You completed  <span data-bind="text:TotalModuleCompleted"></span> out of  <span data-bind="text:TotalModule"></span> Modules<br />
+
+                                <!-- ko if:CourseFile()!=null -->
+                                <!-- ko if:IsCertificationTitleOption()!=true -->
+                                <div class="col-md-1 no-padding margintop10">
+                                    <a download target="_blank"  data-bind="attr: { 'href': '@Url.Action("Download", "MyEducation")?FileName=' + CourseFile() + '&MEID=' + EncryptedMEID() }">
+                                        <i><img src="~/Content/img/download-icon.png" height="32" width="30" data-toggle="tooltip" title="E-Book" /></i>
+                                    </a>
+
+ 
+
+                                </div>
+                                <!--/ko-->
+                                <!--/ko-->
+                                <!-- ko if:CourseFile()!=null -->
+                                <!-- ko if:IsCertificationTitleOption()==true -->
+                                <div class="col-md-1 no-padding margintop10 pull-left">
+                                    <a download target="_blank"  data-bind="attr: { 'href': '@Url.Action("Download", "MyEducation")?FileName=' + CourseFile() + ',MEID=' + EncryptedMEID()}">
+                                        <i><img src="~/Content/img/download-icon.png" height="32" width="30" data-toggle="tooltip" title="E-Book" /></i>
+                                    </a>
+                                </div>
+                                <div class="col-md-1 margintop10 marginleft20">
+                                    <a href="#" data-bind="click:$root.OpenCertificationContent" data-target="#PopUpPrivacyPolicyLegal" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+                                        <i><img src="~/Content/img/getcertified-icon.png" height="32" data-toggle="tooltip" title="Get Certified" /></i>
+                                    </a>
+                                </div>
+                                <div id="divCertificationContent">
+                                    <div>
+                                        <div class="modal fade" id="CertificationContent" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none !important;">
+                                            <div class="modal-dialog modal-lg position-center set-popup">
+                                                <div class="panel panel-default" style="height:auto;">
+                                                    <div class="panel-heading">
+                                                        <button data-dismiss="modal" type="button" id="btnClose" class="close" aria-hidden="true" style="text-indent: 0;">&times;</button>
+                                                        <h4>Certification Content</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div id="divOpenCertificationContent" class=" marginbottom10 paddingright15">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ko-->
+                                <!--/ko-->
+                                <!-- ko if:CourseFile()==null -->
+                                <!-- ko if:IsCertificationTitleOption()==true -->
+                                <div class="col-md-1 margintop10 no-padding">
+                                    <a href="#" data-bind="click:$root.OpenCertificationContent" data-target="#PopUpPrivacyPolicyLegal" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+                                        <i><img src="~/Content/img/getcertified-icon.png" height="32" data-toggle="tooltip" title="Get Certified" /></i>
+                                    </a>
+                                </div>
+                                <div id="divCertificationContent">
+                                    <div>
+                                        <div class="modal fade" id="CertificationContent" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none !important;">
+                                            <div class="modal-dialog modal-lg position-center set-popup">
+                                                <div class="panel panel-default" style="height:auto;">
+                                                    <div class="panel-heading">
+                                                        <button data-dismiss="modal" type="button" id="btnClose" class="close" aria-hidden="true" style="text-indent: 0;">&times;</button>
+                                                        <h4>Certification Content</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div id="divOpenCertificationContent" class=" marginbottom10 paddingright15">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </div>
+                            <div class="col-md-3 marginbottom10">
+                                <span class="font-12">Days Left :</span> <span data-bind="text:DaysLeft"></span>
+                                <br />
+                                <span class="font-12">Expires </span> <span data-bind="text:ExpiryDate"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden"  data-bind="value:MEID" />
+                                <!-- ko if:PreTestAttemptByUser()==0  && IsPreTestAvailable()==true  && percentCompleted()==0  -->
+                                <a href="#" data-bind="attr: { 'href': '@Url.Action("PreTest", "Exam")/' + EncryptedEducationID() + '/' + EncryptedMEID() }" class="course-btn  margintop5  pull-right   ">Start PreTest</a>
+                                <!--/ko-->
+                                <!-- ko if:PreTestAttemptByUser()!=0 && percentCompleted()==0 -->
+                                <a href="#" data-bind="click:$root.ContinueCourse" class="course-btn margintop5  pull-right">Start Course</a>
+                                <!--/ko-->
+                                <!-- ko if:PreTestAttemptByUser()==0 && percentCompleted()==0 && IsPreTestAvailable()==false  -->
+                                <a href="#" data-bind="click:$root.ContinueCourse" class="course-btn margintop5  pull-right  ">Start Course</a>
+                                <!--/ko-->
+                                <!-- ko if:PreTestAttemptByUser()!=0 && percentCompleted()!=0  && IsPreTestAvailable()==false -->
+                                <a href="#" data-bind="click:$root.ContinueCourse" class="course-btn margintop5  pull-right   ">Continue Course</a>
+                                <!--/ko-->
+                                <!-- ko if:percentCompleted()!=0  && percentCompleted()!=100 -->
+                                <a href="#" data-bind="click:$root.ContinueCourse" class="course-btn margintop5  pull-right   ">Continue Course</a>
+                                <!--/ko-->
+                                <!-- ko if:FinalExamAttemptByUser()<3 && percentCompleted()==100 && IsExamPass()==false && IsExamAvailable()==true &&  PageUrl()==null -->
+                                <a class="course-btn margintop5 pageurl marginleft5 pull-right    " data-bind="attr: { 'href': '@Url.Action("FinalExam", "Exam")/' + EncryptedEducationID() + '/' + EncryptedMEID() }">
+                                    Take Exam
+                                </a>
+                                <a href="#" data-bind="click:$root.ContinueCourse" class="course-btn margintop5 pageurl coursePaging marginleft5 pull-right marginbotton10 ">RE-Visit</a>
+                                <!--/ko-->
+                                <!-- ko if:FinalExamAttemptByUser()<=3 && percentCompleted()==100 && IsExamPass()==false && IsExamAvailable()==true &&  PageUrl()!=null -->
+                                <span class="revisitFinal" data-bind="text:LogErrorMsg"> </span>
+                                <!--/ko-->
+                                <!-- ko if:IsExamPass()==true && percentCompleted()==100 && IsEvalutionAvailable()==true -->
+                                <a class="course-btn margintop5  pull-right   " data-bind="attr: { 'href': '@Url.Action("EvaluationExam", "Exam")/' + EncryptedEducationID() + '/' + EncryptedMEID() }">
+                                    Start Evaluation
+                                </a>
+                                <!--/ko-->
+                                <!-- ko if:IsExamAvailable()==false && percentCompleted()==100 && IsEvalutionAvailable()==true -->
+                                <a class="course-btn margintop5  pull-right   " data-bind="attr: { 'href': '@Url.Action("EvaluationExam", "Exam")/' + EncryptedEducationID() + '/' + EncryptedMEID() }">
+                                    Start Evaluation
+                                </a>
+                                <!--/ko-->
+                            </div>
+                        </div>
+                        <div class="col-sm-12 padding15 margintop10 white-back">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-bind="style:{width: percentCompleted()+'%'}">
+                                    <span class="sr-only">80% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ko-->
+                    <!--/ko-->
+                    <nav class="margin-left">
+                        @Html.Partial("~/Views/Shared/_PagingInprocessEducation.cshtml")
+                    </nav>
+                    <br />
+                    <span class="resources-redhead col-sm-6">Past Courses</span>
+                    <br />
+                    <br />
+                    <!--ko if:MyEducationDetailCompletedResults!= null-->
+                    <!-- ko foreach:MyEducationDetailCompletedResults -->
+                    <div class="grey-box clearfix padding10 marginbottom5">
+                        <div class="row">
+                                <div class="col-sm-8">
+                                    <h3 class="margintop-none font-20"><strong> <span data-bind="text:CourseName" /></strong></h3>
+                                    <!-- ko if:Expired()==true && !(IsPassed()==false || IsPassed()==true)  -->
+                                    <span class="incomplete-course font-14"><i><img src="~/Content/img/InCompleteIcon.png" /></i> </span>  <span class="font-14 incomplete-course">Incomplete!</span><span class="font-14">Course time expired on : </span>  <span class="font-14" data-bind="text:ExpiryDate"></span>
+                                    <!--/ko-->
+                                    <!-- ko if:Completed()==true && IsPassed()==true -->
+                                    <span class="complete-course font-14"><i><img src="~/Content/img/CompletionIcon.png" /></i> </span>  <span class="font-14 complete-course">Congratulations!</span><span class="font-14">Course completed on : </span>  <span class="font-14" data-bind="text:CourseCompletedDate"></span>
+                                    <!--/ko-->
+                                    <!-- ko if:IsPassed()==false &&  (Completed()==false || Completed()==true)-->
+                                    <div>
+                                        <span class="incomplete-course font-14"><i><img src="~/Content/img/InCompleteIcon.png" /></i></span><span class="font-14 incomplete-course">Incomplete! </span><span class="font-14">Exam Not Passed :</span>  <span class="font-14" data-bind="text:CourseCompletedDate"></span>
+                                    </div>
+                                    <!--/ko-->
+                                    <!--  ko if:IsExamAvailable()==true && IsEvalutionAvailable()==true -->
+                                    <!-- ko if:IsPassed()==null && Completed()==false && IsExamPass()==false && IsExamAvailable()==false && IsEvalutionAvailable()==false -->
+                                    <div>
+                                        <span class="incomplete-course font-14"><i><img src="~/Content/img/InCompleteIcon.png" /></i> </span><span class="font-14 incomplete-course">Incomplete!</span><span class="font-14">Exam Not passed :</span>  <span class="font-14" data-bind="text:CourseCompletedDate"></span>
+                                    </div>
+                                    <!--/ko-->
+                                    <!--/ko-->
+                                </div>
+                                <div class="col-sm-4 ">
+                                    <!-- ko if:FinalExamAttemptByUser()<3 && IsExamPass()==false && (IsPassed()==false || IsPassed()==null) && IsExamAvailable()==true && Expired()==true && percentCompleted()==100 &&  PageUrl()==null -->
+                                    <a class="course-btn margintop5 pageurl marginleft5 pull-right  marginbottom5 " data-bind="attr: { 'href': '@Url.Action("FinalExam", "Exam")/' + EncryptedEducationID() + '/' + EncryptedMEID() }">
+                                        Take Exam
+                                    </a>
+                                    <!--/ko-->
+                                    <!-- ko if:IsExamPass()==true  && IsEvalutionAvailable()==true && Expired()==true && Completed()== false && (IsPassed()==false || IsPassed()==null) -->
+                                    <a class="course-btn margintop5  pull-right  " data-bind="attr: { 'href': '@Url.Action("EvaluationExam", "Exam")/' + EncryptedEducationID() + '/' + EncryptedMEID() }">
+                                        Start Evaluation
+                                    </a>
+                                    <!--/ko-->
+                                    <!-- ko if:IsExamAvailable()==false && percentCompleted()==100 && IsEvalutionAvailable()==true && Expired()==true && Completed()== false && (IsPassed()==false || IsPassed()==null)-->
+                                    <a class="course-btn margintop5  pull-right " data-bind="attr: { 'href': '@Url.Action("EvaluationExam", "Exam")/' + EncryptedEducationID() + '/' + EncryptedMEID() }">
+                                        Start Evaluation
+                                    </a>
+                                    <!--/ko-->
+                                    <!-- ko if:FinalExamAttemptByUser()<3 && IsExamPass()==false &&(IsPassed()==false || IsPassed()==null) && IsExamAvailable()==true && Expired()==true && percentCompleted()==100 &&  PageUrl()==null -->
+                                    <div class="margintop10">
+                                        <a href="#" data-bind="click:$root.ContinueCourse" class="course-btn font-14 margintop5 marginleft5 marginbottom10 pull-right">RE-Visit</a>
+                                    </div>
+                                    <!--/ko-->
+                                    <!-- ko if:(IsPassed()==true)  && percentCompleted()==100 &&  PageUrl()==null && AllowRevisit()==true-->
+                                    <div class="margintop10">
+                                        <a href="#" data-bind="click:$root.ContinueCourse" class="course-btn  font-14 margintop5 marginleft5 marginbottom10 pull-right">RE-Visit</a>
+                                    </div>
+                                    <!--/ko-->
+                                    <!-- ko if:FinalExamAttemptByUser()<3 && IsExamPass()==false && IsExamAvailable()==true && Expired()==true && percentCompleted()==100 &&  PageUrl()!=null -->
+                                    <span class="revisitFinal"> Exam or Module open in another browser or tab </span>
+                                    <!--/ko-->
+                                    <!-- ko if:Expired()==true && percentCompleted()!=100 &&  ((IsExamAvailable()==true && IsEvalutionAvailable()==false) ||(IsExamAvailable()==true && IsEvalutionAvailable()==true) ||(IsExamAvailable()==false && IsEvalutionAvailable()==true) || (IsExamAvailable()==false && IsEvalutionAvailable()==false)) -->
+                                    <div>
+                                        <a data-bind="attr: { 'href': '/Course/CourseDetail/' + EncryptedEducationID()}">
+                                            <span class="course-btn font-14 margintop10  pull-right        marginbottom5 margintop5">RE-ENROLL</span>
+                                        </a>
+                                    </div>
+                                    <!--/ko-->
+                                    <!-- ko if:Expired()==true && (IsPassed()==false) &&   ((IsExamAvailable()==true && IsEvalutionAvailable()==false) ||(IsExamAvailable()==true && IsEvalutionAvailable()==true) ||(IsExamAvailable()==false && IsEvalutionAvailable()==true) ) -->
+                                    <div>
+                                        <a data-bind="attr: { 'href': '/Course/CourseDetail/' + EncryptedEducationID()}">
+                                            <span class="course-btn font-14  margintop10 pull-right     marginbottom5 margintop5">RE-ENROLL</span>
+                                        </a>
+                                    </div>
+                                    <!--/ko-->
+                                    <!-- ko if:Expired()==true && (IsPassed()==false  ||  IsPassed()==null) && percentCompleted()==100 &&   (IsExamAvailable()==false && IsEvalutionAvailable()==false) -->
+                                    <div>
+                                        <a data-bind="attr: { 'href': '/Course/CourseDetail/' + EncryptedEducationID()}">
+                                            <span class="course-btn font-14  margintop10 pull-right     marginbottom5  margintop5">RE-ENROLL</span>
+                                        </a>
+                                    </div>
+                                    <!--/ko-->
+                                    <!-- ko if:IsPassed()==false &&  (Completed()==false || Completed()==true) && Expired()==false -->
+                                    <div>
+                                        <a data-bind="attr: { 'href': '/Course/CourseDetail/' + EncryptedEducationID()}">
+                                            <span class="course-btn font-14 margintop10  pull-right     marginbottom5  margintop5">RE-ENROLL</span>
+                                        </a>
+                                    </div>
+                                    <!--/ko-->
+                                    <!-- ko if:IsPassed()==true || IsPassed()==null &&  Completed()==true -->
+                                    <div class="margintop10">
+                                        <a href="#" data-bind="attr: { 'href': '@Url.Action("PrintCertificate", "MyEducation")?meID=' + MEID()+'&certificatePrinted=' +CertificatePrinted()+'&certificateURL=' +CertificateURL()}" class="course-btn margintop5 font-14  pull-right"><span class="glyphicon glyphicon-download-alt"></span> Certificate</a>
+                                    </div>
+                                    <!--/ko-->
+                                </div>
+                        </div>
+                    </div>
+                    <!--/ko-->
+                    <!--/ko-->
+                    <nav class="margin-left">
+                        @Html.Partial("~/Views/Shared/_Paging.cshtml")
+                    </nav>
+                </div><!-- col-sm-8 -->
+            </div>
+            <div id="divAccountSummary" class="">
+                <div class="col-sm-4 col-lg-offset-1">
+                    <span class="resources-redhead">Account Summary</span>
+                    <ul class="simple-side-nav">
+                        <li><a href="~/MyEducationAccountHistory/">Account History</a></li>
+                    </ul>
+                    <!--<a class="list-footer" href="#">View All</a>-->
+                    <div class="clearfix"></div>
+                    <!--ko if:AllAccessValidEndDate() != null-->
+                    <div class="grey-box col-sm-12 marginbottom5 textcenter">
+
+                        <h3 class="margintop10 ">ALL ACCESS PASS MEMBERSHIP</h3>
+                        valid until <span data-bind="text:AllAccessValidEndDate"></span>
+                        <!--<a class="list-footer" href="#">View All</a>-->
+                    </div>
+                    <!--/ko-->
+                    <div class="clearfix"></div>
+                    <!--<a class="list-footer" href="#">View All</a>-->
+                </div>
+                <!-- col-sm-3 -->
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+</div>
+@section scripts{
+    <script src="~/Scripts/hash.js"></script>
+    <script src="~/Scripts/backfix.min.js"></script>
+    <script src="~/Scripts/knockout/viewmodel/views/MyEducation/MyEducationViewModel.js"></script>
+
+    <script src="~/Scripts/knockout/ko.pager.js"></script>
+    <script src="~/Scripts/knockout/ko.InProcessEducationPager.js"></script>
+    <script src="~/Scripts/knockout/ko.ProductPurchasePager.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var myEducationGridViewModel = new MyEducationGridViewModel();
+        myEducationGridViewModel.Init(model);
+        ko.applyBindings(myEducationGridViewModel, $("#divMyEducationAndproducts").get(0));
+
+        $(".pageurl").bind('contextmenu', function (evtobj) {
+            evtobj.preventDefault();
+        });
+
+
+      
+        if(shippingID !="")
+        {            
+            showloderDiv();
+            $.ajax({
+                type: "POST",
+                url: "/MyEducation/sendPaymentEmail?shippingPaymentID=" + shippingID + "&transactionID=" + transactionID + "&userEmailID="+userEmailID,
+                cache: false,
+                success: function() {
+                    hideloderDiv();
+                    alertify.alert("Email Sent Successfully");
+                },
+                error: function(){
+                    hideloderDiv();
+                    alertify.alert("Unable to send email.")
+                }
+            });
+
+        }
+
+        function hideloderDiv() {
+            $("#loaderDiv").removeClass('loaderbg');
+            $("#loading").hide();
+        }
+
+        function showloderDiv() {
+            $("#loaderDiv").addClass('loaderbg');
+            $("#loading").show();
+        }
+    </script>
+    <style>
+        .revisitFinal {
+            font-size: 11px;
+            color: #ab1135;
+        }
+    </style>
+}

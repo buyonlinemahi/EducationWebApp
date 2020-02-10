@@ -1,0 +1,146 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "EvaluationExam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="AddEvaluationResult">
+    <div class="container">
+        @using (Html.BeginForm(GlobalConst.Actions.ExamController.AddEvaluationResult, GlobalConst.Controllers.ExamController, FormMethod.Post, new
+{
+    id = "frmAddEvaluationResult",
+    enctype = "multipart/form-data",
+    data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){AddEvaluationDetailSuccess(responseText);},beforeSubmit : AddEvaluationInfoFormBeforeSubmit ,clearForm : true}"
+}))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-sm-12">
+                    <header class="site-block-title">
+                        <h2>Utilization reviewer certification program</h2>
+                    </header>
+                </div>
+                <!-- col-sm-12 -->
+            </div>
+    <!-- row -->
+        
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="col-lg-12 row">
+                        <h2 class="modal-title padding10">OBJECTIVES:</h2>
+                        <div class="col-lg-12">
+                            <p class="font-16 text-justify marginbottom10 ">Using the Scale Below,Please respond to the below statements:</p>
+                        </div>
+                        <div class="col-lg-12 row">
+                            
+                            <input type="hidden" id="Hdnmeid" name="MEID" value=@ViewContext.RouteData.Values["meID"] />
+                            <input type="hidden" name="EvaluationID" data-bind="value:EvaluationID" />
+                            <!--ko if:EvaluationAnswers!= null-->
+                            <!-- ko foreach:EvaluationAnswers -->
+                            <p class="col-lg-3 text-justify marginbottom10" data-bind="text:EvaluationAnswerID() +'='+ EvaluationAns()"></p>
+                            <!--/ko-->
+                            <!--/ko-->
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="font-16 text-justify marginbottom10 ">After Completeing this Course,I am able to:</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12" id="DivEvaluation">
+                        @*<input type="hidden" data-bind="attr: { name: 'EvaluationQuestionResult['+ $index() + '\].EvaluationAnswer' , id: 'hdfEvaluationAnswer_'+ $index() }" />*@
+                        <table class="table table-bordered">
+                            <thead class="bg-set">
+                                <tr>
+                                    <th class="col-xs-8 col-sm-8 col-md-8 col-lg-8">Questions</th>
+                                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">1</th>
+                                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">2</th>
+                                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">3</th>
+                                    <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1">4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--ko if:EvaluationQuestionDetailResults!= null-->
+                                <!-- ko foreach:EvaluationQuestionDetailResults -->
+                                <tr>
+
+                                    <td class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                        <span class="font-16 text-justify pull-left" data-bind="text:EvaluationQues"></span>
+                                        <input type="hidden" data-bind="attr: { name: 'EvaluationQuestionResult['+ $index() + '\].EvaluationQuestionID' },value:EvaluationQuestionID" />
+                                      
+                                    </td>
+                                    <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                        <label>
+                                            <input type="radio" value="1" data-bind="attr: { id: 'EvaluationQuestionResult_'+ $index(), name: 'EvaluationQuestionResult['+ $index() + '\].EvaluationAnswerID'}" required="required">
+                                        </label>
+                                    </td>
+                                    <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                        <label>
+                                            <input type="radio" value="2" data-bind="attr: { id: 'EvaluationQuestionResult_'+ $index(),name: 'EvaluationQuestionResult['+ $index() + '\].EvaluationAnswerID'}" required="required">
+                                        </label>
+                                    </td>
+                                    <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                        <label>
+                                            <input type="radio" value="3" data-bind="attr: { id: 'EvaluationQuestionResult_'+ $index(),name: 'EvaluationQuestionResult['+ $index() + '\].EvaluationAnswerID'}" required="required">
+                                        </label>
+                                    </td>
+                                    <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                        <label>
+                                            <input type="radio" value="4" data-bind="attr: { id: 'EvaluationQuestionResult_'+ $index(),name: 'EvaluationQuestionResult['+ $index() + '\].EvaluationAnswerID' }" required="required">
+                                        </label>
+                                    </td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                                
+                            </tbody>
+                        </table>
+                        <div class="col-sm-12">
+                            <div class="form-group" style="margin-top:1%;">
+                                <label for="exampleInputEmail1" class="member-label">Comments</label>
+                                <textarea class="form-control" style="resize:none" rows="6" name="Comments"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="member-label">Suggestions for New Course</label>
+                                <textarea class="form-control" style="resize:none;" name="Suggestions" rows="6"></textarea>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="submit-btn pull-right margintop10">Submit</button>
+                    </div>
+                </div>
+            </div><!-- row -->
+        }
+    </div><!-- container -->
+</div>
+@section scripts{
+    <script src="~/Scripts/alertify/alertify.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Exam/EvaluationViewModel.js")"></script>
+ 
+    <script type="text/javascript">
+        var model = @System.Web.Mvc.MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var evaluationViewModel = new EvaluationViewModel(model);
+        ko.applyBindings(evaluationViewModel, $("#AddEvaluationResult").get(0));
+    </script>
+    <style>
+        .mCSB_container input,
+        .mCSB_container span {
+            display: inline-block !important;
+        }
+
+        .mCSB_container input {
+            margin-top: 4px !important;
+        }
+         #alertify-cancel {
+            display: none !important;
+        }
+    </style>
+
+    <script>
+        $("input[type='radio']").change(function(){
+            var index = this.id.substr(this.id.indexOf("_") + 1)
+            //  $("#hdfPreTestAnswer_"+index).val(this.value);
+        });
+    </script>
+}
+

@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "_FAQCategoryPartial";
+}
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@using (Html.BeginForm(GlobalConst.Actions.FAQController.AddFAQCategory, GlobalConst.Controllers.FAQ, FormMethod.Post, new
+        {
+            id = "frmAddFAQCategory",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddFAQCategoryDetailSuccess(responseText);},beforeSubmit: FAQCategoryInfoFormBeforeSubmit}"
+        }))
+{
+    <div id="contentwrapper" class="contentwrapper nopadding">
+        
+<div class="panel-wrapper">
+            <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">FAQ Category Screen</div>
+				   <div class="panel-body">
+					  <div class="col-md-3"><label> Title:</label></div>
+					  <div class="col-md-4">
+                          <input  type="hidden" class="form-control" id="hdFAQCategoryID"  data-bind="value:FAQCatID" name="hdFAQCategoryID" >
+                          <div class="form-group">
+                          <input type="text"  title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$"  required="required" name="FAQCategoryTitle" data-bind="value: FAQCategoryTitle,jqBootstrapValidation: {}" class="form-control" ></div>
+                     </div>
+				  </div>
+
+              
+				  <div class="panel-body">
+					    <button class="btn btn-default"  type="submit" >Save and Continue</button>
+				  </div>
+     
+				  <div class="panel-body">
+				  <div class="panel panel-default">
+				    <div class="panel-heading">FAQCategory Items</div>
+				    <!-- Table -->
+				    <table class="table table-striped">
+				      <thead>
+					<tr>
+					  <th>FAQCategory</th>
+                         
+					  <th>&nbsp;</th>
+					</tr>
+				      </thead>
+				      <tbody>
+                           <!--ko if:FAQCategoryResults!= null-->
+                                 <!-- ko foreach:FAQCategoryResults -->
+                       	<tr>					     
+				
+                       <td><span data-bind="text:FAQCategoryTitle" /></td>
+					  <td>  <input type="hidden" name="FAQCatID" id="FAQCatID" data-bind="value:FAQCatID" />
+                          <a href="#" class="inner-content-link blue" data-bind="click:$root.edit" style="color:#808080;">Edit</a>
+
+					  </td>
+					  <td><a href="#" class="inner-content-link blue" data-bind="click:$root.DeleteFAQCategory"  style="color:#808080;">Delete</a></td> 
+					</tr>
+					    <!--/ko-->
+                        <!--/ko-->
+				      </tbody>
+				    </table>
+				  </div>
+				  </div>
+				  
+
+				  </div>
+		</div>
+    </div>
+}

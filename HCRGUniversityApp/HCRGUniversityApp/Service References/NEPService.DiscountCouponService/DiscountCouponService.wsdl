@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DiscountCouponService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/DiscountCouponService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/DiscountCouponService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/DiscountCouponService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/DiscountCouponService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDiscountCouponService_AddDiscountCoupon_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDiscountCoupon" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_AddDiscountCoupon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDiscountCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_UpdateDiscountCoupon_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDiscountCoupon" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_UpdateDiscountCoupon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDiscountCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_DeleteDiscountCoupon_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDiscountCoupon" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_DeleteDiscountCoupon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDiscountCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponByID" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_getAllDiscountCoupons_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDiscountCoupons" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_getAllDiscountCoupons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDiscountCouponsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponByCouponCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponByCouponCode" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponByCouponCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponByCouponCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_UpdateDiscountCouponStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDiscountCouponStatus" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_UpdateDiscountCouponStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDiscountCouponStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponForCourses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponForCourses" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponForCourses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponForCoursesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponForProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponForProducts" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetDiscountCouponForProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountCouponForProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetAllPagedDiscountCoupon_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedDiscountCoupon" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetAllPagedDiscountCoupon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedDiscountCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetAllPagedDiscountCouponForCourses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedDiscountCouponForCourses" />
+  </wsdl:message>
+  <wsdl:message name="IDiscountCouponService_GetAllPagedDiscountCouponForCourses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedDiscountCouponForCoursesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDiscountCouponService">
+    <wsdl:operation name="AddDiscountCoupon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/AddDiscountCoupon" message="tns:IDiscountCouponService_AddDiscountCoupon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/AddDiscountCouponResponse" message="tns:IDiscountCouponService_AddDiscountCoupon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiscountCoupon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/UpdateDiscountCoupon" message="tns:IDiscountCouponService_UpdateDiscountCoupon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/UpdateDiscountCouponResponse" message="tns:IDiscountCouponService_UpdateDiscountCoupon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDiscountCoupon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/DeleteDiscountCoupon" message="tns:IDiscountCouponService_DeleteDiscountCoupon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/DeleteDiscountCouponResponse" message="tns:IDiscountCouponService_DeleteDiscountCoupon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponByID" message="tns:IDiscountCouponService_GetDiscountCouponByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponByIDResponse" message="tns:IDiscountCouponService_GetDiscountCouponByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDiscountCoupons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/getAllDiscountCoupons" message="tns:IDiscountCouponService_getAllDiscountCoupons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/getAllDiscountCouponsResponse" message="tns:IDiscountCouponService_getAllDiscountCoupons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponByCouponCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponByCouponCode" message="tns:IDiscountCouponService_GetDiscountCouponByCouponCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponByCouponCodeResponse" message="tns:IDiscountCouponService_GetDiscountCouponByCouponCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiscountCouponStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/UpdateDiscountCouponStatus" message="tns:IDiscountCouponService_UpdateDiscountCouponStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/UpdateDiscountCouponStatusResponse" message="tns:IDiscountCouponService_UpdateDiscountCouponStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponForCourses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponForCourses" message="tns:IDiscountCouponService_GetDiscountCouponForCourses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponForCoursesResponse" message="tns:IDiscountCouponService_GetDiscountCouponForCourses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponForProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponForProducts" message="tns:IDiscountCouponService_GetDiscountCouponForProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/GetDiscountCouponForProductsResponse" message="tns:IDiscountCouponService_GetDiscountCouponForProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedDiscountCoupon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/GetAllPagedDiscountCoupon" message="tns:IDiscountCouponService_GetAllPagedDiscountCoupon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/GetAllPagedDiscountCouponResponse" message="tns:IDiscountCouponService_GetAllPagedDiscountCoupon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedDiscountCouponForCourses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDiscountCouponService/GetAllPagedDiscountCouponForCourses" message="tns:IDiscountCouponService_GetAllPagedDiscountCouponForCourses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDiscountCouponService/GetAllPagedDiscountCouponForCoursesResponse" message="tns:IDiscountCouponService_GetAllPagedDiscountCouponForCourses_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDiscountCouponService" type="tns:IDiscountCouponService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDiscountCoupon">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/AddDiscountCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiscountCoupon">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/UpdateDiscountCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDiscountCoupon">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/DeleteDiscountCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponByID">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/GetDiscountCouponByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDiscountCoupons">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/getAllDiscountCoupons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponByCouponCode">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/GetDiscountCouponByCouponCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiscountCouponStatus">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/UpdateDiscountCouponStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponForCourses">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/GetDiscountCouponForCourses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscountCouponForProducts">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/GetDiscountCouponForProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedDiscountCoupon">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/GetAllPagedDiscountCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedDiscountCouponForCourses">
+      <soap:operation soapAction="http://tempuri.org/IDiscountCouponService/GetAllPagedDiscountCouponForCourses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DiscountCouponService">
+    <wsdl:port name="BasicHttpBinding_IDiscountCouponService" binding="tns:BasicHttpBinding_IDiscountCouponService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/DiscountCouponService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

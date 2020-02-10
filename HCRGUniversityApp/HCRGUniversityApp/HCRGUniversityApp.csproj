@@ -1,0 +1,2671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A838D00C-5676-4122-8B96-D626B96C64C4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HCRGUniversityApp</RootNamespace>
+    <AssemblyName>HCRGUniversityApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper\2.0.0\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Braintree-2.65.0, Version=2.65.0.0, Culture=neutral, PublicKeyToken=31b586f34d3e96c7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\External\Braintree\Braintree-2.65.0.dll</HintPath>
+    </Reference>
+    <Reference Include="CaptchaMvc">
+      <HintPath>..\packages\CaptchaMvc.Mvc4.1.5.0\lib\net40-full\CaptchaMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\..\..\..\Library\External\Elmah\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Library\External\Elmah\Elmah.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework\6.0\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.0.5\lib\net45\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer.WinForms">
+      <HintPath>..\packages\HtmlRenderer.WinForms.1.5.0.6\lib\net45\HtmlRenderer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.3.2.3\lib\net45\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\CertificationProgramController.cs" />
+    <Compile Include="Controllers\CollegeController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\CollegeEducationController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\EducationModuleController.cs" />
+    <Compile Include="Controllers\EnterprisePackageRegisterController.cs" />
+    <Compile Include="Controllers\ExamController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LinksController.cs" />
+    <Compile Include="Controllers\LogSessionController.cs" />
+    <Compile Include="Controllers\MyEducationController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Controllers\ShippingPaymentController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\StudentPortalController.cs" />
+    <Compile Include="Controllers\SuggestCourseController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserSubscriptionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.AboutUsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.CertificationTitleOptionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.ClientService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.CollegeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.CommonService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.DiscountCouponService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.EducationModuleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.EducationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.ExamInternalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.ExamQuestionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.LogSessionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.MyEducationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.NewsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.ProductService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.ShippingPaymentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.ShoppingEducationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NEPService.UserService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\alertify\alertify.core.css" />
+    <Content Include="Content\alertify\alertify.default.css" />
+    <Content Include="Content\buttons.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.3.1.1.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrapValidator.css" />
+    <Content Include="Content\css\BrainTree\BrainTree.css" />
+    <Content Include="Content\css\buttons.css" />
+    <Content Include="Content\css\calendar\calendar.css" />
+    <Content Include="Content\css\crousel\adaptive.css" />
+    <Content Include="Content\css\crousel\enhanced.css" />
+    <Content Include="Content\css\crousel\screen.css" />
+    <Content Include="Content\css\Custum\grid.css" />
+    <Content Include="Content\css\Custum\NewsDetail.css" />
+    <Content Include="Content\css\e-commerce.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\font-awesomes.css" />
+    <Content Include="Content\css\font-style.css" />
+    <Content Include="Content\css\jquery.mCustomScrollbar.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\ResponsiveTable\responsivetable.css" />
+    <Content Include="Content\css\sliderppt.css" />
+    <Content Include="Content\css\vicons-font.css" />
+    <Content Include="Content\fonts\Calibri.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\opensans-regular-demo.html" />
+    <Content Include="Content\fonts\opensans-regular-webfont.svg" />
+    <Content Include="Content\img\24.png" />
+    <Content Include="Content\img\a03.png" />
+    <Content Include="Content\img\a17.png" />
+    <Content Include="Content\img\about_img.jpg" />
+    <Content Include="Content\img\ban_lt_bg.jpg" />
+    <Content Include="Content\img\ban_rt_bg.jpg" />
+    <Content Include="Content\img\bg.png" />
+    <Content Include="Content\img\blue_c.jpg" />
+    <Content Include="Content\img\bult.png" />
+    <Content Include="Content\img\bults.jpg" />
+    <Content Include="Content\img\business.jpg" />
+    <Content Include="Content\img\card_Typesprite.png" />
+    <Content Include="Content\img\cert.png" />
+    <Content Include="Content\img\certified-icon.png" />
+    <Content Include="Content\img\certi_logo.png" />
+    <Content Include="Content\img\Coming-Soon.png" />
+    <Content Include="Content\img\controls-carousel.gif" />
+    <Content Include="Content\img\custom-scroll-bar.png" />
+    <Content Include="Content\img\cvv.png" />
+    <Content Include="Content\img\d-arrow.png" />
+    <Content Include="Content\img\download-icon.png" />
+    <Content Include="Content\img\Ebook.png" />
+    <Content Include="Content\img\email_logo.jpg" />
+    <Content Include="Content\img\email_rgb.png" />
+    <Content Include="Content\img\evaluation_icon.png" />
+    <Content Include="Content\img\exam.png" />
+    <Content Include="Content\img\exm_icon.png" />
+    <Content Include="Content\img\faculty .png" />
+    <Content Include="Content\img\faculty.png" />
+    <Content Include="Content\img\fav.ico" />
+    <Content Include="Content\img\fav.png" />
+    <Content Include="Content\img\fb_rgb.png" />
+    <Content Include="Content\img\flick_rgb.png" />
+    <Content Include="Content\img\getcertified-icon.png" />
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\Gray_c.jpg" />
+    <Content Include="Content\img\Green_c.jpg" />
+    <Content Include="Content\img\hcrg_university_final_rgb.jpg" />
+    <Content Include="Content\img\healthcare.jpg" />
+    <Content Include="Content\img\CompletionIcon.png" />
+    <Content Include="Content\img\InCompleteIcon.png" />
+    <Content Include="Content\img\DownloadIcon.png" />
+    <Content Include="Content\img\icons_rgb.png" />
+    <Content Include="Content\img\img.jpg" />
+    <Content Include="Content\img\in_rgb.png" />
+    <Content Include="Content\img\line.png" />
+    <Content Include="Content\img\list-icon_rgb.png" />
+    <Content Include="Content\img\LIVEEDUCATION.png" />
+    <Content Include="Content\img\live_seminar.png" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\loading3.gif" />
+    <Content Include="Content\img\locate.png" />
+    <Content Include="Content\img\login.png" />
+    <Content Include="Content\img\logo_rgb.jpg" />
+    <Content Include="Content\img\logo_rgb_1.jpg" />
+    <Content Include="Content\img\logo_rgb_1.png" />
+    <Content Include="Content\img\logo_rgb_1m.png" />
+    <Content Include="Content\img\logo_rgb_1s.png" />
+    <Content Include="Content\img\message.png" />
+    <Content Include="Content\img\MOBILEACCESS.png" />
+    <Content Include="Content\img\NewsLetter.png" />
+    <Content Include="Content\img\next.png" />
+    <Content Include="Content\img\ON-SITEEDUCATION.png" />
+    <Content Include="Content\img\ONLINECOURSES.png" />
+    <Content Include="Content\img\Orange_c.jpg" />
+    <Content Include="Content\img\page_UC.png" />
+    <Content Include="Content\img\pass.png" />
+    <Content Include="Content\img\play-icon-small.png" />
+    <Content Include="Content\img\ppt.png" />
+    <Content Include="Content\img\pre.png" />
+    <Content Include="Content\img\pretest.png" />
+    <Content Include="Content\img\pretest_1.png" />
+    <Content Include="Content\img\pre_test.png" />
+    <Content Include="Content\img\prod_img.jpg" />
+    <Content Include="Content\img\prod_thum.jpg" />
+    <Content Include="Content\img\Purple_c.jpg" />
+    <Content Include="Content\img\r-arrow.png" />
+    <Content Include="Content\img\Red_c.jpg" />
+    <Content Include="Content\img\register.png" />
+    <Content Include="Content\img\resources-pic.jpg" />
+    <Content Include="Content\img\search.png" />
+    <Content Include="Content\img\self_study.png" />
+    <Content Include="Content\img\sign.png" />
+    <Content Include="Content\img\small_thumnail.jpg" />
+    <Content Include="Content\img\sold-out.jpg" />
+    <Content Include="Content\img\stamp.png" />
+    <Content Include="Content\img\tech.png" />
+    <Content Include="Content\img\technology.jpg" />
+    <Content Include="Content\img\text.png" />
+    <Content Include="Content\img\tube_rgb.png" />
+    <Content Include="Content\img\twwet_rgb.png" />
+    <Content Include="Content\img\university.jpg" />
+    <Content Include="Content\img\user.png" />
+    <Content Include="Content\img\video-none-large.jpg" />
+    <Content Include="Content\img\video-none.jpg" />
+    <Content Include="Content\img\Video.png" />
+    <Content Include="Content\img\webinar_onlibne.png" />
+    <Content Include="Content\img\worker-compensation.jpg" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\scrolling\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Content\js\scrolling\js\jquery.mCustomScrollbar.js" />
+    <Content Include="Content\js\scrolling\js\jquery.nicescroll.js" />
+    <Content Include="Content\js\scrolling\js\minified\jquery-1.11.0.min.js" />
+    <Content Include="Content\js\scrolling\js\minified\jquery-1.9.1.min.js" />
+    <Content Include="Content\js\scrolling\js\minified\jquery-2.1.0.min.js" />
+    <Content Include="Content\js\scrolling\js\minified\jquery-ui-1.10.4.min.js" />
+    <Content Include="Content\js\scrolling\js\minified\jquery.mCustomScrollbar.min.js" />
+    <Content Include="Content\js\scrolling\js\minified\jquery.mousewheel-3.0.6.min.js" />
+    <Content Include="Content\js\scrolling\js\minified\jquery.mousewheel.min.js" />
+    <Content Include="Content\js\scrolling\js\New\facescroll.js" />
+    <Content Include="Content\js\scrolling\js\New\jquery.ui.touch-punch.min.js" />
+    <Content Include="Content\js\scrolling\js\uncompressed\jquery.mCustomScrollbar.js" />
+    <Content Include="Content\js\scrolling\js\uncompressed\jquery.mousewheel-3.0.6.js" />
+    <Content Include="Content\js\scrolling\js\uncompressed\jquery.mousewheel.js" />
+    <Content Include="Content\js\vendor\bootstrap.js" />
+    <Content Include="Content\js\vendor\bootstrap.min.js" />
+    <Content Include="Content\js\vendor\jquery-1.11.0.min.js" />
+    <Content Include="Content\js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\vicons-font.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\Calibri.eot" />
+    <Content Include="Content\fonts\Calibri.ttf" />
+    <Content Include="Content\fonts\Calibri.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\js\scrolling\js\minified\jquery.mCustomScrollbar.min.js.gz" />
+    <Content Include="Content\css\bootstrap-theme.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\Trajan_Pro_Bold.ttf" />
+    <Content Include="Content\fonts\Trajan Pro Regular.ttf" />
+    <Content Include="Content\fonts\TrajanPro-Regular.ttf" />
+    <Content Include="Content\fonts\TrajanPro-Regular_3.ttf" />
+    <Content Include="Content\fonts\TrajanPro3-Bold_0.otf" />
+    <Content Include="Content\fonts\TrajanPro3-Regular_0.otf" />
+    <Content Include="Content\fonts\ufonts.com_trajan-regular.ttf" />
+    <Content Include="Content\fonts\ufonts.com_trajan-regular_2.ttf" />
+    <Content Include="Content\fonts\opensans-regular-webfont.eot" />
+    <Content Include="Content\fonts\opensans-regular-webfont.ttf" />
+    <Content Include="Content\fonts\opensans-regular-webfont.woff" />
+    <Content Include="Content\fonts\opensans-regular-webfont.woff2" />
+    <Content Include="Content\fonts\open-sans.ttf" />
+    <Content Include="Content\fonts\TrajanPro3-Bold.otf" />
+    <Content Include="Content\fonts\TrajanPro3-Regular.otf" />
+    <Content Include="Content\fonts\AGaramondProReg.otf" />
+    <Content Include="Content\fonts\CertificateFont\ufonts.com_adobe-garamond-italic-oldstyle-figures.ttf" />
+    <Content Include="Content\fonts\CertificateFont\ufonts.com_adobe-garamond-lt-bold.ttf" />
+    <Content Include="Content\fonts\CertificateFont\ufonts.com_adobe-garamond-lt-regular.ttf" />
+    <Content Include="Content\fonts\CertificateFont\ufonts.com_trajan-regular.ttf" />
+    <Content Include="Content\fonts\CertificateFont\ufonts.com_trajanpro-regular.ttf" />
+    <Content Include="Content\fonts\CertificateFont\opensans-regular-webfont.ttf" />
+    <Content Include="Content\fonts\CertificateFont\Sansation_Light.ttf" />
+    <Content Include="Content\fonts\CertificateFont\Sansation_Light_Italic.ttf" />
+    <Content Include="Content\fonts\CertificateFont\ufonts.com_gotham-book.ttf" />
+    <Content Include="richtexteditor\config\admin.config" />
+    <Content Include="richtexteditor\config\default.config" />
+    <Content Include="richtexteditor\config\guest.config" />
+    <None Include="richtexteditor\core\jsml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="richtexteditor\core\jsml.xsx">
+      <DependentUpon>jsml.xsd</DependentUpon>
+    </Content>
+    <Content Include="richtexteditor\rtepaint5\font\AnandaNeptouch.ttf" />
+    <Content Include="richtexteditor\rtepaint5\font\AnandaNeptouch.woff" />
+    <Content Include="richtexteditor\rtepaint5\font\WorldWideWeb.woff" />
+    <Content Include="richtexteditor\SpellCheck\de-DE.dic" />
+    <Content Include="richtexteditor\SpellCheck\en-AU.dic" />
+    <Content Include="richtexteditor\SpellCheck\en-CA.dic" />
+    <Content Include="richtexteditor\SpellCheck\en-GB.dic" />
+    <Content Include="richtexteditor\SpellCheck\en-UK.dic" />
+    <Content Include="richtexteditor\SpellCheck\en-US.dic" />
+    <Content Include="richtexteditor\SpellCheck\es-ES.dic" />
+    <Content Include="richtexteditor\SpellCheck\es-MX.dic" />
+    <Content Include="richtexteditor\SpellCheck\fr-FR.dic" />
+    <Content Include="richtexteditor\SpellCheck\it-IT.dic" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="richtexteditor\aspnet\colorpicker.aspx" />
+    <Content Include="richtexteditor\aspnet\colorpicker.xml" />
+    <Content Include="richtexteditor\aspnet\colorpicker_basic.aspx" />
+    <Content Include="richtexteditor\aspnet\colorpicker_more.aspx" />
+    <Content Include="richtexteditor\aspnet\colorpicker_more_ie.aspx" />
+    <Content Include="richtexteditor\aspnet\colorpicker_more_ns.aspx" />
+    <Content Include="richtexteditor\aspnet\images\1x1.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpie_Color.cur" />
+    <Content Include="richtexteditor\aspnet\images\cpie_GradientPositionDark.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpie_GradientPositionLight.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpie_gradients.png" />
+    <Content Include="richtexteditor\aspnet\images\cpie_VerticalPosition.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpie_WebSafe.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpns_Color.cur" />
+    <Content Include="richtexteditor\aspnet\images\cpns_ColorSpace1.png" />
+    <Content Include="richtexteditor\aspnet\images\cpns_ColorSpace2.png" />
+    <Content Include="richtexteditor\aspnet\images\cpns_GradientPositionDark.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpns_GradientPositionLight.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpns_gradients.png" />
+    <Content Include="richtexteditor\aspnet\images\cpns_hue2.png" />
+    <Content Include="richtexteditor\aspnet\images\cpns_Vertical1.png" />
+    <Content Include="richtexteditor\aspnet\images\cpns_Vertical2.png" />
+    <Content Include="richtexteditor\aspnet\images\cpns_VerticalPosition.gif" />
+    <Content Include="richtexteditor\aspnet\images\cpns_WebSafe.gif" />
+    <Content Include="richtexteditor\aspnet\images\formbn.gif" />
+    <Content Include="richtexteditor\aspnet\images\multiclavier.gif" />
+    <Content Include="richtexteditor\aspnet\insertchars.htm" />
+    <Content Include="richtexteditor\aspnet\insertchars.xml" />
+    <Content Include="richtexteditor\aspnet\resx\ColorPicker_IE.css" />
+    <Content Include="richtexteditor\aspnet\resx\ColorPicker_NS.css" />
+    <Content Include="richtexteditor\aspnet\resx\dialog.css" />
+    <Content Include="richtexteditor\aspnet\resx\Dialog_ColorPicker.js" />
+    <Content Include="richtexteditor\aspnet\resx\Dialog_ColorPicker_IE.js" />
+    <Content Include="richtexteditor\aspnet\resx\Dialog_ColorPicker_NS.js" />
+    <Content Include="richtexteditor\aspnet\resx\insertchars.js" />
+    <Content Include="richtexteditor\aspnet\resx\keyboard-data.js" />
+    <Content Include="richtexteditor\aspnet\resx\keyboard-diacritic.js" />
+    <Content Include="richtexteditor\aspnet\resx\keyboard-dialogue.js" />
+    <Content Include="richtexteditor\aspnet\resx\keyboard-multihexa.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushCpp.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushCSharp.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushCss.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushDelphi.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushJava.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushJScript.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushPhp.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushPython.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushRuby.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushSql.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushVb.js" />
+    <Content Include="richtexteditor\aspnet\resx\shBrushXml.js" />
+    <Content Include="richtexteditor\aspnet\resx\shCore.js" />
+    <Content Include="richtexteditor\aspnet\resx\sh_Core.js" />
+    <Content Include="richtexteditor\aspnet\resx\spell.css" />
+    <Content Include="richtexteditor\aspnet\resx\spell.js" />
+    <Content Include="richtexteditor\aspnet\resx\virtualkeyboard.js" />
+    <Content Include="richtexteditor\aspnet\SpellCheck.aspx" />
+    <Content Include="richtexteditor\aspnet\spellcheck.xml" />
+    <Content Include="richtexteditor\aspnet\syntaxhighlighter.htm" />
+    <Content Include="richtexteditor\aspnet\syntaxhighlighter.xml" />
+    <Content Include="richtexteditor\aspnet\virtualkeyboard.htm" />
+    <Content Include="richtexteditor\aspnet\virtualkeyboard.xml" />
+    <Content Include="richtexteditor\blank.htm" />
+    <Content Include="richtexteditor\config\staticlinks.xml" />
+    <Content Include="richtexteditor\config\staticstyles.xml" />
+    <Content Include="richtexteditor\config\statictemplates.xml" />
+    <Content Include="richtexteditor\core\core.js" />
+    <Content Include="richtexteditor\core\jsml.js" />
+    <Content Include="richtexteditor\core\scrollbar\default\barb_x.png" />
+    <Content Include="richtexteditor\core\scrollbar\default\barb_y.png" />
+    <Content Include="richtexteditor\core\scrollbar\default\bt_x.png" />
+    <Content Include="richtexteditor\core\scrollbar\default\bt_y.png" />
+    <Content Include="richtexteditor\core\scrollbar\default\fb_x.png" />
+    <Content Include="richtexteditor\core\scrollbar\default\fb_y.png" />
+    <Content Include="richtexteditor\core\uploader.js" />
+    <Content Include="richtexteditor\dialogs\basic_alert.xml" />
+    <Content Include="richtexteditor\dialogs\basic_confirm.xml" />
+    <Content Include="richtexteditor\dialogs\basic_prompt.xml" />
+    <Content Include="richtexteditor\dialogs\browsedialogbase.xml" />
+    <Content Include="richtexteditor\dialogs\cleancode.xml" />
+    <Content Include="richtexteditor\dialogs\colorpicker.xml" />
+    <Content Include="richtexteditor\dialogs\editor_paste.xml" />
+    <Content Include="richtexteditor\dialogs\findandreplace.xml" />
+    <Content Include="richtexteditor\dialogs\foldertree.xml" />
+    <Content Include="richtexteditor\dialogs\htmlpreview.xml" />
+    <Content Include="richtexteditor\dialogs\imageeditor.xml" />
+    <Content Include="richtexteditor\dialogs\images\document.gif" />
+    <Content Include="richtexteditor\dialogs\images\dot_ring.png" />
+    <Content Include="richtexteditor\dialogs\images\insert_table_bg1.png" />
+    <Content Include="richtexteditor\dialogs\images\insert_table_bg2.png" />
+    <Content Include="richtexteditor\dialogs\images\tree_closed.gif" />
+    <Content Include="richtexteditor\dialogs\images\tree_opened.gif" />
+    <Content Include="richtexteditor\dialogs\images\url_icon.gif" />
+    <Content Include="richtexteditor\dialogs\insertanchor.xml" />
+    <Content Include="richtexteditor\dialogs\insertdate.xml" />
+    <Content Include="richtexteditor\dialogs\insertdocument.xml" />
+    <Content Include="richtexteditor\dialogs\insertgallery.xml" />
+    <Content Include="richtexteditor\dialogs\insertimage.xml" />
+    <Content Include="richtexteditor\dialogs\insertimagemap.xml" />
+    <Content Include="richtexteditor\dialogs\insertimagemaplink.xml" />
+    <Content Include="richtexteditor\dialogs\insertlink.xml" />
+    <Content Include="richtexteditor\dialogs\insertlink_dropdown.xml" />
+    <Content Include="richtexteditor\dialogs\insertlink_findanchor.xml" />
+    <Content Include="richtexteditor\dialogs\insertlink_findurl.xml" />
+    <Content Include="richtexteditor\dialogs\inserttable.xml" />
+    <Content Include="richtexteditor\dialogs\inserttabletemplate.xml" />
+    <Content Include="richtexteditor\dialogs\inserttemplate.xml" />
+    <Content Include="richtexteditor\dialogs\inserttemplate_dropdown.xml" />
+    <Content Include="richtexteditor\dialogs\insertvideo.xml" />
+    <Content Include="richtexteditor\dialogs\menu_context.xml" />
+    <Content Include="richtexteditor\dialogs\menu_context_default.xml" />
+    <Content Include="richtexteditor\dialogs\menu_context_minimal.xml" />
+    <Content Include="richtexteditor\dialogs\menu_context_simple.xml" />
+    <Content Include="richtexteditor\dialogs\menu_dragdrop.xml" />
+    <Content Include="richtexteditor\dialogs\menu_styles.xml" />
+    <Content Include="richtexteditor\dialogs\menu_tagitem.xml" />
+    <Content Include="richtexteditor\dialogs\overriderename.xml" />
+    <Content Include="richtexteditor\dialogs\phone_common.xml" />
+    <Content Include="richtexteditor\dialogs\phone_format.xml" />
+    <Content Include="richtexteditor\dialogs\phone_insert.xml" />
+    <Content Include="richtexteditor\dialogs\phone_paragraph.xml" />
+    <Content Include="richtexteditor\dialogs\phone_select.xml" />
+    <Content Include="richtexteditor\dialogs\phone_text.xml" />
+    <Content Include="richtexteditor\dialogs\properties.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_background.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_block.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_border.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_box.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_font.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_layout.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_list.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_other.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_position.xml" />
+    <Content Include="richtexteditor\dialogs\properties_style_table.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_a.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_audio.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_button.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_common.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_div.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_form.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_input.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_select.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_table.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_textarea.xml" />
+    <Content Include="richtexteditor\dialogs\properties_tag_video.xml" />
+    <Content Include="richtexteditor\dialogs\setfontname.xml" />
+    <Content Include="richtexteditor\dialogs\setfontsize.xml" />
+    <Content Include="richtexteditor\dialogs\setparagraph.xml" />
+    <Content Include="richtexteditor\dialogs\setstyles.xml" />
+    <Content Include="richtexteditor\dialogs\skins\blue\blue-bg.gif" />
+    <Content Include="richtexteditor\dialogs\skins\blue\blue-bg.png" />
+    <Content Include="richtexteditor\dialogs\skins\blue\blue-close.gif" />
+    <Content Include="richtexteditor\dialogs\skins\blue\blue-icon.png" />
+    <Content Include="richtexteditor\dialogs\skins\Classic.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\btm_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\btm_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\btm_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\mdl_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\mdl_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\top_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\top_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\classic\top_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\default\top.png" />
+    <Content Include="richtexteditor\dialogs\skins\default\top_left.png" />
+    <Content Include="richtexteditor\dialogs\skins\default\top_middle.png" />
+    <Content Include="richtexteditor\dialogs\skins\default\top_right.png" />
+    <Content Include="richtexteditor\dialogs\skins\Indigo.gif" />
+    <Content Include="richtexteditor\dialogs\skins\MacBlue.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\btm_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\btm_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\btm_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\mdl_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\mdl_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\top_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\top_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macblue\top_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\MacWhite.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\btm_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\btm_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\btm_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\mdl_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\mdl_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\top_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\top_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\macwhite\top_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\btm_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\btm_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\btm_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\closebtn.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\closebtn_over.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\icon_dialog.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\mdl_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\mdl_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\top_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\top_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\newgreen\top_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\Normal.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\btm_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\btm_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\btm_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\mdl_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\mdl_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\top_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\top_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\normal\top_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\Royale.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\btm_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\btm_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\btm_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\mdl_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\mdl_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\top_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\top_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\royale\top_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\btm_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\btm_center.png" />
+    <Content Include="richtexteditor\dialogs\skins\seven\btm_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\btm_left.png" />
+    <Content Include="richtexteditor\dialogs\skins\seven\btm_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\btm_right.png" />
+    <Content Include="richtexteditor\dialogs\skins\seven\close.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\mdl_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\mdl_left.png" />
+    <Content Include="richtexteditor\dialogs\skins\seven\mdl_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\mdl_right.png" />
+    <Content Include="richtexteditor\dialogs\skins\seven\top_center.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\top_center.png" />
+    <Content Include="richtexteditor\dialogs\skins\seven\top_left.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\top_left.png" />
+    <Content Include="richtexteditor\dialogs\skins\seven\top_right.gif" />
+    <Content Include="richtexteditor\dialogs\skins\seven\top_right.png" />
+    <Content Include="richtexteditor\dialogs\storagelist.xml" />
+    <Content Include="richtexteditor\dialogs\uploadinfo.xml" />
+    <Content Include="richtexteditor\dialogs\uploadprogress.xml" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\blocks.gif" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\circle.png" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\continuous.gif" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\progress.gif" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\resuming.gif" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\stop.png" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\uploaderror.png" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\uploading.gif" />
+    <Content Include="richtexteditor\dialogs\uploadprogress\uploadok.png" />
+    <Content Include="richtexteditor\dialogs\_developer.xml" />
+    <Content Include="richtexteditor\dialogs\_dialog.xml" />
+    <Content Include="richtexteditor\dialogs\_skins.xml" />
+    <Content Include="richtexteditor\dialogs\__sample.xml" />
+    <Content Include="richtexteditor\downlevel\blank.htm" />
+    <Content Include="richtexteditor\downlevel\common.xml" />
+    <Content Include="richtexteditor\downlevel\downlevel.js" />
+    <Content Include="richtexteditor\downlevel\rtehtm.js" />
+    <Content Include="richtexteditor\downlevel\rtehtm.xml" />
+    <Content Include="richtexteditor\downlevel\rteubb.js" />
+    <Content Include="richtexteditor\downlevel\rteubb.xml" />
+    <Content Include="richtexteditor\downlevel\style.css" />
+    <Content Include="richtexteditor\help\fontname.png" />
+    <Content Include="richtexteditor\help\fontsize.png" />
+    <Content Include="richtexteditor\help\home.htm" />
+    <Content Include="richtexteditor\help\paragraph.png" />
+    <Content Include="richtexteditor\help\style.png" />
+    <Content Include="richtexteditor\help\toolbar.png" />
+    <Content Include="richtexteditor\images\accessibility.gif" />
+    <Content Include="richtexteditor\images\all.png" />
+    <Content Include="richtexteditor\images\anchor.gif" />
+    <Content Include="richtexteditor\images\anchor.png" />
+    <Content Include="richtexteditor\images\applystyles.png" />
+    <Content Include="richtexteditor\images\arj.gif" />
+    <Content Include="richtexteditor\images\arrow-l.png" />
+    <Content Include="richtexteditor\images\arrow-r.png" />
+    <Content Include="richtexteditor\images\arrow.gif" />
+    <Content Include="richtexteditor\images\arrow_down.gif" />
+    <Content Include="richtexteditor\images\arrow_r.gif" />
+    <Content Include="richtexteditor\images\arrow_up.gif" />
+    <Content Include="richtexteditor\images\asa.gif" />
+    <Content Include="richtexteditor\images\asax.gif" />
+    <Content Include="richtexteditor\images\ascx.gif" />
+    <Content Include="richtexteditor\images\asmx.gif" />
+    <Content Include="richtexteditor\images\asp.gif" />
+    <Content Include="richtexteditor\images\aspx.gif" />
+    <Content Include="richtexteditor\images\au.gif" />
+    <Content Include="richtexteditor\images\avi.gif" />
+    <Content Include="richtexteditor\images\b1.gif" />
+    <Content Include="richtexteditor\images\b1.png" />
+    <Content Include="richtexteditor\images\backcolor.png" />
+    <Content Include="richtexteditor\images\backspace.png" />
+    <Content Include="richtexteditor\images\bat.gif" />
+    <Content Include="richtexteditor\images\bg.gif" />
+    <Content Include="richtexteditor\images\blank20.png" />
+    <Content Include="richtexteditor\images\blockquote.png" />
+    <Content Include="richtexteditor\images\bmp.gif" />
+    <Content Include="richtexteditor\images\bold.png" />
+    <Content Include="richtexteditor\images\borders.png" />
+    <Content Include="richtexteditor\images\borders2.png" />
+    <Content Include="richtexteditor\images\bottomline.png" />
+    <Content Include="richtexteditor\images\box.png" />
+    <Content Include="richtexteditor\images\break.png" />
+    <Content Include="richtexteditor\images\bullist.png" />
+    <Content Include="richtexteditor\images\cab.gif" />
+    <Content Include="richtexteditor\images\cell.png" />
+    <Content Include="richtexteditor\images\center.png" />
+    <Content Include="richtexteditor\images\checkbox.png" />
+    <Content Include="richtexteditor\images\chm.gif" />
+    <Content Include="richtexteditor\images\cleanup.png" />
+    <Content Include="richtexteditor\images\close.gif" />
+    <Content Include="richtexteditor\images\Close2.gif" />
+    <Content Include="richtexteditor\images\closedfolder.gif" />
+    <Content Include="richtexteditor\images\code.png" />
+    <Content Include="richtexteditor\images\colorbox.gif" />
+    <Content Include="richtexteditor\images\com.gif" />
+    <Content Include="richtexteditor\images\copy.png" />
+    <Content Include="richtexteditor\images\cs.gif" />
+    <Content Include="richtexteditor\images\css.gif" />
+    <Content Include="richtexteditor\images\cut.png" />
+    <Content Include="richtexteditor\images\delcell.png" />
+    <Content Include="richtexteditor\images\delcol.png" />
+    <Content Include="richtexteditor\images\delete.png" />
+    <Content Include="richtexteditor\images\delrow.png" />
+    <Content Include="richtexteditor\images\design.png" />
+    <Content Include="richtexteditor\images\dir_ltr.gif" />
+    <Content Include="richtexteditor\images\dir_ltr.png" />
+    <Content Include="richtexteditor\images\dir_rtl.png" />
+    <Content Include="richtexteditor\images\disco.gif" />
+    <Content Include="richtexteditor\images\div.png" />
+    <Content Include="richtexteditor\images\dll.gif" />
+    <Content Include="richtexteditor\images\doc.gif" />
+    <Content Include="richtexteditor\images\document.png" />
+    <Content Include="richtexteditor\images\docx.gif" />
+    <Content Include="richtexteditor\images\dragcopy.gif" />
+    <Content Include="richtexteditor\images\dragmove.gif" />
+    <Content Include="richtexteditor\images\dropdownbox.png" />
+    <Content Include="richtexteditor\images\edit.gif" />
+    <Content Include="richtexteditor\images\exe.gif" />
+    <Content Include="richtexteditor\images\external.gif" />
+    <Content Include="richtexteditor\images\filter_c.gif" />
+    <Content Include="richtexteditor\images\filter_l.gif" />
+    <Content Include="richtexteditor\images\filter_m.gif" />
+    <Content Include="richtexteditor\images\filter_r.gif" />
+    <Content Include="richtexteditor\images\find.png" />
+    <Content Include="richtexteditor\images\fit.png" />
+    <Content Include="richtexteditor\images\flash.png" />
+    <Content Include="richtexteditor\images\flashholder.gif" />
+    <Content Include="richtexteditor\images\floatblock.gif" />
+    <Content Include="richtexteditor\images\floatleft.gif" />
+    <Content Include="richtexteditor\images\floatnone.gif" />
+    <Content Include="richtexteditor\images\floatright.gif" />
+    <Content Include="richtexteditor\images\flv.gif" />
+    <Content Include="richtexteditor\images\folder.png" />
+    <Content Include="richtexteditor\images\folders.png" />
+    <Content Include="richtexteditor\images\folder_up.png" />
+    <Content Include="richtexteditor\images\font-size.png" />
+    <Content Include="richtexteditor\images\font-type.png" />
+    <Content Include="richtexteditor\images\font.png" />
+    <Content Include="richtexteditor\images\forecolor.png" />
+    <Content Include="richtexteditor\images\formatcode.png" />
+    <Content Include="richtexteditor\images\formatpainter.png" />
+    <Content Include="richtexteditor\images\gallery.png" />
+    <Content Include="richtexteditor\images\gif.gif" />
+    <Content Include="richtexteditor\images\groupbox.png" />
+    <Content Include="richtexteditor\images\heading.png" />
+    <Content Include="richtexteditor\images\help.png" />
+    <Content Include="richtexteditor\images\hiddenfield.png" />
+    <Content Include="richtexteditor\images\hlp.gif" />
+    <Content Include="richtexteditor\images\horizontal.gif" />
+    <Content Include="richtexteditor\images\htm.gif" />
+    <Content Include="richtexteditor\images\html.gif" />
+    <Content Include="richtexteditor\images\html5.png" />
+    <Content Include="richtexteditor\images\htmlview.png" />
+    <Content Include="richtexteditor\images\icon_add.png" />
+    <Content Include="richtexteditor\images\image.png" />
+    <Content Include="richtexteditor\images\imagebutton.png" />
+    <Content Include="richtexteditor\images\imageeditor.png" />
+    <Content Include="richtexteditor\images\imageholder.gif" />
+    <Content Include="richtexteditor\images\ImageMap.png" />
+    <Content Include="richtexteditor\images\inc.gif" />
+    <Content Include="richtexteditor\images\indent.png" />
+    <Content Include="richtexteditor\images\ini.gif" />
+    <Content Include="richtexteditor\images\inscell.png" />
+    <Content Include="richtexteditor\images\inscol_l.png" />
+    <Content Include="richtexteditor\images\inscol_r.png" />
+    <Content Include="richtexteditor\images\insertDate.png" />
+    <Content Include="richtexteditor\images\insertform.png" />
+    <Content Include="richtexteditor\images\InsertPageBreak.png" />
+    <Content Include="richtexteditor\images\inserttable.png" />
+    <Content Include="richtexteditor\images\insrow_b.png" />
+    <Content Include="richtexteditor\images\insrow_t.png" />
+    <Content Include="richtexteditor\images\instable.png" />
+    <Content Include="richtexteditor\images\italic.png" />
+    <Content Include="richtexteditor\images\jpeg.gif" />
+    <Content Include="richtexteditor\images\jpg.gif" />
+    <Content Include="richtexteditor\images\justifyfull.png" />
+    <Content Include="richtexteditor\images\justifynone.png" />
+    <Content Include="richtexteditor\images\keyboard.png" />
+    <Content Include="richtexteditor\images\l1.gif" />
+    <Content Include="richtexteditor\images\l1.png" />
+    <Content Include="richtexteditor\images\l2.gif" />
+    <Content Include="richtexteditor\images\l2.png" />
+    <Content Include="richtexteditor\images\layer.png" />
+    <Content Include="richtexteditor\images\lcase.png" />
+    <Content Include="richtexteditor\images\left.png" />
+    <Content Include="richtexteditor\images\lineheight.png" />
+    <Content Include="richtexteditor\images\link.png" />
+    <Content Include="richtexteditor\images\listbox.png" />
+    <Content Include="richtexteditor\images\loading3.gif" />
+    <Content Include="richtexteditor\images\loading5.gif" />
+    <Content Include="richtexteditor\images\locked.gif" />
+    <Content Include="richtexteditor\images\log.gif" />
+    <Content Include="richtexteditor\images\map.png" />
+    <Content Include="richtexteditor\images\marginbottom.png" />
+    <Content Include="richtexteditor\images\margintop.png" />
+    <Content Include="richtexteditor\images\mdb.gif" />
+    <Content Include="richtexteditor\images\media.png" />
+    <Content Include="richtexteditor\images\menuleft.gif" />
+    <Content Include="richtexteditor\images\mid.gif" />
+    <Content Include="richtexteditor\images\midi.gif" />
+    <Content Include="richtexteditor\images\minus.gif" />
+    <Content Include="richtexteditor\images\mov.gif" />
+    <Content Include="richtexteditor\images\move.png" />
+    <Content Include="richtexteditor\images\movieholder.gif" />
+    <Content Include="richtexteditor\images\mp3.gif" />
+    <Content Include="richtexteditor\images\mp4.gif" />
+    <Content Include="richtexteditor\images\mpeg.gif" />
+    <Content Include="richtexteditor\images\mpg.gif" />
+    <Content Include="richtexteditor\images\mrgcell.png" />
+    <Content Include="richtexteditor\images\msgbox_alert.gif" />
+    <Content Include="richtexteditor\images\m_anchor.png" />
+    <Content Include="richtexteditor\images\m_arrow_right-up.png" />
+    <Content Include="richtexteditor\images\m_back.png" />
+    <Content Include="richtexteditor\images\m_backcolor.png" />
+    <Content Include="richtexteditor\images\m_blockquote.png" />
+    <Content Include="richtexteditor\images\m_bold.png" />
+    <Content Include="richtexteditor\images\m_borders.png" />
+    <Content Include="richtexteditor\images\m_bottomline.png" />
+    <Content Include="richtexteditor\images\m_break.png" />
+    <Content Include="richtexteditor\images\m_center.png" />
+    <Content Include="richtexteditor\images\m_cleanup.png" />
+    <Content Include="richtexteditor\images\m_copy.png" />
+    <Content Include="richtexteditor\images\m_cut.png" />
+    <Content Include="richtexteditor\images\m_div.png" />
+    <Content Include="richtexteditor\images\m_document.png" />
+    <Content Include="richtexteditor\images\m_edit.png" />
+    <Content Include="richtexteditor\images\m_find.png" />
+    <Content Include="richtexteditor\images\m_font.png" />
+    <Content Include="richtexteditor\images\m_fontsize.png" />
+    <Content Include="richtexteditor\images\m_forecolor.png" />
+    <Content Include="richtexteditor\images\m_groupbox.png" />
+    <Content Include="richtexteditor\images\m_hand.png" />
+    <Content Include="richtexteditor\images\m_help.png" />
+    <Content Include="richtexteditor\images\m_image.png" />
+    <Content Include="richtexteditor\images\m_indent.png" />
+    <Content Include="richtexteditor\images\m_insertDate.png" />
+    <Content Include="richtexteditor\images\m_insertdiv.png" />
+    <Content Include="richtexteditor\images\m_insertpagebreak.png" />
+    <Content Include="richtexteditor\images\m_italic.png" />
+    <Content Include="richtexteditor\images\m_justifyfull.png" />
+    <Content Include="richtexteditor\images\m_justifynone.png" />
+    <Content Include="richtexteditor\images\m_lcase.png" />
+    <Content Include="richtexteditor\images\m_left.png" />
+    <Content Include="richtexteditor\images\m_link.png" />
+    <Content Include="richtexteditor\images\m_map.png" />
+    <Content Include="richtexteditor\images\m_media.png" />
+    <Content Include="richtexteditor\images\m_menu.png" />
+    <Content Include="richtexteditor\images\m_new.png" />
+    <Content Include="richtexteditor\images\m_numlist.png" />
+    <Content Include="richtexteditor\images\m_outdent.png" />
+    <Content Include="richtexteditor\images\m_overline.png" />
+    <Content Include="richtexteditor\images\m_paragraph.png" />
+    <Content Include="richtexteditor\images\m_paste.png" />
+    <Content Include="richtexteditor\images\m_pastetext.png" />
+    <Content Include="richtexteditor\images\m_redo.png" />
+    <Content Include="richtexteditor\images\m_return.png" />
+    <Content Include="richtexteditor\images\m_right.png" />
+    <Content Include="richtexteditor\images\m_rule.png" />
+    <Content Include="richtexteditor\images\m_save.png" />
+    <Content Include="richtexteditor\images\m_select.png" />
+    <Content Include="richtexteditor\images\m_selectall.png" />
+    <Content Include="richtexteditor\images\m_selectbottom.png" />
+    <Content Include="richtexteditor\images\m_selectparagraph.png" />
+    <Content Include="richtexteditor\images\m_selecttop.png" />
+    <Content Include="richtexteditor\images\m_specialchar.png" />
+    <Content Include="richtexteditor\images\m_spell.png" />
+    <Content Include="richtexteditor\images\m_strike.png" />
+    <Content Include="richtexteditor\images\m_subscript.png" />
+    <Content Include="richtexteditor\images\m_superscript.png" />
+    <Content Include="richtexteditor\images\m_table.png" />
+    <Content Include="richtexteditor\images\m_text.png" />
+    <Content Include="richtexteditor\images\m_topline.png" />
+    <Content Include="richtexteditor\images\m_ucase.png" />
+    <Content Include="richtexteditor\images\m_under.png" />
+    <Content Include="richtexteditor\images\m_undo.png" />
+    <Content Include="richtexteditor\images\m_unformat.png" />
+    <Content Include="richtexteditor\images\m_upload.png" />
+    <Content Include="richtexteditor\images\m_youtube.png" />
+    <Content Include="richtexteditor\images\newdoc.png" />
+    <Content Include="richtexteditor\images\newfolder.gif" />
+    <Content Include="richtexteditor\images\newtag.png" />
+    <Content Include="richtexteditor\images\node-tree.png" />
+    <Content Include="richtexteditor\images\noneditable.gif" />
+    <Content Include="richtexteditor\images\numdown.gif" />
+    <Content Include="richtexteditor\images\numlist.png" />
+    <Content Include="richtexteditor\images\numup.gif" />
+    <Content Include="richtexteditor\images\openfolder.png" />
+    <Content Include="richtexteditor\images\optionbutton.png" />
+    <Content Include="richtexteditor\images\orderby.gif" />
+    <Content Include="richtexteditor\images\outdent.png" />
+    <Content Include="richtexteditor\images\overline.png" />
+    <Content Include="richtexteditor\images\p.png" />
+    <Content Include="richtexteditor\images\page.png" />
+    <Content Include="richtexteditor\images\paragraph.png" />
+    <Content Include="richtexteditor\images\parentfolder.png" />
+    <Content Include="richtexteditor\images\passwordfield.png" />
+    <Content Include="richtexteditor\images\paste.png" />
+    <Content Include="richtexteditor\images\pastetext.png" />
+    <Content Include="richtexteditor\images\pasteword.png" />
+    <Content Include="richtexteditor\images\pdf.gif" />
+    <Content Include="richtexteditor\images\png.gif" />
+    <Content Include="richtexteditor\images\ppt.gif" />
+    <Content Include="richtexteditor\images\preview.png" />
+    <Content Include="richtexteditor\images\print.png" />
+    <Content Include="richtexteditor\images\properties.png" />
+    <Content Include="richtexteditor\images\pushbutton.png" />
+    <Content Include="richtexteditor\images\r1.gif" />
+    <Content Include="richtexteditor\images\r1.png" />
+    <Content Include="richtexteditor\images\r2.gif" />
+    <Content Include="richtexteditor\images\r2.png" />
+    <Content Include="richtexteditor\images\rar.gif" />
+    <Content Include="richtexteditor\images\redo.png" />
+    <Content Include="richtexteditor\images\refresh.gif" />
+    <Content Include="richtexteditor\images\removetag.png" />
+    <Content Include="richtexteditor\images\reset.png" />
+    <Content Include="richtexteditor\images\ribbonpaste.png" />
+    <Content Include="richtexteditor\images\ribbontable.png" />
+    <Content Include="richtexteditor\images\right.png" />
+    <Content Include="richtexteditor\images\row.png" />
+    <Content Include="richtexteditor\images\rtf.gif" />
+    <Content Include="richtexteditor\images\rule.png" />
+    <Content Include="richtexteditor\images\ruler-horizontal.png" />
+    <Content Include="richtexteditor\images\ruler-vertical.png" />
+    <Content Include="richtexteditor\images\rulercorner.png" />
+    <Content Include="richtexteditor\images\save.png" />
+    <Content Include="richtexteditor\images\selectall.png" />
+    <Content Include="richtexteditor\images\selectnone.png" />
+    <Content Include="richtexteditor\images\Separator.gif" />
+    <Content Include="richtexteditor\images\slider-handle-up.png" />
+    <Content Include="richtexteditor\images\sort.gif" />
+    <Content Include="richtexteditor\images\sort_asc_arrow.gif" />
+    <Content Include="richtexteditor\images\sort_desc_arrow.gif" />
+    <Content Include="richtexteditor\images\specialchar.png" />
+    <Content Include="richtexteditor\images\spell.png" />
+    <Content Include="richtexteditor\images\spltcell.png" />
+    <Content Include="richtexteditor\images\stop.png" />
+    <Content Include="richtexteditor\images\strike.png" />
+    <Content Include="richtexteditor\images\submit.png" />
+    <Content Include="richtexteditor\images\subscript.png" />
+    <Content Include="richtexteditor\images\superscript.png" />
+    <Content Include="richtexteditor\images\swf.gif" />
+    <Content Include="richtexteditor\images\sys.gif" />
+    <Content Include="richtexteditor\images\t1.gif" />
+    <Content Include="richtexteditor\images\t1.png" />
+    <Content Include="richtexteditor\images\t2.gif" />
+    <Content Include="richtexteditor\images\t2.png" />
+    <Content Include="richtexteditor\images\t3.gif" />
+    <Content Include="richtexteditor\images\t3.png" />
+    <Content Include="richtexteditor\images\tbdown.gif" />
+    <Content Include="richtexteditor\images\template.png" />
+    <Content Include="richtexteditor\images\textarea.png" />
+    <Content Include="richtexteditor\images\textbox.png" />
+    <Content Include="richtexteditor\images\timer.png" />
+    <Content Include="richtexteditor\images\toolbarbutton.over.gif" />
+    <Content Include="richtexteditor\images\topline.png" />
+    <Content Include="richtexteditor\images\txt.gif" />
+    <Content Include="richtexteditor\images\ucase.png" />
+    <Content Include="richtexteditor\images\ul-circle.png" />
+    <Content Include="richtexteditor\images\ul-disc.png" />
+    <Content Include="richtexteditor\images\ul-square.png" />
+    <Content Include="richtexteditor\images\under.png" />
+    <Content Include="richtexteditor\images\undo.png" />
+    <Content Include="richtexteditor\images\unformat.png" />
+    <Content Include="richtexteditor\images\unknown.gif" />
+    <Content Include="richtexteditor\images\unlink.png" />
+    <Content Include="richtexteditor\images\unlocked.gif" />
+    <Content Include="richtexteditor\images\upload.gif" />
+    <Content Include="richtexteditor\images\uploadimage.png" />
+    <Content Include="richtexteditor\images\vb.gif" />
+    <Content Include="richtexteditor\images\vbs.gif" />
+    <Content Include="richtexteditor\images\video.png" />
+    <Content Include="richtexteditor\images\vsdisco.gif" />
+    <Content Include="richtexteditor\images\watermark.png" />
+    <Content Include="richtexteditor\images\wav.gif" />
+    <Content Include="richtexteditor\images\wbr.png" />
+    <Content Include="richtexteditor\images\wmv.gif" />
+    <Content Include="richtexteditor\images\wri.gif" />
+    <Content Include="richtexteditor\images\xls.gif" />
+    <Content Include="richtexteditor\images\xlsx.gif" />
+    <Content Include="richtexteditor\images\xml.gif" />
+    <Content Include="richtexteditor\images\youtube.png" />
+    <Content Include="richtexteditor\images\zip.gif" />
+    <Content Include="richtexteditor\lang\lang-da.js" />
+    <Content Include="richtexteditor\lang\lang-de.js" />
+    <Content Include="richtexteditor\lang\lang-es.js" />
+    <Content Include="richtexteditor\lang\lang-fr.js" />
+    <Content Include="richtexteditor\lang\lang-he.js" />
+    <Content Include="richtexteditor\lang\lang-it.js" />
+    <Content Include="richtexteditor\lang\lang-ja.js" />
+    <Content Include="richtexteditor\lang\lang-ko.js" />
+    <Content Include="richtexteditor\lang\lang-nl.js" />
+    <Content Include="richtexteditor\lang\lang-no.js" />
+    <Content Include="richtexteditor\lang\lang-pt.js" />
+    <Content Include="richtexteditor\lang\lang-sv.js" />
+    <Content Include="richtexteditor\lang\lang-zh-cn.js" />
+    <Content Include="richtexteditor\lang\lang-zh-tw.js" />
+    <Content Include="richtexteditor\lang\lang-zh.js" />
+    <Content Include="richtexteditor\lang\lang.js" />
+    <Content Include="richtexteditor\lang\more-da.js" />
+    <Content Include="richtexteditor\lang\more-de.js" />
+    <Content Include="richtexteditor\lang\more-es.js" />
+    <Content Include="richtexteditor\lang\more-fr.js" />
+    <Content Include="richtexteditor\lang\more-he.js" />
+    <Content Include="richtexteditor\lang\more-it.js" />
+    <Content Include="richtexteditor\lang\more-ja.js" />
+    <Content Include="richtexteditor\lang\more-ko.js" />
+    <Content Include="richtexteditor\lang\more-nl.js" />
+    <Content Include="richtexteditor\lang\more-no.js" />
+    <Content Include="richtexteditor\lang\more-pt.js" />
+    <Content Include="richtexteditor\lang\more-sv.js" />
+    <Content Include="richtexteditor\lang\more-zh-cn.js" />
+    <Content Include="richtexteditor\lang\more-zh-tw.js" />
+    <Content Include="richtexteditor\lang\more-zh.js" />
+    <Content Include="richtexteditor\lang\more.js" />
+    <Content Include="richtexteditor\player\flashplayer.swf" />
+    <Content Include="richtexteditor\player\googleplayer.swf" />
+    <Content Include="richtexteditor\player\play.png" />
+    <Content Include="richtexteditor\player\player.htm" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\12close.png" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\12closered.png" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\arrow-l.png" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\arrow-r.png" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\close.png" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\corner.png" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\dot_ring.6.png" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\reset.gif" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\resizecorner.gif" />
+    <Content Include="richtexteditor\plugins\controldesigner\images\url_icon.gif" />
+    <Content Include="richtexteditor\plugins\controldesigner\plugin.xml" />
+    <Content Include="richtexteditor\plugins\elementtoolbar\images\url_icon.gif" />
+    <Content Include="richtexteditor\plugins\elementtoolbar\plugin.xml" />
+    <Content Include="richtexteditor\plugins\googlemap\googlemap.htm" />
+    <Content Include="richtexteditor\plugins\googlemap\googlemap.xml" />
+    <Content Include="richtexteditor\plugins\googlemap\plugin.xml" />
+    <Content Include="richtexteditor\plugins\insertchars\plugin.xml" />
+    <Content Include="richtexteditor\plugins\insertyoutube\plugin.xml" />
+    <Content Include="richtexteditor\plugins\insertyoutube\youtube.xml" />
+    <Content Include="richtexteditor\plugins\mobilehelper\plugin.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\common.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\debug.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\fontname.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\fontsize.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\format.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\12close.png" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\12closered.png" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\arrow-l.png" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\arrow-r.png" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\close.png" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\corner.png" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\dot_ring.6.png" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\reset.gif" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\resizecorner.gif" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\images\url_icon.gif" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\insert.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\insertform.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\insertlist.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\insertwhere.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\maincontrol.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\mainpoint.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\mainrange.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\paragraph.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\plugin.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\select.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\tagitem.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\taglist.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\typetext.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\uploadimage.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\_dialog.xml" />
+    <Content Include="richtexteditor\plugins\mobilesidebar\__sample.xml" />
+    <Content Include="richtexteditor\plugins\pageproperties\pageprops.xml" />
+    <Content Include="richtexteditor\plugins\pageproperties\plugin.xml" />
+    <Content Include="richtexteditor\plugins\resizecorner\plugin.xml" />
+    <Content Include="richtexteditor\plugins\resizecorner\resizecorner.gif" />
+    <Content Include="richtexteditor\plugins\spellcheck\plugin.xml" />
+    <Content Include="richtexteditor\plugins\statistics\plugin.xml" />
+    <Content Include="richtexteditor\plugins\syntaxhighlighter\plugin.xml" />
+    <Content Include="richtexteditor\plugins\syntaxhighlighter\syntaxhighlighter.css" />
+    <Content Include="richtexteditor\plugins\taglist\plugin.xml" />
+    <Content Include="richtexteditor\plugins\toolbar_code\plugin.xml" />
+    <Content Include="richtexteditor\plugins\toolbar_view\plugin.xml" />
+    <Content Include="richtexteditor\plugins\virtualkeyboard\plugin.xml" />
+    <Content Include="richtexteditor\plugins\zoomview\plugin.xml" />
+    <Content Include="richtexteditor\plugins\zoomview\zoomlist.xml" />
+    <Content Include="richtexteditor\rtepaint4\dialog.htm" />
+    <Content Include="richtexteditor\rtepaint4\DrawImage.html4.aspx" />
+    <Content Include="richtexteditor\rtepaint4\ImageEditorLib.js" />
+    <Content Include="richtexteditor\rtepaint4\images\back\group.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\back\list.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\back\menubar.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\back\toolbar.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\colorpicker.cur" />
+    <Content Include="richtexteditor\rtepaint4\images\colorpicker.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\composite_destinationin.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\composite_destinationout.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\composite_sourceover.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\composite_xor.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\copy.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\crop.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\cut.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\delete.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\elli.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\erase.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\exchange.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\eye-visible.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\fliph.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\flipv.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\grad.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\grad_radial.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\image.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\layerstyle.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\line.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\new.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\paste.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\pattern\patt_1.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\pattern\patt_2.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\pen.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\point.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\rect.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\redo.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\resize.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\rotate.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\rotateleft90.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\rotateright90.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\save.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\scrollbar.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\select.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\selectback.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\submenu.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\text.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\toolmerge.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\toolmoveup.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\transback.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\undo.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\zoom.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\zoomin.gif" />
+    <Content Include="richtexteditor\rtepaint4\images\zoomout.gif" />
+    <Content Include="richtexteditor\rtepaint4\Language.aspx" />
+    <Content Include="richtexteditor\rtepaint4\language\en.js" />
+    <Content Include="richtexteditor\rtepaint4\language\en_us.js" />
+    <Content Include="richtexteditor\rtepaint4\language\zh_cn.js" />
+    <Content Include="richtexteditor\rtepaint4\menuimpl.js" />
+    <Content Include="richtexteditor\rtepaint4\refreshimage.aspx" />
+    <Content Include="richtexteditor\rtepaint4\SaveImage.html4.aspx" />
+    <Content Include="richtexteditor\rtepaint4\Style.css" />
+    <Content Include="richtexteditor\rtepaint5\addon\adjust.xml" />
+    <Content Include="richtexteditor\rtepaint5\addon\border.xml" />
+    <Content Include="richtexteditor\rtepaint5\addon\contextmenu.xml" />
+    <Content Include="richtexteditor\rtepaint5\addon\create.xml" />
+    <Content Include="richtexteditor\rtepaint5\addon\effect.xml" />
+    <Content Include="richtexteditor\rtepaint5\addon\layerproperty.xml" />
+    <Content Include="richtexteditor\rtepaint5\addon\submenu.xml" />
+    <Content Include="richtexteditor\rtepaint5\addon\watermark.xml" />
+    <Content Include="richtexteditor\rtepaint5\common.xml" />
+    <Content Include="richtexteditor\rtepaint5\dialog.htm" />
+    <Content Include="richtexteditor\rtepaint5\dropdown\bool.xml" />
+    <Content Include="richtexteditor\rtepaint5\dropdown\font.xml" />
+    <Content Include="richtexteditor\rtepaint5\dropdown\fontfamily.xml" />
+    <Content Include="richtexteditor\rtepaint5\dropdown\fontsize.xml" />
+    <Content Include="richtexteditor\rtepaint5\effect.js" />
+    <Content Include="richtexteditor\rtepaint5\html5.js" />
+    <Content Include="richtexteditor\rtepaint5\html5ui.xml" />
+    <Content Include="richtexteditor\rtepaint5\images\accept.png" />
+    <Content Include="richtexteditor\rtepaint5\images\arc.png" />
+    <Content Include="richtexteditor\rtepaint5\images\arrow.png" />
+    <Content Include="richtexteditor\rtepaint5\images\back\group.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\back\list.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\back\menubar.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\back\toolbar.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\close.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\colorpicker.cur" />
+    <Content Include="richtexteditor\rtepaint5\images\colorpicker.png" />
+    <Content Include="richtexteditor\rtepaint5\images\composite_destinationin.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\composite_destinationout.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\composite_sourceover.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\composite_xor.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\crop.png" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\blur.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\bright.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\fog.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\grayscale.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\hsl.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\invert.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\mosaic.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\neon.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\pencil.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\relief.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_aqua.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_coldblue.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_coldgreen.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_concorde.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_elegant.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_fresh.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_indiglow.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_old.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_singe.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_softfocus.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sample_vivid.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sunshine.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\sunshine.png" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\twovalue.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\effect\unsharp.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\erase.png" />
+    <Content Include="richtexteditor\rtepaint5\images\exchange.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\eye-visible.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\fill.cur" />
+    <Content Include="richtexteditor\rtepaint5\images\fill.png" />
+    <Content Include="richtexteditor\rtepaint5\images\fliph.png" />
+    <Content Include="richtexteditor\rtepaint5\images\flipv.png" />
+    <Content Include="richtexteditor\rtepaint5\images\font.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\font\anandaneptouch.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\font\worldwideweb.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\frame.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_1.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_10.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_2.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_20.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_3.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_30.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_4.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\brooch_40.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\fallleaf.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\fallleaf_1.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\fallleaf_2.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\fallleaf_3.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\fallleaf_4.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\greenflower.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\leaf.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_1.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_10.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_2.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_20.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_3.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_30.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_4.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\redline_40.png" />
+    <Content Include="richtexteditor\rtepaint5\images\frame\rope.png" />
+    <Content Include="richtexteditor\rtepaint5\images\freesize.png" />
+    <Content Include="richtexteditor\rtepaint5\images\free_b.png" />
+    <Content Include="richtexteditor\rtepaint5\images\free_l.png" />
+    <Content Include="richtexteditor\rtepaint5\images\free_r.png" />
+    <Content Include="richtexteditor\rtepaint5\images\free_t.png" />
+    <Content Include="richtexteditor\rtepaint5\images\grad.png" />
+    <Content Include="richtexteditor\rtepaint5\images\grad_radial.png" />
+    <Content Include="richtexteditor\rtepaint5\images\layerstyle.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\line.png" />
+    <Content Include="richtexteditor\rtepaint5\images\loading.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\menuleft.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\adjust.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\copy.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\cut.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\effect.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\new.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\paste.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\redo.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\save.png" />
+    <Content Include="richtexteditor\rtepaint5\images\menu\undo.png" />
+    <Content Include="richtexteditor\rtepaint5\images\pattern\patt_1.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\pattern\patt_2.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\pen.png" />
+    <Content Include="richtexteditor\rtepaint5\images\polygon.png" />
+    <Content Include="richtexteditor\rtepaint5\images\rect.png" />
+    <Content Include="richtexteditor\rtepaint5\images\redeye.png" />
+    <Content Include="richtexteditor\rtepaint5\images\resize.png" />
+    <Content Include="richtexteditor\rtepaint5\images\rotate.png" />
+    <Content Include="richtexteditor\rtepaint5\images\rotateleft90.png" />
+    <Content Include="richtexteditor\rtepaint5\images\rotateright90.png" />
+    <Content Include="richtexteditor\rtepaint5\images\scrollbar.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\select.png" />
+    <Content Include="richtexteditor\rtepaint5\images\stamp.png" />
+    <Content Include="richtexteditor\rtepaint5\images\star.png" />
+    <Content Include="richtexteditor\rtepaint5\images\submenu.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\tbdown.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\text.png" />
+    <Content Include="richtexteditor\rtepaint5\images\toolmerge.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\toolmoveup.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\toolnewlayer.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\toolopenfile.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\toolrecycle.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\transback.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\watermark\sample1.jpg" />
+    <Content Include="richtexteditor\rtepaint5\images\watermark\sample2.jpg" />
+    <Content Include="richtexteditor\rtepaint5\images\watermark\sample3.jpg" />
+    <Content Include="richtexteditor\rtepaint5\images\watermark\sample4.gif" />
+    <Content Include="richtexteditor\rtepaint5\images\watermark\sample5.jpg" />
+    <Content Include="richtexteditor\rtepaint5\images\zoom.png" />
+    <Content Include="richtexteditor\rtepaint5\images\zoomin.png" />
+    <Content Include="richtexteditor\rtepaint5\images\zoomout.png" />
+    <Content Include="richtexteditor\rtepaint5\Language.aspx" />
+    <Content Include="richtexteditor\rtepaint5\language\en.js" />
+    <Content Include="richtexteditor\rtepaint5\language\en_us.js" />
+    <Content Include="richtexteditor\rtepaint5\language\zh_cn.js" />
+    <Content Include="richtexteditor\rtepaint5\refreshimage.aspx" />
+    <Content Include="richtexteditor\rtepaint5\refreshimage.htm" />
+    <Content Include="richtexteditor\rtepaint5\tools.js" />
+    <Content Include="richtexteditor\rtepaint5\uielement.xml" />
+    <Content Include="richtexteditor\scripts\blank.htm" />
+    <Content Include="richtexteditor\scripts\blankhtml4.htm" />
+    <Content Include="richtexteditor\scripts\blankhtml5.htm" />
+    <Content Include="richtexteditor\scripts\blankxhtml.htm" />
+    <Content Include="richtexteditor\scripts\common.xml" />
+    <Content Include="richtexteditor\scripts\config.js" />
+    <Content Include="richtexteditor\scripts\editor.js" />
+    <Content Include="richtexteditor\scripts\ihtml5.js" />
+    <Content Include="richtexteditor\scripts\loader.js" />
+    <Content Include="richtexteditor\scripts\rtefc.swf" />
+    <Content Include="richtexteditor\scripts\tabview.js" />
+    <Content Include="richtexteditor\server\colorpicker.htm" />
+    <Content Include="richtexteditor\server\colorpicker.xml" />
+    <Content Include="richtexteditor\server\colorpicker_basic.htm" />
+    <Content Include="richtexteditor\server\colorpicker_more.htm" />
+    <Content Include="richtexteditor\server\colorpicker_more_ie.htm" />
+    <Content Include="richtexteditor\server\colorpicker_more_ns.htm" />
+    <Content Include="richtexteditor\server\images\1x1.gif" />
+    <Content Include="richtexteditor\server\images\cpie_Color.cur" />
+    <Content Include="richtexteditor\server\images\cpie_GradientPositionDark.gif" />
+    <Content Include="richtexteditor\server\images\cpie_GradientPositionLight.gif" />
+    <Content Include="richtexteditor\server\images\cpie_gradients.png" />
+    <Content Include="richtexteditor\server\images\cpie_VerticalPosition.gif" />
+    <Content Include="richtexteditor\server\images\cpie_WebSafe.gif" />
+    <Content Include="richtexteditor\server\images\cpns_Color.cur" />
+    <Content Include="richtexteditor\server\images\cpns_ColorSpace1.png" />
+    <Content Include="richtexteditor\server\images\cpns_ColorSpace2.png" />
+    <Content Include="richtexteditor\server\images\cpns_GradientPositionDark.gif" />
+    <Content Include="richtexteditor\server\images\cpns_GradientPositionLight.gif" />
+    <Content Include="richtexteditor\server\images\cpns_gradients.png" />
+    <Content Include="richtexteditor\server\images\cpns_hue2.png" />
+    <Content Include="richtexteditor\server\images\cpns_Vertical1.png" />
+    <Content Include="richtexteditor\server\images\cpns_Vertical2.png" />
+    <Content Include="richtexteditor\server\images\cpns_VerticalPosition.gif" />
+    <Content Include="richtexteditor\server\images\cpns_WebSafe.gif" />
+    <Content Include="richtexteditor\server\images\formbn.gif" />
+    <Content Include="richtexteditor\server\images\multiclavier.gif" />
+    <Content Include="richtexteditor\server\insertchars.htm" />
+    <Content Include="richtexteditor\server\insertchars.xml" />
+    <Content Include="richtexteditor\server\resx\ColorPicker_IE.css" />
+    <Content Include="richtexteditor\server\resx\ColorPicker_NS.css" />
+    <Content Include="richtexteditor\server\resx\dialog.css" />
+    <Content Include="richtexteditor\server\resx\Dialog_ColorPicker.js" />
+    <Content Include="richtexteditor\server\resx\Dialog_ColorPicker_IE.js" />
+    <Content Include="richtexteditor\server\resx\Dialog_ColorPicker_NS.js" />
+    <Content Include="richtexteditor\server\resx\insertchars.js" />
+    <Content Include="richtexteditor\server\resx\keyboard-data.js" />
+    <Content Include="richtexteditor\server\resx\keyboard-diacritic.js" />
+    <Content Include="richtexteditor\server\resx\keyboard-dialogue.js" />
+    <Content Include="richtexteditor\server\resx\keyboard-multihexa.js" />
+    <Content Include="richtexteditor\server\resx\shBrushCpp.js" />
+    <Content Include="richtexteditor\server\resx\shBrushCSharp.js" />
+    <Content Include="richtexteditor\server\resx\shBrushCss.js" />
+    <Content Include="richtexteditor\server\resx\shBrushDelphi.js" />
+    <Content Include="richtexteditor\server\resx\shBrushJava.js" />
+    <Content Include="richtexteditor\server\resx\shBrushJScript.js" />
+    <Content Include="richtexteditor\server\resx\shBrushPhp.js" />
+    <Content Include="richtexteditor\server\resx\shBrushPython.js" />
+    <Content Include="richtexteditor\server\resx\shBrushRuby.js" />
+    <Content Include="richtexteditor\server\resx\shBrushSql.js" />
+    <Content Include="richtexteditor\server\resx\shBrushVb.js" />
+    <Content Include="richtexteditor\server\resx\shBrushXml.js" />
+    <Content Include="richtexteditor\server\resx\shCore.js" />
+    <Content Include="richtexteditor\server\resx\sh_Core.js" />
+    <Content Include="richtexteditor\server\resx\spell.css" />
+    <Content Include="richtexteditor\server\resx\spell.js" />
+    <Content Include="richtexteditor\server\resx\virtualkeyboard.js" />
+    <Content Include="richtexteditor\server\SpellCheck.aspx" />
+    <Content Include="richtexteditor\server\spellcheck.xml" />
+    <Content Include="richtexteditor\server\syntaxhighlighter.htm" />
+    <Content Include="richtexteditor\server\syntaxhighlighter.xml" />
+    <Content Include="richtexteditor\server\virtualkeyboard.htm" />
+    <Content Include="richtexteditor\server\virtualkeyboard.xml" />
+    <Content Include="richtexteditor\skins\office2003\skin.css" />
+    <Content Include="richtexteditor\skins\office2003\skin.xml" />
+    <Content Include="richtexteditor\skins\office2003\toolbar_custom.xml" />
+    <Content Include="richtexteditor\skins\office2003\toolbar_template.xml" />
+    <Content Include="richtexteditor\skins\office2007\skin.css" />
+    <Content Include="richtexteditor\skins\office2007\skin.xml" />
+    <Content Include="richtexteditor\skins\office2007\toolbar_custom.xml" />
+    <Content Include="richtexteditor\skins\office2007\toolbar_template.xml" />
+    <Content Include="richtexteditor\skins\office2010\skin.css" />
+    <Content Include="richtexteditor\skins\office2010\skin.xml" />
+    <Content Include="richtexteditor\skins\office2010\toolbar_custom.xml" />
+    <Content Include="richtexteditor\skins\office2010\toolbar_template.xml" />
+    <Content Include="richtexteditor\skins\officexp\skin.css" />
+    <Content Include="richtexteditor\skins\officexp\skin.xml" />
+    <Content Include="richtexteditor\skins\officexp\toolbar_custom.xml" />
+    <Content Include="richtexteditor\skins\officexp\toolbar_template.xml" />
+    <Content Include="richtexteditor\skins\phone\skin.css" />
+    <Content Include="richtexteditor\skins\phone\skin.xml" />
+    <Content Include="richtexteditor\skins\phone\toolbar_phone.xml" />
+    <Content Include="richtexteditor\skins\phone\_layout.xml" />
+    <Content Include="richtexteditor\skins\smart\skin.css" />
+    <Content Include="richtexteditor\skins\smart\skin.xml" />
+    <Content Include="richtexteditor\skins\smart\toolbar_custom.xml" />
+    <Content Include="richtexteditor\skins\smart\toolbar_template.xml" />
+    <Content Include="richtexteditor\skins\_shared\_layout.xml" />
+    <Content Include="richtexteditor\skins\_shared\_toolbartemplate.xml" />
+    <Content Include="richtexteditor\styles\images\formbn.gif" />
+    <Content Include="richtexteditor\styles\images\horizontal.start.gif" />
+    <Content Include="richtexteditor\styles\images\menuleft.gif" />
+    <Content Include="richtexteditor\styles\images\pagebreak.gif" />
+    <Content Include="richtexteditor\styles\images\rbimage_clicked.png" />
+    <Content Include="richtexteditor\styles\images\rbimage_hovered.png" />
+    <Content Include="richtexteditor\styles\images\rbimage_silver2003_clicked.png" />
+    <Content Include="richtexteditor\styles\images\rbimage_silver2003_hovered.png" />
+    <Content Include="richtexteditor\styles\images\rblabel_blue.png" />
+    <Content Include="richtexteditor\styles\images\rbribbon_black.png" />
+    <Content Include="richtexteditor\styles\images\rbribbon_blue.png" />
+    <Content Include="richtexteditor\styles\images\rbribbon_silver.png" />
+    <Content Include="richtexteditor\styles\images\rbribbon_silver2.png" />
+    <Content Include="richtexteditor\styles\images\rbribbon_silver2003.png" />
+    <Content Include="richtexteditor\styles\images\rbribbon_silver2010.png" />
+    <Content Include="richtexteditor\styles\images\separator.gif" />
+    <Content Include="richtexteditor\styles\images\tbcontrol_checked.png" />
+    <Content Include="richtexteditor\styles\images\tbcontrol_clicked.png" />
+    <Content Include="richtexteditor\styles\images\tbcontrol_hovered.png" />
+    <Content Include="richtexteditor\styles\images\tbcontrol_silver2_checked.png" />
+    <Content Include="richtexteditor\styles\images\tbcontrol_silver2_clicked.png" />
+    <Content Include="richtexteditor\styles\images\tbcontrol_silver2_hovered.png" />
+    <Content Include="richtexteditor\styles\images\tbgroup_blue.png" />
+    <Content Include="richtexteditor\styles\images\tbgroup_blue2010.png" />
+    <Content Include="richtexteditor\styles\images\tbgroup_darkblue.png" />
+    <Content Include="richtexteditor\styles\images\tbgroup_silver.png" />
+    <Content Include="richtexteditor\styles\images\tbgroup_silver2.png" />
+    <Content Include="richtexteditor\styles\images\tbgroup_silver20032.png" />
+    <Content Include="richtexteditor\styles\images\tbgroup_silver2007.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_black.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_blue.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_lightblue.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_lightsilver.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_silver2.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_silver2003.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_silver2007.png" />
+    <Content Include="richtexteditor\styles\images\tbribbon_silver2010.png" />
+    <Content Include="richtexteditor\styles\images\tbtoolbar_blue.png" />
+    <Content Include="richtexteditor\styles\images\tbtoolbar_silver.png" />
+    <Content Include="richtexteditor\styles\images\tbtoolbar_silver2.png" />
+    <Content Include="richtexteditor\styles\images\tbtoolbar_silver20032.png" />
+    <Content Include="richtexteditor\styles\richtexteditor.css" />
+    <Content Include="richtexteditor\styles\tabcode.css" />
+    <Content Include="richtexteditor\styles\tabedit.css" />
+    <Content Include="richtexteditor\styles\tabview.css" />
+    <Content Include="Scripts\AjaxUtil.js" />
+    <Content Include="Scripts\alertify\alertify.min.js" />
+    <Content Include="Scripts\backfix.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrapValidator.js" />
+    <Content Include="Scripts\bootstrap\js\bootbox.min.js" />
+    <Content Include="Scripts\bootstrap\js\bootsrap-ajaxutil.js" />
+    <Content Include="Scripts\bootstrap\js\bootsrap-typeahead.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap-filestyle.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap-jqBootstrapValidation.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap-sortable.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\js\jquery-1.9.1.js" />
+    <Content Include="Scripts\bootstrap\js\jquery.js" />
+    <Content Include="Scripts\bootstrap\js\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Scripts\bootstrap\js\respond.min.js" />
+    <Content Include="Scripts\braintree\braintree-2.21.0.min.js" />
+    <Content Include="Scripts\braintree\client.min.js" />
+    <Content Include="Scripts\braintree\custom_brainTree.js" />
+    <Content Include="Scripts\braintree\hosted-fields.min.js" />
+    <Content Include="Scripts\calendar\bootstrap-modal.js" />
+    <Content Include="Scripts\calendar\bootstrap.css" />
+    <Content Include="Scripts\calendar\bootstrap.js" />
+    <Content Include="Scripts\crousel\crousel.js" />
+    <Content Include="Scripts\crousel\jquery.min.js" />
+    <Content Include="Scripts\calendar\fullcalendar.js" />
+    <Content Include="Scripts\hash.js" />
+    <Content Include="Scripts\InputMaskViewModel.js" />
+    <Content Include="Scripts\jqBootstrapValidation.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Scripts\jquery-ui-1.11.2.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\jssor.js" />
+    <Content Include="Scripts\jssor.player.ytiframe.js" />
+    <Content Include="Scripts\jssor.player.ytiframe.min.js" />
+    <Content Include="Scripts\jssor.slider.js" />
+    <Content Include="Scripts\jssor.slider.min.js" />
+    <Content Include="Scripts\jssor.slider.mini.js" />
+    <Content Include="Scripts\knockout-3.2.0.debug.js" />
+    <Content Include="Scripts\knockout-3.2.0.js" />
+    <Content Include="Scripts\knockout\bootstrap-jqBootstrapValidation.js" />
+    <Content Include="Scripts\knockout\custom\knockout.custom-binding-handlers.js" />
+    <Content Include="Scripts\knockout\custom\knockout.custom-extenders.js" />
+    <Content Include="Scripts\knockout\jquery.js" />
+    <Content Include="Scripts\knockout\jquery.min.js" />
+    <Content Include="Scripts\knockout\knockout-3.0.0.js" />
+    <Content Include="Scripts\knockout\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout\knockout.mapping.js" />
+    <Content Include="Scripts\knockout\ko.pager.js" />
+    <Content Include="Scripts\knockout\ko.InProcessEducationPager.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Calendar\CalendarViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\CollegeEducation\CollegeEducationGridViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\EducationShopping\AddEducationShoppingViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\EnterprisePackageRegister\EnterprisePackageRegisterDetailViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Exam\EvaluationViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Exam\FinalExamResultViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Exam\FinalExamViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Exam\PreTestViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Home\EducationNewsSearchViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Home\HomeViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Home\OrganizationContactUsViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\MyEducation\MyEducationAccountHistoryViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\MyEducation\MyEducationModuleMediaViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\MyEducation\MyEducationModuleViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\MyEducation\MyEducationViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\News\NewsDetailViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\News\NewsFullDetailViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Product\ProductGridViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Resourses\FAQDetailViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Resourses\PrivacyPolicyLegalViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\Shared\News\NewsSectionViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\ShippingPayment\ShippingPaymentDetailViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\SuggestCourse\SuggestCourseDetailViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\UserSubscription\UserSubscriptionDetailViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\User\ChangePasswordViewModel.js" />
+    <Content Include="Scripts\knockout\viewmodel\views\User\RegisterViewModel.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Timer\Timer.js" />
+    <Content Include="Scripts\TreeView\jstree.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\knockout\ko.ProductPurchasePager.js" />
+    <None Include="Service References\NEPService.AboutUsService\AboutUsService.disco" />
+    <None Include="Service References\NEPService.AboutUsService\AboutUsService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.AboutUsService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.AboutUsService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.AboutUsService\HCRGUniversityApp.NEPService.AboutUsService.AboutUs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.AboutUsService\HCRGUniversityApp.NEPService.AboutUsService.PagedAboutUs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.AboutUsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.CertificationTitleOptionService\CertificationTitleOptionService.disco" />
+    <None Include="Service References\NEPService.CertificationTitleOptionService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.CertificationTitleOptionService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.CertificationTitleOptionService\HCRGUniversityApp.NEPService.CertificationTitleOptionService.CertificationTitleOption.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CertificationTitleOptionService\HCRGUniversityApp.NEPService.CertificationTitleOptionService.CourseNameDropDownList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CertificationTitleOptionService\HCRGUniversityApp.NEPService.CertificationTitleOptionService.PagedCertificationTitleOption.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.CertificationTitleOptionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.ClientService\ClientService.wsdl" />
+    <None Include="Service References\NEPService.ClientService\ClientService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ClientService\ClientService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ClientService\ClientService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ClientService\ClientService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ClientService\ClientService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\NEPService.ClientService\HCRGUniversityApp.NEPService.ClientService.Client.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ClientService\HCRGUniversityApp.NEPService.ClientService.Organization.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ClientService\HCRGUniversityApp.NEPService.ClientService.PagedClient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ClientService\HCRGUniversityApp.NEPService.ClientService.OrganizationContact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ClientService\HCRGUniversityApp.NEPService.ClientService.Menu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.CollegeService\CollegeService.disco" />
+    <None Include="Service References\NEPService.CollegeService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.CollegeService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.ClientService\ClientService.disco" />
+    <None Include="Service References\NEPService.ClientService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.ClientService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.ClientService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.CollegeService\HCRGUniversityApp.NEPService.CollegeService.College.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CollegeService\HCRGUniversityApp.NEPService.CollegeService.Faculty.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CollegeService\HCRGUniversityApp.NEPService.CollegeService.PagedCollege.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CollegeService\HCRGUniversityApp.NEPService.CollegeService.PagedFaculty.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.CollegeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.CommonService\CommonService.disco" />
+    <None Include="Service References\NEPService.CommonService\CommonService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CommonService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.CommonService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.Enterprise.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.PagedEnterpriseDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.PagedSuggestCourse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.ShippingMethod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.State.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.SuggestCourse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.Industry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.Menu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.CommonService\HCRGUniversityApp.NEPService.CommonService.ClientType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.CommonService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.DiscountCouponService\DiscountCouponService.disco" />
+    <None Include="Service References\NEPService.DiscountCouponService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.DiscountCouponService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.DiscountCouponService\HCRGUniversityApp.NEPService.DiscountCouponService.DiscountCoupon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.DiscountCouponService\HCRGUniversityApp.NEPService.DiscountCouponService.DiscountCouponForCourses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.DiscountCouponService\HCRGUniversityApp.NEPService.DiscountCouponService.PagedDiscountCoupon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.DiscountCouponService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.EducationModuleService\EducationModuleService.disco" />
+    <None Include="Service References\NEPService.EducationModuleService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.EducationModuleService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.EducationModuleService\HCRGUniversityApp.NEPService.EducationModuleService.EducationModule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationModuleService\HCRGUniversityApp.NEPService.EducationModuleService.EducationModuleFile.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationModuleService\HCRGUniversityApp.NEPService.EducationModuleService.FileType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationModuleService\HCRGUniversityApp.NEPService.EducationModuleService.PagedEducationModule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.EducationModuleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.EducationService\EducationService.disco" />
+    <None Include="Service References\NEPService.EducationService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.EducationService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.Accreditor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.CollegeEducationSearch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.CourseExpirySendEmail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.Education.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.EducationCredential.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.EducationDetailPageWithEducation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.EducationFormat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.EducationFormatDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.EducationProfessionDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.EducationTypesAvailable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.PagedAccreditor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.PagedEducation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.PagedEducationFormat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.PagedEducationNewsSearch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.PagedEducationProfession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.PagedProfession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.EducationService\HCRGUniversityApp.NEPService.EducationService.Profession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.EducationService\EducationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.ExamInternalService\ExamInternalService.disco" />
+    <None Include="Service References\NEPService.ExamInternalService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.ExamInternalService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.ExamInternalService\HCRGUniversityApp.NEPService.ExamInternalService.EvaluationAnswer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamInternalService\HCRGUniversityApp.NEPService.ExamInternalService.EvaluationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamInternalService\HCRGUniversityApp.NEPService.ExamInternalService.ExamResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.ExamInternalService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NEPService.ExamQuestionService\ExamQuestionService.disco" />
+    <None Include="Service References\NEPService.ExamQuestionService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.ExamQuestionService\configuration.svcinfo" />
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.EducationEvaluation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.EducationExamQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.EducationPreTestQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.Evaluation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.EvaluationQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.EvaluationQuestionDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.Exam.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.ExamQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.ExamQuestionDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PagedEvaluation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PagedEvaluationQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PagedExam.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PagedExamQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PagedPreTest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PagedPreTestQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PreTest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PreTestQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ExamQuestionService\HCRGUniversityApp.NEPService.ExamQuestionService.PreTestQuestionDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.ExamQuestionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.LogSessionService\HCRGUniversityApp.NEPService.LogSessionService.LogSession.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.LogSessionService\HCRGUniversityApp.NEPService.LogSessionService.PagedLogSessionDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.LogSessionService\LogSessionService.disco" />
+    <None Include="Service References\NEPService.LogSessionService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.LogSessionService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.LogSessionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.MyEducationService\HCRGUniversityApp.NEPService.MyEducationService.CertificateDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.MyEducationService\HCRGUniversityApp.NEPService.MyEducationService.MyEducationModuleDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.MyEducationService\HCRGUniversityApp.NEPService.MyEducationService.PagedMyEducation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.MyEducationService\HCRGUniversityApp.NEPService.MyEducationService.PagedMyEducationAccountHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.MyEducationService\MyEducationService.disco" />
+    <None Include="Service References\NEPService.MyEducationService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.MyEducationService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.MyEducationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.Accreditation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.Certification.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.DeliveryTerm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.Event.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.FAQ.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.FAQCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.HomeContent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.IndustryResearch.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.News.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.NewsFullDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.NewsLetter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.NewsPhoto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.NewsSearchCarousel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.NewsSection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.NewsVideo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.PagedEvents.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.PagedNews.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.PagedNewsDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.PrivacyPolicy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.Resource.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.ReturnPolicy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.TermsCondition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.TrainingAndSeminar.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.NewsService\HCRGUniversityApp.NEPService.NewsService.CarouselSetUp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.NewsService\NewsService.disco" />
+    <None Include="Service References\NEPService.NewsService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.NewsService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.NewsService\NewsService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.NewsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.PagedProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.PagedProductPurchase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.PagedProductPurchasesRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.PagedProductQuantity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.PagedProductShippingDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.ProductQuantity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.ProductShippingAddressDetailByID.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.ProductShippingDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ProductService\HCRGUniversityApp.NEPService.ProductService.ProductShopping.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.ProductService\ProductService.disco" />
+    <None Include="Service References\NEPService.ProductService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.ProductService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.ProductService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.ShippingPaymentService\HCRGUniversityApp.NEPService.ShippingPaymentService.BillingAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ShippingPaymentService\HCRGUniversityApp.NEPService.ShippingPaymentService.PagedBillingAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ShippingPaymentService\HCRGUniversityApp.NEPService.ShippingPaymentService.PagedShippingAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ShippingPaymentService\HCRGUniversityApp.NEPService.ShippingPaymentService.PagedShippingPayment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ShippingPaymentService\HCRGUniversityApp.NEPService.ShippingPaymentService.ShippingAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ShippingPaymentService\HCRGUniversityApp.NEPService.ShippingPaymentService.ShippingPayment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.ShippingPaymentService\ShippingPaymentService.disco" />
+    <None Include="Service References\NEPService.ShippingPaymentService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.ShippingPaymentService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.ShippingPaymentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.ShoppingEducationService\HCRGUniversityApp.NEPService.ShoppingEducationService.EducationShoppingCart.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ShoppingEducationService\HCRGUniversityApp.NEPService.ShoppingEducationService.EducationShoppingTemp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.ShoppingEducationService\HCRGUniversityApp.NEPService.ShoppingEducationService.ProductShoppingTemp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.ShoppingEducationService\ShoppingEducationService.disco" />
+    <None Include="Service References\NEPService.ShoppingEducationService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.ShoppingEducationService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.ShoppingEducationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.EnterprisePackageRegister.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.PagedEnterprisePackageRegister.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.PagedUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.PagedUserCardDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.UserAllAccessPass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.UserCardDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.UserSubscription.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.PagedUserMenuGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.UserMenuGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.UserMenuPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.ClientAndUserbySearchCriterias.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\NEPService.UserService\HCRGUniversityApp.NEPService.UserService.UserMenuGroupAndPermission.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NEPService.UserService\UserService.disco" />
+    <None Include="Service References\NEPService.UserService\configuration91.svcinfo" />
+    <None Include="Service References\NEPService.UserService\configuration.svcinfo" />
+    <None Include="Service References\NEPService.UserService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ViewerJS\compatibility.js" />
+    <Content Include="ViewerJS\example.local.css" />
+    <Content Include="ViewerJS\images\kogmbh.png" />
+    <Content Include="ViewerJS\images\nlnet.png" />
+    <Content Include="ViewerJS\images\texture.png" />
+    <Content Include="ViewerJS\images\toolbarButton-download.png" />
+    <Content Include="ViewerJS\images\toolbarButton-fullscreen.png" />
+    <Content Include="ViewerJS\images\toolbarButton-menuArrows.png" />
+    <Content Include="ViewerJS\images\toolbarButton-pageDown.png" />
+    <Content Include="ViewerJS\images\toolbarButton-pageUp.png" />
+    <Content Include="ViewerJS\images\toolbarButton-presentation.png" />
+    <Content Include="ViewerJS\images\toolbarButton-zoomIn.png" />
+    <Content Include="ViewerJS\images\toolbarButton-zoomOut.png" />
+    <Content Include="ViewerJS\index.html" />
+    <Content Include="ViewerJS\pdf.js" />
+    <Content Include="ViewerJS\pdf.worker.js" />
+    <Content Include="ViewerJS\pdfjsversion.js" />
+    <Content Include="ViewerJS\text_layer_builder.js" />
+    <Content Include="ViewerJS\ui_utils.js" />
+    <Content Include="ViewerJS\webodf.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\CertificationProgram\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Resource\Index.cshtml" />
+    <Content Include="Views\Links\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\NewsDetail.cshtml" />
+    <Content Include="Views\Shared\News\_NewsSectionPartial.cshtml" />
+    <Content Include="Views\EducationModule\Index.cshtml" />
+    <Content Include="Views\MyEducation\Index.cshtml" />
+    <Content Include="Views\MyEducation\MyEducationModule.cshtml" />
+    <Content Include="Views\MyEducation\MyEducationModuleMedia.cshtml" />
+    <Content Include="Views\Resource\FAQ.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\CollegeEducation\Index.cshtml" />
+    <Content Include="Views\User\UnderConstruction.cshtml" />
+    <Content Include="Views\Exam\PreTest.cshtml" />
+    <Content Include="Views\Exam\FinalExam.cshtml" />
+    <Content Include="Views\Exam\EvaluationExam.cshtml" />
+    <Content Include="Views\Exam\ExamResult.cshtml" />
+    <Content Include="Views\Shared\Carousel\_CarouselPartial.cshtml" />
+    <Content Include="Views\User\Unauthorise.cshtml" />
+    <Content Include="Views\Shared\Carousel\_CarouselImagesPartial.cshtml" />
+    <Content Include="Views\College\JoinFaculty.cshtml" />
+    <Content Include="Views\Shared\_Paging.cshtml" />
+    <Content Include="Views\Shared\EducationCredits\_EducationCredit.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Shared\_Loader.cshtml" />
+    <Content Include="Views\Home\IndustryResearch.cshtml" />
+    <Content Include="Views\Shared\ShopingCart\_shoppingCartItemCountPartial.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\MyEducation\MyEducationAccountHistory.cshtml" />
+    <Content Include="Views\Shared\_PagingInprocessEducation.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Resource\Accreditation.cshtml" />
+    <Content Include="Views\Resource\TrainingAndSeminar.cshtml" />
+    <Content Include="Views\Store\ProductDetail.cshtml" />
+    <Content Include="Views\Shared\_PagingProductPurchased.cshtml" />
+    <Content Include="Views\Shared\Store\_DeliveryTermConditionPartial.cshtml" />
+    <Content Include="Views\Shared\Store\_RetrunPolicyPartial.cshtml" />
+    <Content Include="Views\ShippingPayment\Index.cshtml" />
+    <Content Include="Views\UserSubscription\Index.cshtml" />
+    <Content Include="Views\EnterprisePackageRegister\Index.cshtml" />
+    <Content Include="Views\SuggestCourse\Index.cshtml" />
+    <Content Include="Views\Common\ErrorViewer.cshtml" />
+    <Content Include="Views\Resource\Certification.cshtml" />
+    <Content Include="Views\User\EmailVerified.cshtml" />
+    <None Include="Service References\NEPService.AboutUsService\AboutUsService.wsdl" />
+    <None Include="Service References\NEPService.AboutUsService\AboutUsService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.AboutUsService\AboutUsService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.AboutUsService\AboutUsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.AboutUsService\AboutUsService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CertificationTitleOptionService\CertificationTitleOptionService.wsdl" />
+    <None Include="Service References\NEPService.CertificationTitleOptionService\CertificationTitleOptionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CertificationTitleOptionService\CertificationTitleOptionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CertificationTitleOptionService\CertificationTitleOptionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CertificationTitleOptionService\CertificationTitleOptionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CollegeService\CollegeService.wsdl" />
+    <None Include="Service References\NEPService.CollegeService\CollegeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CollegeService\CollegeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CollegeService\CollegeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CollegeService\CollegeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CommonService\CommonService.wsdl" />
+    <None Include="Service References\NEPService.CommonService\CommonService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CommonService\CommonService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CommonService\CommonService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.CommonService\CommonService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.DiscountCouponService\DiscountCouponService.wsdl" />
+    <None Include="Service References\NEPService.DiscountCouponService\DiscountCouponService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.DiscountCouponService\DiscountCouponService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.DiscountCouponService\DiscountCouponService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.DiscountCouponService\DiscountCouponService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationModuleService\EducationModuleService.wsdl" />
+    <None Include="Service References\NEPService.EducationModuleService\EducationModuleService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationModuleService\EducationModuleService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationModuleService\EducationModuleService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationModuleService\EducationModuleService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationService\EducationService.wsdl" />
+    <None Include="Service References\NEPService.EducationService\EducationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationService\EducationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationService\EducationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.EducationService\EducationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ExamInternalService\ExamInternalService.wsdl" />
+    <None Include="Service References\NEPService.ExamInternalService\ExamInternalService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ExamInternalService\ExamInternalService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ExamInternalService\ExamInternalService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ExamQuestionService\ExamQuestionService.wsdl" />
+    <None Include="Service References\NEPService.ExamQuestionService\ExamQuestionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ExamQuestionService\ExamQuestionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ExamQuestionService\ExamQuestionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ExamQuestionService\ExamQuestionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.LogSessionService\LogSessionService.wsdl" />
+    <None Include="Service References\NEPService.LogSessionService\LogSessionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.LogSessionService\LogSessionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.LogSessionService\LogSessionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.LogSessionService\LogSessionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.MyEducationService\MyEducationService.wsdl" />
+    <None Include="Service References\NEPService.MyEducationService\MyEducationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.MyEducationService\MyEducationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.MyEducationService\MyEducationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.MyEducationService\MyEducationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.NewsService\NewsService.wsdl" />
+    <None Include="Service References\NEPService.NewsService\NewsService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.NewsService\NewsService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.NewsService\NewsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.NewsService\NewsService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ProductService\ProductService.wsdl" />
+    <None Include="Service References\NEPService.ProductService\ProductService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ProductService\ProductService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ProductService\ProductService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ProductService\ProductService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ShippingPaymentService\ShippingPaymentService.wsdl" />
+    <None Include="Service References\NEPService.ShippingPaymentService\ShippingPaymentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ShippingPaymentService\ShippingPaymentService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ShippingPaymentService\ShippingPaymentService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ShippingPaymentService\ShippingPaymentService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ShoppingEducationService\ShoppingEducationService.wsdl" />
+    <None Include="Service References\NEPService.ShoppingEducationService\ShoppingEducationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ShoppingEducationService\ShoppingEducationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.ShoppingEducationService\ShoppingEducationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.UserService\UserService.wsdl" />
+    <None Include="Service References\NEPService.UserService\UserService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.UserService\UserService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.UserService\UserService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.UserService\UserService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NEPService.UserService\UserService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\StudentPortal\Index.cshtml" />
+    <Content Include="Views\ShippingPayment\Pay.cshtml" />
+    <Content Include="Views\ShippingPayment\IPN.cshtml" />
+    <Content Include="Views\Common\ErrorPage.cshtml" />
+    <Content Include="Views\User\UnauthorisePage.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\themes\base\minified\images\" />
+    <Folder Include="Images\" />
+    <Folder Include="Models\" />
+    <Folder Include="richtexteditor\dialogs\skins\gray\" />
+    <Folder Include="Scripts\knockout\viewmodel\views\Pay\" />
+    <Folder Include="Storage\Org-100\66\Certificate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HCRGUniversityApp.Domain.Models\HCRGUniversityApp.Domain.Models.csproj">
+      <Project>{c49b317c-1e8d-4df2-941b-709cd4874988}</Project>
+      <Name>HCRGUniversityApp.Domain.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HCRGUniversityApp.Domain.ViewModels\HCRGUniversityApp.Domain.ViewModels.csproj">
+      <Project>{d25d98f9-d11e-498f-a7cf-4a05f59557fa}</Project>
+      <Name>HCRGUniversityApp.Domain.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HCRGUniversityApp.Infrastructure.ApplicationFilters\HCRGUniversityApp.Infrastructure.ApplicationFilters.csproj">
+      <Project>{47e69183-df86-4e47-a0c3-b001947884ac}</Project>
+      <Name>HCRGUniversityApp.Infrastructure.ApplicationFilters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HCRGUniversityApp.Infrastructure.ApplicationServices.Contracts\HCRGUniversityApp.Infrastructure.ApplicationServices.Contracts.csproj">
+      <Project>{acb686d3-f086-49de-afe0-19b185fe3cee}</Project>
+      <Name>HCRGUniversityApp.Infrastructure.ApplicationServices.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HCRGUniversityApp.Infrastructure.ApplicationServices\HCRGUniversityApp.Infrastructure.ApplicationServices.csproj">
+      <Project>{99f86c84-b55f-4b2b-8473-8655d2ccf817}</Project>
+      <Name>HCRGUniversityApp.Infrastructure.ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HCRGUniversityApp.Infrastructure.Base\HCRGUniversityApp.Infrastructure.Base.csproj">
+      <Project>{92d9c361-dcfc-4c8d-9c6f-24990970bf4c}</Project>
+      <Name>HCRGUniversityApp.Infrastructure.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HCRGUniversityApp.Infrastructure.DependencyResolution\HCRGUniversityApp.Infrastructure.DependencyResolution.csproj">
+      <Project>{4e7b7960-8a2f-4f15-ac7d-f511537d5b3d}</Project>
+      <Name>HCRGUniversityApp.Infrastructure.DependencyResolution</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HCRGUniversityApp.Infrastructure.Global\HCRGUniversityApp.Infrastructure.Global.csproj">
+      <Project>{3db72108-0e61-481f-aa0d-ec61d32f1ed8}</Project>
+      <Name>HCRGUniversityApp.Infrastructure.Global</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\NEPService.AboutUsService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.CertificationTitleOptionService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.ClientService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.CollegeService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.CommonService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.DiscountCouponService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.EducationModuleService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.EducationService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.ExamInternalService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.ExamQuestionService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.LogSessionService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.MyEducationService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.NewsService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.ProductService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.ShippingPaymentService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.ShoppingEducationService\" />
+    <WCFMetadataStorage Include="Service References\NEPService.UserService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2623</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25916/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

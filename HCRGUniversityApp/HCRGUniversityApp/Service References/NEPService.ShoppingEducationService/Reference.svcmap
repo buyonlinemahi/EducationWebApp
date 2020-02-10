@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="20699bc5-157c-4265-b97a-d760a68ec3c2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ShoppingEducationService.wsdl" MetadataType="Wsdl" ID="cbcb6faa-914e-45c5-9039-18d0cbf76ced" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?wsdl" />
+    <MetadataFile FileName="ShoppingEducationService.xsd" MetadataType="Schema" ID="d300e4e2-a911-4ee5-a97d-cbf813d9b504" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ShoppingEducationService1.xsd" MetadataType="Schema" ID="d5460a24-8baf-48aa-a597-fc03151a46dd" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ShoppingEducationService2.xsd" MetadataType="Schema" ID="22297949-9f63-4370-9a2b-55cea86d67df" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ShoppingEducationService.disco" MetadataType="Disco" ID="e698030c-17e9-4a29-92fe-f08e854c3602" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/ShoppingEducationService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

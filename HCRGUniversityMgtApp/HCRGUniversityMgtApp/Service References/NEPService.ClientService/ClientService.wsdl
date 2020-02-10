@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClientService_AddClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getAllOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getOrganizationByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getOrganizationByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_getOrganizationByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getOrganizationByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationMenuByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationMenuByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationMenuByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationMenuByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddOrganizationContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationContact" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddOrganizationContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateOrganizationContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationContact" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateOrganizationContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteOrganizationContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationContact" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_DeleteOrganizationContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationContactByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationContactByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationContactByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationContactByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationContactByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationContactByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationContactByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationContactByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetSingleOrgContactByOrgID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleOrgContactByOrgID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetSingleOrgContactByOrgID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleOrgContactByOrgIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationClientsByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationClientsByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetOrganizationClientsByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationClientsByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAllClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClients" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetAllClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByEmailID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByEmailID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByEmailID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByEmailIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVerifiedDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVerifiedDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientVerifiedDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientVerifiedDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByClientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByClientName" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByClientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByClientNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByEmailAndOrganizationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByEmailAndOrganizationId" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientByEmailAndOrganizationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientByEmailAndOrganizationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsByPlanID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsByPlanID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsByPlanID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsByPlanIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsByOrganizationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsByOrganizationID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsByOrganizationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsByOrganizationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsByName" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_GetClientsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ResetClientPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetClientPassword" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ResetClientPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetClientPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateClientSessionIDByClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientSessionIDByClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UpdateClientSessionIDByClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientSessionIDByClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ResetClientSessionID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetClientSessionID" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ResetClientSessionID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetClientSessionIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClientService">
+    <wsdl:operation name="AddClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/AddClient" message="tns:IClientService_AddClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AddClientResponse" message="tns:IClientService_AddClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateClient" message="tns:IClientService_UpdateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateClientResponse" message="tns:IClientService_UpdateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/DeleteClient" message="tns:IClientService_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/DeleteClientResponse" message="tns:IClientService_DeleteClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/AddOrganization" message="tns:IClientService_AddOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AddOrganizationResponse" message="tns:IClientService_AddOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateOrganization" message="tns:IClientService_UpdateOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateOrganizationResponse" message="tns:IClientService_UpdateOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/DeleteOrganization" message="tns:IClientService_DeleteOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/DeleteOrganizationResponse" message="tns:IClientService_DeleteOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getAllOrganization" message="tns:IClientService_getAllOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getAllOrganizationResponse" message="tns:IClientService_getAllOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrganizationByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/getOrganizationByOrganizationID" message="tns:IClientService_getOrganizationByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/getOrganizationByOrganizationIDResponse" message="tns:IClientService_getOrganizationByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetOrganizationByID" message="tns:IClientService_GetOrganizationByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetOrganizationByIDResponse" message="tns:IClientService_GetOrganizationByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationMenuByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetOrganizationMenuByOrganizationID" message="tns:IClientService_GetOrganizationMenuByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetOrganizationMenuByOrganizationIDResponse" message="tns:IClientService_GetOrganizationMenuByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/AddOrganizationContact" message="tns:IClientService_AddOrganizationContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AddOrganizationContactResponse" message="tns:IClientService_AddOrganizationContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganizationContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateOrganizationContact" message="tns:IClientService_UpdateOrganizationContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateOrganizationContactResponse" message="tns:IClientService_UpdateOrganizationContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/DeleteOrganizationContact" message="tns:IClientService_DeleteOrganizationContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/DeleteOrganizationContactResponse" message="tns:IClientService_DeleteOrganizationContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationContactByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetOrganizationContactByOrganizationID" message="tns:IClientService_GetOrganizationContactByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetOrganizationContactByOrganizationIDResponse" message="tns:IClientService_GetOrganizationContactByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationContactByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetOrganizationContactByID" message="tns:IClientService_GetOrganizationContactByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetOrganizationContactByIDResponse" message="tns:IClientService_GetOrganizationContactByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleOrgContactByOrgID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetSingleOrgContactByOrgID" message="tns:IClientService_GetSingleOrgContactByOrgID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetSingleOrgContactByOrgIDResponse" message="tns:IClientService_GetSingleOrgContactByOrgID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationClientsByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetOrganizationClientsByID" message="tns:IClientService_GetOrganizationClientsByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetOrganizationClientsByIDResponse" message="tns:IClientService_GetOrganizationClientsByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetAllClients" message="tns:IClientService_GetAllClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetAllClientsResponse" message="tns:IClientService_GetAllClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByEmailID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientByEmailID" message="tns:IClientService_GetClientByEmailID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientByEmailIDResponse" message="tns:IClientService_GetClientByEmailID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientByID" message="tns:IClientService_GetClientByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientByIDResponse" message="tns:IClientService_GetClientByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVerifiedDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientVerifiedDetails" message="tns:IClientService_GetClientVerifiedDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientVerifiedDetailsResponse" message="tns:IClientService_GetClientVerifiedDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByClientName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientByClientName" message="tns:IClientService_GetClientByClientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientByClientNameResponse" message="tns:IClientService_GetClientByClientName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByEmailAndOrganizationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientByEmailAndOrganizationId" message="tns:IClientService_GetClientByEmailAndOrganizationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientByEmailAndOrganizationIdResponse" message="tns:IClientService_GetClientByEmailAndOrganizationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsByPlanID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientsByPlanID" message="tns:IClientService_GetClientsByPlanID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientsByPlanIDResponse" message="tns:IClientService_GetClientsByPlanID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsByOrganizationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientsByOrganizationID" message="tns:IClientService_GetClientsByOrganizationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientsByOrganizationIDResponse" message="tns:IClientService_GetClientsByOrganizationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsOrganization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientsOrganization" message="tns:IClientService_GetClientsOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientsOrganizationResponse" message="tns:IClientService_GetClientsOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/GetClientsByName" message="tns:IClientService_GetClientsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/GetClientsByNameResponse" message="tns:IClientService_GetClientsByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetClientPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/ResetClientPassword" message="tns:IClientService_ResetClientPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/ResetClientPasswordResponse" message="tns:IClientService_ResetClientPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientSessionIDByClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UpdateClientSessionIDByClientID" message="tns:IClientService_UpdateClientSessionIDByClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UpdateClientSessionIDByClientIDResponse" message="tns:IClientService_UpdateClientSessionIDByClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetClientSessionID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/ResetClientSessionID" message="tns:IClientService_ResetClientSessionID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/ResetClientSessionIDResponse" message="tns:IClientService_ResetClientSessionID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClientService" type="tns:IClientService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddClient">
+      <soap:operation soapAction="http://tempuri.org/IClientService/AddClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap:operation soapAction="http://tempuri.org/IClientService/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <soap:operation soapAction="http://tempuri.org/IClientService/DeleteClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganization">
+      <soap:operation soapAction="http://tempuri.org/IClientService/AddOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <soap:operation soapAction="http://tempuri.org/IClientService/UpdateOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganization">
+      <soap:operation soapAction="http://tempuri.org/IClientService/DeleteOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllOrganization">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getAllOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrganizationByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/getOrganizationByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetOrganizationByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationMenuByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetOrganizationMenuByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganizationContact">
+      <soap:operation soapAction="http://tempuri.org/IClientService/AddOrganizationContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganizationContact">
+      <soap:operation soapAction="http://tempuri.org/IClientService/UpdateOrganizationContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganizationContact">
+      <soap:operation soapAction="http://tempuri.org/IClientService/DeleteOrganizationContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationContactByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetOrganizationContactByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationContactByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetOrganizationContactByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleOrgContactByOrgID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetSingleOrgContactByOrgID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationClientsByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetOrganizationClientsByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClients">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetAllClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByEmailID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientByEmailID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientVerifiedDetails">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientVerifiedDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByClientName">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientByClientName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientByEmailAndOrganizationId">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientByEmailAndOrganizationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsByPlanID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientsByPlanID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsByOrganizationID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientsByOrganizationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsOrganization">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientsOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsByName">
+      <soap:operation soapAction="http://tempuri.org/IClientService/GetClientsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetClientPassword">
+      <soap:operation soapAction="http://tempuri.org/IClientService/ResetClientPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientSessionIDByClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/UpdateClientSessionIDByClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetClientSessionID">
+      <soap:operation soapAction="http://tempuri.org/IClientService/ResetClientSessionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientService">
+    <wsdl:port name="BasicHttpBinding_IClientService" binding="tns:BasicHttpBinding_IClientService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/ClientService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

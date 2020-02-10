@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/PlanService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" />
+  <xs:complexType name="Plan">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Base" base="q1:BaseColumn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlanID" type="xs:int" />
+          <xs:element minOccurs="0" name="PlanName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Plan" nillable="true" type="tns:Plan" />
+  <xs:complexType name="ArrayOfPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Plan" nillable="true" type="tns:Plan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlan" nillable="true" type="tns:ArrayOfPlan" />
+  <xs:complexType name="ArrayOfPlanGrid">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanGrid" nillable="true" type="tns:PlanGrid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlanGrid" nillable="true" type="tns:ArrayOfPlanGrid" />
+  <xs:complexType name="PlanGrid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanID" type="xs:int" />
+      <xs:element minOccurs="0" name="PlanName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanGrid" nillable="true" type="tns:PlanGrid" />
+  <xs:complexType name="ArrayOfPlanPackages">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanPackages" nillable="true" type="tns:PlanPackages" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlanPackages" nillable="true" type="tns:ArrayOfPlanPackages" />
+  <xs:complexType name="PlanPackages">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoursePlanID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPlanApplied" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PlanID" type="xs:int" />
+      <xs:element minOccurs="0" name="PlanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPlanID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanPackages" nillable="true" type="tns:PlanPackages" />
+  <xs:complexType name="UserPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPlanApplied" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PlanAppliedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PlanID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserPlanID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserPlan" nillable="true" type="tns:UserPlan" />
+  <xs:complexType name="CoursePlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="CourseID" type="xs:int" />
+      <xs:element minOccurs="0" name="CoursePlanID" type="xs:int" />
+      <xs:element minOccurs="0" name="PlanID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CoursePlan" nillable="true" type="tns:CoursePlan" />
+</xs:schema>

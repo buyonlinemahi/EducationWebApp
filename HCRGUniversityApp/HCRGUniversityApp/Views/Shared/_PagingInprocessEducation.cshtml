@@ -1,0 +1,69 @@
+﻿ <!-- ko if:iPager().iTotalItemCount() > 0 -->
+<div class="pagination" data-bind="with: iPager">
+    <div class="pagexofx">
+        <span data-bind="text:iFirstItemIndex"></span>
+        -
+        <span data-bind="text: iLastItemIndex"></span>
+        of
+        <strong>
+            <span data-bind="text: iTotalItemCount"></span>
+        </strong>
+        total results.
+    </div>
+    <ul class="pagination">
+        <!-- ko if:iCurrentPage() === 1 -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&laquo;&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:iCurrentPage() === 1 -->
+        <li>
+            <a href="#" data-bind="click: function(){ iCurrentPage(1); }">&laquo;&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko if:iHasPrevPage -->
+        <li>
+            <a href="#" data-bind="click: function(){ iCurrentPage(iCurrentPage() - 1); }">&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:iHasPrevPage -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko foreach:iPages -->
+        <!-- ko if:$data === $parent.iCurrentPage() -->
+        <li class="active">
+            <span class="currentPage red-pagging" data-bind="text: $data"></span>
+        </li>
+        <!-- /ko -->
+        <!-- ko if:$data !== $parent.iCurrentPage() -->
+        <li>
+            <a href="#" data-bind="text: $data, click: function(){ $parent.iCurrentPage($data); }"></a>
+        </li>
+        <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if:iHasNextPage -->
+        <li>
+            <a href="#" data-bind="click: function(){ iCurrentPage(iCurrentPage() + 1); }">&raquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:iHasNextPage -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&raquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:iCurrentPage() === iLastPage() -->
+        <li>
+            <a href="#" data-bind="click: function(){ iCurrentPage(iLastPage()); }">&raquo;&raquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko if:iCurrentPage() === iLastPage() -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&raquo;&raquo;</a>
+        </li>
+        <!-- /ko -->
+    </ul>
+
+</div>
+<!-- /ko -->

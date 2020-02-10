@@ -1,0 +1,167 @@
+﻿@{
+    Layout = null;
+}
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@using System.Web.Script.Serialization;
+@model HCRGUniversityMgtApp.Domain.Models.UserModel.User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description">
+    <link href="~/Content/css/Login/bootstrap_landing.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/style_login.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/animate-custom.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/Loader.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        function validateLogin() {
+            var inputboxes = document.getElementsByTagName("input");
+            if (inputboxes[0].value == "" || inputboxes[1].value == "")
+                alertify.alert("Username or Password can not be null or empty");
+            else {
+                $.post("/Login/ValidateLoginClientSession", {
+                    UserName: document.getElementById("txtUsername").value
+                }, "json").done(function (response) {
+
+                    if (response != "na") {
+                        var res = alertify.confirm('This account is already logged in. Do you sure want to override login ?', function (e) {
+                            if (e)
+                            {
+                                $.post("/Login/CleardLoginSession", {
+                                    ClientID: response
+                                }, "json").done(function (response) {
+                                    document.forms[0].submit();
+                                });
+                            }
+                        });                        
+                    }
+                    else
+                        document.forms[0].submit();
+                });
+            }
+        }
+    </script>
+</head>
+
+<body style="background-image: url(../Content/imgs/Login/background_1.jpg); background-size: cover;">
+    <!-- BEGIN LOGIN BOX -->
+    <div id="divLoginUser" class="container">
+        <div>
+            @using (Html.BeginForm(GlobalConst.Actions.LoginController.Login, GlobalConst.Controllers.Login, FormMethod.Post, new
+        {
+            id = "frmLoginUser",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm:{ success: function(responseText, statusText,xhr ,$form){CheckLoginSuccess(responseText)}"
+        }))
+            {
+                @Html.AntiForgeryToken()
+                <div id="login-block">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+                            <div class="login-box clearfix animated flipInY">
+                                <div class="page-icon animated bounceInDown">
+                                    <img src="~/Content/imgs/Login/user-icon.png" alt="Key icon">
+                                </div>
+                                <div class="login-logo">
+                                    <a>
+                                        <img src="~/Content/imgs/Login/logo_l.png" alt="Company Logo">
+                                    </a>
+                                </div>
+                                <hr>
+                                <div class="login-form">
+                                    <!-- BEGIN ERROR BOX -->
+                                    <div class="alert alert-danger hide">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        <h4>Error!</h4>
+                                        Your Error Message goes here
+                                    </div>
+                                    <!-- END ERROR BOX -->
+                                    <input type="email" required="required" data-bind="jqBootstrapValidation: {}" class="form-control set-padding" name="EmailID" id="txtUsername" placeholder="Login Email">
+                                    <input type="password" required="required" data-bind="jqBootstrapValidation: {}" class="form-control set-padding" id="exampleInputPassword14" name="password" placeholder="Password">
+                                    <input type="hidden" id="hfFailedAttemptCount" name="User.FailedAttemptCount">
+
+                                    <button type="button" class="btn btn-login" onclick="javascript:validateLogin();">Login</button>
+                                    @*<a href="#" id="Newsignup" data-target="#UserModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="active-link">Don't have an account? <strong>Sign Up</strong></a>*@
+                                    <div class="login-links">
+                                        <a href="#" id="forgetpassword" data-target="#PasswordModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="active-link">Forgot Password?</a>
+                                        <br>
+
+                                        @if (Model.Message != null)
+                                        {
+                                            <div class="alert-login alert-danger"><span>@Model.Message</span></div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- END LOCKSCREEN BOX -->
+            }
+
+        </div>
+
+        <div class="modal fade" id="PasswordModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none !important;">
+            <div class="modal-dialog position-center set-popup" style="top: 30%;">
+                <div class="panel panel-default" style="height: 230px;">
+                    <div class="panel-heading">
+                        <button data-dismiss="modal" type="button" class="close" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Reset Password</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="divReset">
+                            <div id="password">
+                                <div class="panel-body">
+                                    <div class="col-md-3" style="top: 10%;">
+                                        <label>Email :</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <input type="email" id="txtUserEmail" class="form-control set-padding" name="Email" placeholder="User email">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="pull-right padding10" style="margin-right: 20px;">
+                                <button class="btn btn-ResetPassword" type="button" id="resetpass" aria-hidden="true">Reset Password</button>
+                                <span id="Message" class=" padding10 pull-left active-link"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @*<div class="modal fade" id="ClientModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none !important;">
+            @{Html.RenderPartial("~/Views/Shared/Client/_ClientDetail.cshtml");}
+        </div>*@
+    <div id="loaderDiv" class="loaderbg">
+        <div id="loading" class="loader">Loading...</div>
+    </div>
+
+</body>
+</html>
+
+<script src="~/Scripts/bootstrap/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/themes/alertify")
+@Scripts.Render("~/bundles/alertify")
+<script src="~/Scripts/knockout/viewmodel/views/User/LoginViewModel.js"></script>
+@*<script src="~/Scripts/knockout/viewmodel/views/Client/ClientViewModel.js"></script>*@
+
+@*<script type="text/javascript">
+    var clientViewModel = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+    var _clientViewModel = new ClientViewModel(clientViewModel);
+    ko.applyBindings(_clientViewModel, $("#ClientModal").get(0));
+</script>*@
+
+
+

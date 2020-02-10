@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="149fcbde-1b5f-4e82-a323-ff6ebc29cba1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LogSessionService.xsd" MetadataType="Schema" ID="88843880-a3d5-4f6b-90a8-0465ca10ba82" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LogSessionService1.xsd" MetadataType="Schema" ID="8d49662b-6f55-4398-8b24-5e5ff6fcdfc1" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LogSessionService2.xsd" MetadataType="Schema" ID="f55d64f1-66cb-4ae1-8163-efdf31445c0b" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LogSessionService3.xsd" MetadataType="Schema" ID="54edcdca-59a0-4284-8388-6199cc3de068" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LogSessionService.wsdl" MetadataType="Wsdl" ID="8784327f-001d-429b-935d-082cd7f3fd43" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?wsdl" />
+    <MetadataFile FileName="LogSessionService.disco" MetadataType="Disco" ID="3a875ce1-26ee-4922-a818-3ebc3286455a" SourceId="1" SourceUrl="http://wcfservice.vsaindia.com:8081/NEP/LogSessionService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

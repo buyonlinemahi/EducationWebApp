@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "_EducationInfoPartial";
+}
+@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@model HCRGUniversityMgtApp.Domain.ViewModels.EducationViewModel.EducationViewModel
+
+<div id="divEducation">
+@using (Html.BeginForm(GlobalConst.Actions.EducationController.Add, GlobalConst.Controllers.Education, FormMethod.Post, new
+        {
+            id = "frmAddEducation",
+            enctype = "multipart/form-data",
+            data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddEducationDetailSuccess(responseText);},beforeSubmit: EducationInfoFormBeforeSubmit, clearForm: true}"
+        }))
+{
+    <div class="panel-wrapper">
+        @*    <input type="hidden" name="hdEducationFLAG" value="" />*@
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Education Screen</div>
+
+                         
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Course Name :</label>
+                               </div>
+                            <div class="col-md-4">
+                                 <input type="hidden" name="hdEducationID" id="hdEducationID" data-bind="value: EducationID" />
+                                <input type="hidden" name="HardCopyPriceAID" data-bind="value: HardCopyPriceAID" />
+                                <input type="hidden" name="OnlinePriceAID" data-bind="value: OnlinePriceAID" />
+                                 <div class="form-group">
+                             <input type="text" class="form-control" required="required" data-bind="value: CourseName,jqBootstrapValidation: {}" name="CourseName" placeholder="Course Name">
+                                     </div>
+                        </div>
+                            </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Course Code :</label>
+                           </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" required="required" data-bind="value: CourseCode,jqBootstrapValidation: {}" name="CourseCode" placeholder="CourseCode">
+                                    </div>
+                        </div>
+                            </div>
+
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Description :</label>
+                                </div>
+                            <div class="col-md-4">
+                                 <div class="form-group">
+                                   <input type="text" class="form-control" required="required" data-bind="value: CourseDescription,jqBootstrapValidation: {}" name="CourseDescription" placeholder="Course Description">
+                                     </div>
+                        
+                        </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Course Time :</label>
+                              </div>
+                            <div class="col-md-4">
+                                 <div class="form-group">
+                                     <input type="text" class="form-control" required="required" data-bind="value: CourseTime,jqBootstrapValidation: {}" name="CourseTime" placeholder="Course Time"></div>
+                                </div>
+
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Course Title :</label>
+                              </div>
+                            <div class="col-md-4">
+                                 <div class="form-group">
+                                  <input type="text" class="form-control" required="required" data-bind="value: CourseTitle,jqBootstrapValidation: {}" name="CourseTitle" placeholder="Course Title"></div>
+                                </div>
+
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Course Hard Price :</label>
+                              </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                              <input type="text" class="form-control"  required="required"  id="HardCopyPrice" onkeypress="return isNumberKey(event)"  data-bind="value: HardCopyPrice,jqBootstrapValidation: {}" name="HardCopyPrice" placeholder="Course Hardcopy Price">
+                                    </div>
+                            </div>
+
+                        </div>
+
+                          <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Course Online Price :</label>
+                              </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" required="required"  id="OnlinePrice" onkeypress="return isNumberKey(event)"  name="OnlinePrice" data-bind="value: OnlinePrice,jqBootstrapValidation: {}" placeholder="Course Online Price" />
+                                    </div>
+                            </div>
+                            </div>
+  
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <label>Credential :</label>
+                           </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="courseCredential" value="True"  data-bind="checked: CourseCredential">
+                                <input type="hidden" value="false" name="courseCredential"  data-bind="checked: CourseCredential" />
+                               Credential </div>
+
+                        </div>
+
+                        <div class="panel-body">
+                            <button class="btn btn-default">Save and Continue</button>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Education Items</div>
+                                <!-- Table -->
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Course Name :</th>
+                                            <th>Course Code :</th>
+                                            <th>Description :</th>
+                                            <th>Course Time :</th>
+                                            <th>Course Title :</th>
+                                            <th>Credential :</th>
+                                            <th>Hard Copy Price</th>
+                                            <th>Online Price :</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <!--ko if:EducationResults!= null-->
+                                        <!-- ko foreach:EducationResults -->
+                                         <tr>
+
+                               <td  style="width:13%">
+                                   <input type="hidden" name="hdfEducationID" id="hdfEducationID" data-bind="value:EducationID" />
+                                   <input type="hidden" name="HardCopyPriceAID" id="HardCopyPriceAID" data-bind="value:HardCopyPriceAID" />
+                                   <input type="hidden" name="OnlinePriceAID" id="OnlinePriceAID" data-bind="value:OnlinePriceAID" />
+                                    <span data-bind="text:CourseName" />
+                               </td>
+                               <td style="width:13%"><span data-bind="text:CourseCode" /></td>
+                               <td style="width:13%"><span data-bind="text:CourseDescription" /></td>
+                               <td style="width:13%"><span data-bind="text:CourseTime" /></td>
+                               <td style="width:13%"><span data-bind="text:CourseTitle" /></td>
+                               <td style="width:13%"><span data-bind="text:CourseCredential" /></td>
+                               <td style="width:13%">$<span data-bind="text:HardCopyPrice"></span></td>
+                               <td style="width:13%">$<span data-bind="text:OnlinePrice"></span></td>
+                               <td><a href="#" class="inner-content-link blue" style="color: #808080;" data-bind="click:$root.ViewEducationLineItems">Edit</a></td>
+                               <td><a href="#" class="inner-content-link blue" data-bind="text:IsActive,click:$root.deleteEducation" style="color:#808080;"></a></td> 
+                               </tr>
+                               <!--/ko-->
+                               <!--/ko-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+}
+    </div>

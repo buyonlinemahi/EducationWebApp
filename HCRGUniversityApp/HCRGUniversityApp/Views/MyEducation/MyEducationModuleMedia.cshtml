@@ -1,0 +1,358 @@
+﻿@model HCRGUniversityApp.Domain.ViewModels.MyEducationDetailViewModel.MyEducationModuleDetailViewModel
+@using HCRGUniversityApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "MyEducationModuleMedia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Views/Shared/_Loader.cshtml")
+<link href="~/Content/css/sliderppt.css" rel="stylesheet" />
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+ 
+<div id="divMyEducationModuleMedia">
+    <input type="hidden" id="hndhours" data-bind="value:Hours" />
+    <input type="hidden" id="hndminutes" data-bind="value:Minutes" />
+    <input type="hidden" id="hndseconds" data-bind="value:Seconds" />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <a id="backbutton" href="~/MyEducation/" class="bts"><span class="glyphicon glyphicon-chevron-left round back-to-courses"></span><span class="hide-mobile">Back to All Courses</span></a>
+
+            </div>
+        </div>
+        <br />
+        <!-- col-sm-12 -->
+
+        <div class="col-sm-12 margintop10">
+            <header class="site-block-title">
+                <h2><span data-bind="text:CourseName"></span></h2>
+                <input type="hidden" id="hdfMEID" data-bind="value:MEID" />
+            </header>
+
+            @*<div class="time_bar text-center"><span class="days-left " data-bind="text:ExpireDaysLeft"></span><span class="days-text">&nbsp; days left for completing this Course </span></div>
+            *@
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 padding20">
+            <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+                <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; background-color: #000; top: 0px; left: 0px; width: 100%; height: 100%;">
+                </div>
+                <div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;">
+                </div>
+            </div>
+            <div class="bs-docs-section">
+                <div class="bs-example">
+                    <input type="hidden" id="hndmemid" data-bind="value:MEMID" />
+                    <input type="hidden" id="hndeid" data-bind="value:EducationID" />
+                    <input type="hidden" id="hndmeid" data-bind="value:MEID" />
+                    <input type="hidden" id="hndemid" data-bind="value:EducationModuleID" />
+                    <input type="hidden" id="hndMediaID" data-bind="value:ModuleFile" />
+                    <input type="hidden" id="hndMCompleted" data-bind="value:Completed" />
+
+                    <!--ko if:FileTypeName()== '@GlobalConst.FileTypes.FileTypesName.Video'-->
+                    <div class="embed-responsive embed-responsive-16by9 margintop30">
+
+                           <iframe id="vid1" title="video player" src="@Model.MyEducationModuleDetail.FilePath" class="video-player embeded_video_align" type="text/html" 
+                            allowfullscreen="" allowtransparency="true" mozallowfullscreen="" webkitallowfullscreen=""   frameborder="0">
+                           </iframe>
+
+                        @*<video id="vid1" controls="controls" class="embeded_video_align" style="display: none">
+                            <source src="@Model.MyEducationModuleDetail.FilePath" type="video/mp4" />
+                        </video>*@
+                    </div>
+                    @*<object class="embeded_video_align" data="@Model.MyEducationModuleDetail.FilePath@Model.MyEducationModuleDetail.ModuleFile"></object>*@
+
+                    <!-- /ko -->
+                    <!--ko if:FileTypeName()== '@GlobalConst.FileTypes.FileTypesName.TEXT'-->
+                    <div id="DivModulecontent" class="marginbottom10 margintop30">
+                    </div>
+                    @*<object class="embed-responsive embed-responsive-16by9 embeded_pdf"
+                        data="@Model.MyEducationModuleDetail.FilePath@Model.MyEducationModuleDetail.ModuleFile"
+                        type='application/pdf' height="100%" width="100%"></object>*@
+                    <!-- /ko -->
+                    <!--ko if:FileTypeName()== '@GlobalConst.FileTypes.FileTypesName.PPT'-->
+                    <div id="SliderDiv">
+                        <div id="slider1_container" class="slider_container">
+                            <!-- Slides Container -->
+                            <!--    <iframe src = "/ViewerJS/#../@Model.MyEducationModuleDetail.FilePath" class="iframe-wdth" allowfullscreen webkitallowfullscreen></iframe> -->
+                            <iframe src = "/ViewerJS/#../@Model.MyEducationModuleDetail.FilePath" class="iframe-wdth" allowfullscreen webkitallowfullscreen></iframe> 
+                        </div>
+                     </div>
+                    <!-- /ko -->
+
+                    <br />
+                    <!--ko if:FileTypeName() != '@GlobalConst.FileTypes.FileTypesName.PPT'-->
+                    <div class="line line_r">
+                        <a href="#" class="timing"><span id="Timer"></span></a>
+                    </div>
+                    <!-- /ko -->
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+
+            <div class="col-sm-12 col-xs-12">                
+                <!--ko if: $root.CourseFile() != null-->
+                <a download target="_blank" class="download_icon  col-xs-12 col-sm-12 col-md-12 col-lg-12" data-bind="attr: { 'href': '@Url.Action("Download", "MyEducation")?Filename='+CourseFilePath()+ '&MEID=' + EnCryptMEID()}">  
+                 <span class="marginright10 pull-right"> Download  <img src="/Content/img/download-icon.png" data-toggle="tooltip" title="E-Book" width="30" height="32"></span> </a>
+                <!-- /ko -->
+            </div>
+            <div class="col-sm-12 col-xs-12">
+               
+                <!--ko if:$root.LastModule() == 0-->
+                <a id="btnNext" href="#" data-bind="click:nextClick" class="faculty-btn pull-right hide">Next</a>
+                <!-- /ko -->
+                <!--ko if:$root.FirstModule() == 0 -->
+                <a id="btnPrevious" data-bind="click:previousClick" href="#" class="faculty-btn pull-left ml10 hide">Previous</a>
+                <!-- /ko -->
+                <!--ko if:$root.LastModule() == 1-->
+                <a id="btnFinished" data-bind="click:finishedClick" href="#" class="faculty-btn pull-right hide">Finished</a>
+                <!-- /ko -->
+            </div>
+            <div class="col-sm-12 col-xs-12">    
+            <div class="panel-group row" id="accordion">
+                            <!--ko if:MyEducationModuleDetail!= null-->
+                            <!-- ko foreach:MyEducationModuleDetail -->
+                            <div class="panel panel-default">
+
+                                <input type="hidden" id="hndMediaIDf" data-bind="value:ModuleFile" />
+                                <input type="hidden" id="hndMediaIDgf" data-bind="value:MEMID" />
+
+                                <!-- ko if: Completed() == true || EducationModulePosition() == $root.MEMPositiontoStart() -->
+
+                                <div class="panel-heading fc-event-draggable" data-bind="click:$root.ShowModuleContent,attr : {'id' : MEMID, 'name': ('MEM' + $index())}">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="panel-title">
+                                                    <a data-parent="#accordion" data-bind="attr: { href: '#collapseOne' + $index()}">
+                                                        <span data-bind="attr: { id: 'right' +'#'+ $index()  }" class="icon expand-icon glyphicon glyphicon-chevron-right spanfloatleft"></span>
+                                                        <span style="display: none" data-bind="attr: { id: 'down' +'#' + $index() }" class="icon expand-icon glyphicon glyphicon-chevron-down spanfloatleft"></span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="panel-title align-left">
+
+                                                    <span data-bind="text:EducationModuleName"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--ko if:EducationModuleFileDetail().length > 0-->
+                                <div data-bind="attr: { id: 'collapseOne' + MEMID() }" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tbody>
+
+                                                <!-- ko foreach:EducationModuleFileDetail -->
+                                                <tr>
+                                                    <td class="tdSubMenu">
+                                                        <span class="text-primary"></span>
+                                                        @*<a download href="#" target="_blank" data-bind="attr: { 'href': ModuleFile()}">*@
+                                                        <a download  target="_blank" data-bind="attr: { 'href': '@Url.Action("DownloadModuleAttachment", "MyEducation")?Filename='+ModuleFile()+ '&MEMID=' + EnCryptMEMID()}"> 
+                                                            <!--ko if:ModuleFileExtension()=='pdf'-->
+                                                            <span class="spanColorRed" data-bind="text:DocumentName"></span>
+                                                            <!-- /ko -->
+                                                            <!--ko if:ModuleFileExtension()=='xlt'|| ModuleFileExtension()=='xls' -->
+                                                            <span class="spanColorGreen" data-bind="text:DocumentName"></span>
+                                                            <!-- /ko -->
+                                                            <!--ko if:ModuleFileExtension()!='xls' && ModuleFileExtension()!='xlsx' && ModuleFileExtension() !='pdf' && ModuleFileExtension()!='xlt'  -->
+                                                            <span class="spanColorBlue" data-bind="text:DocumentName"></span>
+                                                            <!-- /ko -->
+                                                        </a>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- /ko -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /ko -->
+                                <!-- /ko -->
+                                <!-- ko if: Completed() != true  && EducationModulePosition() !=  $root.MEMPositiontoStart() -->
+                                <div class="panel-heading" data-bind="attr : {'id' : MEMID, 'name': ('MEM' + $index())}">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="panel-title">
+                                                    <span class="icon expand-icon glyphicon glyphicon-chevron-right spanfloatleft"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="panel-title align-left">
+                                                    <span data-bind="text:EducationModuleName"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                            <!--/ko-->
+                            <!--/ko-->
+                        </div>
+</div>        
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+            <!-- Nav tabs -->
+            <!-- Tab panes -->
+
+
+            <div class="tab-content">
+                <div class="tab-pane active textjustify" id="home">
+ <div class="col-sm-12 col-md-8">
+
+</div>                    
+<div class="col-sm-12 col-md-4">
+                       
+                    </div>
+
+                </div>
+                <div class="tab-pane textjustify" id="settings">
+                    <div id="test"></div>
+                    <div id="test" data-bind="html:EducationModuleDescription"></div>
+                    @*<span data-bind="text:EducationModuleDescription"></span>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="fullScrPPT" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow: hidden; height: auto;">
+            <div class="modal-dialog fixedwidthpptebook">
+                <div class="modal-content fixedheightpptebook">
+                    <div class="modal-body">
+                        <button type="button" id="btnCloseFullScr" aria-hidden="true" data-dismiss="modal" data-toggle="modal" class="close">&times;</button>
+                        <div class="panel-body">
+                            <!--ko if:FileTypeName()== '@GlobalConst.FileTypes.FileTypesName.PPT'-->
+                            <div id="SliderDiv1">
+                                <div id="slider1_container1" class="slider_container1">
+                                    <!-- Slides Container -->
+                                    <div id="slides1" u="slides" class="slides_container1">
+                                        <!--ko if:CountArray!= null-->
+                                            <!-- ko foreach:CountArray -->
+                                                <img class="mySlidespopup"   data-bind="attr:{src:ImagePath() +'/SLIDE'+ CountValue +'.JPG'}" >
+                                            <!--/ko-->
+                                        <!--/ko-->
+                                    </div>
+                                    <!-- Arrow Left -->
+                                   <a class="w3-btn-floating w3-display-left glyphicon glyphicon-chevron-left" onclick="plusDivs(-1)"></a>
+                            <!-- Arrow Right -->
+                                <a class="w3-btn-floating w3-display-right glyphicon glyphicon-chevron-right" onclick="plusDivs(1)"></a>
+                                    <!--#endregion Arrow Navigator Skin End -->
+                                    <div id="myfixedelement1" class="fixedelement" u="any">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="text" id="mytext" style="display: none" />
+    </div>
+</div>
+@section scripts{
+
+    <script src="~/Scripts/backfix.min.js"></script>
+    <script src="~/Scripts/knockout/viewmodel/views/MyEducation/MyEducationModuleMediaViewModel.js"></script>
+
+    <script src="~/Scripts/alertify/alertify.min.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var myEducationModuleMediaGridViewModel = new MyEducationModuleMediaGridViewModel();
+        myEducationModuleMediaGridViewModel.Init(model);
+        ko.applyBindings(myEducationModuleMediaGridViewModel, $("#divMyEducationModuleMedia").get(0));
+    </script>
+
+    <script>
+        $('#myCarousel').carousel({
+            interval: 4000
+        });
+        $('#btnCloseFullScr').click(function(){
+            $('html, body').css({
+                'overflow': 'auto',
+                'height': 'auto'
+            });
+        });
+        //Start Tabbing Script Here
+
+        $('#myTab a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+        $('#myTab a[href="#profile"]').tab('show') // Select tab by name
+        $('#myTab a:first').tab('show') // Select first tab
+        $('#myTab a:last').tab('show') // Select last tab
+        $('#myTab li:eq(2) a').tab('show') // Select third tab (0-indexed)
+    </script>
+    <script type="text/javascript">
+
+        if('@Model.MyEducationModuleDetail.FileTypeName'=='Video')
+        {
+            document.getElementById('vid1').style.display = 'block';
+            document.getElementById('vid1').addEventListener('loadedmetadata', function () {
+                var hour=document.getElementById("hndhours").value;
+                var min=document.getElementById("hndminutes").value;
+                var sec=document.getElementById("hndseconds").value;
+                var time=parseFloat((parseFloat(hour)*60*60)+(parseFloat(min)*60)+parseFloat(sec));
+                this.currentTime = Math.round(document.getElementById('vid1').duration)-time;
+                document.getElementById('vid1').play();
+            }, false);
+        }
+    </script>
+    @*<script type="text/javascript">
+              var tag = document.createElement('script');
+              tag.src = "//www.youtube.com/iframe_api";
+              var firstScriptTag = document.getElementsByTagName('script')[0];
+              firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+              var player;
+              function onYouTubePlayerAPIReady() {
+                  player = new YT.Player('player', {
+                      videoId:  '@Model.MyEducationModuleDetail.ModuleFile',
+                      events: {
+                          'onStateChange': onPlayerStateChange
+                      }
+                  });
+              }
+              function onPlayerStateChange(event)
+              {
+                  if (event.data === 0)
+                  {
+                      // $('#a1')[0].click()
+                  }
+              }
+        </script>*@
+    <script src="~/Scripts/Timer/Timer.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/jssor.js"></script>
+    <script type="text/javascript" src="~/Scripts/jssor.slider.js"></script>*@
+    <script type="text/javascript">
+
+
+     
+        
+        $(document).ready(function() {            
+            $("html").on("contextmenu",function(e){
+                return false;
+            });
+        });
+
+        if('@Model.MyEducationModuleDetail.FileTypeName'=="PPT")
+        {
+            
+        }
+    </script>
+}

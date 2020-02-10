@@ -1,0 +1,240 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+
+    ViewBag.Title = "Organization";
+}
+@section header{
+    <a class="navbar-brand" href="#">Organization</a>
+    <link href="~/Content/css/Popup/style.css" rel="stylesheet" />
+}
+
+<script src="~/Scripts/crop.js"></script>
+
+<div id="divOrganizationProject">
+    @using (Html.BeginForm(GlobalConst.Actions.OrganizationController.AddOrganization, GlobalConst.Controllers.Organization, FormMethod.Post, new
+                    {
+                        id = "frmOrganizationform",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm : { success : function(responseText ,statusText,xhr,$form){ AddOrganizationSuccess(responseText);},beforeSubmit : OrganizationInfoFormBeforeSubmit ,clearForm : true}"
+                    }))
+    {
+        <div class="inner-content">
+            <!--start row -->
+            <div class="row">
+                <div class="panel-wrapper">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Organization Setup</div>
+                        <div class="mtb-20">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-2 col-xs-4 pad-right" style="top: 10%;">
+                                            <label>Organization Name :</label>
+                                        </div>
+                                        <div class="col-md-7 col-xs-8">
+                                            <div class="form-group">
+                                                <input type="hidden" name="EncryptedOrganizationID" id="hdEncryptedOrganizationID" data-bind="value:EncryptedOrganizationID" />
+                                                   <input type="hidden" name="OrganizationName" id="OrganizationName" data-bind="value:OrganizationName" />
+                                                <input type="text" id="txtOrganizationName" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" class="form-control set-padding" name="OrganizationName" placeholder="OrganizationName" data-bind="value:OrganizationName,jqBootstrapValidation:{}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2 col-xs-4 pad-right" style="top: 10%;">
+                                            <label>Website Name:</label>
+                                        </div>
+                                        <div class="col-md-7 col-xs-8">
+                                            <div class="form-group">
+                                                <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" id="txtWebsiteName" required="required" class="form-control set-padding" name="WebsiteName" placeholder="Website Name" data-bind="value:WebsiteName,jqBootstrapValidation:{}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2 col-xs-4 pad-right">
+                                            <label>Select Theme:<span class="red">*</span></label>
+                                            <a href="#" class="inner-content-link"></a>
+                                        </div>
+                                        <div class="col-md-7 col-xs-8">
+                                            <div class="form-group">
+                                                <select required class="form-control" id="drpThemes" data-bind="options: ThemeTypes,
+                                                     optionsText: 'ClProWebsiteName',
+                                                        optionsValue: 'ClProColorThemeID',
+                                                     value:ThemeID,event: { change:DropDownThemesChanges }">
+                                                </select>
+                                                <input type="hidden" id="hdThemeID" name="ThemeID" data-bind="value: ThemeID" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-4 col-xs-4 pad-right" style="top: 10%;">
+                                            <label>Logo File :</label>
+                                        </div>
+                                        <div id="DivLogoImage" class="mt13-b">
+                                            <div id="dictest" class="form-group">
+                                                <div class="form-group">
+                                                    <a data-target="#myModalPhoto" data-backdrop="static" data-toggle="modal" data-keyboard="false" class="inner-content-link blue btn btn-default pull-right">Add</a>
+                                                    <input type="hidden" id="LogoImageName" name="LogoImage" data-bind="value: LogoImage" />
+                                                </div>                                               
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-4 col-sm-3">
+                                            <div class="form-group" style="margin-bottom: -15px;">
+                                                <!-- ko if: LogoImage()!=null -->
+                                                <img data-toggle="popover-1" id="imgLogoImage" class="Product-icon" data-bind="attr:{src: LogoImage()}" />
+                                                <input type="hidden" name="OrganizationImageFileContent" data-bind="value: LogoImageFile" />                                                
+                                                <!-- /ko -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-4 col-xs-4 pad-right" style="top: 10%;">
+                                            <label>Favicon File :</label>
+                                        </div>
+                                        <div id="DivFaviconImage">
+                                            <div id="dictestfavicon" class="form-group">
+                                                <div class="form-group">
+                                                    <input type="file" class="form-control" id="FaviconImageFile" name="FaviconImageFile" data-bind="event: { change:FileCheckValidationFavicon }" />
+                                                    <input type="hidden" id="FaviconImage" name="FaviconImage" data-bind="value: FaviconImage" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-4 col-sm-3">
+                                            <div class="form-group" style="margin-bottom: -15px;">
+
+                                                <!-- ko if: FaviconImage()!=null -->
+                                                <img data-toggle="popover" class="Product-icon" data-bind="attr:{src: FaviconImage()}" />
+                                                <!-- /ko -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12" style="top: 10%;">
+
+                                            <div class="row">
+                                                <div class="col-xs-5 pad-right">
+                                                    <label>Certificate:</label>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="form-group">
+                                                        <input type="checkbox" id="txtCertificate" data-bind="event: { change:IsCertificateChanged }">
+                                                        <input type="hidden" name="IsCertificate" id="hdIsCertificate" data-bind="value:IsCertificate" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-4 col-sm-8 col-xs-12" style="top: 10%;">
+                                            <div class="row">
+                                                <div class="col-xs-5 pad-right">
+                                                    <label>Web Portal:</label>
+                                                </div>
+                                                <div class="col-xs-7">
+                                                    <div class="row">
+                                                    <div class="form-group">
+                                                        <input type="checkbox" id="txtWebPortal" data-bind="event: { change:IsWebPortalChanged } ">
+                                                        <input type="hidden" name="IsWebPortal" id="hdIsWebPortal" data-bind="value:IsWebPortal" />
+                                                        <input type="hidden" name="MenuIDs" id="hdnMenuIDs" data-bind="value: $root.selectedMenu" />  
+                                                        <div id="GroupPartial" style="display:none">
+                                                         @{ Html.RenderPartial("~/Views/Shared/Group/_GroupPartial.cshtml"); }
+                                                            </div>
+                                                    </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2 col-xs-4 pad-right" style="top: 10%;">
+                                            <label>Paypal EmailID :</label>
+                                        </div>
+                                        <div class="col-md-7 col-xs-8">
+                                            <div class="form-group">
+                                                <input type="Email" id="txtRegisteredPaypalEmailID"  required="required" class="form-control set-padding" name="RegisteredPaypalEmailID" placeholder="Paypal EmailID" data-bind="value:RegisteredPaypalEmailID,jqBootstrapValidation:{}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="submit" class="btn btn-default" value="Submit">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+        <div class="inner-content">
+           <div class="modal fade" id="myModalPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalPhotoLabel" aria-hidden="true">
+                    <div class="modal-dialog position-center img-popup">
+                        <div class="col-md-8 col-md-offset-2 col-sm-12">
+                        <div class="modal-content panel panel-default modal-width" style="height: 350px; border-radius: 10px;">
+                            <div class="panel-heading">
+                                <button type="button" id="btnCloseEditPhotos" onclick="clearcontent()" data-dismiss="modal" class="close" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Gallery Photo</h4>
+                            </div>
+                            <div class="modal-body">
+                                    <div id="contentwrapper" class="contentwrapper nopadding wrapper-width-logo" style="float: left;">
+                                        @*<input type="hidden" id="HndPhotoNewsID" data-bind="value:NewsPhotoNewsID" />*@
+
+                                       <div class="row">
+                                         <div class="imageCroppercontainer m-left20">
+                                            <div id="imageBox" class="imageBox logo-imagebox" style="float: left;">
+                                                <div id="thumbBox" class="thumbBox logosize" style="float: left;"></div>
+                                                <div id="spinner" class="spinner" style="display: none; float: left;">Loading...</div>
+                                            </div>
+                                             </div>
+                                         <div class="row set-mp">
+                                             <div class="col-md-2 col-sm-3 col-xs-3 mt-3">
+                                                <label >Slide Pics: </label></div>
+                                                @*<input type="file" class="fileCrop btn" id="file" name="OrganizationImageFile" style="float:left; width: 250px" required data-bind="value: SelectedUploadImage,event: { change:FileCheckValidation }" />*@
+                                               <div class="col-md-5 col-sm-8 col-xs-8 padd-0 mbrdr">
+                                                <input type="file" id="file" data-bind="value: SelectedUploadImage, event: { change:FileCheckValidation }" name="OrganizationImageFile" class="fileCrop btn paddt-0"></div>
+                                                <div class="col-md-1 col-sm-2 col-xs-3 padd-0 mt-3">
+                                                <input type="button" class="btn button-crop-popup pull-right" id="btnZoomOut" value="-"></div>
+                                                <div class="col-md-1 col-sm-2 col-xs-3 padd-0 mt-3">
+                                                <input type="button" class="btn button-crop-popup pull-right" id="btnZoomIn" value="+"></div>
+                                                <div class="col-md-2 col-sm-5 col-xs-6 mt-3 mtl-12">
+                                                <input type="button" class="btn button-crop-popup" id="btnCrop" value="Crop & Select"></div>
+                                        </div>
+
+                                        @*<div class="heightcrop" style="float:left;">
+                                            <div id="cropList" class="cropped" style="resize: both; float:left;">
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                    <!--gallerywrapper-->
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+    }
+</div>
+
+@section scripts{
+
+    <script src="~/Scripts/knockout/viewmodel/views/Organization/DetailOrganizationViewModel.js"></script>
+    <script src="~/Scripts/Plugin/Jquery.checkNumericNumbers.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var _DetailOrganization = new DetailOrganization(model);
+        ko.applyBindings(_DetailOrganization, $("#divOrganizationProject").get(0));
+
+        function clearcontent() {
+            $("#myModalPhoto").css("display", "none");
+        }
+    </script>
+}

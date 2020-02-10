@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EducationModuleService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" />
+      <xsd:import schemaLocation="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO.Paged" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEducationModuleService_AddEducationModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationModule" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_AddEducationModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_UpdateEducationModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModule" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_UpdateEducationModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_UpdateEducationModuleTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModuleTime" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_UpdateEducationModuleTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModuleTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_DeleteEducationModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationModule" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_DeleteEducationModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetEducationModuleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationModuleByID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetEducationModuleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationModuleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllEducationModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationModule" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllEducationModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllEducationModuleByEducationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationModuleByEducationID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllEducationModuleByEducationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationModuleByEducationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllFileType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFileType" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllFileType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFileTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_AddEducationModuleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationModuleFile" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_AddEducationModuleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEducationModuleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_UpdateEducationModuleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModuleFile" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_UpdateEducationModuleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEducationModuleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_DeleteEducationModuleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationModuleFile" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_DeleteEducationModuleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationModuleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetEducationModuleFileByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationModuleFileByID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetEducationModuleFileByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationModuleFileByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllEducationModuleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationModuleFile" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllEducationModuleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEducationModuleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetEducationModuleFileByModuleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationModuleFileByModuleID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetEducationModuleFileByModuleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEducationModuleFileByModuleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_DeleteEducationModuleFileByEducationModuleFileID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationModuleFileByEducationModuleFileID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_DeleteEducationModuleFileByEducationModuleFileID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEducationModuleFileByEducationModuleFileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllPagedEducationModuleByEid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationModuleByEid" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetAllPagedEducationModuleByEid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPagedEducationModuleByEidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetMyEducationModulesDetailsByMEID_FileTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationModulesDetailsByMEID_FileTypeID" />
+  </wsdl:message>
+  <wsdl:message name="IEducationModuleService_GetMyEducationModulesDetailsByMEID_FileTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyEducationModulesDetailsByMEID_FileTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEducationModuleService">
+    <wsdl:operation name="AddEducationModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/AddEducationModule" message="tns:IEducationModuleService_AddEducationModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/AddEducationModuleResponse" message="tns:IEducationModuleService_AddEducationModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/UpdateEducationModule" message="tns:IEducationModuleService_UpdateEducationModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/UpdateEducationModuleResponse" message="tns:IEducationModuleService_UpdateEducationModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModuleTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/UpdateEducationModuleTime" message="tns:IEducationModuleService_UpdateEducationModuleTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/UpdateEducationModuleTimeResponse" message="tns:IEducationModuleService_UpdateEducationModuleTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/DeleteEducationModule" message="tns:IEducationModuleService_DeleteEducationModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/DeleteEducationModuleResponse" message="tns:IEducationModuleService_DeleteEducationModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationModuleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetEducationModuleByID" message="tns:IEducationModuleService_GetEducationModuleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetEducationModuleByIDResponse" message="tns:IEducationModuleService_GetEducationModuleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllEducationModule" message="tns:IEducationModuleService_GetAllEducationModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllEducationModuleResponse" message="tns:IEducationModuleService_GetAllEducationModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationModuleByEducationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllEducationModuleByEducationID" message="tns:IEducationModuleService_GetAllEducationModuleByEducationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllEducationModuleByEducationIDResponse" message="tns:IEducationModuleService_GetAllEducationModuleByEducationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFileType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllFileType" message="tns:IEducationModuleService_GetAllFileType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllFileTypeResponse" message="tns:IEducationModuleService_GetAllFileType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationModuleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/AddEducationModuleFile" message="tns:IEducationModuleService_AddEducationModuleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/AddEducationModuleFileResponse" message="tns:IEducationModuleService_AddEducationModuleFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModuleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/UpdateEducationModuleFile" message="tns:IEducationModuleService_UpdateEducationModuleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/UpdateEducationModuleFileResponse" message="tns:IEducationModuleService_UpdateEducationModuleFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationModuleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/DeleteEducationModuleFile" message="tns:IEducationModuleService_DeleteEducationModuleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/DeleteEducationModuleFileResponse" message="tns:IEducationModuleService_DeleteEducationModuleFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationModuleFileByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetEducationModuleFileByID" message="tns:IEducationModuleService_GetEducationModuleFileByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetEducationModuleFileByIDResponse" message="tns:IEducationModuleService_GetEducationModuleFileByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationModuleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllEducationModuleFile" message="tns:IEducationModuleService_GetAllEducationModuleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllEducationModuleFileResponse" message="tns:IEducationModuleService_GetAllEducationModuleFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationModuleFileByModuleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetEducationModuleFileByModuleID" message="tns:IEducationModuleService_GetEducationModuleFileByModuleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetEducationModuleFileByModuleIDResponse" message="tns:IEducationModuleService_GetEducationModuleFileByModuleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationModuleFileByEducationModuleFileID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/DeleteEducationModuleFileByEducationModuleFileID" message="tns:IEducationModuleService_DeleteEducationModuleFileByEducationModuleFileID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/DeleteEducationModuleFileByEducationModuleFileIDResponse" message="tns:IEducationModuleService_DeleteEducationModuleFileByEducationModuleFileID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationModuleByEid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllPagedEducationModuleByEid" message="tns:IEducationModuleService_GetAllPagedEducationModuleByEid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetAllPagedEducationModuleByEidResponse" message="tns:IEducationModuleService_GetAllPagedEducationModuleByEid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationModulesDetailsByMEID_FileTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEducationModuleService/GetMyEducationModulesDetailsByMEID_FileTypeID" message="tns:IEducationModuleService_GetMyEducationModulesDetailsByMEID_FileTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEducationModuleService/GetMyEducationModulesDetailsByMEID_FileTypeIDResponse" message="tns:IEducationModuleService_GetMyEducationModulesDetailsByMEID_FileTypeID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEducationModuleService" type="tns:IEducationModuleService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddEducationModule">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/AddEducationModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModule">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/UpdateEducationModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModuleTime">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/UpdateEducationModuleTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationModule">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/DeleteEducationModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationModuleByID">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetEducationModuleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationModule">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetAllEducationModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationModuleByEducationID">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetAllEducationModuleByEducationID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFileType">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetAllFileType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEducationModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/AddEducationModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEducationModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/UpdateEducationModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/DeleteEducationModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationModuleFileByID">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetEducationModuleFileByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEducationModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetAllEducationModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEducationModuleFileByModuleID">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetEducationModuleFileByModuleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEducationModuleFileByEducationModuleFileID">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/DeleteEducationModuleFileByEducationModuleFileID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPagedEducationModuleByEid">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetAllPagedEducationModuleByEid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyEducationModulesDetailsByMEID_FileTypeID">
+      <soap:operation soapAction="http://tempuri.org/IEducationModuleService/GetMyEducationModulesDetailsByMEID_FileTypeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EducationModuleService">
+    <wsdl:port name="BasicHttpBinding_IEducationModuleService" binding="tns:BasicHttpBinding_IEducationModuleService">
+      <soap:address location="http://wcfservice.vsaindia.com:8081/NEP/EducationModuleService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

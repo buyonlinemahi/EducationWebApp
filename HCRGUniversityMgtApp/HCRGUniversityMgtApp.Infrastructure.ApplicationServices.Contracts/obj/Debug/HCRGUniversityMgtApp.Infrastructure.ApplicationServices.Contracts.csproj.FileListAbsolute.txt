@@ -1,0 +1,5 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts\bin\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts\obj\Debug\HCRGUniversityMgtApp.Infrastructure.ApplicationServices.Contracts.csprojResolveAssemblyReference.cache

@@ -1,0 +1,31 @@
+﻿body {
+    font-family: 'open_sansregular';
+    font-size: 12px !important;
+    line-height: 24px !important;
+    text-align: justify;
+    padding:20px;
+}
+
+.PrintNewDetailImg {
+    display: none;
+}
+
+.iframeVideo {
+    display: none;
+}
+
+.pleft {
+    margin-left: 400px;
+    margin-top: -240px;
+    margin-bottom: 170px;
+}
+
+.pleftlong {
+    margin-left: 500px;
+    margin-top: -300px !important;
+    margin-bottom: 200px;
+}
+
+.jssort07 {
+       display: none !important;
+}

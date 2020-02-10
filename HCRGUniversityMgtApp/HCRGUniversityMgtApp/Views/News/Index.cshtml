@@ -1,0 +1,408 @@
+﻿    @using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript">
+        document.onkeydown = function(){
+            switch (event.keyCode){
+                case 116 : //F5 button
+                    event.returnValue = false;
+                    event.keyCode = 0;
+                    return false;
+                case 82 : //R button
+                    if (event.ctrlKey){
+                        event.returnValue = false;
+                        event.keyCode = 0;
+                        return false;
+                    }
+            }
+        }
+        var editor1;
+        function RichTextEditor_OnLoad(editor) {
+            editor1 = editor;
+        }
+        function RichTextEditor_OnExecUICommand(editor, arg) {
+            var a0 = arg.Arguments[1];
+            if (a0 == "FullScreen")
+            {
+                return false;
+            }
+        }
+    </script>
+    <link href="~/Content/css/Popup/style.css" rel="stylesheet" />
+    <script type="text/javascript">
+        //<![CDATA[
+        $(document).ready(function () {
+            $('#Slide_Pics').fadeOut('slow');
+            $('#Slide_URl').fadeOut('slow');
+        }
+      );
+    </script>
+    <script src="~/Scripts/knockout/viewmodel/views/NewsSectionPartial/NewsSectionPartialViewModel.js"></script>
+    <script src="~/Scripts/knockout/viewmodel/views/News/NewsViewModel.js"></script>
+    <script src="~/Scripts/crop.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+        var NewsallresultViewModel = new NewsGridViewModel();
+        NewsallresultViewModel.Init(model);
+        ko.applyBindings(NewsallresultViewModel, $("#divNews").get(0));
+    </script>
+}
+@section header{
+    <a class="navbar-brand" href="#">News</a>
+}
+<div id="divNews">
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Main News Screen</div>
+                    <div class="row">
+                        <div class="modal fade EditorModal" id="EditorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog position-center set-popup">
+                                <div class="modal-content" style="height:830px;">
+                                    <div class="modal-header">
+                                        <button type="button" id="btnClose" class="close btnClose" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Add Content</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="panel-body">
+                                            <div id="divEditor">
+                                                @using (Html.BeginForm(GlobalConst.Actions.NewsController.ShowEditor, GlobalConst.Controllers.News, FormMethod.Post))
+                                                {
+                                                    @Html.Raw(ViewBag.Editor)
+                                                }
+                                            </div>
+                                            <div style="padding-top:10px;">
+                                                <button type="button" aria-hidden="true" id="btnSaveandContinue" class="btn btn-default">Save and Continue</button>
+                                                <button type="button" aria-hidden="true" id="btnClose1" class="btn btn-default btnClose">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- new popup-->
+                    <!-- -->
+                    @using (Html.BeginForm(GlobalConst.Actions.NewsController.Add, GlobalConst.Controllers.News, FormMethod.Post, new
+                                {
+                                    id = "frmAddNews",
+                                    enctype = "multipart/form-data",
+                                    data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddNewsDetailSuccess(responseText);},beforeSubmit: NewsInfoFormBeforeSubmit}"
+                                }))
+                    {
+                         <div id="divAddNews" class="row mtb-10" style="display:none;">
+                        
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label>Type</label>
+                                <a href="#" class="inner-content-link"></a>
+                            </div>
+                            @*<div class="form-group">
+                                    <select class="form-control-widget col-md-4" required id="NewsSection" name="NewsSectionID"
+                                            data-bind="options: NewsSectionResults, optionsText: 'NewsSectionTitle',
+                                       optionsValue: 'NewsSectionID',value: selectedItem,
+                                     optionsCaption: 'Select Any Option',jqBootstrapValidation: {}"></select>
+                                    <button type="button" data-target="#myModal" data-backdrop="static" data-toggle="modal" data-keyboard="false" class="btn btn-default" style="margin-left:50px;margin-top:-5px;">Add</button>
+                                </div>*@
+                            <div class="col-md-10 col-sm-9 padd-0">
+                                <select class="form-control-widget col-md-4 col-sm-8" required id="NewsSection" name="NewsSectionID"
+                                        data-bind="options: NewsSectionResults, optionsText: 'NewsSectionTitle',
+                                   optionsValue: 'NewsSectionID',value: selectedItem,
+                                 optionsCaption: 'Select Any Option',jqBootstrapValidation: {}"></select>
+                                <div class="col-md-2 col-sm-3">
+                                    <a data-target="#myModal" data-backdrop="static" data-toggle="modal" data-keyboard="false" class="inner-content-link blue btn btn-default pull-right mrs-15">Add</a> </div>
+                            </div>
+                            @*<div class="btn btn-default" style="margin-left:50px;"><button data-toggle="modal" data-target="#myModal" class="inner-content-link blue">Add</button></div>*@
+                            <!-- /input-group -->
+                        </div>
+                       
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label>Title:</label>
+                            </div>
+                            <div class="col-md-5 col-sm-9">
+                                <input type="hidden" name="hdNewsID" id="hdNewsID" data-bind="value: NewsID" />
+                                <input type="hidden" name="OrganizationName" id="hdOrganizationName" data-bind="value: OrganizationName" />                                
+                                <input type="hidden" name="OrganizationID" id="hdOrganizationID" data-bind="value: OrganizationID" />
+                                <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" name="NewsTitle" data-bind="value: NewsTitle,jqBootstrapValidation: {}" class="form-control" id="NewsTitle">
+                            </div>
+                        </div>
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label>Description:</label>
+                            </div>
+                            <div class="col-md-5 col-sm-9">
+                                <button type="button" data-target="#EditorModal" id="EditorModalPopUp" data-backdrop="static" data-keyboard="false" class="btn btn-default">Add Description</button>
+                                <input type="hidden" id="hd" name="NewsDescription" />
+                            </div>
+                        </div>
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label>Author:</label>
+                            </div>
+                            <div class="col-md-5 col-sm-9">
+                                <input type="text" title="" pattern="^[^-\s][a-zA-Z0-9_'\s-]+$" required="required" name="NewsAuthor" data-bind="value: NewsAuthor,jqBootstrapValidation: {}" class="form-control" id="NewsAuthor">
+                            </div>
+                        </div>
+                        <div class="row mtb-10">
+                            <div class="col-md-2 col-sm-3">
+                                <label>Editor Picks:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <input type="checkbox" id="chkboxNewsEditorPick" name="NewsEditorPick" value="True" data-bind="checked: NewsEditorPick">
+                                <input type="hidden" value="false" name="NewsEditorPick" data-bind="checked: NewsEditorPick" />
+                            </div>
+                            <!-- poup-->
+                            <div class="panel-body">
+                                <div class="modal fade EditorModal" id="EditorModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog position-center set-popup">
+                                        <div class="modal-content panel panel-default" style="height:800px; width:900px; border-radius:10px;">
+                                            <div class="panel-heading">
+                                                <button type="button" id="btnCloseAddPhoto" class="close" style="margin:2px; color:white;" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">Add & Crop Image</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="panel-body">
+                                                    <div class="imageCroppercontainer">
+                                                        <div class="imageBox">
+                                                            <div class="thumbBox"></div>
+                                                            <div class="spinner" style="display: none">Loading...</div>
+                                                        </div>
+                                                        <div class="action set-news">
+                                                            <label style="float:left; width: 75px; line-height:40px;">Slide Pics: </label>
+                                                            <input type="file" id="file" accept=".png" class="fileCrop btn" style="float:left; width: 250px; margin:1px;" />
+                                                            <input type="button" class="btn button-crop-popup" id="btnCrop" value="Crop" style="float: right" />
+                                                            <input type="button" class="btn button-crop-popup" id="btnZoomIn" value="+" style="float: right" />
+                                                            <input type="button" class="btn button-crop-popup" id="btnZoomOut" value="-" style="float: right" />
+                                                        </div>
+                                                        <div style="padding-top:22px;float:right">
+                                                            <button type="button" id="btnContinueAddPhoto" data-dismiss="modal" aria-hidden="true" class="btn btn-default">Continue</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="heightcrop">
+                                                        <div id="cropList" class="cropped">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- popup ends -->
+                        </div>
+                        <div id="Divphotovideo">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="DivPhoto_Video">
+                                    <label class="col-md-12 col-sm-12 col-xs-12"></label>
+                                    <div class="col-md-2 col-sm-3 col-xs-6" >
+                                        <input id="Photo_radio" type="radio" class="radio pull-left marginright40" required="required" value="Photo" name="NewsType"
+                                               data-bind="checked: NewsType, checkedValue: 'Photo',jqBootstrapValidation: {}" />
+                                        <label for="Photo_radio" class="member-label pull-left col-sm-7">Photo</label>
+                                    </div>
+                                    <div class="col-md-2 col-sm-3 col-xs-6">
+                                        <input id="Video_radio" type="radio" class="radio pull-left marginright40 " required="required" value="Video" name="NewsType" data-bind="checked: NewsType, checkedValue: 'Video',jqBootstrapValidation: {}" />
+                                        <label for="Video_radio" class="member-label pull-left col-sm-7"> Video </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Slide_URl">
+                                <div class="row mtb-10">
+                                    <div class="col-md-2 col-sm-3">
+                                        <label>Video url:</label>
+                                    </div>
+                                    <div class="col-md-5 col-sm-9">
+                                        <input type="text" name="NewsVideos" data-bind="value: NewsVideos,jqBootstrapValidation: {}" class="form-control" id="NewsVideos">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel-body" style="margin-left:1px;">
+                            <input type="submit" onclick="submitform()" class="btn btn-default" value="Save and Continue" />
+                            <input type="button" id="Addbutton" onclick="AddNews()" class="btn btn-default" value="Add News" style="display: none;"/>
+                        </div>
+                             </div>
+                                                     
+                            <div id="divOrgSearch" class="row mtb-10" style="display: none;">
+                                <div class="col-md-2 col-sm-3">
+                                    <label>Organizations:</label>
+                                </div>
+                                <div class="col-md-5 col-sm-9">
+                                    <div class="form-group">
+                                        <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization, event: { change:SearchOrgChangedValue }"></select>
+                                        <input type="hidden" id="hdfOrgID" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-12 padd-l0">
+                                     <button type="button" class="btn btn-default" data-bind="click: function(){ $root.SearchNewsContent()}">Search</button>
+                                </div>
+                            </div>                            
+                        
+                        <div class="panel-body">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">News</div>
+                                <!-- Table -->
+                                <div class="table-responsive height-400">
+                                <table class="table table-striped ">
+                                    <thead>
+                                        <tr class="clearfix text-center">
+                                            <th class="col-md-1 col-sm-2">Title</th>
+                                            <th class="col-md-4 col-sm-4">Description</th>
+                                            <th class="col-md-2 col-sm-2">Author</th>
+                                            <th class="col-md-1 col-sm-2">Editor Pick</th>
+                                            <th class="col-md-1 col-sm-2">News Type</th>
+                                            <th class="col-md-2 col-sm-2">Organization Name</th>
+                                            <th class="col-md-2 col-sm-2">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                        <!--ko if:NewsResults!= null-->
+                                        <!-- ko foreach:NewsResults -->
+                                        <tr class="clearfix marginleft10">
+                                            <td class="col-md-1 col-sm-2"><span data-bind="text:NewsTitle" /></td>
+                                            <td class="col-md-4 col-sm-4 text-justify ">
+                                                <span data-bind="text:NewsDescriptionShort"></span>
+                                            </td>
+                                            <td class="col-md-2 col-sm-2">
+                                                <span data-bind="text:NewsAuthor"></span>
+                                            </td>
+                                            <td class="col-md-1 col-sm-2">
+                                                <span data-bind="text:NewsEditorPick" />
+                                                <input type="hidden" name="NewsID" id="NewsID" data-bind="value:NewsID" />
+                                                <input type="hidden" name="NewsType" data-bind="value:NewsType" />
+                                                <input type="hidden" name="NewsSectionID" id="NewsSectionID" data-bind="value:NewsSectionID" />
+                                            </td>
+                                            <td class="col-md-1 col-sm-2">
+                                                <!-- ko if: NewsType() == "Photo" -->
+                                                <a href="#" class="inner-content-link blue" onclick="javascript:openEditPhotoModalPopup()" data-bind="click:$root.popPhoto" data-toggle="modal" data-backdrop="static" data-keyboard="false" style="color: #808080;"><span data-bind="text:NewsType" /></a>
+                                                <!--/ko-->
+                                                <!-- ko if: NewsType() == "Video" -->
+                                                <a href="#" class="inner-content-link blue" data-toggle="modal" data-bind="click:$root.popVideo" data-target="#myModalVideo" style="color: #808080;"><span data-bind="text:NewsType" /></a>
+                                                <!--/ko-->
+                                            </td>
+                                             <td class="col-md-2 col-sm-2">
+                                                <span data-bind="text:OrganizationName"></span>
+                                            </td>
+                                            <td class="col-md-2 col-sm-2">
+                                                <a href="#" class="inner-content-link blue" data-bind="click:$root.edit" style="color: #808080;">Edit</a>
+                                                <a href="#" class="inner-content-link blue" data-bind="click:$root.DeleteNews" style="color: #808080;">Delete</a>
+                                            </td>
+                                        </tr>
+                                        <!--/ko-->
+                                        <!--/ko-->
+                                    </tbody>
+                                </table>
+                           </div> </div>
+                        </div>
+                        <div id="loaderDiv" class="loaderbg">
+                            <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                        </div>
+                    }
+                    @using (Html.BeginForm(HCRGUniversityMgtApp.Infrastructure.Global.GlobalConst.Actions.NewsController.Add, HCRGUniversityMgtApp.Infrastructure.Global.GlobalConst.Controllers.News, FormMethod.Post, new
+                    {
+                        id = "frmAddNewsPhoto",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddNewsDetailSuccess(responseText);},beforeSubmit: NewsPhotoInfoFormBeforeSubmit}"
+                    }))
+                    {
+                        <!-- previous code starts-->
+                        <div class="panel-body">
+                            <div class="modal fade" id="myModalPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalPhotoLabel" aria-hidden="true">
+                                <div class="modal-dialog  position-center" style="width: 67%">
+                                    <div class="modal-content panel panel-default" style="height:800px;border-radius:10px;">
+                                        <div class="panel-heading">
+                                            <button type="button" id="btnCloseEditPhotos" class="close" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">News Photo</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="panel-body">
+                                                @{ Html.RenderPartial("~/Views/Shared/News/_NewsPhotoPartial.cshtml");  }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- previous code ends-->
+                    }
+                    @using (Html.BeginForm(HCRGUniversityMgtApp.Infrastructure.Global.GlobalConst.Actions.NewsController.Add, HCRGUniversityMgtApp.Infrastructure.Global.GlobalConst.Controllers.News, FormMethod.Post, new
+                    {
+                        id = "frmAddNewsVideo",
+                        enctype = "multipart/form-data",
+                        data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ AddNewsDetailSuccess(responseText);},beforeSubmit: NewsVideoInfoFormBeforeSubmit}"
+                    }))
+                    {
+                        <div class="panel-body">
+                            <div class="modal fade" id="myModalVideo" tabindex="-1" role="dialog" aria-labelledby="myModalVideoLabel" aria-hidden="true">
+                                <div class="modal-dialog position-center">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">News Video</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="panel-body">
+                                                @{ Html.RenderPartial("~/Views/Shared/News/_NewsVideoPartial.cshtml");  }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- row-end -->
+        <div class="panel-body">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog position-center">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" id="sectionClose" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Add News Section</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                @{ Html.RenderPartial("~/Views/Shared/NewsSection/_NewsSectionPartial.cshtml");  }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /inner-wrapper -->
+</div>
+<script type="text/javascript">
+    //function setgrdDesign() {
+    //    if (!$('#main').hasScrollBar()) {
+    //        var className;
+    //        $('#main > tr').each(function() {
+    //            $(this).children('td').addClass(function (index) {
+    //                $(this).removeClass("marginleft10");
+    //                return 'paddingleft-none';
+    //            })
+    //        });
+    //    }
+    //}
+    jQuery(function($) {
+        $('#main')
+          .bind('afterShow', function() {
+              alert('afterShow');
+          })
+          .show(1000, function() {
+              setgrdDesign();
+          })
+          .show();
+    });
+</script>

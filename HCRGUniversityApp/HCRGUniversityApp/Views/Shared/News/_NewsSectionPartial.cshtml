@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "_NewsSectionPartial";
+}
+
+
+<ul class="simple-side-nav marginbottom10">
+                       
+                     <li class="dark-grey"><a href="#"><img src="~/Content/img/sections.jpg" /> Sections</a></li>
+                       <!--ko if:NewsSectionResults!= null-->
+                       <!-- ko foreach:NewsSectionResults -->
+                       <!--ko if:NewsSectionType()=="Section"-->
+                     <li><a href="#" data-bind="click:$root.FilterSectionNews ,text:NewsSectionTitle"></a></li>
+                             <!--/ko-->
+                         <!--/ko-->
+                         <!--/ko-->
+                     </ul>
+                      <ul  class="simple-side-nav">
+                    <li class="dark-grey"><a href="#"><img src="~/Content/img/featured-news.jpg" /> Featured Topics</a></li>
+                       <!--ko if:NewsSectionResults!= null-->
+                       <!-- ko foreach:NewsSectionResults -->
+                       <!--ko if:NewsSectionType()=="Featured"-->
+                     <li><a href="#" data-bind="click:$root.FilterSectionNews,text:NewsSectionTitle"></a></li>
+                          
+                                <!--/ko-->
+                         <!--/ko-->
+                         <!--/ko-->
+                       
+                </ul>

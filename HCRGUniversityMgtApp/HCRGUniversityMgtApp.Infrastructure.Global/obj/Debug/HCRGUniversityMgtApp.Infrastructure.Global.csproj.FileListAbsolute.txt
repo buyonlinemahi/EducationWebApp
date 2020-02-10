@@ -1,0 +1,7 @@
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.Global\bin\Debug\HCRGUniversityMgtApp.Infrastructure.Global.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.Global\bin\Debug\HCRGUniversityMgtApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.Global\obj\Debug\HCRGUniversityMgtApp.Infrastructure.Global.GlobalResource.resources
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.Global\obj\Debug\HCRGUniversityMgtApp.Infrastructure.Global.csproj.GenerateResource.Cache
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.Global\obj\Debug\HCRGUniversityMgtApp.Infrastructure.Global.dll
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.Global\obj\Debug\HCRGUniversityMgtApp.Infrastructure.Global.pdb
+D:\Mahi_TFS\Education\Web\HCRGUniversityMgtApp\HCRGUniversityMgtApp.Infrastructure.Global\obj\Debug\HCRGUniversityMgtApp.Infrastructure.Global.csprojResolveAssemblyReference.cache

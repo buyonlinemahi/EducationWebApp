@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D25D98F9-D11E-498F-A7CF-4A05F59557FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HCRGUniversityMgtApp.Domain.ViewModels</RootNamespace>
+    <AssemblyName>HCRGUniversityMgtApp.Domain.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUsViewModel\AboutUsViewModel.cs" />
+    <Compile Include="AccreditationViewModel\AccreditationViewModel.cs" />
+    <Compile Include="CarouselSetUpViewModel\CarouselSetUpSearchViewModel.cs" />
+    <Compile Include="CertificationTitleOptionViewModel\CertificationTitleOptionViewModel.cs" />
+    <Compile Include="CertificationViewModel\CertificationViewModel.cs" />
+    <Compile Include="ClientViewModel\ClientViewModel.cs" />
+    <Compile Include="CollegeEducationSearchViewModel\CollegeEducationSearchViewModel.cs" />
+    <Compile Include="CollegeViewModel\CollegeViewModel.cs" />
+    <Compile Include="DiscountCouponForCoursesViewModel\DiscountCouponForCoursesViewModel.cs" />
+    <Compile Include="DiscountCouponViewModel\DiscountCouponViewModel.cs" />
+    <Compile Include="EducationDetailViewModel\EducationDetailViewModel.cs" />
+    <Compile Include="EducationFormatDetailViewModel\EducationFormatDetailViewModel.cs" />
+    <Compile Include="EducationFormatViewModel\EducationFormatViewModel.cs" />
+    <Compile Include="EducationModuleFileViewModel\EducationModuleFileViewModel.cs" />
+    <Compile Include="EducationProfessionDetailViewModel\EducationProfessionDetailViewModel.cs" />
+    <Compile Include="EducationTypesAvailableViewModel\EducationTypesAvailableViewModel.cs" />
+    <Compile Include="EducationViewModel\AddEducationViewModel.cs" />
+    <Compile Include="EducationViewModel\EducationModule1ViewModel.cs" />
+    <Compile Include="EducationViewModel\EducationModuleDetailViewModel.cs" />
+    <Compile Include="EducationViewModel\EducationModuleFileViewModel.cs" />
+    <Compile Include="EducationViewModel\EducationModuleViewModel.cs" />
+    <Compile Include="EducationViewModel\EducationViewModel.cs" />
+    <Compile Include="EnterpriseViewModel\EnterpriseViewModel.cs" />
+    <Compile Include="EnterpriseViewModel\PagedEnterpriseDetail.cs" />
+    <Compile Include="EvaluationViewModel\EvaluationDetailViewModel.cs" />
+    <Compile Include="EvaluationViewModel\PagedEvaluationQuestionDetail.cs" />
+    <Compile Include="EventViewModel\EventViewModel.cs" />
+    <Compile Include="ExamViewModel\PagedExamQuestionDetail.cs" />
+    <Compile Include="ExamViewModel\ExamDetailViewModel.cs" />
+    <Compile Include="FAQViewModel\FAQViewModel.cs" />
+    <Compile Include="GroupViewModel\GroupViewModel.cs" />
+    <Compile Include="HomeContentViewModel\DeliveryTermViewModel.cs" />
+    <Compile Include="HomeContentViewModel\ContentViewModel.cs" />
+    <Compile Include="HomeContentViewModel\NewsLetterViewModel.cs" />
+    <Compile Include="HomeContentViewModel\PrivacyPolicyViewModel.cs" />
+    <Compile Include="HomeContentViewModel\ReturnPolicyViewModel.cs" />
+    <Compile Include="HomeContentViewModel\TermConditionViewModel.cs" />
+    <Compile Include="IndustryResearchViewModel\IndustryResearchViewModel.cs" />
+    <Compile Include="LoginViewModel\LoginViewModel.cs" />
+    <Compile Include="LogSessionViewModel\LogSessionViewModel.cs" />
+    <Compile Include="NewsPhotoViewModel\NewsPhotoViewModel.cs" />
+    <Compile Include="NewsSectionViewModel\NewsSectionViewModel.cs" />
+    <Compile Include="NewsViewModel\NewsSearchCarouselViewModel.cs" />
+    <Compile Include="NewsViewModel\NewsViewModel.cs" />
+    <Compile Include="OrganizationViewModel\OrganizationViewModel.cs" />
+    <Compile Include="PlanViewModel\PlanViewModel.cs" />
+    <Compile Include="PreTestViewModel\PagedPreTestQuestionDetail.cs" />
+    <Compile Include="PreTestViewModel\PreTestDetailViewModel.cs" />
+    <Compile Include="ProfessionViewModel\ProfessionViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrainingAndSeminarViewModel\TrainingSeminarViewModel.cs" />
+    <Compile Include="UserSubscriptionViewModel\UserSubscriptionViewModel.cs" />
+    <Compile Include="UserViewModel\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HCRGUniversityMgtApp.Domain.Models\HCRGUniversityMgtApp.Domain.Models.csproj">
+      <Project>{c49b317c-1e8d-4df2-941b-709cd4874988}</Project>
+      <Name>HCRGUniversityMgtApp.Domain.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

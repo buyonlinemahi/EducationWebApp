@@ -1,0 +1,285 @@
+﻿@using HCRGUniversityApp.Infrastructure.Global;
+@model HCRGUniversityApp.Domain.ViewModels.LoginViewModel.LoginViewModel
+@using CaptchaMvc.HtmlHelpers;
+@using CaptchaMvc;
+@{
+    ViewBag.Title = "User";  
+  
+}
+
+@Html.Partial("~/Views/Shared/_Loader.cshtml")
+ <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/alertify/alertify.min.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 col-sm-12 login-newfrm">
+            <header class="site-block-title">
+                <h1>LOGIN</h1>
+            </header>
+            <div class="row">
+                <div class="clearfix login-form">
+                    <div id="divLoginUser">
+                        @using (Html.BeginForm("Index", "StudentPortal", FormMethod.Post, new
+                                           {
+                                               id = "frmLoginStudentUser",
+                                               enctype = "multipart/form-data",
+                                               data_bind = "beforeSubmit: StudentUserLoginInfoFormBeforeSubmit,clearForm : true",
+                                               @class = "form-signin"
+                                           }))
+                                           {
+                                                @Html.AntiForgeryToken()
+                                              @Html.Hidden("eventId", Model.PreviousLog)
+                                               if (Model.InvalidMsg != null)
+                                               {                                               
+                                                    <div class="alert alert-danger">@Html.DisplayTextFor(m => m.InvalidMsg)</div>
+                        }
+                                    <br />
+                        <div class="clearfix padding-left">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="textbox-label-1">Log in with your email :</label>
+                                <input type="email" autocomplete="off" required="required" data-bind="jqBootstrapValidation: {}"
+                                    class="form-control set-padding" name="User.EmailID" id="exampleInputEmail31" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="textbox-label-1">Password :</label>
+                                <input type="password" autocomplete="off" required="required" data-bind="jqBootstrapValidation: {}" class="form-control set-padding"
+                                    id="exampleInputPassword14" name="User.password" placeholder="Password">
+                                @Html.HiddenFor(m => m.FailedAttemptCount, new { value = Model != null ? Model.FailedAttemptCount : 0 })
+                            </div>
+
+                            <div class="row m-t20">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="checkbox-1">
+                                        <label>
+                                            <input type="checkbox" id="Remember" name="Remember" value="false">Remember Me
+                                            
+                                                <div id="checkbox-value" style="display: none;"></div>
+                                            <script>
+                                                $('#checkbox-value').text($('#Remember').val());
+
+                                                $("#Remember").on('change', function () {
+                                                    if ($(this).is(':checked')) {
+                                                        $(this).attr('value', 'true');
+                                                        $(this).attr('Checked', 'Checked');
+                                                    } else {
+                                                        $(this).attr('value', 'false');
+                                                    }
+
+                                                    $('#checkbox-value').text($('#Remember').val()); 
+                                                });
+                                            </script>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-6 col-xs-6 pull-right">
+                                    <button type="submit" class="submit-btn pull-right login-btn">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="col-md-6 col-sm-12 col-xs-12 active-link m-t15">
+                                <i class="fa fa-location-arrow rotate-45-right marginright10"></i>
+                                <!-- <img src="~/Content/img/icons_rgb.png" class="marginright10" /> -->
+                                <a href="#" id="forgetpassword" data-target="#PasswordModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" class="active-link">Forgot Your Password</a></h4>
+                        </div>
+                        }
+                    </div>
+                </div>
+                <!-- clearfix -->
+            </div>
+            <!-- row -->
+
+            <!--Popup for reset password-->
+            <div class="panel-body">
+                <div class="modal fade" id="PasswordModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none !important;">
+                    <div class="modal-dialog position-center set-popup" style="top: 30%;">
+                        <div class="panel panel-default" style="height: 230px;">
+                            <div class="panel-heading">
+                                <button data-dismiss="modal" type="button" id="btnClose" class="close" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Forgot Password</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div id="divReset">
+                                    @using (Html.BeginForm(GlobalConst.Actions.UserController.ResetPassword, GlobalConst.Controllers.User, FormMethod.Post, new
+                        {
+                            id = "frmReset",
+                            enctype = "multipart/form-data",
+                            data_bind = "ajaxForm:{ success: function(responseText, statusText,xhr ,$form){ResetPasswordSuccess(responseText)},beforeSubmit: ResetPasswordFormBeforeSubmit,clearForm : true }"
+                        }))
+                               {
+                                @Html.AntiForgeryToken()
+
+                                   <div id="password">
+                                       <div class="panel-body">
+                                           <div class="col-md-3" style="top: 10%;">
+                                               <label>Email :</label>
+                                           </div>
+                                           <div class="col-md-9">
+                                               <div class="form-group">
+                                                   <input type="email" required="required" data-bind="jqBootstrapValidation: {}" class="form-control set-padding" name="Email" placeholder="Enter email">
+                                               </div>
+                                           </div>
+                                       </div>
+
+                                   </div>
+                                    <div class="pull-right padding10" style="margin-right: 20px;">
+                                        <button class=" submit-btn" type="submit" id="resetpass" aria-hidden="true">Reset Password</button>
+                                        @*
+                                        <button type="button" data-dismiss="modal" aria-hidden="true" id="btnClose1" class="btn btn-default">Close</button>*@
+                                       <span id="Message" class=" padding10 pull-left active-link"></span>
+                                    </div>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- container -->
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jqBootstrapValidation.js"></script>
+<script src="~/Scripts/knockout/viewmodel/views/User/RegisterViewModel.js"></script>
+
+<script type="text/javascript">
+    var model = @MvcHtmlString.Create(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model));
+    var RegisterViewModel = new RegisterViewModel();
+    RegisterViewModel.Init(model);
+    ko.applyBindings(RegisterViewModel, $("#divAddUser").get(0));
+    var loginViewModel = new LoginViewModel();
+        
+    ko.applyBindings(loginViewModel, $("#divLoginUser").get(0));
+    var resetViewModel = new ResetViewModel();
+    ko.applyBindings(resetViewModel, $("#divReset").get(0));
+
+    $(document).ready(function () {     
+        var format = 0;
+        $("#CaptchaInputText").click(function () {
+            $("#CaptchaError").text("");
+        });
+        $("#BtnAdding").click(function () {
+            var t = 0;
+            $("#CaptchaError").text("");           
+           
+            $('.form-group').removeClass('has-error has-feedback');
+            $('.form-group').find('.help-block').hide();
+            $('.form-group').find('i.form-control-feedback').hide();
+            
+           
+            if ($("#FirstName").val() == "") {
+                $("#FirstName").addClass("validation-error");
+                t = 1;
+            }
+            else 
+            {
+                $("#FirstName").removeClass("validation-error");
+            }
+         
+                       
+            if ($("#LastName").val() == "") {
+                $("#LastName").addClass("validation-error");
+                t = 1;
+            }
+            else 
+            {
+                $("#LastName").removeClass("validation-error");
+            }          
+
+                        
+            if ($("#Password").val() == "") {
+                $("#Password").addClass("validation-error");
+                t = 1;
+            }  
+            else 
+            {
+                $("#Password").removeClass("validation-error");
+            }
+       
+            if ($("#emailIDExists").val() == "") {
+                $("#emailIDExists").addClass("validation-error");
+                t = 1;
+            }  
+            else 
+            {
+                $("#emailIDExists").removeClass("validation-error");
+            }
+           
+            if ($("#confirmPassword").val() == "") {
+                $("#confirmPassword").addClass("validation-error");
+                t = 1;
+            }
+            else 
+            {
+                $("#confirmPassword").removeClass("validation-error");
+            }
+          
+
+          
+            if ($("#CaptchaInputText").val() == "") {
+                $("#CaptchaInputText").addClass("validation-error");
+                t = 1;
+            } 
+            else 
+            {
+                $("#CaptchaInputText").removeClass("validation-error");
+            }
+           
+         
+            if($("#checkboxID").prop('checked') == false){
+                $("#checkboxID").addClass("validation-error");
+                alertify.alert("Terms & Conditions not checked");
+                t = 1;
+                    
+            }
+            else 
+            {
+                $("#checkboxID").removeClass("validation-error");     
+            }
+                        
+            if(t == 0 && format == 0)
+            {
+                $("#loaderDiv").addClass('loaderbg');
+                $("#loading").show();
+                $("#frmAddUser").submit();
+            }
+        });
+    });
+    $("#emailIDExists").change(function () {
+        var email = document.getElementById('emailIDExists');
+        var filter = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!filter.test(email.value)) {
+            $("#messageblockEmailFormat").show();
+            $("#emailIDExists").addClass("validation-error");
+            format = 1;
+            return false;
+        }
+        else {
+            format = 0;
+            $("#emailIDExists").removeClass("validation-error");
+            $("#messageblockEmailFormat").hide();
+        }
+    });
+    $(function () {
+        $('#CaptchaInputText').css("width", "245px");
+        $("#CaptchaInputText").attr("required", "required");
+        $("#CaptchaInputText").addClass("form-control");
+        $("#CaptchaInputText").attr("data-bind", "jqBootstrapValidation: {}");
+    });
+</script>
+
+<style type="text/css">
+    .validation-error {
+        border: 1px solid #a94442;
+    }
+
+    .Error {
+        color: #a94442;
+    }
+</style>
+}

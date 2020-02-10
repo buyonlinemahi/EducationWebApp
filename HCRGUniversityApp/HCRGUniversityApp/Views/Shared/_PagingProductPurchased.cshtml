@@ -1,0 +1,70 @@
+﻿ <!-- ko if:ProPager().ProTotalItemCount() > 0 -->
+<div class="pagination" data-bind="with: ProPager">
+    <div class="pagexofx">
+        <span data-bind="text:ProFirstItemIndex"></span>
+        -
+        <span data-bind="text: ProLastItemIndex"></span>
+        of
+        <strong>
+            <span data-bind="text: ProTotalItemCount"></span>
+        </strong>
+        total results.
+    </div>
+    <ul class="pagination">
+        <!-- ko if:ProCurrentPage() === 1 -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&laquo;&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:ProCurrentPage() === 1 -->
+        <li>
+            <a href="#" data-bind="click: function(){ ProCurrentPage(1); }">&laquo;&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko if:ProHasPrevPage -->
+        <li>
+            <a href="#" data-bind="click: function(){ ProCurrentPage(ProCurrentPage() - 1); }">&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:ProHasPrevPage -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&laquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko foreach:ProPages -->
+        <!-- ko if:$data === $parent.ProCurrentPage() -->
+        <li class="active">
+            <span class="currentPage red-pagging" data-bind="text: $data"></span>
+        </li>
+        <!-- /ko -->
+        <!-- ko if:$data !== $parent.ProCurrentPage() -->
+        <li>
+            <a href="#" data-bind="text: $data, click: function(){ $parent.ProCurrentPage($data); }"></a>
+        </li>
+        <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if:ProHasNextPage -->
+        <li>
+            <a href="#" data-bind="click: function(){ ProCurrentPage(ProCurrentPage() + 1); }">&raquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:ProHasNextPage -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&raquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko ifnot:ProCurrentPage() === ProLastPage() -->
+        <li>
+            <a href="#" data-bind="click: function(){ ProCurrentPage(ProLastPage()); }">&raquo;&raquo;</a>
+        </li>
+        <!-- /ko -->
+        <!-- ko if:ProCurrentPage() === ProLastPage() -->
+        <li class="disabled">
+            <a href="#" class="disabledPage">&raquo;&raquo;</a>
+        </li>
+        <!-- /ko -->
+    </ul>
+
+</div>
+<!-- /ko -->
+

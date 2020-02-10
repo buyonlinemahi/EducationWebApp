@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HCRGUniversityService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EducationShoppingTemp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CoupanID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CredentialID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationShoppingTempID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProcessedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingPaymentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxPercentage" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserAllAccessPassID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationShoppingTemp" nillable="true" type="tns:EducationShoppingTemp" />
+  <xs:complexType name="ArrayOfEducationShoppingCart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EducationShoppingCart" nillable="true" type="tns:EducationShoppingCart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEducationShoppingCart" nillable="true" type="tns:ArrayOfEducationShoppingCart" />
+  <xs:complexType name="EducationShoppingCart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CartType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoupanID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CredentialID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DiscountAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EducationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="EduorProID" type="xs:int" />
+      <xs:element minOccurs="0" name="PName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingPaymentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxPercentage" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TempID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserAllAccessPassID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationShoppingCart" nillable="true" type="tns:EducationShoppingCart" />
+  <xs:complexType name="ProductShoppingTemp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CoupanID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DiscountAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsProcessed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProcessedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductShoppingTempID" type="xs:int" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingPaymentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxPercentage" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductShoppingTemp" nillable="true" type="tns:ProductShoppingTemp" />
+  <xs:complexType name="EducationShopping">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoupanID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EducationID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationShoppingID" type="xs:int" />
+      <xs:element minOccurs="0" name="EducationTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Grandtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingPaymentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxPercentage" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserAllAccessPassID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EducationShopping" nillable="true" type="tns:EducationShopping" />
+  <xs:complexType name="ProductShopping">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoupanID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Grandtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductShoppingID" type="xs:int" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="ShippingPaymentID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxPercentage" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductShopping" nillable="true" type="tns:ProductShopping" />
+</xs:schema>

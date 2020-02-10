@@ -1,0 +1,84 @@
+﻿@using System.Web.Script.Serialization
+@{
+    ViewBag.Title = "ExamResult";
+}
+@Html.Partial("~/Views/Shared/_Loader.cshtml")
+<div id="ExamResult">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 clearfix rd_bdr">
+                <div id="divResultCard" class="center-align" style="margin-top:20%;">
+                    <h1><strong>Exam Utilization Review Certification Program</strong></h1>
+
+                    <div data-bind="visible: IsPass()">
+                        <br />
+                        <strong> <span class="font-24"> Your Score : </span> <span class="font-24" style="color:#2dbd4f" data-bind="text:TotalPercentage()+'%'"></span></strong> <br />
+                        <br />
+                        <h2 class="clearfix"><i style="color:#2dbd4f" class="glyphicon glyphicon-ok pass"></i> Congratulations, You Passed !</h2>
+                        <br />
+                        <span class="clearfix font-12"> Click 'Finish' to proceed to the evalution and recieve your certificate of completion. </span>
+                        <br />
+                        <input type="button" class="btn submit-btn clearfix" data-bind="click:$root.EvaluationExam" value="Finish" />
+                    </div>
+                    <div data-bind="visible: IsPass()==false">
+                        <br />
+                        <strong> <span class="font-24"> Your Score : </span> <span class="font-24" style="color:red" data-bind="text:TotalPercentage()+'%'"></span></strong> <br />
+                        <br />
+                        
+                        <div data-bind="visible: TotalAttempt()==0">
+                            <h2 class="clearfix"><i style="color:red" class="glyphicon glyphicon-remove fail"></i> You Have 2 Tries Left</h2>
+                        </div>
+                        <div data-bind="visible: TotalAttempt()==1">
+                            <h2 class="clearfix"><i style="color:red" class="glyphicon glyphicon-remove fail"></i> You Have 1 Tries Left</h2>
+                        </div>
+                            <br />
+                            <a href="/MyEducation/" class="btn submit-btn clearfix "> <span style="color:black">Re-Try</span></a>
+                            <button type="button" data-target="#ExamQuestions" data-backdrop="static" data-bind="click:ViewExamQuestion" data-keyboard="false" data-toggle="modal" class="btn submit-btn clearfix ">View Incorrect Answers</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="modal fade" id="ExamQuestions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog position-center ">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                    <h4 class="modal-title">View Incorrect Answers</h4>
+                </div>
+
+               
+                    <div class="panel-body">
+                        <table  class="table table-content table-striped table-bordered">
+                            <thead>
+                                <tr >
+                                    <th style="color:red !important">Questions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--ko if:ExamQuestions!= null-->
+                                <!-- ko foreach:ExamQuestions -->
+                                <tr class="table-row">
+                                    <td style="text-align:left !important" data-bind="text:'Question '+($index() + 1)+' :  ' + ExamQues()"></td>
+                                </tr>
+                                <!--/ko-->
+                                <!--/ko-->
+                            </tbody>
+                        </table>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+@section scripts{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/knockout/viewmodel/views/Exam/FinalExamResultViewModel.js")"></script>
+    <script type="text/javascript">
+        var model = @System.Web.Mvc.MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var FinalExamResultViewModel = new FinalExamResultViewModel(model);
+        ko.applyBindings(FinalExamResultViewModel, $("#ExamResult").get(0));
+    </script>
+}

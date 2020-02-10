@@ -1,0 +1,135 @@
+﻿@using System.Web.Script.Serialization
+@using HCRGUniversityMgtApp.Infrastructure.Global;
+@{
+    ViewBag.Title = "Pre-Test Detail";
+}
+@section header{
+    <a class="navbar-brand" href="#">Pre-Test Detail</a>
+}
+
+
+<div id="divSearchPreTest">
+    <div class="panel-body" style="padding: 7px !important;">
+         <!--ko ifnot:IsHCRGAdmin()-->
+        <a class="btn-edu" href="#" data-bind="click:addNewPreTest">Create New Pre-Test</a>
+         <!--/ko-->
+    </div>
+
+    <div class="inner-content">
+        <!--start row -->
+        <div class="row">
+            <div class="panel-wrapper">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Pre-Test Screen</div>
+                    <div class="mtb-20">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-4">
+                                <label>Search Pre-Test </label>
+                                <a href="#" class="inner-content-link"></a>
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                @using (Html.BeginForm(GlobalConst.Actions.PreTestController.Index, GlobalConst.Controllers.PreTest, FormMethod.Post, new
+                            {
+                                id = "frmSearchPreTest",
+                                enctype = "multipart/form-data",
+                                data_bind = "ajaxForm:{ success: function(responseText, statusText, xhr, $form){ SearchPreTestDetailSuccess(responseText);},beforeSubmit: PreTestFormBeforeSubmit}"
+
+                            }))
+                                {
+                                    <div class="form-group col-md-8 padd-edu0">
+                                        <input type="text" id="TxtSearch" name="searchText" class="form-control" data-bind="value:searchText" placeholder="Search Pre-Test">
+                                    </div>
+                              <input type="submit" class="btn btn-default pul-rht1" data-bind="click:$root.SearchPreTest" value="Search" />
+                                
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <!--ko if:IsHCRGAdmin() == true-->
+                    <div class="row mtb-10">
+                        <div class="col-md-2 col-sm-4">
+                            <label>Organizations:</label>
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="form-group col-md-8 padd-edu0">
+                                <select id="DrpOrgID" class="form-control" data-bind="options: AllOrganizations, optionsText: 'OrganizationName', optionsValue: 'OrganizationID', optionsCaption:'Select Organization', value: SearchSelectedOrganization"></select>
+                                <input type="hidden" id="hdfOrgID" />
+                            </div>
+                     <button type="button" id="btnSearch" class="btn btn-default pul-rht1" data-bind="click: function(){ $root.SearchPreTestByOrgID()}">Search</button>
+                        </div>
+                    </div>
+                    <!--/ko-->
+
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Pre-Test Items</div>
+                            <!-- Table -->
+                           <div class="table-responsive height-400">
+                             <table class="table table-striped table-fixed-1">
+                                <thead>
+                                    <tr class="clearfix text-center">
+                                        <th class="col-md-4 col-sm-4">Pre-Test Name:</th>
+                                        <th class="col-md-5 col-sm-5">Organization Name:</th>
+                                        <th class="col-md-3 col-sm-3">Action</th>
+                                </thead>
+                                <tbody id="main" data-bind="event: { scroll: scrolled }">
+                                    <!--ko if:PreTestSearchResults!= null-->
+                                    <!-- ko foreach:PreTestSearchResults -->
+                                    <tr class="clearfix">
+                                        <td class="col-md-4 col-sm-4">
+                                            <span data-bind="text:PreTestName" />
+                                            <input type="hidden" data-bind="value:EncryptedPreTestID" />
+                                        </td>
+                                        <td class="col-md-5 col-sm-5">  <span data-bind="text:OrganizationName" /></td>
+                                        <td class="col-md-3 col-sm-3">
+                                            <a href="#" class="inner-content-link blue paddingleft10-R" style="color: #808080;" data-bind="click:$root.updatePreTest">Edit</a>
+                                        </td>
+                                    </tr>
+                                    <!--/ko-->
+                                    <!--/ko-->
+
+                                </tbody>
+                            </table>
+                               </div>
+                        </div>
+                    </div>
+                    <div id="loaderDiv" class="loaderbg">
+                        <input class="loader" type="image" id="loading" src="~/Content/imgs/loading.gif">
+                    </div>
+                </div>
+            </div>
+            <!-- row-end -->
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/knockout/viewmodel/views/PreTest/SearchPreTestViewModel.js"></script>
+    <script type="text/javascript">
+        var model = @MvcHtmlString.Create(new JavaScriptSerializer().Serialize(Model));
+        var searchPreTestViewModel = new SearchPreTestViewModel();
+        searchPreTestViewModel.Init(model);
+        ko.applyBindings(searchPreTestViewModel, $("#divSearchPreTest").get(0));
+    </script>
+    <script type="text/javascript">
+        if (!$('#main').hasScrollBar()) {
+
+            $("td[class*='paddingleft']").removeClass(function () {
+                var className = this.className.match(/paddingleft\d+/);
+                $(this).removeClass(className[0]);
+                $(this).addClass("paddingleft30");
+            });
+        }
+    </script>
+
+           @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alertify.alert("@ViewBag.Message");
+                };
+        </script>
+}
+}
